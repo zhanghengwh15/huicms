@@ -1,0 +1,252 @@
+<?php /* Smarty version Smarty-3.0.8, created on 2013-02-06 14:35:14
+         compiled from "D:\wamp\Apache2\htdocs\sp/template//index.html" */ ?>
+<?php /*%%SmartyHeaderCode:11195111f9a25e78b3-43332529%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    '1f67b18bd6d012115010681ef5cb25f7302e080a' => 
+    array (
+      0 => 'D:\\wamp\\Apache2\\htdocs\\sp/template//index.html',
+      1 => 1355157656,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '11195111f9a25e78b3-43332529',
+  'function' => 
+  array (
+  ),
+  'has_nocache_code' => false,
+)); /*/%%SmartyHeaderCode%%*/?>
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+        <meta name="keywords" content="网站建设,工作室,PHP建站，PHP" />
+        <meta name="description" content="PHP网站建设工作室,提供PHP网站建设、模板制作、网站改版、PHP开源建站系统二次开发。工作室由专业的PHP技术人员和优秀的网站策划人员组成。" />
+        <title>PHP工作室</title>
+        <link rel="apple-touch-icon" href="<?php echo $_smarty_tpl->getVariable('WEBROOT')->value;?>
+statics/images/images.png"/>
+	<meta property="qc:admins" content="422226412761414376375" />
+        <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->getVariable('WEBROOT')->value;?>
+statics/css/style.css" />
+        <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('WEBROOT')->value;?>
+statics/js/jquery.min.js"></script>
+        <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('WEBROOT')->value;?>
+statics/js/jquery.min2.js"></script>
+        <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('WEBROOT')->value;?>
+statics/js/jquery.scrollLoading.js"></script>
+    </head>
+    <script type="text/javascript">
+        var js_webentry = "<?php echo $_smarty_tpl->getVariable('WEBENTRY')->value;?>
+"; 
+        var js_webroot = "<?php echo $_smarty_tpl->getVariable('WEBROOT')->value;?>
+";
+    </script>
+    <script type="text/javascript">
+        $(function() {
+            var sWidth = $("#focus").width(); //获取焦点图的宽度（显示面积）
+            var len = $("#focus ul li").length; //获取焦点图个数
+            var index = 0;
+            var picTimer;
+            //alert(len);return false;
+            //以下代码添加数字按钮和按钮后的半透明条，还有上一页、下一页两个按钮
+            var btn = "<div class='btnBg'></div><div class='btn'>";
+            for(var i=0; i < len; i++) {
+                if(len-1 == i){
+                    btn += "<span style='margin-right:0px;width:137px;'>网站建设"+(i+1)+"</span>";
+                }else if(i=='0'){
+                    btn += "<span style='margin-left:0px;width:137px;'>网站建设"+(i+1)+"</span>";
+                }else{
+                    btn += "<span>网站建设"+(i+1)+"</span>";
+                }
+                
+            }
+            btn += "</div><div class='preNext pre'></div><div class='preNext next'></div>";
+            $("#focus").append(btn);
+            //alert(btn);return false;
+            $("#focus .btnBg").css("opacity",0.5);
+
+            //为小按钮添加鼠标滑入事件，以显示相应的内容
+            $("#focus .btn span").css("opacity",0.4).mouseenter(function() {
+                index = $("#focus .btn span").index(this);
+                showPics(index);
+            }).eq(0).trigger("mouseenter");
+
+            //上一页、下一页按钮透明度处理
+            $("#focus .preNext").css("opacity",0.2).hover(function() {
+                $(this).stop(true,false).animate({"opacity":"0.5"},300);
+            },function() {
+                $(this).stop(true,false).animate({"opacity":"0.2"},300);
+            });
+
+            //上一页按钮
+            $("#focus .pre").click(function() {
+                index -= 1;
+                if(index == -1) {index = len - 1;}
+                showPics(index);
+            });
+
+            //下一页按钮
+            $("#focus .next").click(function() {
+                index += 1;
+                if(index == len) {index = 0;}
+                showPics(index);
+            });
+
+            //本例为左右滚动，即所有li元素都是在同一排向左浮动，所以这里需要计算出外围ul元素的宽度
+            $("#focus ul").css("width",sWidth * (len));
+	
+            //鼠标滑上焦点图时停止自动播放，滑出时开始自动播放
+            $("#focus").hover(function() {
+                clearInterval(picTimer);
+            },function() {
+                picTimer = setInterval(function() {
+                    showPics(index);
+                    index++;
+                    if(index == len) {index = 0;}
+                },4000); //此4000代表自动播放的间隔，单位：毫秒
+            }).trigger("mouseleave");
+	
+            //显示图片函数，根据接收的index值显示相应的内容
+            function showPics(index) { //普通切换
+                
+                var nowLeft = -index*sWidth; //根据index值计算ul元素的left值
+                //alert(nowLeft);
+                $("#focus ul").stop(true,false).animate({"left":nowLeft},300); //通过animate()调整ul元素滚动到计算出的position
+                //$("#focus.btn span").removeClass("on").eq(index).addClass("on"); //为当前的按钮切换到选中的效果
+                $("#focus .btn span").stop(true,false).animate({"opacity":"0.4"},300).eq(index).stop(true,false).animate({"opacity":"1"},300); //为当前的按钮切换到选中的效果
+            }
+        });
+
+    </script>
+
+    <script language="javascript">
+        function qiehuan(num){
+            for(var i=0;i<6;i++){
+                if(i==num){
+                    document.getElementById("mynav"+i).className="nav_on";
+                }else{
+                    document.getElementById("mynav"+i).className="";
+                }
+            }
+        }
+        $(function() {
+            $(".scrollLoading").scrollLoading();	
+        });
+
+    </script>
+    <body>
+        <div class="main">
+            <div class="header_bg">
+                <div id="header">
+                    <div class="header_top">
+                        <div class="head_txt_one">
+
+                        </div>
+                        <div class="head_txt_two">
+                            <span class="apiqq"><a href="javascript:void(0);"><img src="<?php echo $_smarty_tpl->getVariable('WEBROOT')->value;?>
+statics/images/Connect_logo_3.png" height="24px;" width="120px;" /></a></span>
+                            <span class="reg_text"><a href="javascript:void(0);">登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="javascript:void(0);">免费注册</a></span>
+                        </div>
+                    </div>
+                    <div class="header_center">
+                        <div id="logo"><img src="<?php echo $_smarty_tpl->getVariable('WEBROOT')->value;?>
+statics/images/logo.png" alt="logo" /></div>
+                        <div id="search">
+                            <form method="post" action="">
+                                <input class="input_search_n" name="search" type="text" value="输入您想查找的内容" autofocus="true" placeholder="输入您想查找的内容" onblur="if(this.value==''){this.value='输入您想查找的内容';}" onfocus="if(this.value=='输入您想查找的内容'){this.value='';}" autocomplete="off" x-webkit-speech/>
+                                <button type="submit" class="btn_search_n">搜索</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="menu_out">
+                <div id="menu">
+                    <ul id="nav">
+                        <li>
+                            <a href="javascript:void(0);" id="mynav0" onmouseover="javascript:qiehuan(0);" class="nav_on"><span>首 页</span></a>
+                        </li>
+                        <li class="menu_line"></li>
+                        <li>
+                            <a href="javascript:void(0);" class="nav_off" id="mynav1" onmouseover="javascript:qiehuan(1);"><span>成功案例</span></a>
+                        </li>
+                        <li class="menu_line"></li>
+                        <li>
+                            <a href="javascript:void(0);" class="nav_off" id="mynav2" onmouseover="javascript:qiehuan(2);"><span>网站建设</span></a>
+                        </li>
+                        <li class="menu_line"></li>
+                        <li>
+                            <a href="javascript:void(0);" class="nav_off" id="mynav3" onmouseover="javascript:qiehuan(3);"><span>新闻中心</span></a>
+                        </li>
+                        <li class="menu_line"></li>
+                        <li>
+                            <a href="javascript:void(0);" class="nav_off" id="mynav4" onmouseover="javascript:qiehuan(4);"><span>联系我们</span></a>
+                        </li>
+                        <li class="menu_line"></li>
+                        <li>
+                            <a href="javascript:void(0);" class="nav_off" id="mynav5" onmouseover="javascript:qiehuan(5);"><span>关于我们我们</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="center">
+                <div class="mainbox">
+                    <div class="index_left">
+                        <div class="flash">
+                            <!-- 幻灯图片开始 -->
+                            <div id="focus">
+                                <ul>
+                                    <li><img class="scrollLoading" data-url="<?php echo $_smarty_tpl->getVariable('WEBROOT')->value;?>
+upload/flash/flash.jpg" alt="青岛网站建设" src="<?php echo $_smarty_tpl->getVariable('WEBROOT')->value;?>
+upload/flash/flash.jpg" style="background:url('<?php echo $_smarty_tpl->getVariable('WEBROOT')->value;?>
+statics/images/loading.gif') no-repeat center;" width="690" height="285" /></li>
+                                    <li><img class="scrollLoading" data-url="<?php echo $_smarty_tpl->getVariable('WEBROOT')->value;?>
+upload/flash/flash3.jpg" alt="青岛网站建设" src="<?php echo $_smarty_tpl->getVariable('WEBROOT')->value;?>
+upload/flash/flash3.jpg" style="background:url('<?php echo $_smarty_tpl->getVariable('WEBROOT')->value;?>
+statics/images/loading.gif') no-repeat center;" width="690" height="285" /></li>
+                                    <li><img class="scrollLoading" data-url="<?php echo $_smarty_tpl->getVariable('WEBROOT')->value;?>
+upload/flash/flash4.jpg" alt="青岛网站建设" src="<?php echo $_smarty_tpl->getVariable('WEBROOT')->value;?>
+upload/flash/flash4.jpg" style="background:url('<?php echo $_smarty_tpl->getVariable('WEBROOT')->value;?>
+statics/images/loading.gif') no-repeat center;" width="690" height="285" /></li>
+                                    <li><img class="scrollLoading" data-url="<?php echo $_smarty_tpl->getVariable('WEBROOT')->value;?>
+upload/flash/flash5.jpg" alt="青岛网站建设" src="<?php echo $_smarty_tpl->getVariable('WEBROOT')->value;?>
+upload/flash/flash5.jpg" style="background:url('<?php echo $_smarty_tpl->getVariable('WEBROOT')->value;?>
+statics/images/loading.gif') no-repeat center;" width="690" height="285" /></li>
+                                    <li><img class="scrollLoading" data-url="<?php echo $_smarty_tpl->getVariable('WEBROOT')->value;?>
+upload/flash/flash2.jpg" alt="青岛网站建设" src="<?php echo $_smarty_tpl->getVariable('WEBROOT')->value;?>
+upload/flash/flash2.jpg" style="background:url('<?php echo $_smarty_tpl->getVariable('WEBROOT')->value;?>
+statics/images/loading.gif') no-repeat center;" width="690" height="285" /></li>
+                                </ul>
+                                
+                            </div>
+                            <!-- 幻灯片结束 -->
+
+                        </div>
+                    </div>
+                    <div class="index_right">
+                        <div class="index_right_acticles">
+                            <div class="acticles_top">最新活动<!--<span><a href="javascript:void(0);">更多&nbsp;>></a></span>--></div>
+                            <div class="acticles_content">
+                                <ul class="acticles_ul">
+                                    <li class="acticles_new"><a href="javascript:void(0);"><b>></b>V1.2正式版升级包发布发包<span>11-28</span></a></li>
+                                    <li><a href="javascript:void(0);"><b>></b>V1.2正式版升级包发布发包<span>11-28</span></a></li>
+                                    <li><a href="javascript:void(0);"><b>></b>V1.2正式版升级包发布发包<span>11-28</span></a></li>
+                                    <li><a href="javascript:void(0);"><b>></b>V1.2正式版升级包发布发包<span>11-28</span></a></li>
+                                    <li><a href="javascript:void(0);"><b>></b>V1.2正式版升级包发布发包<span>11-28</span></a></li>
+                                    <li><a href="javascript:void(0);"><b>></b>V1.2正式版升级包发布发包<span>11-28</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="proclamation">
+                            <div class="pro_articles">
+                                <p>公告：</p>
+                                <span><a href="javascript:void(0);">一站式建店解决方案案例方案解决解决1.2正式版升级包发布包发布</a></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer"></div>
+        </div>
+    </body>
+</html>
