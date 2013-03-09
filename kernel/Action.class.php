@@ -97,11 +97,15 @@ class Action {
      * @param $output   是否直接显示模板，设置成FALSE将返回HTML而不输出
      */
     public function display($tplname, $output = TRUE) {
-        $path_info = ltrim(HttpHandler::get_path_info(),"/");
-        $ary_info = explode("/", $path_info);
-        $path_info = $ary_info[0]."/";
+        $path_info = ltrim($_SERVER['REQUEST_URI'],"/");
+        if (empty($path_info)) {
+            //$path_info = 'ucenter/';
+        }else{
+            $ary_info = explode("/", $path_info);
+            $path_info = $ary_info[0]."/";
+        }
+        //$dir = isset($_GET['c'])?$_GET['c']."/":'main/';
         $tplname = $path_info.$tplname;
-        //echo "<pre>";print_r($path_info);exit;
         $this->WEBROOT = WEB_ROOT;
         $this->WEBENTRY = WEB_ENTRY;
         $this->WEBROOTJS = WEB_ROOT.'statics/js/';
