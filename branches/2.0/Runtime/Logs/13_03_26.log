@@ -1,0 +1,1664 @@
+[ 2013-03-26T01:23:08+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T01:23:29+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000441s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000680s ]
+SQL: SHOW COLUMNS FROM `hui_config` [ RunTime:0.000069s ]
+ERR: No database selected
+ [ SQL语句 ] : SHOW COLUMNS FROM `hui_config`
+SQL: SELECT `c_key`,`c_value` FROM `hui_config` WHERE ( `c_module` = 'ADMIN_ACCESS' )  [ RunTime:0.000067s ]
+ERR: No database selected
+ [ SQL语句 ] : SELECT `c_key`,`c_value` FROM `hui_config` WHERE ( `c_module` = 'ADMIN_ACCESS' ) 
+NOTIC: [2] Invalid argument supplied for foreach() /var/www/huicms/Lib/Model/ConfigModel.class.php 第 20 行.
+
+[ 2013-03-26T01:25:01+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000395s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000604s ]
+SQL: SHOW COLUMNS FROM `hui_config` [ RunTime:0.001377s ]
+SQL: SELECT `c_key`,`c_value` FROM `hui_config` WHERE ( `c_module` = 'ADMIN_ACCESS' )  [ RunTime:0.000292s ]
+
+[ 2013-03-26T01:25:34+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000176s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000290s ]
+SQL: SHOW COLUMNS FROM `hui_config` [ RunTime:0.001521s ]
+SQL: SELECT `c_key`,`c_value` FROM `hui_config` WHERE ( `c_module` = 'ADMIN_ACCESS' )  [ RunTime:0.000259s ]
+SQL: SHOW COLUMNS FROM `hui_admin` [ RunTime:0.001545s ]
+SQL: SELECT * FROM `hui_admin` WHERE ( `u_name` = 'admin' ) LIMIT 1   [ RunTime:0.000663s ]
+
+[ 2013-03-26T01:26:10+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T01:26:19+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000420s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000659s ]
+SQL: SHOW COLUMNS FROM `hui_config` [ RunTime:0.000691s ]
+SQL: SELECT `c_key`,`c_value` FROM `hui_config` WHERE ( `c_module` = 'ADMIN_ACCESS' )  [ RunTime:0.000209s ]
+SQL: SHOW COLUMNS FROM `hui_admin` [ RunTime:0.000918s ]
+SQL: SELECT * FROM `hui_admin` WHERE ( `u_name` = 'admin' ) LIMIT 1   [ RunTime:0.000204s ]
+SQL: UPDATE `hui_admin` SET `u_lastlogin_time`='2013-03-26 01:26:19',`u_countlog`=u_countlog + 1,`u_ip`='127.0.0.1' WHERE ( `u_name` = 'admin' ) [ RunTime:0.062527s ]
+SQL: SHOW COLUMNS FROM `hui_admin_log` [ RunTime:0.001530s ]
+NOTIC: [8] Undefined index: user_id /var/www/huicms/Lib/Action/Admin/UserAction.class.php 第 91 行.
+SQL: INSERT INTO `hui_admin_log` (`id`,`u_name`,`log_ip`,`log_create`) VALUES (null,'admin','127.0.0.1','2013-03-26 01:26:19') [ RunTime:0.030225s ]
+
+[ 2013-03-26T01:26:19+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T01:26:19+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T01:26:21+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T01:26:21+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T01:26:23+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T01:26:23+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T01:37:54+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T01:37:54+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T01:39:49+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T01:39:49+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T01:41:42+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T01:41:42+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T01:42:24+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T01:42:25+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T01:44:36+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T01:44:37+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T01:44:47+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T01:44:48+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T01:44:49+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T01:45:02+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T01:45:10+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T01:45:10+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T01:47:13+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T01:47:13+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T01:47:16+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T01:47:19+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000174s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000281s ]
+
+[ 2013-03-26T01:48:32+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000435s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000667s ]
+
+[ 2013-03-26T01:48:34+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000430s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000662s ]
+
+[ 2013-03-26T01:48:39+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000430s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000662s ]
+
+[ 2013-03-26T01:55:59+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T01:56:52+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T01:56:59+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T01:57:42+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T01:57:45+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000163s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000251s ]
+
+[ 2013-03-26T01:57:46+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000416s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000646s ]
+
+[ 2013-03-26T01:57:47+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000430s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000669s ]
+
+[ 2013-03-26T01:58:07+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T01:58:20+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T01:58:22+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000140s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000220s ]
+
+[ 2013-03-26T01:58:32+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000436s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000681s ]
+SQL: SHOW COLUMNS FROM `hui_config` [ RunTime:0.001638s ]
+SQL: SELECT `c_key`,`c_value` FROM `hui_config` WHERE ( `c_module` = 'ADMIN_ACCESS' )  [ RunTime:0.000275s ]
+SQL: SHOW COLUMNS FROM `hui_admin` [ RunTime:0.001547s ]
+SQL: SELECT * FROM `hui_admin` WHERE ( `u_name` = 'admin' ) LIMIT 1   [ RunTime:0.000662s ]
+SQL: UPDATE `hui_admin` SET `u_lastlogin_time`='2013-03-26 01:58:32',`u_countlog`=u_countlog + 1,`u_ip`='127.0.0.1' WHERE ( `u_name` = 'admin' ) [ RunTime:0.031039s ]
+SQL: SHOW COLUMNS FROM `hui_admin_log` [ RunTime:0.001609s ]
+NOTIC: [8] Undefined index: user_id /var/www/huicms/Lib/Action/Admin/UserAction.class.php 第 116 行.
+SQL: INSERT INTO `hui_admin_log` (`id`,`u_name`,`log_ip`,`log_create`) VALUES (null,'admin','127.0.0.1','2013-03-26 01:58:32') [ RunTime:0.031420s ]
+
+[ 2013-03-26T01:58:32+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T01:58:32+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T01:58:40+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T01:58:40+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T01:58:41+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T01:58:43+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T02:00:55+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000470s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000730s ]
+
+[ 2013-03-26T02:01:08+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000299s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000520s ]
+SQL: SHOW COLUMNS FROM `hui_config` [ RunTime:0.000546s ]
+SQL: SELECT `c_key`,`c_value` FROM `hui_config` WHERE ( `c_module` = 'ADMIN_ACCESS' )  [ RunTime:0.000139s ]
+SQL: SHOW COLUMNS FROM `hui_admin` [ RunTime:0.000585s ]
+SQL: SELECT * FROM `hui_admin` WHERE ( `u_name` = 'admin' ) LIMIT 1   [ RunTime:0.000211s ]
+SQL: UPDATE `hui_admin` SET `u_lastlogin_time`='2013-03-26 02:01:08',`u_countlog`=u_countlog + 1,`u_ip`='127.0.0.1' WHERE ( `u_name` = 'admin' ) [ RunTime:0.052631s ]
+SQL: SHOW COLUMNS FROM `hui_admin_log` [ RunTime:0.001340s ]
+NOTIC: [8] Undefined index: user_id /var/www/huicms/Lib/Action/Admin/UserAction.class.php 第 116 行.
+SQL: INSERT INTO `hui_admin_log` (`id`,`u_name`,`log_ip`,`log_create`) VALUES (null,'admin','127.0.0.1','2013-03-26 02:01:08') [ RunTime:0.041205s ]
+
+[ 2013-03-26T02:01:08+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T02:01:08+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T02:01:11+08:00 ] ERR: (ThinkException) 模板不存在[/var/www/huicms/Tpl/Admin/Admin/Common/jump.html]
+[ 2013-03-26T02:01:11+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T02:02:39+08:00 ] ERR: (ThinkException) 模板不存在[/var/www/huicms/Tpl/Admin/DEFAULT_THEME/Common/jump.html]
+[ 2013-03-26T02:02:39+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T02:03:58+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T02:04:01+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T02:04:05+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000261s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000407s ]
+
+[ 2013-03-26T02:04:14+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000265s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000435s ]
+SQL: SHOW COLUMNS FROM `hui_config` [ RunTime:0.001651s ]
+SQL: SELECT `c_key`,`c_value` FROM `hui_config` WHERE ( `c_module` = 'ADMIN_ACCESS' )  [ RunTime:0.000290s ]
+SQL: SHOW COLUMNS FROM `hui_admin` [ RunTime:0.001431s ]
+SQL: SELECT * FROM `hui_admin` WHERE ( `u_name` = 'admin' ) LIMIT 1   [ RunTime:0.000548s ]
+SQL: UPDATE `hui_admin` SET `u_lastlogin_time`='2013-03-26 02:04:14',`u_countlog`=u_countlog + 1,`u_ip`='127.0.0.1' WHERE ( `u_name` = 'admin' ) [ RunTime:0.042988s ]
+SQL: SHOW COLUMNS FROM `hui_admin_log` [ RunTime:0.001564s ]
+NOTIC: [8] Undefined index: user_id /var/www/huicms/Lib/Action/Admin/UserAction.class.php 第 116 行.
+SQL: INSERT INTO `hui_admin_log` (`id`,`u_name`,`log_ip`,`log_create`) VALUES (null,'admin','127.0.0.1','2013-03-26 02:04:14') [ RunTime:0.031373s ]
+
+[ 2013-03-26T02:04:14+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T02:04:14+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T02:04:19+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T02:04:20+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T02:04:24+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T02:04:26+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T02:06:43+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T02:06:44+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000253s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000483s ]
+
+[ 2013-03-26T02:07:03+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000245s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000341s ]
+
+[ 2013-03-26T02:07:06+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T02:07:07+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000435s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000823s ]
+
+[ 2013-03-26T02:07:12+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000285s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000448s ]
+
+[ 2013-03-26T02:07:20+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000248s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000397s ]
+
+[ 2013-03-26T02:09:19+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000463s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000722s ]
+
+[ 2013-03-26T02:09:22+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T02:09:22+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000265s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000408s ]
+
+[ 2013-03-26T02:09:31+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000215s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000352s ]
+
+[ 2013-03-26T02:10:21+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T02:12:35+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T02:12:35+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T02:12:35+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T02:12:35+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T02:12:38+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000513s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000720s ]
+
+[ 2013-03-26T02:12:39+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000136s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000212s ]
+
+[ 2013-03-26T02:12:44+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000416s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000647s ]
+
+[ 2013-03-26T02:12:45+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000427s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000665s ]
+
+[ 2013-03-26T02:13:09+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T02:14:36+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T02:14:36+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T02:14:36+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T02:14:36+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T02:14:54+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T02:14:54+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T02:14:54+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T02:14:54+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T02:15:29+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T02:15:30+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T02:15:30+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T02:16:00+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T02:17:02+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T02:17:03+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T02:17:03+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T02:17:52+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T02:18:23+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T02:18:23+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T02:18:23+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T02:18:23+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T02:18:24+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000147s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000230s ]
+
+[ 2013-03-26T02:18:25+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000265s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000413s ]
+
+[ 2013-03-26T02:18:26+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000235s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000364s ]
+
+[ 2013-03-26T02:18:42+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T02:19:08+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T02:19:08+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T02:19:08+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T02:19:08+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T02:19:27+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T02:19:28+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000132s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000208s ]
+
+[ 2013-03-26T02:19:29+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000155s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000260s ]
+
+[ 2013-03-26T02:19:34+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000146s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000225s ]
+
+[ 2013-03-26T02:19:40+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000427s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000665s ]
+
+[ 2013-03-26T02:19:42+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000425s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000659s ]
+
+[ 2013-03-26T02:19:49+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T09:13:47+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T09:13:50+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T09:13:50+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T09:13:50+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T09:13:50+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T09:15:17+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000243s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000388s ]
+
+[ 2013-03-26T09:15:18+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000187s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000343s ]
+
+[ 2013-03-26T09:15:19+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000261s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000472s ]
+
+[ 2013-03-26T09:15:20+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000193s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000306s ]
+
+[ 2013-03-26T09:16:16+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000498s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000763s ]
+
+[ 2013-03-26T09:16:30+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000152s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000238s ]
+SQL: SHOW COLUMNS FROM `hui_config` [ RunTime:0.001567s ]
+SQL: SELECT `c_key`,`c_value` FROM `hui_config` WHERE ( `c_module` = 'ADMIN_ACCESS' )  [ RunTime:0.000465s ]
+SQL: SHOW COLUMNS FROM `hui_admin` [ RunTime:0.001734s ]
+SQL: SELECT * FROM `hui_admin` WHERE ( `u_name` = 'admin' ) LIMIT 1   [ RunTime:0.000653s ]
+SQL: UPDATE `hui_admin` SET `u_lastlogin_time`='2013-03-26 09:16:30',`u_countlog`=u_countlog + 1,`u_ip`='127.0.0.1' WHERE ( `u_name` = 'admin' ) [ RunTime:0.057781s ]
+SQL: SHOW COLUMNS FROM `hui_admin_log` [ RunTime:0.001451s ]
+SQL: INSERT INTO `hui_admin_log` (`id`,`u_name`,`log_ip`,`log_create`) VALUES (1,'admin','127.0.0.1','2013-03-26 09:16:30') [ RunTime:0.031632s ]
+
+[ 2013-03-26T09:16:30+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T09:16:30+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T09:16:30+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T09:16:30+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T09:16:30+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T09:18:59+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T09:19:00+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T09:19:01+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T09:19:02+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T09:19:12+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000534s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000697s ]
+SQL: SHOW COLUMNS FROM `hui_config` [ RunTime:0.000547s ]
+SQL: SELECT `c_key`,`c_value` FROM `hui_config` WHERE ( `c_module` = 'ADMIN_ACCESS' )  [ RunTime:0.000055s ]
+SQL: SHOW COLUMNS FROM `hui_admin` [ RunTime:0.000401s ]
+SQL: SELECT * FROM `hui_admin` WHERE ( `u_name` = 'admin' ) LIMIT 1   [ RunTime:0.000165s ]
+SQL: UPDATE `hui_admin` SET `u_lastlogin_time`='2013-03-26 09:19:12',`u_countlog`=u_countlog + 1,`u_ip`='127.0.0.1' WHERE ( `u_name` = 'admin' ) [ RunTime:0.046653s ]
+SQL: SHOW COLUMNS FROM `hui_admin_log` [ RunTime:0.000605s ]
+SQL: INSERT INTO `hui_admin_log` (`u_id`,`u_name`,`log_ip`,`log_create`) VALUES (1,'admin','127.0.0.1','2013-03-26 09:19:12') [ RunTime:0.032323s ]
+
+[ 2013-03-26T09:19:12+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T09:19:12+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T09:21:24+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T09:21:25+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T09:22:36+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000131s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000204s ]
+
+[ 2013-03-26T09:22:38+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000131s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000207s ]
+
+[ 2013-03-26T09:22:38+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000438s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000697s ]
+
+[ 2013-03-26T09:22:39+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000428s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000676s ]
+
+[ 2013-03-26T09:22:40+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000590s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000945s ]
+
+[ 2013-03-26T09:22:40+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000487s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000734s ]
+
+[ 2013-03-26T09:22:42+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T09:22:53+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000389s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000585s ]
+
+[ 2013-03-26T09:22:58+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000148s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000227s ]
+
+[ 2013-03-26T09:23:01+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000418s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000646s ]
+
+[ 2013-03-26T09:23:06+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000366s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000560s ]
+
+[ 2013-03-26T09:23:10+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000433s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000669s ]
+
+[ 2013-03-26T09:23:13+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000436s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000676s ]
+
+[ 2013-03-26T09:23:16+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000433s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000667s ]
+
+[ 2013-03-26T09:23:18+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000422s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000703s ]
+
+[ 2013-03-26T09:23:37+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000141s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000229s ]
+
+[ 2013-03-26T09:23:38+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000422s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000650s ]
+
+[ 2013-03-26T09:23:39+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000203s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000313s ]
+
+[ 2013-03-26T09:23:40+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000424s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000653s ]
+
+[ 2013-03-26T09:23:57+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T09:24:13+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T09:24:14+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000423s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000650s ]
+
+[ 2013-03-26T09:24:15+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000421s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000740s ]
+
+[ 2013-03-26T09:24:15+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000439s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000678s ]
+
+[ 2013-03-26T09:24:16+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000461s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000716s ]
+
+[ 2013-03-26T09:24:17+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000148s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000227s ]
+
+[ 2013-03-26T09:24:17+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000147s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000227s ]
+
+[ 2013-03-26T09:24:18+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000125s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000194s ]
+
+[ 2013-03-26T09:24:18+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000159s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000248s ]
+
+[ 2013-03-26T09:24:19+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000130s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000201s ]
+
+[ 2013-03-26T09:24:20+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000127s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000196s ]
+
+[ 2013-03-26T09:24:24+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T09:24:25+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T09:24:26+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000146s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000228s ]
+
+[ 2013-03-26T09:24:26+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000575s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000864s ]
+
+[ 2013-03-26T09:24:27+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000139s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000217s ]
+
+[ 2013-03-26T09:24:27+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000184s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000295s ]
+
+[ 2013-03-26T09:24:28+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000429s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000667s ]
+
+[ 2013-03-26T09:24:28+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000150s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000230s ]
+
+[ 2013-03-26T09:24:37+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T09:24:38+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000142s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000225s ]
+
+[ 2013-03-26T09:24:39+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000636s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000996s ]
+
+[ 2013-03-26T09:24:39+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000120s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000189s ]
+
+[ 2013-03-26T09:24:44+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T09:24:45+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T09:24:46+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000650s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000970s ]
+
+[ 2013-03-26T09:24:46+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000783s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001227s ]
+
+[ 2013-03-26T09:24:47+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000274s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000421s ]
+
+[ 2013-03-26T09:24:49+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000417s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000653s ]
+
+[ 2013-03-26T09:31:32+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T09:31:33+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000328s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000447s ]
+
+[ 2013-03-26T09:31:35+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000258s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000367s ]
+
+[ 2013-03-26T09:31:41+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000244s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000387s ]
+
+[ 2013-03-26T09:31:47+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000141s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000221s ]
+
+[ 2013-03-26T09:31:48+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000130s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000205s ]
+
+[ 2013-03-26T09:31:52+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000136s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000215s ]
+
+[ 2013-03-26T09:31:53+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000149s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000236s ]
+
+[ 2013-03-26T09:32:14+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T09:49:32+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T09:49:42+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000139s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000312s ]
+SQL: SHOW COLUMNS FROM `hui_config` [ RunTime:0.000750s ]
+SQL: SELECT `c_key`,`c_value` FROM `hui_config` WHERE ( `c_module` = 'ADMIN_ACCESS' )  [ RunTime:0.000209s ]
+SQL: SHOW COLUMNS FROM `hui_admin` [ RunTime:0.000959s ]
+SQL: SELECT * FROM `hui_admin` WHERE ( `u_name` = 'admin' ) LIMIT 1   [ RunTime:0.000602s ]
+SQL: UPDATE `hui_admin` SET `u_lastlogin_time`='2013-03-26 09:49:42',`u_countlog`=u_countlog + 1,`u_ip`='127.0.0.1' WHERE ( `u_name` = 'admin' ) [ RunTime:0.034731s ]
+SQL: SHOW COLUMNS FROM `hui_admin_log` [ RunTime:0.001639s ]
+SQL: INSERT INTO `hui_admin_log` (`u_id`,`u_name`,`log_ip`,`log_create`) VALUES (1,'admin','127.0.0.1','2013-03-26 09:49:42') [ RunTime:0.030408s ]
+
+[ 2013-03-26T09:49:42+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T09:49:42+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T09:49:48+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T09:49:49+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T09:49:49+08:00 ] ERR: (ThinkException) 非法操作:img
+[ 2013-03-26T09:49:49+08:00 ] ERR: (ThinkException) 非法操作:img
+[ 2013-03-26T09:49:49+08:00 ] ERR: (ThinkException) 非法操作:img
+[ 2013-03-26T09:49:49+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T09:50:20+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T09:50:20+08:00 ] ERR: (ThinkException) 非法操作:img
+[ 2013-03-26T09:50:20+08:00 ] ERR: (ThinkException) 非法操作:img
+[ 2013-03-26T09:50:20+08:00 ] ERR: (ThinkException) 非法操作:img
+[ 2013-03-26T09:50:21+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T09:51:41+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T09:51:41+08:00 ] ERR: (ThinkException) 非法操作:img
+[ 2013-03-26T09:51:41+08:00 ] ERR: (ThinkException) 非法操作:img
+[ 2013-03-26T09:51:41+08:00 ] ERR: (ThinkException) 非法操作:img
+[ 2013-03-26T09:51:42+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T09:51:56+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T09:51:57+08:00 ] ERR: (ThinkException) 非法操作:img
+[ 2013-03-26T09:51:57+08:00 ] ERR: (ThinkException) 非法操作:img
+[ 2013-03-26T09:51:57+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T09:52:08+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T09:52:08+08:00 ] ERR: (ThinkException) 非法操作:img
+[ 2013-03-26T09:52:08+08:00 ] ERR: (ThinkException) 非法操作:img
+[ 2013-03-26T09:52:08+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T09:52:26+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T09:52:27+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T09:53:03+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T09:53:04+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T09:53:20+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T09:53:21+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T09:54:06+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T09:54:06+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T09:54:44+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T09:54:44+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T09:55:29+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T09:55:29+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T09:55:39+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T09:55:40+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T09:55:55+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T09:55:56+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T09:58:24+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T09:58:24+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T09:58:27+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T09:58:29+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T09:58:30+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T09:58:32+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T10:00:30+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T10:00:31+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T10:10:25+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T10:10:25+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T10:10:26+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T10:10:37+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T10:10:37+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T10:12:46+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T10:12:46+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T10:12:54+08:00 ] ERR: (ThinkException) Model:saveUpdateAdmin您所请求的方法不存在！
+[ 2013-03-26T10:12:54+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T10:15:10+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T10:15:12+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T10:15:12+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T10:15:19+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T10:15:20+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T10:15:20+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T10:15:23+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T10:15:24+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T10:15:32+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000436s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000686s ]
+SQL: SHOW COLUMNS FROM `hui_config` [ RunTime:0.001588s ]
+SQL: SELECT `c_key`,`c_value` FROM `hui_config` WHERE ( `c_module` = 'ADMIN_ACCESS' )  [ RunTime:0.000279s ]
+SQL: SHOW COLUMNS FROM `hui_admin` [ RunTime:0.001626s ]
+SQL: SELECT * FROM `hui_admin` WHERE ( `u_name` = 'admin' ) LIMIT 1   [ RunTime:0.000589s ]
+
+[ 2013-03-26T10:15:34+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000437s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000666s ]
+
+[ 2013-03-26T10:15:35+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000143s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000224s ]
+
+[ 2013-03-26T10:15:35+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000249s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000393s ]
+
+[ 2013-03-26T10:15:36+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000419s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000655s ]
+
+[ 2013-03-26T10:15:36+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000174s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000430s ]
+
+[ 2013-03-26T10:15:36+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000401s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000657s ]
+
+[ 2013-03-26T10:15:39+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T10:16:54+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T10:17:00+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000527s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000833s ]
+
+[ 2013-03-26T10:17:02+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T10:17:13+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000435s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000684s ]
+SQL: SHOW COLUMNS FROM `hui_config` [ RunTime:0.000684s ]
+SQL: SELECT `c_key`,`c_value` FROM `hui_config` WHERE ( `c_module` = 'ADMIN_ACCESS' )  [ RunTime:0.000283s ]
+SQL: SHOW COLUMNS FROM `hui_admin` [ RunTime:0.001727s ]
+SQL: SELECT * FROM `hui_admin` WHERE ( `u_name` = 'admin' ) LIMIT 1   [ RunTime:0.000196s ]
+SQL: UPDATE `hui_admin` SET `u_lastlogin_time`='2013-03-26 10:17:12',`u_countlog`=u_countlog + 1,`u_ip`='127.0.0.1' WHERE ( `u_name` = 'admin' ) [ RunTime:0.047309s ]
+SQL: SHOW COLUMNS FROM `hui_admin_log` [ RunTime:0.001576s ]
+SQL: INSERT INTO `hui_admin_log` (`u_id`,`u_name`,`log_ip`,`log_create`) VALUES (1,'admin','127.0.0.1','2013-03-26 10:17:12') [ RunTime:0.041462s ]
+
+[ 2013-03-26T10:17:13+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T10:17:13+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T10:31:26+08:00 ] ERR: (ThinkException) 无法加载模块:Index
+[ 2013-03-26T10:31:26+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T10:31:26+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T10:31:33+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T10:31:33+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T10:31:33+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T10:31:40+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000143s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000221s ]
+SQL: SHOW COLUMNS FROM `hui_config` [ RunTime:0.000576s ]
+SQL: SELECT `c_key`,`c_value` FROM `hui_config` WHERE ( `c_module` = 'ADMIN_ACCESS' )  [ RunTime:0.000104s ]
+SQL: SHOW COLUMNS FROM `hui_admin` [ RunTime:0.000565s ]
+SQL: SELECT * FROM `hui_admin` WHERE ( `u_name` = 'admin' ) LIMIT 1   [ RunTime:0.000264s ]
+SQL: UPDATE `hui_admin` SET `u_lastlogin_time`='2013-03-26 10:31:40',`u_countlog`=u_countlog + 1,`u_ip`='127.0.0.1' WHERE ( `u_name` = 'admin' ) [ RunTime:0.090966s ]
+SQL: SHOW COLUMNS FROM `hui_admin_log` [ RunTime:0.001463s ]
+SQL: INSERT INTO `hui_admin_log` (`u_id`,`u_name`,`log_ip`,`log_create`) VALUES (1,'admin','127.0.0.1','2013-03-26 10:31:40') [ RunTime:0.092489s ]
+
+[ 2013-03-26T10:31:40+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T10:31:40+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T10:31:40+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T10:31:40+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T10:47:52+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T10:47:52+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T10:47:52+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T10:47:52+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T10:47:52+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T10:54:06+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T10:54:06+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T10:54:06+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T10:54:06+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T10:54:06+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T10:54:39+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T10:54:39+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T10:54:39+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T10:54:49+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000146s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000226s ]
+SQL: SHOW COLUMNS FROM `hui_config` [ RunTime:0.000606s ]
+SQL: SELECT `c_key`,`c_value` FROM `hui_config` WHERE ( `c_module` = 'ADMIN_ACCESS' )  [ RunTime:0.000183s ]
+SQL: SHOW COLUMNS FROM `hui_admin` [ RunTime:0.000647s ]
+SQL: SELECT * FROM `hui_admin` WHERE ( `u_name` = 'admin' ) LIMIT 1   [ RunTime:0.000194s ]
+SQL: UPDATE `hui_admin` SET `u_lastlogin_time`='2013-03-26 10:54:49',`u_countlog`=u_countlog + 1,`u_ip`='127.0.0.1' WHERE ( `u_name` = 'admin' ) [ RunTime:0.098736s ]
+SQL: SHOW COLUMNS FROM `hui_admin_log` [ RunTime:0.001435s ]
+SQL: INSERT INTO `hui_admin_log` (`u_id`,`u_name`,`log_ip`,`log_create`) VALUES (1,'admin','127.0.0.1','2013-03-26 10:54:49') [ RunTime:0.031396s ]
+
+[ 2013-03-26T10:54:49+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T10:54:49+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T10:54:49+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T10:54:49+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T10:58:19+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T10:58:19+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T10:58:19+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T10:58:19+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T10:58:21+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T10:58:21+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T10:58:21+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T10:58:21+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T10:58:23+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T10:58:23+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T10:58:23+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T10:58:23+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T11:02:40+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T11:02:43+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T11:02:43+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T11:02:43+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T11:02:43+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T11:02:52+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000473s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000717s ]
+SQL: SHOW COLUMNS FROM `hui_config` [ RunTime:0.001543s ]
+SQL: SELECT `c_key`,`c_value` FROM `hui_config` WHERE ( `c_module` = 'ADMIN_ACCESS' )  [ RunTime:0.000121s ]
+SQL: SHOW COLUMNS FROM `hui_admin` [ RunTime:0.000551s ]
+SQL: SELECT * FROM `hui_admin` WHERE ( `u_name` = 'admin' ) LIMIT 1   [ RunTime:0.000448s ]
+SQL: UPDATE `hui_admin` SET `u_lastlogin_time`='2013-03-26 11:02:52',`u_countlog`=u_countlog + 1,`u_ip`='127.0.0.1' WHERE ( `u_name` = 'admin' ) [ RunTime:0.035924s ]
+SQL: SHOW COLUMNS FROM `hui_admin_log` [ RunTime:0.001635s ]
+SQL: INSERT INTO `hui_admin_log` (`u_id`,`u_name`,`log_ip`,`log_create`) VALUES (1,'admin','127.0.0.1','2013-03-26 11:02:52') [ RunTime:0.031323s ]
+
+[ 2013-03-26T11:02:52+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T11:02:52+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T11:02:52+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T11:02:52+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T11:02:52+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T11:11:10+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T11:11:11+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T11:11:18+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000132s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000206s ]
+SQL: SHOW COLUMNS FROM `hui_config` [ RunTime:0.001473s ]
+SQL: SELECT `c_key`,`c_value` FROM `hui_config` WHERE ( `c_module` = 'ADMIN_ACCESS' )  [ RunTime:0.000121s ]
+SQL: SHOW COLUMNS FROM `hui_admin` [ RunTime:0.001452s ]
+SQL: SELECT * FROM `hui_admin` WHERE ( `u_name` = 'admin' ) LIMIT 1   [ RunTime:0.000460s ]
+
+[ 2013-03-26T11:11:38+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000373s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000522s ]
+SQL: SHOW COLUMNS FROM `hui_config` [ RunTime:0.001536s ]
+SQL: SELECT `c_key`,`c_value` FROM `hui_config` WHERE ( `c_module` = 'ADMIN_ACCESS' )  [ RunTime:0.000290s ]
+SQL: SHOW COLUMNS FROM `hui_admin` [ RunTime:0.001648s ]
+SQL: SELECT * FROM `hui_admin` WHERE ( `u_name` = 'admin' ) LIMIT 1   [ RunTime:0.000306s ]
+SQL: UPDATE `hui_admin` SET `u_lastlogin_time`='2013-03-26 11:11:38',`u_countlog`=u_countlog + 1,`u_ip`='127.0.0.1' WHERE ( `u_name` = 'admin' ) [ RunTime:0.044245s ]
+SQL: SHOW COLUMNS FROM `hui_admin_log` [ RunTime:0.001532s ]
+SQL: INSERT INTO `hui_admin_log` (`u_id`,`u_name`,`log_ip`,`log_create`) VALUES (1,'admin','127.0.0.1','2013-03-26 11:11:38') [ RunTime:0.041422s ]
+
+[ 2013-03-26T11:11:38+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T11:28:02+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T11:28:24+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T11:28:24+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T11:28:24+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T11:28:24+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T11:28:24+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T11:28:28+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T11:28:29+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T11:28:29+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T11:28:35+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T11:28:37+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T11:28:44+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T11:28:45+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T11:28:45+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T11:29:34+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T11:29:34+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T11:29:41+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T11:29:42+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T11:29:42+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T11:30:00+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T11:30:03+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T11:30:03+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T11:30:03+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T11:30:03+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T11:30:13+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000540s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000723s ]
+SQL: SHOW COLUMNS FROM `hui_config` [ RunTime:0.000562s ]
+SQL: SELECT `c_key`,`c_value` FROM `hui_config` WHERE ( `c_module` = 'ADMIN_ACCESS' )  [ RunTime:0.000076s ]
+SQL: SHOW COLUMNS FROM `hui_admin` [ RunTime:0.000529s ]
+SQL: SELECT * FROM `hui_admin` WHERE ( `u_name` = 'admin' ) LIMIT 1   [ RunTime:0.000192s ]
+SQL: UPDATE `hui_admin` SET `u_lastlogin_time`='2013-03-26 11:30:13',`u_countlog`=u_countlog + 1,`u_ip`='127.0.0.1' WHERE ( `u_name` = 'admin' ) [ RunTime:0.082754s ]
+SQL: SHOW COLUMNS FROM `hui_admin_log` [ RunTime:0.001142s ]
+SQL: INSERT INTO `hui_admin_log` (`u_id`,`u_name`,`log_ip`,`log_create`) VALUES (1,'admin','127.0.0.1','2013-03-26 11:30:13') [ RunTime:0.054465s ]
+
+[ 2013-03-26T11:30:13+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T11:30:13+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T11:30:15+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T11:30:15+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T11:30:30+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T11:30:33+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T11:30:45+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T11:30:46+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T11:30:46+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T11:31:27+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T11:31:27+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T11:31:29+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T11:31:29+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T11:31:33+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T11:31:36+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T11:31:47+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000373s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000528s ]
+SQL: SHOW COLUMNS FROM `hui_config` [ RunTime:0.001553s ]
+SQL: SELECT `c_key`,`c_value` FROM `hui_config` WHERE ( `c_module` = 'ADMIN_ACCESS' )  [ RunTime:0.000199s ]
+SQL: SHOW COLUMNS FROM `hui_admin` [ RunTime:0.001425s ]
+SQL: SELECT * FROM `hui_admin` WHERE ( `u_name` = 'admin' ) LIMIT 1   [ RunTime:0.000502s ]
+SQL: UPDATE `hui_admin` SET `u_lastlogin_time`='2013-03-26 11:31:47',`u_countlog`=u_countlog + 1,`u_ip`='127.0.0.1' WHERE ( `u_name` = 'admin' ) [ RunTime:0.055618s ]
+SQL: SHOW COLUMNS FROM `hui_admin_log` [ RunTime:0.001369s ]
+SQL: INSERT INTO `hui_admin_log` (`u_id`,`u_name`,`log_ip`,`log_create`) VALUES (1,'admin','127.0.0.1','2013-03-26 11:31:47') [ RunTime:0.041480s ]
+
+[ 2013-03-26T11:31:47+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T11:31:47+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T11:31:49+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T11:31:49+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T11:31:58+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T11:32:01+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T11:32:09+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T11:32:10+08:00 ] ERR: (ThinkException) 非法操作:Amdin
+[ 2013-03-26T11:32:10+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T11:33:22+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T11:33:25+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T11:33:34+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000317s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000569s ]
+SQL: SHOW COLUMNS FROM `hui_config` [ RunTime:0.001541s ]
+SQL: SELECT `c_key`,`c_value` FROM `hui_config` WHERE ( `c_module` = 'ADMIN_ACCESS' )  [ RunTime:0.000087s ]
+SQL: SHOW COLUMNS FROM `hui_admin` [ RunTime:0.001294s ]
+SQL: SELECT * FROM `hui_admin` WHERE ( `u_name` = 'admin' ) LIMIT 1   [ RunTime:0.000439s ]
+
+[ 2013-03-26T11:33:38+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000138s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000215s ]
+
+[ 2013-03-26T11:33:47+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000241s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000391s ]
+SQL: SHOW COLUMNS FROM `hui_config` [ RunTime:0.000614s ]
+SQL: SELECT `c_key`,`c_value` FROM `hui_config` WHERE ( `c_module` = 'ADMIN_ACCESS' )  [ RunTime:0.000138s ]
+SQL: SHOW COLUMNS FROM `hui_admin` [ RunTime:0.000508s ]
+SQL: SELECT * FROM `hui_admin` WHERE ( `u_name` = 'admin' ) LIMIT 1   [ RunTime:0.000074s ]
+SQL: UPDATE `hui_admin` SET `u_lastlogin_time`='2013-03-26 11:33:47',`u_countlog`=u_countlog + 1,`u_ip`='127.0.0.1' WHERE ( `u_name` = 'admin' ) [ RunTime:0.039995s ]
+SQL: SHOW COLUMNS FROM `hui_admin_log` [ RunTime:0.000612s ]
+SQL: INSERT INTO `hui_admin_log` (`u_id`,`u_name`,`log_ip`,`log_create`) VALUES (1,'admin','127.0.0.1','2013-03-26 11:33:47') [ RunTime:0.043710s ]
+
+[ 2013-03-26T11:33:47+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T11:33:47+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T11:33:49+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T11:33:49+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T11:33:56+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T11:33:57+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T11:34:02+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T11:34:05+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T11:35:29+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T11:35:32+08:00 ] ERR: (ThinkException) 无法加载模块:favicon
+[ 2013-03-26T11:46:42+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000450s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000624s ]
+
+[ 2013-03-26T11:46:43+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000241s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000317s ]
+
+[ 2013-03-26T11:46:43+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000432s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000745s ]
+
+[ 2013-03-26T11:46:44+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000436s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000661s ]
+
+[ 2013-03-26T11:46:44+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000118s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000184s ]
+
+[ 2013-03-26T11:46:44+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000401s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000625s ]
+
+[ 2013-03-26T11:46:44+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000118s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000184s ]
+
+[ 2013-03-26T11:46:44+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000402s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000629s ]
+
+[ 2013-03-26T11:46:45+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000475s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000691s ]
+
+[ 2013-03-26T11:46:45+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000444s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000720s ]
+
+[ 2013-03-26T11:46:45+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000487s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000712s ]
+
+[ 2013-03-26T11:46:46+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000395s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000615s ]
+
+[ 2013-03-26T11:46:46+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000140s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000216s ]
+
+[ 2013-03-26T11:46:46+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000140s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000217s ]
+
+[ 2013-03-26T11:46:46+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000400s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000626s ]
+
+[ 2013-03-26T11:46:46+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000139s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000216s ]
+
+[ 2013-03-26T11:46:46+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000405s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000599s ]
+
+[ 2013-03-26T11:46:47+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000140s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000216s ]
+
+[ 2013-03-26T11:46:47+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000237s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000376s ]
+
+[ 2013-03-26T11:46:47+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000394s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000618s ]
+
+[ 2013-03-26T11:46:47+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000139s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000217s ]
+
+[ 2013-03-26T11:46:47+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000335s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000544s ]
+
+[ 2013-03-26T11:46:48+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000141s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000220s ]
+
+[ 2013-03-26T11:46:48+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000140s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000216s ]
+
+[ 2013-03-26T11:46:48+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000139s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000217s ]
+
+[ 2013-03-26T11:46:48+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000419s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000640s ]
+
+[ 2013-03-26T11:46:49+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000144s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000225s ]
+
+[ 2013-03-26T11:46:49+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000119s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000185s ]
+
+[ 2013-03-26T11:46:49+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000150s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000228s ]
+
+[ 2013-03-26T11:46:49+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000140s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000217s ]
+
+[ 2013-03-26T11:46:49+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000402s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000628s ]
+
+[ 2013-03-26T11:46:49+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000139s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000238s ]
+
+[ 2013-03-26T11:46:50+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000393s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000613s ]
+
+[ 2013-03-26T11:46:50+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000139s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000217s ]
+
+[ 2013-03-26T11:46:50+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000403s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000625s ]
+
+[ 2013-03-26T11:46:50+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000140s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000223s ]
+
+[ 2013-03-26T11:46:51+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000147s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000240s ]
+
+[ 2013-03-26T11:46:51+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000450s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000679s ]
+
+[ 2013-03-26T11:46:52+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000138s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000216s ]
+
+[ 2013-03-26T11:46:52+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000392s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000611s ]
+
+[ 2013-03-26T11:46:53+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000424s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000661s ]
+
+[ 2013-03-26T11:46:54+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000138s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000215s ]
+
+[ 2013-03-26T11:46:54+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000266s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000363s ]
+
+[ 2013-03-26T11:46:54+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000139s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000217s ]
+
+[ 2013-03-26T11:46:54+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000160s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000265s ]
+
+[ 2013-03-26T11:46:54+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000231s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000356s ]
+
+[ 2013-03-26T11:46:55+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000149s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000233s ]
+
+[ 2013-03-26T11:46:55+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000402s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000638s ]
+
+[ 2013-03-26T11:46:55+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000397s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000620s ]
+
+[ 2013-03-26T11:46:55+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000491s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000716s ]
+
+[ 2013-03-26T11:53:14+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000466s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000691s ]
+
+[ 2013-03-26T11:53:15+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000238s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000381s ]
+
+[ 2013-03-26T11:53:16+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000131s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000203s ]
+
+[ 2013-03-26T11:59:16+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000240s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000375s ]
+
+[ 2013-03-26T11:59:16+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000393s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000615s ]
+
+[ 2013-03-26T11:59:16+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000394s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000614s ]
+
+[ 2013-03-26T11:59:16+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000428s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000600s ]
+
+[ 2013-03-26T11:59:17+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000522s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000762s ]
+
+[ 2013-03-26T11:59:17+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000372s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000562s ]
+
+[ 2013-03-26T11:59:17+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000394s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000617s ]
+
+[ 2013-03-26T11:59:17+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000447s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000669s ]
+
+[ 2013-03-26T11:59:17+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000139s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000216s ]
+
+[ 2013-03-26T11:59:17+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000138s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000216s ]
+
+[ 2013-03-26T11:59:18+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000145s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000227s ]
+
+[ 2013-03-26T11:59:18+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000234s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000373s ]
+
+[ 2013-03-26T11:59:18+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000501s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000734s ]
+
+[ 2013-03-26T11:59:18+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000186s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000263s ]
+
+[ 2013-03-26T11:59:19+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000445s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000671s ]
+
+[ 2013-03-26T11:59:19+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000119s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000185s ]
+
+[ 2013-03-26T11:59:19+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000398s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000619s ]
+
+[ 2013-03-26T11:59:19+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000138s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000215s ]
+
+[ 2013-03-26T11:59:19+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000140s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000217s ]
+
+[ 2013-03-26T11:59:20+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000394s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000652s ]
+
+[ 2013-03-26T11:59:20+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000138s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000262s ]
+
+[ 2013-03-26T11:59:20+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000394s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000616s ]
+
+[ 2013-03-26T11:59:20+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000141s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000229s ]
+
+[ 2013-03-26T11:59:21+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000139s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000216s ]
+
+[ 2013-03-26T11:59:29+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000493s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000736s ]
+
+[ 2013-03-26T11:59:29+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000415s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000656s ]
+
+[ 2013-03-26T11:59:29+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000396s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000620s ]
+
+[ 2013-03-26T11:59:30+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000123s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000189s ]
+
+[ 2013-03-26T11:59:31+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000415s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000651s ]
+
+[ 2013-03-26T11:59:31+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000140s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000221s ]
+
+[ 2013-03-26T11:59:31+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000118s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000184s ]
+
+[ 2013-03-26T11:59:31+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000395s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000616s ]
+
+[ 2013-03-26T11:59:31+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000150s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000234s ]
+
+[ 2013-03-26T11:59:32+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000392s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000612s ]
+
+[ 2013-03-26T11:59:44+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000139s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000217s ]
+
+[ 2013-03-26T11:59:44+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000418s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000639s ]
+
+[ 2013-03-26T11:59:44+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000435s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000606s ]
+
+[ 2013-03-26T11:59:45+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000391s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000610s ]
+
+[ 2013-03-26T11:59:45+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000407s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000633s ]
+
+[ 2013-03-26T11:59:45+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000137s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000214s ]
+
+[ 2013-03-26T11:59:45+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000553s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000888s ]
+
+[ 2013-03-26T11:59:45+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000234s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000368s ]
+
+[ 2013-03-26T11:59:46+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000137s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000214s ]
+
+[ 2013-03-26T11:59:46+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000391s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000738s ]
+
+[ 2013-03-26T11:59:46+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000237s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000381s ]
+
+[ 2013-03-26T11:59:46+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000250s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000401s ]
+
+[ 2013-03-26T12:00:51+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000428s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000669s ]
+
+[ 2013-03-26T12:00:51+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000453s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000687s ]
+
+[ 2013-03-26T12:00:52+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000389s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000606s ]
+
+[ 2013-03-26T12:00:53+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000392s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000613s ]
+
+[ 2013-03-26T12:00:53+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000138s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000215s ]
+
+[ 2013-03-26T12:00:54+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000138s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000215s ]
+
+[ 2013-03-26T12:00:54+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000408s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000630s ]
+
+[ 2013-03-26T12:00:54+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000150s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000257s ]
+
+[ 2013-03-26T12:00:54+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000147s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000230s ]
+
+[ 2013-03-26T12:00:55+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000139s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000216s ]
+
+[ 2013-03-26T12:00:55+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000179s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000260s ]
+
+[ 2013-03-26T12:00:55+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000397s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000620s ]
+
+[ 2013-03-26T12:00:56+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000238s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000387s ]
+
+[ 2013-03-26T12:00:56+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000138s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000215s ]
+
+[ 2013-03-26T12:00:56+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000121s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000189s ]
+
+[ 2013-03-26T12:00:56+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000176s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000275s ]
+
+[ 2013-03-26T12:00:56+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000446s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000697s ]
+
+[ 2013-03-26T12:01:01+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000398s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000625s ]
+
+[ 2013-03-26T12:01:01+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000402s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000619s ]
+
+[ 2013-03-26T12:01:01+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000248s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000404s ]
+
+[ 2013-03-26T12:01:02+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000392s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000611s ]
+
+[ 2013-03-26T12:01:02+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000138s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000215s ]
+
+[ 2013-03-26T12:01:02+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000137s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000217s ]
+
+[ 2013-03-26T12:01:02+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000111s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000172s ]
+
+[ 2013-03-26T12:01:03+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000140s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000220s ]
+
+[ 2013-03-26T12:01:03+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000424s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000664s ]
+
+[ 2013-03-26T12:01:03+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000248s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000357s ]
+
+[ 2013-03-26T12:01:03+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000150s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000233s ]
+
+[ 2013-03-26T12:01:04+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000138s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000213s ]
+
+[ 2013-03-26T12:01:04+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000136s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000218s ]
+
+[ 2013-03-26T12:05:42+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000128s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000198s ]
+
+[ 2013-03-26T13:06:08+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T13:06:08+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T13:06:08+08:00 ] ERR: (ThinkException) 无法加载模块:Public
+[ 2013-03-26T13:06:41+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000142s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000220s ]
+
+[ 2013-03-26T13:06:42+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000140s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000217s ]
+
+[ 2013-03-26T13:06:43+08:00 ] 127.0.0.1 /Admin/User/doLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000139s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000218s ]
+
