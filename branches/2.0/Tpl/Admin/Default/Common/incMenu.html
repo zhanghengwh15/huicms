@@ -1,6 +1,6 @@
 <div id="leftside">
     <div class="user">
-        <img src="__PUBLIC__/Admin/images/avatar.png" width="44" height="44" class="hoverimg" alt="Avatar" />
+        <a href='{:U("Admin/System/pageEditAdmin","uid=$uid")}'><img src="{$Think.session.pic|default='__PUBLIC__/Admin/images/avatar.png'}" width="44" height="44" class="hoverimg" alt="Avatar" /></a>
         <p>登陆者:</p>
         <p class="username">{$Think.session.admin_name}</p>
         <p class="userbtn"><a href="{:U('Admin/System/pageEditAdminPasswd')}" title="">修改密码</a></p>

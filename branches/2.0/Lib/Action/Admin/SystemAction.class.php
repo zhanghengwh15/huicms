@@ -5,7 +5,7 @@
  * @date 2013-3-26
  * 
  */
-class SystemAction extends Action{
+class SystemAction extends AdminAction{
     /**
      * 修改管理员登录密码
      * @author Terry <admin@52sum.com>
@@ -53,6 +53,25 @@ class SystemAction extends Action{
         }else{
             $this->error("参数错误");
         }
+    }
+    
+    /**
+     * 修改管理员信息
+     * @author Terry<admin@52sum.com>
+     * @date 2013-3-26
+     * 
+     */
+    public function pageEditAdmin(){
+        $uid = (int) $this->_get('uid', 'htmlspecialchars', 0);
+        if(!empty($uid) && $uid > 0){
+            $system = D("System");
+            $ary_result = $system->getFindAdmin($uid);
+        }else{
+            $this->error("用户不存在，请重试！");
+        }
+        $this->assign("data",$ary_result);
+        //echo '<pre>';print_r($ary_get);exit;
+        $this->display();
     }
     
 }

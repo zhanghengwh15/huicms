@@ -27,8 +27,8 @@ abstract class AdminAction extends Action{
         //判断用户是否登陆
         $this->doCheckLogin();
         import('ORG.Util.Session');
+        $this->assign("uid",session("admin"));
         $admin_access = D('Config')->getCfgByModule('ADMIN_ACCESS');
-        //echo "<pre>";print_r(date("Y-m-d H:i:s",$_SESSION['__HTTP_Session_Expire_TS']));exit;
         if (intval($admin_access['EXPIRED_TIME']) > 0 && Session::isExpired()) {
             unset($_SESSION[C('USER_AUTH_KEY')]);
             unset($_SESSION);
