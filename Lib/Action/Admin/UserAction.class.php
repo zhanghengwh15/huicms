@@ -93,6 +93,7 @@ class UserAction extends Action{
             Session::setExpire(time() + $exitTime * 60);
             $_SESSION[C('USER_AUTH_KEY')] = $auth_info['u_id'];
             $_SESSION['admin_name'] = $auth_info['u_name'];
+            $_SESSION['pic'] = $auth_info['u_photo'];
             $_SESSION['last_time'] = $auth_info['u_lastlogin_time'];
             $_SESSION['u_countlog'] = $auth_info['u_countlog'];
             //$sysadmin = D('SysConfig')->getCfgByModule('SYS_ADMIN');

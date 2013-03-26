@@ -34,4 +34,22 @@ class SystemModel extends Model{
             return false;
         }
     }
+    
+    /**
+     * 获取管理员信息
+     * @author Terry <admin@52sum.com>
+     * @date 2013-3-26
+     * @param int $uid 管理员ID
+     * @return array $ary_result
+     */
+    public function getFindAdmin($uid){
+        $ary_reslut = array();
+        if(!empty($uid) && (int)$uid > 0){
+            $ary_reslut = $this->table_admin->where(array('u_id'=>$uid))->find();
+            if(!empty($ary_reslut) && is_array($ary_reslut)){
+                unset($ary_reslut['u_passwd']);
+            }
+        }
+        return $ary_reslut;
+    }
 }
