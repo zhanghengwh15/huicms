@@ -1,0 +1,42 @@
+<div id="leftside">
+    <div class="user">
+        <img src="__PUBLIC__/Admin/images/avatar.png" width="44" height="44" class="hoverimg" alt="Avatar" />
+        <p>登陆者:</p>
+        <p class="username">{$Think.session.admin_name}</p>
+        <p class="userbtn"><a href="{:U('Admin/System/pageEditAdminPasswd')}" title="">修改密码</a></p>
+        <p class="userbtn"><a href="{:U('Admin/User/doLogout')}" title="退出">退出</a></p>
+    </div>
+    <div class="notifications">
+        <p class="notifycount"><a href="" title="" class="notifypop">10</a></p>
+        <p><a href="" title="" class="notifypop">New Notifications</a></p>
+        <p class="smltxt">(Click to open notifications)</p>
+    </div>
+    
+    <ul id="nav">
+        <li>
+            <ul class="navigation">
+                <li class="heading selected">Current Section</li>
+                <li><a href="#" title="">Section link here</a></li>
+                <li><a href="#" title="">Section link here</a></li>
+                <li><a href="#" title="">Section link here</a></li>
+            </ul>
+        </li>
+        <li>
+            <a class="collapsed heading">Section Heading</a>
+            <ul class="navigation">
+                <li><a href="#" title="">Section link here</a></li>
+                <li><a href="#" title="">Section link here</a></li>
+                <li><a href="#" title="">Section link here</a></li>
+            </ul>
+        </li>
+        <li>
+            <a class="expanded heading">Section Heading</a>
+            <ul class="navigation">
+<!--                 class="likelogin"-->
+                <li><a href="#" title="">Section link here</a></li>
+                <li><a href="#" title="">Section link here</a></li>
+                <li><a href="#" title="">Section link here</a></li>
+            </ul>
+        </li>            
+    </ul>
+</div>
