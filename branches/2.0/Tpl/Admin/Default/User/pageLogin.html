@@ -1,9 +1,9 @@
 {__NOLAYOUT__}
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>登陆页</title>
+<title>{$Think.lang.LOGINWEB}</title>
 <link href="__PUBLIC__/Admin/css/layout.css" rel="stylesheet" type="text/css" />
 <link href="__PUBLIC__/Admin/css/login.css" rel="stylesheet" type="text/css" />
 <script src="__PUBLIC__/Lib/jquery/js/jquery-1.8.3.js"></script>
@@ -18,17 +18,17 @@
             
             <div id="innerlogin">
             	<form method="post" action="{:U('Admin/User/doLogin')}" id="login">
-                	<p>用户名:</p>
-                	<input type="text" class="logininput" name="username" />
-                    <p>密&nbsp;&nbsp;码:</p>
-                	<input type="password" class="logininput" name="passwd" />
-                    <p>验证码:</p>
+                	<p>{$Think.lang.USERNAME}:</p>
+                	<input type="text" class="logininput" name="username" required />
+                    <p>{$Think.lang.PASSWORD}:</p>
+                	<input type="password" class="logininput" name="passwd" required/>
+                    <p>{$Think.lang.CODE}:</p>
                     <span class="verify">
-                        <input type="text" class="logincode" name="code" id="code" />
-                        <img id="verify" src="{:U('Admin/User/verify')}" class="changeVerify" style="cursor: pointer;" title="点击更新验证码" />
+                        <input type="text" class="logincode" name="code" id="code" required/>
+                        <img id="verify" src="{:U('Admin/User/verify')}" class="changeVerify" style="cursor: pointer;" title="{$Think.lang.CLICKUPDATECODE}" />
                     </span>
                     
-                   	<input type="submit" class="loginbtn" value="登陆" /><br />
+                   	<input type="submit" class="loginbtn" value="{$Think.lang.LOGIN}" /><br />
 <!--                    <p><a href="javascript:void(0);" title="忘记密码?">忘记密码</a></p>-->
                 </form>
                 
@@ -61,7 +61,7 @@
             });
             
             function login(){
-                $("#resultMsg").stop().removeClass('ajaxerror').addClass('loading').html("提交请求中，请稍候...").show();
+                $("#resultMsg").stop().removeClass('ajaxerror').addClass('loading').html("{$Think.lang.SUBMITLOADING}").show();
                 var url = "{:U('Admin/User/doLogin')}";
                 var data = $("#login").serialize();
                 $.ajax({
@@ -71,7 +71,7 @@
                     data:data,
                     type:"POST",
                     error:function(){
-                        $("#resultMsg").addClass('ajaxerror').html("AJAX请求发生错误！").show().fadeOut(5000);
+                        $("#resultMsg").addClass('ajaxerror').html("{$Think.lang.AJAXERROR}！").show().fadeOut(5000);
                     },
                     success:function(msgObj){
                         $("#resultMsg").hide();
