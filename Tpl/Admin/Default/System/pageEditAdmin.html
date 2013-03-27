@@ -1,0 +1,103 @@
+<style type="text/css">
+#file_list{padding:10px 0 25px 60px;}
+#file_list ul{clear:both;}
+#file_list ul li{float:left; height:22px; line-height:22px;}
+#file_list ul .aax{width:18px;}
+#file_list ul .aay{width:120px;}
+</style>
+
+<div class="contentcontainer">
+    <div class="headings alt">
+        <h2>编辑管理员</h2>
+    </div>
+    <div class="contentbox">
+        <form action="{:U('Admin/System/doEditAdmin')}" method="post" id="doEditAdmin" class="formvalidate">
+        <table class="list" cellpadding="0" cellspacing="1" border="0">
+			<tr>
+				<td class="name">用户名：</td>
+				<td><input name="username" type="text" class="input rounded" value="" size="30" maxlength="20" /> <span class="red">*</span></td>
+				<td class="field">5 - 20个字符组成，只能使用数字、字母和下划线</td>
+			</tr>
+			<tr>
+				<td class="name">密码：</td>
+				<td><input name="password" type="password" class="input rounded" value="" size="30" maxlength="32" /> <span class="red">*</span></td>
+				<td class="field">5 - 20个字符组成，只能使用数字、字母和下划线</td>
+			</tr>
+			<tr>
+				<td class="name">确认密码：</td>
+				<td><input name="password_" type="password" class="input rounded" value="" size="30" maxlength="32" /> <span class="red">*</span></td>
+				<td class="field"></td>
+			</tr>
+			<tr>
+				<td class="name">角色：</td>
+				<td>
+					<input name="level" type="radio" value="0" onclick="$('#file_list').slideDown(400,function(){$(this).fadeTo(400,1)});" checked /> 普通管理员 &nbsp;&nbsp;&nbsp;&nbsp;
+					<input name="level" type="radio" value="1" onclick="$('#file_list').fadeTo(400,0,function(){$(this).slideUp(400);});"  /> 超级管理员
+				</td>
+				<td class="field"></td>
+			</tr>
+		</table>
+		
+		<table class="table top_line">
+			<tr>
+				<td align="right" height="60"><a id="submit" class="submit" href="#">提交 [Ctrl+Enter]</a></td>
+				<td width="80"><input type="hidden" name="action" value="add" /></td>
+				<td><a class="submit reset" href="javascript:form_admin.reset();">重置</a></td>
+			</tr>
+		</table>		
+		</form>
+
+        
+        
+        
+        
+<!--        <form action="{:U('Admin/System/doEditAdmin')}" method="post" id="doEditAdmin" class="formvalidate">
+            <p>
+                <label for="textfield"><strong>用户名:</strong></label>
+                <input type="text" id="textfield" class="inputbox" value="{$data.u_name}" disabled="disabled" />
+            </p>
+            <p>
+                <label for="textfield"><strong>姓名:</strong></label>
+                <input type="text" id="textfield" class="inputbox" value="{$data.u_username}" name="u_username" validate="{ required:true}" />
+                <span class="smltxt"></span>
+            </p>
+            <p>
+                <label for="errorbox"><span class=""><strong>性别:</strong></span></label>
+                <input type="radio" name="checkboxexample" value="1" <if condition="$data.u_sex eq '1'">checked="checked"</if>/> 男
+                <input type="radio" name="checkboxexample" value="2" <if condition="$data.u_sex eq '2'">checked="checked"</if>/> 女
+                <input type="radio" name="checkboxexample" value="0" <if condition="$data.u_sex eq '0'">checked="checked"</if>/> 保密
+            </p>
+            <p>
+                <label for="errorbox"><span class=""><strong>手机:</strong></span></label>
+                <input type="text" id="errorbox" class="inputbox" value="{$data.u_phone}" />  
+                <span class="smltxt red">
+                    *
+                    <img src="__PUBLIC__/Admin/images/icons/icon_missing.png" alt="Error" />
+                </span>
+            </p>
+            <p>
+                <label for="errorbox"><span class=""><strong>邮箱:</strong></span></label>
+                <input type="text" id="errorbox" class="inputbox" value="{$data.u_email}" />  
+                <span class="smltxt red">
+                    *
+                    <img src="__PUBLIC__/Admin/images/icons/icon_missing.png" alt="Error" />
+                </span>
+            </p>
+            <p>
+                <label for="errorbox"><span class=""><strong>QQ:</strong></span></label>
+                <input type="text" id="errorbox" class="inputbox" value="{$data.u_qq}" />  
+            </p>
+            <p>
+                <label for="errorbox"><span class=""><strong>描述:</strong></span></label>
+                <textarea class="text-input textarea" id="wysiwyg" name="textfield" rows="10" cols="75">{$data.u_description}</textarea>
+            </p>
+            <p>
+                <input type="submit" value="Submit" class="btn" /> 
+            </p>
+        </form>         -->
+        
+    </div>
+</div>
+<script>
+    
+</script>
