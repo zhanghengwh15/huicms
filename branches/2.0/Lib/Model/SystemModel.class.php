@@ -52,4 +52,25 @@ class SystemModel extends Model{
         }
         return $ary_reslut;
     }
+    
+    /**
+     * 更新管理员信息
+     * @author Terry <admin@52sum.com>
+     * @date 2013-3-27
+     * @param array $param 
+     * @return boolean 成功true 失败返回false 
+     */
+    public function doEditAdmin($param=array()){
+        if(!empty($param['u_id']) && isset($param['u_id'])){
+            $uid = $param['u_id'];
+            $ary_result = $this->table_admin->where(array('u_id'=>$uid))->data($param)->save();
+        }else{
+            $ary_result = $this->table_admin->add($param);
+        }
+        if(FALSE !== $ary_result){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
