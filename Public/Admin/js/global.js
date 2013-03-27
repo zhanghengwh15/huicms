@@ -27,7 +27,7 @@ function setFrameworkLayout() {
     $('.breadcrumb').width(right_width-40).height(35).css({
         'float':'left'
     });
-    $('.rightside').width(right_width-45).height(content_height-52).css({
+    $('.rightside').width(right_width-45).height(content_height-82).css({
         'float':'left',
         'overflow-x':'hidden',
         'overflow-y':'auto'
