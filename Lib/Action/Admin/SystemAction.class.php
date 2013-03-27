@@ -19,7 +19,7 @@ class SystemAction extends AdminAction{
         $this->assign("data",$data);
         $this->display();
     }
-    
+
     /**
      * 处理修改密码
      * @author Terry<admin@52sum.com>
@@ -74,4 +74,43 @@ class SystemAction extends AdminAction{
         $this->display();
     }
     
+    /**
+     * 处理修改管理员资料
+     * @author Terry<admin@52sum.com>
+     * @date 2013-3-27
+     * 
+     */
+    public function doEditAdmin(){
+        $system = D("System");
+        $ary_post = $this->_post();
+        if(empty($ary_post['u_id']) && !isset($ary_post['u_id'])){
+            $this->error("管理员信息不存在");
+        }
+        $photo = $_FILES['u_photo']['name'];
+        if(!empty($photo)){
+            import('ORG.Net.UploadFile');
+            $upload = new UploadFile();     // 实例化上传类
+            $upload->maxSize  = 3145728 ;// 设置附件上传大小
+            $upload->allowExts = array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
+            $upload->savePath =  './Public/upload/photo/';// 设置附件上传目录
+            if(!$upload->upload()) {// 上传错误提示错误信息
+				$this->error($upload->getErrorMsg());
+			}else{// 上传成功 获取上传文件信息
+				$info =  $upload->getUploadFileInfo();
+				$ary_post['u_photo'] = '/Public/upload/photo/' . $info[0]['savename'];
+			}
+        }
+        $ary_post['u_update_time']  = date("Y-m-d H:i:s");
+        $ary_result = $system->doEditAdmin($ary_post);
+        if(FALSE !== $ary_result){
+            session("pic",$ary_post['u_photo']);
+            $this->success("管理员信息修改成功");
+        }else{
+            $this->error("管理员信息修改失败");
+        }
+    }
+    
+    public function doUploadAdmin(){
+        $this->display();
+    }
 }
