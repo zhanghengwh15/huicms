@@ -1,6 +1,12 @@
 <div id="leftside" class="leftside">
     <div class="user">
-        <a href='{:U("Admin/System/pageEditAdmin","uid=$uid")}'><img src="{$Think.session.pic|default='__PUBLIC__/Admin/images/avatar.png'}" width="44" height="44" class="hoverimg" alt="Avatar" /></a>
+        <a href='{:U("Admin/System/pageEditAdmin","uid=$uid")}'>
+            <span class="modify">
+                <span class="mask"></span>
+                <span class="text">编辑</span>
+            </span>
+            <img src="{$Think.session.pic|default='__PUBLIC__/Admin/images/avatar.png'}" width="44" height="44" class="hoverimg" alt="Avatar" />
+        </a>
         <p>登陆者:</p>
         <p class="username">{$Think.session.admin_name}</p>
         <p class="userbtn"><a href="{:U('Admin/System/pageEditAdminPasswd')}" title="">修改密码</a></p>
