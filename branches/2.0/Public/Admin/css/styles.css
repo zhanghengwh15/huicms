@@ -1,6 +1,6 @@
 html, body {height: 100%;scrollbar-arrow-color: #525252;scrollbar-highlight-color: #fff;}
 
-body {height: 100%; font-family: Arial, Helvetica, sans-serif; font-size: 13px; margin: 0; padding: 0; background:#eaeaea url(../images/bg_body_left.png) repeat-y left; color: #666;}
+body {height: 100%; font-family: Arial, Helvetica, sans-serif; font-size: 13px; margin: 0; padding: 0; background:#eaeaea; color: #666;}
 p {padding: 0; margin: 0;}
 ul, li {list-style: none; padding: 0; margin: 0;}
 img {border: none;}
@@ -230,6 +230,11 @@ ul.pagination li.page a:hover {background: #00789F url(i../imagesmg/bg_buttons.p
 .list .field{color:#F60; font-family:Tahoma,Geneva,sans-serif; line-height:20px;}
 .list .notes{color:#999;}
 
+/*修改头像*/
+.user .modify {position: relative;left: 3px; top: 52px;font-size: 10px;width: 44px;height: 16px;display: block;}
+.user .mask {z-index: 1;position: absolute;top: 0px;left: 0px;width: 100%;height: 16px;filter: alpha(opacity=62.5);opacity: .625;background: #000;}
+.user .text {position: absolute;left: 0;top: 0px;width: 44px;height: 16px;z-index: 2;line-height: 18px;text-align: center;color: #ffffff;}
+
 /* 交换背景色 js函数样式 */
 .even{background-color:#FFFFFF;} /* 偶数行背景色 #EDF5FD */
 .odd{background-color:#F0F0F0;} /* 奇数行背景色 */
@@ -251,7 +256,7 @@ ul.pagination li.page a:hover {background: #00789F url(i../imagesmg/bg_buttons.p
 .b{font-weight:bold;} /* 粗体 */
 
 /* 表单提交按钮样式 a */
-.submit{width:120px; height:35px; line-height:35px; text-align:center; display:block; color:#FFF; background:url(../images/sprite_blue.png) -4px -220px no-repeat;}
+.submit{width:120px; height:35px; line-height:35px; text-align:center; display:block;border: none;cursor: pointer; color:#FFF; background:url(../images/sprite_blue.png) -4px -220px no-repeat;}
 .submit:hover{color:#FFF; text-decoration:none; background-position:-4px -261px;}
 
 a.enhanced_toggleResult {display: none;}
