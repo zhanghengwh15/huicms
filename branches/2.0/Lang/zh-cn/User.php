@@ -9,5 +9,13 @@ $array = array(
     'ACCOUNT_EXIT_DISABLED' => '帐号不存在或者已禁用！',
     'PASSWD_ERROR'  =>'密码错误！',
     'LOGIN_SUCCESS' =>'登陆成功',
+    "LOGIN" =>  "登陆",
+    "USERNAME"  =>"用户名",
+    "PASSWORD"  =>"密  码",
+    "CODE"  =>"验证码",
+    "LOGINWEB"  =>"登陆页",
+    "CLICKUPDATECODE"   =>"点击更新验证码",
+    "SUBMITLOADING"   =>"提交请求中，请稍候...",
+    "AJAXERROR"   =>"AJAX请求发生错误",
 );
 return $array;
