@@ -18,21 +18,21 @@
 				<td>
                     <span class="current" style="font-weight:700;font-size: 14px;">{$data.u_name}</span>
                 </td>
-				<td class="field">5 - 20个字符组成，只能使用数字、字母和下划线</td>
+				<td class="field"></td>
 			</tr>
 			<tr>
 				<td class="name">姓名：</td>
 				<td>
-                    <input name="u_username" type="text" class="input rounded" value="{$data.u_username}" size="30" maxlength="50" /> 
+                    <input name="u_username" type="text" class="input rounded" value="{$data.u_username}" size="30" maxlength="50" validate="{ username:true}" /> 
                 </td>
-				<td class="field">5 - 20个字符组成，只能使用数字、字母和下划线</td>
+				<td class="field">5 - 50个字符组成，只能使用数字、字母和下划线</td>
 			</tr>
 			<tr>
 				<td class="name">性别：</td>
 				<td>
-					<input name="u_sex" type="radio" value="1" /> 男 &nbsp;&nbsp;
-                    <input name="u_sex" type="radio" value="2" /> 女 &nbsp;&nbsp;
-					<input name="u_sex" type="radio" value="0" /> 保密
+                    <input name="u_sex" type="radio" value="1" <if condition="$data.u_sex eq '1'">checked</if> /> 男 &nbsp;&nbsp;
+                    <input name="u_sex" type="radio" value="2" <if condition="$data.u_sex eq '2'">checked</if>/> 女 &nbsp;&nbsp;
+					<input name="u_sex" type="radio" value="0" <if condition="$data.u_sex eq '0'">checked</if>/> 保密
 				</td>
 				<td class="field"></td>
 			</tr>
@@ -40,6 +40,24 @@
 				<td class="name">手机：</td>
 				<td>
                     <input name="u_phone" id="u_phone" type="text" class="input rounded" value="{$data.u_phone}" size="30" maxlength="50" /> 
+                </td>
+				<td class="field"></td>
+			</tr>
+            <tr>
+				<td class="name">所属组：</td>
+				<td>
+                    <if condition="$data.u_name eq $admin[SYS_ADMIN]">
+                        <select name="role_id" class="select rounded" disabled="disabled">
+                            <option value="0">系统管理员</option>
+                        </select>
+                    <else />    
+                       <select name="role_id" class="select rounded" validate="{ selected:true}">
+                            <volist name="role" id="re">
+                                <option value="{$re.id}" <if condition="$re.id eq $data[role_id]">selected="selected"</if>>{$re.name}</option>
+                            </volist>
+                        </select> 
+                    </if>
+                    
                 </td>
 				<td class="field"></td>
 			</tr>
@@ -57,13 +75,25 @@
 <!--                    <iframe src="{:U('Admin/System/doUploadAdmin')}" width="183" height="30" border="0" scrolling="no" frameborder="0"></iframe>-->
 <!--                    <include file="Common:incUpload" />-->
                 </td>
-				<td class="field"></td>
+				<td class="field">
+                    <if condition="$data.u_photo neq ''">
+                        <img src="{$data.u_photo}" title="{$data.u_username}" width="40" height="40" alt="{$data.u_username}">
+                    </if>
+                </td>
 			</tr>
             <tr>
 				<td class="name">QQ：</td>
 				<td>
                     <input name="u_qq" type="text" class="input rounded" value="{$data.u_qq}" size="30" /> 
                 </td>
+				<td class="field"></td>
+			</tr>
+            <tr>
+				<td class="name">状态：</td>
+				<td>
+                    <input name="u_status" type="radio" value="1" <if condition="$data.u_sex eq '1'">checked</if> /> 启用 &nbsp;&nbsp;
+                    <input name="u_status" type="radio" value="0" <if condition="$data.u_sex eq '0'">checked</if>/> 停用 
+				</td>
 				<td class="field"></td>
 			</tr>
             <tr>
