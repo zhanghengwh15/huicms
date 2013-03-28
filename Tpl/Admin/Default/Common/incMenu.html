@@ -5,7 +5,7 @@
                 <span class="mask"></span>
                 <span class="text">编辑</span>
             </span>
-            <img src="{$Think.session.pic|default='__PUBLIC__/Admin/images/avatar.png'}" width="44" height="44" class="hoverimg" alt="Avatar" />
+            <img src="{$Think.session.pic|default='__PUBLIC__/Admin/images/avatar.png'}" width="44" height="44" class="hoverimg" alt="" />
         </a>
         <p>登陆者:</p>
         <p class="username">{$Think.session.admin_name}</p>
@@ -31,8 +31,8 @@
                 <li>
                     <a class="collapsed heading">管理员管理</a>
                     <ul class="navigation">
-                        <li><a href="#" title="">管理员列表</a></li>
-                        <li><a href="#" title="">添加管理员</a></li>
+                        <li><a href="{:U('Admin/System/pageList')}" title="管理员列表">管理员列表</a></li>
+                        <li><a href="{:U('Admin/System/pageAddSystem')}" title="添加管理员">添加管理员</a></li>
                     </ul>
                 </li>
                 <li>
