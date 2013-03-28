@@ -3,23 +3,24 @@
         <h2>修改密码</h2>
     </div>
     <div class="contentbox">
-        <form action="{:U('Admin/System/doEditPasswd')}" method="post" autocomplete="on">
+        <form action="{:U('Admin/System/doEditPasswd')}" method="post" autocomplete="on" class="formvalidate">
             <p>
                 <label for="textfield"><strong>旧密码:</strong></label>
-                <input type="password" id="textfield" class="inputbox" name="old_passwd" required /> <br />
+                <input type="password" id="textfield" class="inputbox" name="old_passwd" required validate="{ required:true}"/> <br />
                 <span class="smltxt"></span>
             </p>
             <p>
                 <label for="textfield"><span><strong>新密码:</strong></span></label>
-                <input type="password" id="errorbox" class="inputbox" name="u_passwd" required /><br />
+                <input type="password" id="u_passwd" class="inputbox" name="u_passwd" required validate="{ required:true}"/><br />
                 <span class="smltxt red"></span>
             </p>
             <p>
                 <label for="textfield"><span><strong>确认密码:</strong></span></label>
-                <input type="password" id="correctbox" class="inputbox" name="confirm_passwd" required />
+                <input type="password" id="correctbox" class="inputbox" name="confirm_passwd" required validate="{ required:true,equalTo:'#u_passwd'}"/>
             </p>
             <input type="hidden" value="{$data.id}" name="u_id">
-            <input type="submit" value="Submit" class="btn" /> 
+            <input type="submit" value="提交" class="btn" /> 
+            <input type="reset" value="重置" class="btn" /> 
         </form>         
     </div>
 </div>
