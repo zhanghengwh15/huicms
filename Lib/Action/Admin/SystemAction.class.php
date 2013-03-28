@@ -31,14 +31,19 @@ class SystemAction extends AdminAction{
      * @date 2013-01-22
      */
     public function pageList(){
+        $ary_get = $this->_get();
+        $pagesize = $this->_get('pageall', 'htmlspecialchars', 10);
         $admin_access = D('Config')->getCfgByModule('ADMIN_ACCESS');
         $admin = M("admin");
         $count = $admin->join( C("DB_PREFIX")."role ON ".C("DB_PREFIX")."admin.role_id=".C("DB_PREFIX")."role.id")->where()->count();
-        $obj_page = new Page($count, 10);
-        $page = $obj_page->show();
+        $obj_page = new Page($count, $pagesize);
+        $obj_page->setConfig("header","条");
+        $obj_page->setConfig('theme','<li style="heigth:23px;line-height:23px;padding-top:8px;">共%totalRow%%header%&nbsp;%nowPage%/%totalPage%页&nbsp;%first%&nbsp;%upPage%&nbsp;%prePage%&nbsp;%linkPage%&nbsp;%nextPage%&nbsp;%downPage%&nbsp;%end%</li>');
+        $page = $obj_page->newshow();
         $ary_data = $admin->join( C("DB_PREFIX")."role ON ".C("DB_PREFIX")."admin.role_id=".C("DB_PREFIX")."role.id")->where()->limit($obj_page->firstRow, $obj_page->listRows)->select();
         $this->assign("data",$ary_data);
         $this->assign("admin",$admin_access);
+        $this->assign("filter",$ary_get);
 //        echo "<pre>";print_r($admin_access);exit;
         $this->assign("page",$page);
         $this->display();
