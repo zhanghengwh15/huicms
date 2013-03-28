@@ -2,7 +2,7 @@
     <div class="headings altheading">
         <h2>管理员列表</h2>
     </div>
-    <div class="contentbox">
+    <div class="contentbox" data-uri='{:U("Admin/System/doEditStatus")}'>
         <table width="100%">
             <thead>
                 <tr>
@@ -25,42 +25,44 @@
                     <td class="center"><input type="checkbox" value="{$vo.u_id}" name="checkall" class="checkSon" /></td>
                     <td class="center">
                         <a href='{:U("Admin/System/pageEditAdmin","uid=$vo[u_id]")}' title="编辑"><img src="__PUBLIC__/Admin/images/icons/icon_edit.png" alt="编辑" title="编辑" /></a>
-                <if condition="$vo.u_name neq $admin[SYS_ADMIN]">
-                    <a href="javascript:void(0);" title="删除" class="dodel" val="{$vo.u_id}" data-uri='{:U("Admin/System/doDelete","uid=$vo[u_id]")}' data-acttype="ajax"><img src="__PUBLIC__/Admin/images/icons/icon_square_close.png" alt="删除" title="删除" /></a>
-                </if>
-                </td>
-                <td class="center">
-                    <img src="{$vo.u_photo|default='__PUBLIC__/Admin/images/avatar.png'}" width="44" height="44" />
-                </td>
-                <td class="center">{$vo.u_name}</td>
+                        <if condition="$vo.u_name neq $admin[SYS_ADMIN]">
+                            <a href="javascript:void(0);" title="删除" class="dodel" val="{$vo.u_id}" data-uri='{:U("Admin/System/doDelete","uid=$vo[u_id]")}' data-acttype="ajax"><img src="__PUBLIC__/Admin/images/icons/icon_square_close.png" alt="删除" title="删除" /></a>
+                        </if>
+                    </td>
+                    <td class="center">
+                        <img src="{$vo.u_photo|default='__PUBLIC__/Admin/images/avatar.png'}" width="44" height="44" />
+                    </td>
+                    <td class="center">{$vo.u_name}</td>
 
-                <td class="center">
-                <if condition="$vo.u_name eq $admin[SYS_ADMIN]">
-                    系统管理员
-                    <else />    
-                    {$vo.name}
-                </if>
+                    <td class="center">
+                        <if condition="$vo.u_name eq $admin[SYS_ADMIN]">
+                            系统管理员
+                            <else />    
+                            {$vo.name}
+                        </if>
 
-                </td>
+                    </td>
 
-                <td class="center">{$vo.u_lastlogin_time}</td>
-                <td class="center">{$vo.u_ip|default="暂无"}</td>
-                <td class="center">{$vo.u_countlog}</td>
-                <td class="center">{$vo.u_create_time}</td>
-                <td class="center">{$vo.u_update_time}</td>
-                <td class="center">
-                <if condition="$vo.u_status eq '1'">
-                    <a href="javascript:void(0);" alt="启用" title="启用">
-                        <img src="__PUBLIC__/Admin/images/icons/icon_approve.png" alt="启用" title="启用" />
-                    </a>
-                    <else />
-                    <a href="javascript:void(0);" alt="停用" title="停用">
-                        <img src="__PUBLIC__/Admin/images/icons/icon_delete.png" alt="停用" title="停用" />
-                    </a>
-                </if>
-                </td>
+                    <td class="center">{$vo.u_lastlogin_time}</td>
+                    <td class="center">{$vo.u_ip|default="暂无"}</td>
+                    <td class="center">{$vo.u_countlog}</td>
+                    <td class="center">{$vo.u_create_time}</td>
+                    <td class="center">{$vo.u_update_time}</td>
+                    <td class="center">
+                            <img class="pointer" data-id="{$vo[u_id]}" style="cursor: pointer;" data-field="u_status" data-value="{$vo.u_status}"
+                                <if condition="$vo.u_status eq '1'">
+                                    src="__PUBLIC__/Admin/images/icons/icon_1.png" alt="启用" title="启用"
+                                <else />
+                                    src="__PUBLIC__/Admin/images/icons/icon_0.png" alt="停用" title="停用"
+                                </if> 
+                            />
+                        </if>
+                    </td>
                 </tr>
             </volist>
+            <empty name="data">
+                <tr><td colspan="12" class="left">暂时没有数据!</td></tr>
+            </empty>
             </tbody>
         </table>
         <!--        <div class="extrabottom">
@@ -127,6 +129,41 @@
             }
         });
     
-    
+        //切换
+        $('.pointer').live('click', function() {
+            var url = $(".contentbox").attr("data-uri");
+            var img    = this,
+            s_val  = ($(img).attr('data-value'))== 0 ? 1 : 0,
+            s_name = $(img).attr('data-field'),
+            s_id   = $(img).attr('data-id'),
+            s_src  = $(img).attr('src');
+            s_msg = ($(img).attr('data-value'))== 0 ? '启用' : '停用';
+            $.ajax({
+                url:url,
+                cache:false,
+                dataType:"json",
+                data: {id:s_id, field:s_name, val:s_val},
+                type:"POST",
+                beforeSend:function(){
+                    $("#J_ajax_loading").stop().removeClass('ajax_error').addClass('ajax_loading').html("提交请求中，请稍候...").show();
+                },
+                error:function(){
+                    $("#J_ajax_loading").addClass('ajax_error').html("AJAX请求发生错误！").show().fadeOut(5000);
+                },
+                success:function(msgObj){
+                    $("#J_ajax_loading").hide();
+                    if(msgObj.status == '1'){
+                        $("#J_ajax_loading").removeClass('ajax_error').addClass('ajax_success').html(msgObj.info).show().fadeOut(5000);
+                        if(s_src.indexOf('0')>-1) {
+                                $(img).attr({'src':s_src.replace('0','1'),'data-value':s_val,'title':s_msg,'alt':s_msg});
+                        } else {
+                                $(img).attr({'src':s_src.replace('1','0'),'data-value':s_val,'title':s_msg,'alt':s_msg});
+                        }
+                    }else{
+                        $("#J_ajax_loading").removeClass('ajax_success').addClass('ajax_error').html(msgObj.info).show().fadeOut(5000);
+                    }
+                }
+            });
+        });
     });    
 </script>
