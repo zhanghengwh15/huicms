@@ -17,7 +17,8 @@ h1, h2, h3, h4, h5 {padding: 0; margin: 0;}
 .breadcrumb{}
 .rightside{border-top:1px solid #B6C2CE;padding: 10px 20px;}
 
-/*定义滚动条样式*/
+/*全局有效CLASS*/
+.center{text-align: center;}
 
 /* Header Elements */
 
@@ -143,6 +144,7 @@ input, textarea {font-family: Arial, Helvetica, sans-serif;}
 .inputbox:focus {border: 1px solid #666;}
 .errorbox {border: 1px solid #CC0000; background: #FCF0EF url(../images/bg_fade_red_sml.png) repeat-x top; color: #CC0000; margin-right: 5px;}
 .errorbox:focus {border: 1px solid #8A0000;}
+span.errormsg {color: red;text-indent: 20px;display: inline-block;background-image: url('../images/icons/icon_error.png');background-position: 2px 0px;margin-left: 5px;background-repeat: no-repeat;}
 .correctbox {border: 1px solid #9DB832; background: #F3F8E0 url(../images/bg_fade_green_sml.png) repeat-x top;; color: #9DB832; margin-right: 5px;}
 .correctbox:focus {border: 1px solid #7C9227;}
 .smallbox {width: 150px;}
