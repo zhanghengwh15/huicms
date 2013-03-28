@@ -17,6 +17,12 @@ h1, h2, h3, h4, h5 {padding: 0; margin: 0;}
 .breadcrumb{}
 .rightside{border-top:1px solid #B6C2CE;padding: 10px 20px;}
 
+/*ajax加载*/
+.ajax_loading{ color:blue; padding:2px 5px 2px 25px; background:url('../images/ajaxloading.gif') no-repeat 3px 6px; position:absolute; right:10px; top:77px;display: none;}
+.ajax_error{ color:red; padding:2px 5px 2px 25px; background:url('../images/ajaxerror.gif') no-repeat 3px 3px; position:absolute; right:10px; top:78px;display: none;}
+.ajax_success{ color:green; padding:2px 5px 2px 25px; background:url('../images/ajaxsuccess.gif') no-repeat 3px 3px; position:absolute; right:10px; top:78px;display: none;}
+
+
 /*全局有效CLASS*/
 .center{text-align: center;}
 
