@@ -89,7 +89,7 @@ ul.smltabs li {float: left;}
 .ui-tabs .ui-tabs-panel {background-image: none;}
 
 ul.pagination {float: right; font-size: 11px; clear: both;}
-ul.pagination li {float: left; padding-right: 5px;}
+ul.pagination li {float: left; padding-right: 5px;padding-top: 8px;}
 ul.pagination li a {padding: 3px 7px; border: 1px solid #ccc; text-decoration: none; border-radius: 5px; -moz-border-radius: 5px; display: block; background: #fff url(../img/bg_fade_up.png) repeat-x bottom;}
 ul.pagination li.page a {color: #fff; font-weight: 700;}
 ul.pagination li.page a:hover {color: #fff;}
