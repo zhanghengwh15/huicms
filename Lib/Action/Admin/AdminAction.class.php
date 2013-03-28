@@ -58,6 +58,7 @@ abstract class AdminAction extends Action{
                 }
             }
         }
+        import('ORG.Util.Page');
     }
     
     /**
