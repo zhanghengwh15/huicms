@@ -270,6 +270,36 @@ class SystemAction extends AdminAction{
         }
     }
     
+    /**
+     * 更改管理员状态
+     * @author Terry<admin@52sum.com>
+     * @date 2013-3-29
+     */
+    public function doEditStatus(){
+        $ary_post = $this->_post();
+        if(!empty($ary_post['id']) && isset($ary_post['id'])){
+            $system = M("Admin");
+            $data = array();
+            $data[$ary_post['field']] = $ary_post['val'];
+            $ary_result = $system->where(array('u_id'=>$ary_post['id']))->data($data)->save();
+            if(FALSE !== $ary_result){
+                if(!empty($ary_post['val']) && $ary_post['val'] == '1'){
+                    $this->success("启用成功");
+                }else{
+                    $this->success("禁用成功");
+                }
+            }  else {
+                if(!empty($ary_post['val']) && $ary_post['val'] == '1'){
+                    $this->success("启用失败");
+                }else{
+                    $this->success("禁用失败");
+                }
+            }
+        }else{
+            $this->error("管理员不存在");
+        }
+    }
+    
     public function doUploadAdmin(){
         $this->display();
     }
