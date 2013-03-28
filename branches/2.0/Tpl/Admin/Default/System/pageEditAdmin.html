@@ -16,9 +16,27 @@
 			<tr>
 				<td class="name">用户名：</td>
 				<td>
-                    <span class="current" style="font-weight:700;font-size: 14px;">{$data.u_name}</span>
+                    <if condition="$data.u_name eq $admin[SYS_ADMIN]">
+                        <span class="current" style="font-weight:700;font-size: 14px;">{$data.u_name}</span>
+                    <else />    
+                        <input name="u_name" type="text" class="input rounded" value="{$data.u_name}" size="30" maxlength="50" required validate='{ required:true,maxlength:30,remote:"{:U("Admin/System/checkName","uid=$data[u_id]")}"}' /> 
+                    </if>
                 </td>
-				<td class="field"></td>
+				<td class="field"><span class="red">[必填]</span>这里输入管理员登陆时需要的账号</td>
+			</tr>
+            <tr>
+				<td class="name">密码：</td>
+				<td>
+                    <input name="u_password" id="u_password" type="password" class="input rounded" value="" size="30" maxlength="50" validate="{ rangelength:[6,20],messages:{required:'密码不能为空'}}" /> 
+                </td>
+				<td class="field"><span class="red">[必填]</span>6 - 20个字符组成.不修改则留空</td>
+			</tr>
+            <tr>
+				<td class="name">确认密码：</td>
+				<td>
+                    <input name="confirm_password" type="password" class="input rounded" value="" size="30" maxlength="50" validate="{ rangelength:[6,20],equalTo:'#u_password'}" /> 
+                </td>
+				<td class="field"><span class="red">[必填]</span>6 - 20个字符组成.不修改则留空</td>
 			</tr>
 			<tr>
 				<td class="name">姓名：</td>
@@ -91,8 +109,8 @@
             <tr>
 				<td class="name">状态：</td>
 				<td>
-                    <input name="u_status" type="radio" value="1" <if condition="$data.u_sex eq '1'">checked</if> /> 启用 &nbsp;&nbsp;
-                    <input name="u_status" type="radio" value="0" <if condition="$data.u_sex eq '0'">checked</if>/> 停用 
+                    <input name="u_status" type="radio" value="1" <if condition="$data.u_status eq '1'">checked</if> /> 启用 &nbsp;&nbsp;
+                    <input name="u_status" type="radio" value="0" <if condition="$data.u_status eq '0'">checked</if>/> 停用 
 				</td>
 				<td class="field"></td>
 			</tr>
