@@ -6,6 +6,44 @@
  * 
  */
 class SystemAction extends AdminAction{
+    
+    /**
+     * 控制器初始化
+     * @author Terry <admin@52sum.com>
+     * @date 2013-03-27
+     */
+    public function _initialize() {
+        parent::_initialize();
+    }
+    
+    /**
+     * 默认控制器
+     * @author Terry <admin@52sum.com>
+     * @date 2013-03-27
+     */
+    public function index() {
+        $this->redirect(U('Admin/System/pageList'));
+    }
+    
+    /**
+     * 管理员列表
+     * @author Terry <wanghui@guanyisoft.com>
+     * @date 2013-01-22
+     */
+    public function pageList(){
+        $admin_access = D('Config')->getCfgByModule('ADMIN_ACCESS');
+        $admin = M("admin");
+        $count = $admin->join( C("DB_PREFIX")."role ON ".C("DB_PREFIX")."admin.role_id=".C("DB_PREFIX")."role.id")->where()->count();
+        $obj_page = new Page($count, 10);
+        $page = $obj_page->show();
+        $ary_data = $admin->join( C("DB_PREFIX")."role ON ".C("DB_PREFIX")."admin.role_id=".C("DB_PREFIX")."role.id")->where()->limit($obj_page->firstRow, $obj_page->listRows)->select();
+        $this->assign("data",$ary_data);
+        $this->assign("admin",$admin_access);
+//        echo "<pre>";print_r($admin_access);exit;
+        $this->assign("page",$page);
+        $this->display();
+    }
+    
     /**
      * 修改管理员登录密码
      * @author Terry <admin@52sum.com>
@@ -62,15 +100,20 @@ class SystemAction extends AdminAction{
      * 
      */
     public function pageEditAdmin(){
+        $admin_access = D('Config')->getCfgByModule('ADMIN_ACCESS');
         $uid = (int) $this->_get('uid', 'htmlspecialchars', 0);
         if(!empty($uid) && $uid > 0){
             $system = D("System");
             $ary_result = $system->getFindAdmin($uid);
+            $role = D("Role");
+            $ary_role = $role->where(array('status'=>'1'))->select();
         }else{
             $this->error("用户不存在，请重试！");
         }
+        $this->assign("admin",$admin_access);
         $this->assign("data",$ary_result);
-        //echo '<pre>';print_r($ary_get);exit;
+        $this->assign("role",$ary_role);
+//        echo '<pre>';print_r($ary_result);exit;
         $this->display();
     }
     
@@ -103,7 +146,9 @@ class SystemAction extends AdminAction{
         $ary_post['u_update_time']  = date("Y-m-d H:i:s");
         $ary_result = $system->doEditAdmin($ary_post);
         if(FALSE !== $ary_result){
-            session("pic",$ary_post['u_photo']);
+            if(!empty($ary_post['u_photo']) && isset($ary_post['u_photo'])){
+                session("pic",$ary_post['u_photo']);
+            }
             $this->success("管理员信息修改成功");
         }else{
             $this->error("管理员信息修改失败");
