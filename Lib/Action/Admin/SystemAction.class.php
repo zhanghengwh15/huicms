@@ -32,11 +32,11 @@ class SystemAction extends AdminAction{
      */
     public function pageList(){
         $ary_get = $this->_get();
-        $pagesize = $this->_get('pageall', 'htmlspecialchars', 10);
+        $ary_get['pageall'] = $this->_get('pageall', 'htmlspecialchars', 10);
         $admin_access = D('Config')->getCfgByModule('ADMIN_ACCESS');
         $admin = M("admin");
         $count = $admin->join( C("DB_PREFIX")."role ON ".C("DB_PREFIX")."admin.role_id=".C("DB_PREFIX")."role.id")->where()->count();
-        $obj_page = new Page($count, $pagesize);
+        $obj_page = new Page($count, $ary_get['pageall']);
         $obj_page->setConfig("header","条");
         $obj_page->setConfig('theme','<li style="heigth:23px;line-height:23px;padding-top:8px;">共%totalRow%%header%&nbsp;%nowPage%/%totalPage%页&nbsp;%first%&nbsp;%upPage%&nbsp;%prePage%&nbsp;%linkPage%&nbsp;%nextPage%&nbsp;%downPage%&nbsp;%end%</li>');
         $page = $obj_page->newshow();
@@ -148,15 +148,125 @@ class SystemAction extends AdminAction{
 				$ary_post['u_photo'] = '/Public/upload/photo/' . $info[0]['savename'];
 			}
         }
+        unset($ary_post['confirm_password']);
+        if(!empty($ary_post['u_password'])){
+            $ary_post['u_passwd']   = md5(trim($ary_post['u_password']));
+        }
         $ary_post['u_update_time']  = date("Y-m-d H:i:s");
         $ary_result = $system->doEditAdmin($ary_post);
         if(FALSE !== $ary_result){
             if(!empty($ary_post['u_photo']) && isset($ary_post['u_photo'])){
                 session("pic",$ary_post['u_photo']);
             }
-            $this->success("管理员信息修改成功");
+            $this->success("管理员信息更新成功");
         }else{
-            $this->error("管理员信息修改失败");
+            $this->error("管理员信息更新失败");
+        }
+    }
+    
+    /**
+     * 添加管理员信息
+     * @author Terry<admin@52sum.com>
+     * @date 2013-3-29
+     */
+    public function pageAddAdmin(){
+        $admin_access = D('Config')->getCfgByModule('ADMIN_ACCESS');
+        $role = D("Role");
+        $ary_role = $role->where(array('status'=>'1'))->select();
+        $this->assign("admin",$admin_access);
+        $this->assign("role",$ary_role);
+        $this->display();
+    }
+
+    /**
+     * 保存管理员信息
+     * @author Terry<admin@52sum.com>
+     * @date 2013-3-29
+     */
+    public function doSaveAdmin(){
+        $system = D("System");
+        $ary_post = $this->_post();
+        $photo = $_FILES['u_photo']['name'];
+        if(!empty($photo)){
+            import('ORG.Net.UploadFile');
+            $upload = new UploadFile();     // 实例化上传类
+            $upload->maxSize  = 3145728 ;// 设置附件上传大小
+            $upload->allowExts = array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
+            $upload->savePath =  './Public/upload/photo/';// 设置附件上传目录
+            if(!$upload->upload()) {// 上传错误提示错误信息
+				$this->error($upload->getErrorMsg());
+			}else{// 上传成功 获取上传文件信息
+				$info =  $upload->getUploadFileInfo();
+				$ary_post['u_photo'] = '/Public/upload/photo/' . $info[0]['savename'];
+			}
+        }
+        unset($ary_post['confirm_password']);
+        if(!empty($ary_post['u_password'])){
+            $ary_post['u_passwd']   = md5(trim($ary_post['u_password']));
+        }
+        $ary_post['u_create_time']  = date("Y-m-d H:i:s");
+        $ary_result = $system->doEditAdmin($ary_post);
+        if(FALSE !== $ary_result){
+            if(!empty($ary_post['u_photo']) && isset($ary_post['u_photo'])){
+                session("pic",$ary_post['u_photo']);
+            }
+            $this->success("添加管理员成功");
+        }else{
+            $this->error("添加管理员失败");
+        }
+    }
+    
+    /**
+     * 校验管理员唯一性
+     * @author Terry<admin@52sum.com>
+     * @date 2013-3-29
+     */
+    public function checkName(){
+        $system = M("Admin");
+        $ary_get = $this->_get();
+        if(!empty($ary_get['u_name']) && isset($ary_get['u_name'])){
+            if(!empty($ary_get['uid']) && isset($ary_get['uid'])){
+                $where = array();
+                $where['u_name'] = $ary_get['u_name'];
+                $where['u_id'] = array("neq",$ary_get['uid']);
+                $ary_result = $system->where($where)->find();
+                if(!empty($ary_result) && is_array($ary_result)){
+                    $this->ajaxReturn("用户名已存在");
+                }else{
+                    $this->ajaxReturn(true);
+                }
+            }else{
+                $ary_result = $system->where(array('u_name'=>$ary_get['u_name']))->find();
+                if(!empty($ary_result) && is_array($ary_result)){
+                    $this->ajaxReturn("用户名已存在");
+                }else{
+                    $this->ajaxReturn(true);
+                }
+            }
+        }else{
+            $this->ajaxReturn("用户名不能为空");
+        }
+        
+        
+    }
+    
+    /**
+     * 删除管理员
+     * @author Terry<admin@52sum.com>
+     * @date 2013-3-29
+     */
+    public function doDelete(){
+        $ary_get = $this->_get();
+        if(!empty($ary_get['uid']) && isset($ary_get['uid'])){
+            $system = M("Admin");
+            $ary_result = $system->where(array('u_id'=>$ary_get['uid']))->delete();
+            if(FALSE !== $ary_result){
+                $this->success("管理员删除成功");
+            }  else {
+                $this->error("管理员删除失败");
+            }
+        }else{
+            $this->error("管理员不存在");
         }
     }
     
