@@ -86,17 +86,8 @@ $(document).ready(function(){
 
 $(document).ready(function(){   
     $(".formvalidate").validate({
-        errorElement: "label",
-        errorClass: "errorbox",
-        errorPlacement: function(error, element) {
-            if ( element.is(":radio") ){
-                error.appendTo( element.next() );  //这里就可以写自己想放的位置了，用after，appendTo什么的
-            }else if( element.is(":checkbox") ){
-                error.appendTo ( element.next() );
-            }else{
-                error.appendTo( element.next() );
-            }
-        }
+        errorElement: "span",
+        errorClass: "errormsg"
     });   
 });
 
@@ -111,6 +102,23 @@ $(document).ready(function(){
 			$(this).removeClass('activity'); 
 		}
 	);
-    
-    
 });
+
+/**
+ * 全选与取消全选
+ * 将全选的checkbox的class设为checkAll.列表中的checkbox的class设为checkSon
+ * @author Terry<admin@52sum.com>
+ * @date 2013-03-28
+ */
+$(document).ready(function(){
+    /*全选与取消*/
+    $('#checkboxall').click(function(){
+        if($(this).attr('checked')=='checked'){
+            $('.checkSon').attr('checked','checked');
+        }else{
+            $('.checkSon').removeAttr('checked');
+        }
+    });
+    
+    
+})
