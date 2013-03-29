@@ -2,8 +2,8 @@
 
 <ul>	
     <li><img src="__PUBLIC__/Admin/images/icons/icon_breadcrumb.png" alt="Location" /></li>
-    <li><a href="#" title="">首页</a>&nbsp;:</li>
-    <li>商品管理</li>
+    <li><a href='{:U("Admin/Index/index")}' title="">首页</a>&nbsp;:</li>
+    <li><a href='{:U("Admin/$breadcrumbs[url]/index")}'>{$breadcrumbs.module}</a></li>
     <li>/</li>
-    <li class="current">商品列表</li>
+    <li class="current">{$breadcrumbs.action}</li>
 </ul>
