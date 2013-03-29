@@ -118,7 +118,6 @@ class SystemAction extends AdminAction{
         $this->assign("admin",$admin_access);
         $this->assign("data",$ary_result);
         $this->assign("role",$ary_role);
-//        echo '<pre>';print_r($ary_result);exit;
         $this->display();
     }
     
