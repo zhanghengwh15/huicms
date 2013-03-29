@@ -25,6 +25,7 @@ h1, h2, h3, h4, h5 {padding: 0; margin: 0;}
 
 /*全局有效CLASS*/
 .center{text-align: center;}
+.field_head{font-weight: bold;}
 
 /* Header Elements */
 
@@ -246,7 +247,7 @@ ul.pagination li.page a:hover {background: #00789F url(i../imagesmg/bg_buttons.p
 /* 交换背景色 js函数样式 */
 .even{background-color:#FFFFFF;} /* 偶数行背景色 #EDF5FD */
 .odd{background-color:#F0F0F0;} /* 奇数行背景色 */
-.activity{background-color:#CEFFCE;} /* 活动行背景色 #FFFFCC */ 
+.activity{background-color:#E1E1FF;} /* 活动行背景色 #FFFFCC */ 
 
 .table{margin:0 auto; padding:0; width:98%; border:0;}
 .td_align td{text-align:center;}
