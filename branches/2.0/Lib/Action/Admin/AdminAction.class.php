@@ -26,6 +26,11 @@ abstract class AdminAction extends Action{
         }
         //判断用户是否登陆
         $this->doCheckLogin();
+        $bm = array();
+        $bm['url']    = MODULE_NAME;
+        $bm['module']    = L(MODULE_NAME);
+        $bm['action']    = L(MODULE_NAME.'_'.ACTION_NAME);
+        $this->assign ('breadcrumbs',$bm);
         import('ORG.Util.Session');
         $this->assign("uid",session("admin"));
         $admin_access = D('Config')->getCfgByModule('ADMIN_ACCESS');
@@ -75,6 +80,13 @@ abstract class AdminAction extends Action{
         }
     }
     
-    
+    /**
+     * 默认控制器
+     * @author Terry <admin@52sum.com>
+     * @date 2013-03-27
+     */
+    public function index(){
+        $this->redirect(U('Admin/'.MODULE_NAME.'/pageList'));
+    }
     
 }
