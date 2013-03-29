@@ -32,14 +32,14 @@ class RoleNavAction extends AdminAction{
     public function pageList(){
         $rolenav = D("RoleNav");
         $ary_get['pageall'] = $this->_get('pageall', 'htmlspecialchars', 10);
-        $count = $rolenav->where(array('status'=>'1'))->count();
+        $count = $rolenav->where()->count();
         
         $obj_page = new Page($count, $ary_get['pageall']);
         $obj_page->setConfig("header","条");
         $obj_page->setConfig('theme','<li style="heigth:23px;line-height:23px;padding-top:8px;">共%totalRow%%header%&nbsp;%nowPage%/%totalPage%页&nbsp;%first%&nbsp;%upPage%&nbsp;%prePage%&nbsp;%linkPage%&nbsp;%nextPage%&nbsp;%downPage%&nbsp;%end%</li>');
         $page = $obj_page->newshow();
         
-        $ary_data = $rolenav->where(array('status'=>'1'))->limit($obj_page->firstRow, $obj_page->listRows)->select();
+        $ary_data = $rolenav->where()->limit($obj_page->firstRow, $obj_page->listRows)->select();
         $this->assign("data",$ary_data);
         $this->assign("filter",$ary_get);
         $this->assign("page",$page);
@@ -150,7 +150,6 @@ class RoleNavAction extends AdminAction{
         if(!empty($ary_get['id']) && isset($ary_get['id'])){
             $rolenav = D("RoleNav");
             $where = array();
-            $where['status'] = '1';
             $where['id'] = $ary_get['id'];
             $ary_rolenav = $rolenav->where($where)->find();
 //            echo "<pre>";print_r($ary_rolenav);exit;
@@ -159,5 +158,35 @@ class RoleNavAction extends AdminAction{
         }
         $this->assign("data",$ary_rolenav);
         $this->display();
+    }
+    
+    /**
+     * 更改菜单状态
+     * @author Terry<admin@52sum.com>
+     * @date 2013-3-29
+     */
+    public function doEditStatus(){
+        $ary_post = $this->_post();
+        if(!empty($ary_post['id']) && isset($ary_post['id'])){
+            $rolenav = D("RoleNav");
+            $data = array();
+            $data[$ary_post['field']] = $ary_post['val'];
+            $ary_result = $rolenav->where(array('id'=>$ary_post['id']))->data($data)->save();
+            if(FALSE !== $ary_result){
+                if(!empty($ary_post['val']) && $ary_post['val'] == '1'){
+                    $this->success("启用成功");
+                }else{
+                    $this->success("禁用成功");
+                }
+            }  else {
+                if(!empty($ary_post['val']) && $ary_post['val'] == '1'){
+                    $this->success("启用失败");
+                }else{
+                    $this->success("禁用失败");
+                }
+            }
+        }else{
+            $this->error("菜单不存在");
+        }
     }
 }
