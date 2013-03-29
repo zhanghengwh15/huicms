@@ -64,7 +64,7 @@ class RoleNavAction extends AdminAction{
         $rolenav = D("RoleNav");
         $ary_post = $this->_post();
         if(!empty($ary_post['name']) && isset($ary_post['name'])){
-            $ary_post['sort'] = $this->_get('sort', 'htmlspecialchars', 10);
+            $ary_post['sort'] = $this->_post('sort', 'htmlspecialchars', 10);
             if(!empty($ary_post['id']) && isset($ary_post['id'])){
                 $id = $ary_post['id'];
                 unset($ary_post['id']);
@@ -117,5 +117,47 @@ class RoleNavAction extends AdminAction{
         }else{
             $this->ajaxReturn("菜单不能为空");
         }
+    }
+    
+    /**
+     * 删除菜单
+     * @author Terry<admin@52sum.com>
+     * @date 2013-3-29
+     */
+    public function doDelete(){
+        $ary_get = $this->_get();
+        if(!empty($ary_get['id']) && isset($ary_get['id'])){
+            $rolenav = D("RoleNav");
+            $ary_result = $rolenav->where(array('id'=>$ary_get['id']))->delete();
+            if(FALSE !== $ary_result){
+                $this->success("删除成功");
+            }  else {
+                $this->error("删除失败");
+            }
+        }else{
+            $this->error("菜单不存在");
+        }
+    }
+    
+    /**
+     * 修改菜单
+     * @author Terry<admin@52sum.com>
+     * @date 2013-3-26
+     * 
+     */
+    public function editRoleNav(){
+        $ary_get = $this->_get();
+        if(!empty($ary_get['id']) && isset($ary_get['id'])){
+            $rolenav = D("RoleNav");
+            $where = array();
+            $where['status'] = '1';
+            $where['id'] = $ary_get['id'];
+            $ary_rolenav = $rolenav->where($where)->find();
+//            echo "<pre>";print_r($ary_rolenav);exit;
+        }else{
+            $this->error("菜单不存在，请重试！");
+        }
+        $this->assign("data",$ary_rolenav);
+        $this->display();
     }
 }

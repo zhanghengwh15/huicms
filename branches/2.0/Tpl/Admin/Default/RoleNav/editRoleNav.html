@@ -8,7 +8,7 @@
 
 <div class="contentcontainer">
     <div class="headings alt">
-        <h2>添加菜单</h2>
+        <h2>编辑管理员</h2>
     </div>
     <div class="contentbox">
         <form action="{:U('Admin/RoleNav/saveRoleNav')}" method="post" id="doEditAdmin" class="formvalidate" enctype="multipart/form-data">
@@ -16,14 +16,14 @@
                 <tr>
                     <td class="name">名称：</td>
                     <td>
-                        <input name="name" type="text" class="input rounded" value="" size="30" maxlength="50" validate='{ required:true,username:true,remote:"{:U("Admin/RoleNav/checkName")}"}' /> 
+                        <input name="name" type="text" class="input rounded" value="{$data.name}" size="30" maxlength="50" validate='{ required:true,username:true,remote:"{:U("Admin/RoleNav/checkName","id=$data[id]")}"}' /> 
                     </td>
                     <td class="field"><span class="red">[必填]</span></td>
                 </tr>
                 <tr>
                     <td class="name">排序：</td>
                     <td>
-                        <input name="sort" type="text" class="input rounded" value="" size="30" maxlength="50" validate="{ required:true,digits:true}"/> 
+                        <input name="sort" type="text" class="input rounded" value="{$data.sort}" size="30" maxlength="50" validate="{ required:true,digits:true}"/> 
                     </td>
                     <td class="field"><span class="red">[必填]</span>必须输入整数</td>
                 </tr>
@@ -32,6 +32,7 @@
             <table class="table top_line">
                 <tr>
                     <td align="right" height="60">
+                        <input type="hidden" value="{$data.id}" name="id" />
                         <input id="submit" class="submit" type="submit" value="提交">
                     </td>
                     <td width="80"></td>
