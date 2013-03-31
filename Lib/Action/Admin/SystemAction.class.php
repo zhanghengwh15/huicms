@@ -315,7 +315,7 @@ class SystemAction extends AdminAction{
         $obj_page->setConfig("header","条");
         $obj_page->setConfig('theme','<li style="heigth:23px;line-height:23px;padding-top:8px;">共%totalRow%%header%&nbsp;%nowPage%/%totalPage%页&nbsp;%first%&nbsp;%upPage%&nbsp;%prePage%&nbsp;%linkPage%&nbsp;%nextPage%&nbsp;%downPage%&nbsp;%end%</li>');
         $page = $obj_page->newshow();
-        $ary_data = $adminlog->where()->limit($obj_page->firstRow, $obj_page->listRows)->select();
+        $ary_data = $adminlog->where()->limit($obj_page->firstRow, $obj_page->listRows)->order('log_create desc')->select();
         if(!empty($ary_data) && is_array($ary_data)){
             foreach ($ary_data as $k=>$v){
                 $ary_data[$k]['ip_location'] = $Ip->getlocation($v['log_ip']);
