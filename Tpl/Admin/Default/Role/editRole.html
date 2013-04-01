@@ -1,0 +1,82 @@
+<style type="text/css">
+    #file_list{padding:10px 0 25px 60px;}
+    #file_list ul{clear:both;}
+    #file_list ul li{float:left; height:22px; line-height:22px;}
+    #file_list ul .aax{width:18px;}
+    #file_list ul .aay{width:120px;}
+</style>
+
+<div class="contentcontainer">
+    <div class="headings alt">
+        <h2>编辑角色</h2>
+    </div>
+    <div class="contentbox">
+        <form action="{:U('Admin/Role/doEdit')}" method="post" id="doEditAdmin" class="formvalidate">
+            <table class="list" cellpadding="0" cellspacing="1" border="0">
+                <tr>
+                    <td class="name">角色名称：</td>
+                    <td>
+                        <input name="name" type="text" class="input rounded" value="{$role.name}" size="30" maxlength="50" validate='{ required:true,maxlength:30,remote:"{:U("Admin/Role/checkEditName","id=$vo[id]")}"}' /> 
+                    </td>
+                    <td class="field"><span class="red">[必填]</span></td>
+                </tr>
+                <tr>
+                    <td class="name">权限设置：</td>
+                    <td style="padding:12px 8px;">
+                        <p style="padding-bottom:0px;">
+                            1. 如果要指定当前模块下的所有权限，可选中该模块名称 <br />
+                            2. 如果要指定当前模块下的操作权限，可选中该模块的操作名称
+                        </p>
+                    </td>
+                    <td class="field"></td>
+                </tr>
+                <tr>
+                    <td class="name" style="text-align: center;font-weight: bold;">模块</td>
+                    <td colspan="2" style="text-align: center;font-weight: bold;">操作</td>
+                </tr>
+                <volist name="access_list" id="list">
+                    <tr>
+                        <td>
+                            <p style="padding-bottom:0px; text-align: right;">
+                                <label>
+                                    <input class="module-item" type="checkbox" name="access_node[]" value="{$list.id}" <if condition="$list['checked']">checked="checked"</if>>
+                                    <span>&nbsp;{$list.module_name}&nbsp;</span>
+                                </label>
+                            </p>
+                        </td>
+                        <td colspan="2">
+                            <p style="padding-bottom:0px;">
+                                <if condition="isset($list['actions'])">
+                                    <label><input class="select-all" type="checkbox" <if condition="$list['checkall']">checked="checked"</if> <if condition="$list['checked']">disabled</if>>&nbsp;<span>全选</span></label>
+                                </if>
+                                
+                                <volist name="list.actions" id="action">
+                                    <label>
+                                        <input class="action-item" type="checkbox" name="access_node[]" value="{$action.id}" <if condition="$action['checked']">checked="checked"</if> <if condition="$list['checked']">disabled</if>>
+                                        <span>&nbsp;{$action.action_name}</span>
+                                    </label>&nbsp;&nbsp;
+                                </volist>
+                            </p>
+                        </td>
+                    </tr>
+                </volist>
+                
+            </table>
+
+            <table class="table top_line">
+                <tr>
+                    <td align="right" height="60">
+                        <input type="hidden" id="id" name="id" value="{$vo.id}">
+                        <input id="submit" class="submit" type="submit" value="提交">
+                    </td>
+                    <td width="80"></td>
+                    <td>
+                        <input type="reset" id="reset" class="submit reset" value="重置">
+                    </td>
+                </tr>
+            </table>		
+        </form>
+
+
+    </div>
+</div>
