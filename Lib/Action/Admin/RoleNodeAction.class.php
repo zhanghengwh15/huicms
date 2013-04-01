@@ -36,6 +36,15 @@ class RoleNodeAction extends AdminAction{
     }
 
     /**
+     * 默认控制器
+     * @author Terry <admin@52sum.com>
+     * @date 2013-04-01
+     */
+    public function index() {
+        $this->redirect(U('Admin/RoleNode/pageList'));
+    }
+    
+    /**
      * 添加节点
      * @author Terry<admin@52sum.com>
      * @date 2013-04-01
