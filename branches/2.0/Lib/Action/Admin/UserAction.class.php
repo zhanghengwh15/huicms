@@ -72,13 +72,12 @@ class UserAction extends Action{
         $map = array();
         // 支持使用绑定帐号登录
         $map['u_name'] = $ary_post['username'];
-        $map["u_status"] = array('gt', 0);
+        $map["u_status"] = array('gt' , 0);
         $verify = session("code");
         if ($verify != md5($ary_post['code'])) {
             $this->error(L('CODE_ERROR'));
         }
         $admin_access = D('Config')->getCfgByModule('ADMIN_ACCESS');
-        
         $exitTime = $admin_access['EXPIRED_TIME'];
         $rbac = new Arbac();
         import('ORG.Util.Session');
@@ -96,11 +95,9 @@ class UserAction extends Action{
             $_SESSION['pic'] = $auth_info['u_photo'];
             $_SESSION['last_time'] = $auth_info['u_lastlogin_time'];
             $_SESSION['u_countlog'] = $auth_info['u_countlog'];
-            //$sysadmin = D('SysConfig')->getCfgByModule('SYS_ADMIN');
             if ($auth_info['u_name'] == $admin_access['SYS_ADMIN']) {
                 $_SESSION[C('ADMIN_AUTH_KEY')] = true;
             }
-
             //保存登录信息
             $admin = M(C('USER_AUTH_MODEL'));
             $ip = get_client_ip();

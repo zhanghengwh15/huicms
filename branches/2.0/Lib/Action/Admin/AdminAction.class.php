@@ -73,11 +73,9 @@ abstract class AdminAction extends Action{
      */
     public function doCheckLogin(){
         //todo 此处要做登录判断
-        if (!session("Admin")) {
-            $this->redirect(U('Admin/User/pageLogin'));
-        } else {
-            $this->admin = session("Admin");
+        if (!isset($_SESSION[C('USER_AUTH_KEY')])) {
+//            $this->redirect(U('Admin/User/pageLogin'));
+            $this->error(L('NO_LOGIN'), U('Admin/User/pageLogin'));
         }
-    }
-    
+    }    
 }

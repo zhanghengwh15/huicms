@@ -8,7 +8,7 @@ return array(
     'ADMIN_AUTH_KEY' => 'admin',
     'AUTH_TYPE' => array('NODE', 'MODULE', 'ACTION'), //授权类型的常量
     'USER_AUTH_MODEL' => 'Admin', // 默认验证数据表模型
-    'USER_AUTH_KEY' => 'Admin', // 用户认证SESSION标记
+    'USER_AUTH_KEY' => 'huicms', // 用户认证SESSION标记
     'AUTH_PWD_ENCODER' => 'md5', // 用户认证密码加密方式
     'USER_AUTH_GATEWAY' => '/User/pageLogin', // 默认认证网关
     'NOT_AUTH_MODULE' => 'User,Index', // 默认无需认证模块
