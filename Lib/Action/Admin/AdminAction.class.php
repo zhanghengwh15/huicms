@@ -80,13 +80,4 @@ abstract class AdminAction extends Action{
         }
     }
     
-    /**
-     * 默认控制器
-     * @author Terry <admin@52sum.com>
-     * @date 2013-03-27
-     */
-    public function index(){
-        $this->redirect(U('Admin/'.MODULE_NAME.'/pageList'));
-    }
-    
 }
