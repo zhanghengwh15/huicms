@@ -11,6 +11,17 @@
  * @copyright Copyright (C) 2012, Shanghai Huicms Co., Ltd.
  */
 abstract class AdminAction extends Action{
+    /**
+     * 顶部大栏目
+     * @var array
+     */
+    private $tops = array();
+    
+    /**
+     * 左侧各级菜单
+     * @var array
+     */
+    private $menus = array();
     
     /**
      * 基类初始化操作
@@ -63,6 +74,8 @@ abstract class AdminAction extends Action{
                 }
             }
         }
+        $this->getTop();
+        $this->getMenus();
         import('ORG.Util.Page');
     }
     
@@ -78,4 +91,49 @@ abstract class AdminAction extends Action{
             $this->error(L('NO_LOGIN'), U('Admin/User/pageLogin'));
         }
     }    
+    
+    /**
+     * 获取顶部导航信息
+     * @author Terry<admin@52sum.com>
+     * @date 2013-04-03
+     */
+    public function getTop(){
+        $tops = D('RoleNav')->where('status=1')->field('id,name')->order("sort")->select();
+        $this->tops = $tops;
+	$this->assign('tops', $tops);
+    }
+    
+    /**
+     * 获取左侧菜单信息
+     * @author Terry<admin@52sum.com>
+     * @date 2013-04-03
+     */
+    public function getMenus(){
+        $id = intval($this->_get('id'));
+        $menus = array();
+        if(false){
+            $menus = $_SESSION['menu_' . $id . '_' . $_SESSION[C('USER_AUTH_KEY')]];
+        }else{
+            if ($id == 0)
+                $id = D("RoleNav")->where('status=1')->order("sort ASC,id ASC")->getField('id');
+            $where = array();
+            $where['status'] = 1;
+            $where['nav_id'] = $id;
+            $where['is_show'] = 1;
+            $where['auth_type'] = 0;
+            $no_modules = explode(',', strtoupper(C('NOT_AUTH_MODULE')));
+            $access_list = $_SESSION['_ACCESS_LIST'];
+            $node_list = D("RoleNode")->where($where)->field('id,action,action_name,module,module_name')->order('sort ASC,id ASC')->select();
+            foreach ($node_list as $key => $node) {
+                if ((isset($access_list[strtoupper($node['module'])]['MODULE']) || isset($access_list[strtoupper($node['module'])][strtoupper($node['action'])])) || $_SESSION['administrator'] || in_array(strtoupper($node['module']), $no_modules)) {
+                    $menus[$node['module']]['nodes'][] = $node;
+                    $menus[$node['module']]['name'] = $node['module_name'];
+                }
+            }
+            $_SESSION['menu_' . $id . '_' . $_SESSION[C('USER_AUTH_KEY')]] = $menus;
+            $this->menus = $menus;
+            echo "<pre>";print_r($menus);exit;
+            $this->assign("menus",$menus);
+        }
+    }
 }
