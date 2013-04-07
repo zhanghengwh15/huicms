@@ -132,7 +132,7 @@ abstract class AdminAction extends Action{
             }
             $_SESSION['menu_' . $id . '_' . $_SESSION[C('USER_AUTH_KEY')]] = $menus;
             $this->menus = $menus;
-            echo "<pre>";print_r($menus);exit;
+//            echo "<pre>";print_r($menus);exit;
             $this->assign("menus",$menus);
         }
     }

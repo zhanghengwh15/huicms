@@ -223,7 +223,9 @@ ul.pagination li.page a:hover {background: #00789F url(i../imagesmg/bg_buttons.p
 .btnalt {background: url(../images/bg_buttons_alternative.png) repeat-x top !important; border: 1px solid #333 !important; color: #fff; padding: 7px 10px; border: none;}
 .btnalt:hover {background: url(../images/bg_buttons_alternative.png) 0 -50px !important; border: 1px solid #111 !important; cursor: pointer;}		
 
-/* Login Page */
+/*后台菜单导航*/
+.top_menus{width: 800px;float: right;}
+.ul_menus{width: auto;float: left;}
 
 .logininput {background: #fff url(../images/bg_login_input.png) repeat-x top;}
 .logininput:focus {border: 1px solid #09C; color: #09C;}
