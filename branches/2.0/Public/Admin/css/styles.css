@@ -16,6 +16,7 @@ h1, h2, h3, h4, h5 {padding: 0; margin: 0;}
 .sidebar{}
 .breadcrumb{}
 .rightside{border-top:1px solid #B6C2CE;padding: 10px 20px;}
+ul.navigation li a.on{color: #ccc;background: #333;}
 
 /*ajax加载*/
 .ajax_loading{ color:blue; padding:2px 5px 2px 25px; background:url('../images/ajaxloading.gif') no-repeat 3px 6px; position:absolute; right:10px; top:77px;display: none;}
@@ -70,7 +71,7 @@ h1, h2, h3, h4, h5 {padding: 0; margin: 0;}
 
 ul.navigation {width: 225px; color: #fff;}
 ul.navigation li a {text-shadow: 1px 1px 1px #222; background: url(../images/bg_navigation_link.png) repeat-x top; outline: none; width: 205px; display: block; color: #fff; text-decoration: none; padding: 10px; height: 15px;}
-ul.navigation li a:hover {color: #ccc; background: #333;}
+ul.navigation li a:hover {color: #ccc;}
 
 ul#nav li a.heading, a.collapsed, a.expanded, ul.navigation li.selected{line-height: 1.2em; width: 205px; font-size: 16px; font-weight: 700; padding: 9px 10px; display: block; color: #fff; cursor: pointer;}
 ul.navigation li.selected {width: 226px; z-index: 2; position: relative; padding: 10px;}
