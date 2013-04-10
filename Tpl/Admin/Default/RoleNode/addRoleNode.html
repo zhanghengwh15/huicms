@@ -1,0 +1,106 @@
+<style type="text/css">
+#file_list{padding:10px 0 25px 60px;}
+#file_list ul{clear:both;}
+#file_list ul li{float:left; height:22px; line-height:22px;}
+#file_list ul .aax{width:18px;}
+#file_list ul .aay{width:120px;}
+</style>
+
+<div class="contentcontainer">
+    <div class="headings alt">
+        <h2>添加节点</h2>
+    </div>
+    <div class="contentbox">
+        <form action="{:U('Admin/RoleNode/saveRoleNode')}" method="post" id="doEditAdmin" class="formvalidate" enctype="multipart/form-data">
+        <table class="list" cellpadding="0" cellspacing="1" border="0">
+			<tr>
+				<td class="name">说明：</td>
+				<td style="padding:12px 8px;">
+                    <p style="padding-bottom:0px;">
+                        1. 只填写模块，为模块的公共授权<br/>
+                        2. 填写操作与模块，为指定模块中节点的授权
+                    </p>
+                </td>
+				<td class="field"></td>
+			</tr>
+            <tr>
+				<td class="name">操作：</td>
+				<td>
+                    <input name="action" id="action" type="text" class="input rounded" value="" size="30" maxlength="50" /> 
+                </td>
+				<td class="field">(请填写控制器的相应Action，如pageList...)</td>
+			</tr>
+            <tr>
+				<td class="name">操作名称：</td>
+				<td>
+                    <input name="action_name" id="action_name" type="text" class="input rounded" value="" size="30" maxlength="50" /> 
+                </td>
+				<td class="field"></td>
+			</tr>
+			<tr>
+				<td class="name">模块：</td>
+				<td>
+                    <input name="module" id="module" type="text" class="input rounded" value="{$data.u_username}" size="30" maxlength="50" validate="{ required:true,username:true}" /> 
+                </td>
+				<td class="field"><span class="red">[必填]</span>(请填写控制器的相应名称，如RoleNode,Article...)</td>
+			</tr>
+			<tr>
+				<td class="name">模块名称：</td>
+				<td>
+                    <input name="module_name" id="module_name" type="text" class="input rounded" value="" size="30" maxlength="50" validate="{ username:true}" /> 
+				</td>
+				<td class="field"><span class="red">[必填]</span></td>
+			</tr>
+            <tr>
+				<td class="name">状态：</td>
+				<td>
+                    <input name="status" type="radio" value="1" checked/> 启用 &nbsp;&nbsp;
+                    <input name="status" type="radio" value="0" /> 停用 &nbsp;&nbsp;
+				</td>
+				<td class="field"></td>
+			</tr>
+            <tr>
+				<td class="name">所属导航：</td>
+				<td>
+                    <select name="nav_id" id="nav_id" class="select rounded">
+                        <option value="0">不设置</option>
+                         <volist name="rolenav" id="nav">
+                             <option value="{$nav.id}">{$nav.name}</option>
+                         </volist>
+                     </select>
+                </td>
+				<td class="field"></td>
+			</tr>
+            <tr>
+				<td class="name">菜单显示：</td>
+				<td>
+                    <input name="is_show" type="radio" value="1" checked/> 是 &nbsp;&nbsp;
+                    <input name="is_show" type="radio" value="0" /> 否 &nbsp;&nbsp;
+				</td>
+				<td class="field"></td>
+			</tr>
+            <tr>
+				<td class="name">节点排序：</td>
+				<td>
+                    <input name="sort" id="sort" type="text" class="input rounded" value="10" size="30" maxlength="50" validate="{ username:true}" /> 
+                </td>
+				<td class="field"></td>
+			</tr>
+		</table>
+		
+		<table class="table top_line">
+			<tr>
+				<td align="right" height="60">
+                    <input id="submit" class="submit" type="submit" value="提交">
+                </td>
+				<td width="80"></td>
+				<td>
+                    <input type="reset" id="reset" class="submit reset" value="重置">
+                </td>
+			</tr>
+		</table>		
+		</form>
+
+        
+    </div>
+</div>

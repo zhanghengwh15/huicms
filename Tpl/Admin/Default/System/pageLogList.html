@@ -1,0 +1,46 @@
+<div class="contentcontainer">
+    <div class="headings altheading">
+        <h2>管理员列表</h2>
+    </div>
+    <div class="contentbox" data-uri='{:U("Admin/System/doEditStatus")}'>
+        <table width="100%" class="list td_align">
+            <thead>
+                <tr class="even">
+                    <td class="field_head">登陆者</td>
+                    <td class="field_head">最后登录IP</td>
+                    <td class="field_head">地点(仅供参考)</td>
+                    <td class="field_head">登录时间</td>
+                </tr>
+            </thead>
+            <tbody>
+            <volist name="data" id="vo">
+                <tr id="list_{$vo.u_id}">
+                    <td>{$vo.u_name}</td>
+                    <td>{$vo.log_ip}</td>
+                    <td>{$vo.ip_location.country} / {$vo.ip_location.area}</td>
+                    <td>{$vo.log_create|default="0000-00-00 00:00:00"}</td>
+                </tr>
+            </volist>
+            <empty name="data">
+                <tr><td colspan="12" class="left">暂时没有数据!</td></tr>
+            </empty>
+            </tbody>
+        </table>
+        <ul class="pagination">
+            {$page}
+            <select name="pageall" onChange="window.location.href=this.value">
+                <option value='{:U("Admin/System/pageLogList","pageall=1")}' <if condition="$filter.pageall eq '1'">selected="selected"</if>>1条/页</option>
+                <option value='{:U("Admin/System/pageLogList","pageall=5")}' <if condition="$filter.pageall eq '5'">selected="selected"</if>>5条/页</option>
+                <option value='{:U("Admin/System/pageLogList","pageall=10")}'<if condition="$filter.pageall eq '10'">selected="selected"</if>>10条/页</option>
+                <option value='{:U("Admin/System/pageLogList","pageall=20")}'<if condition="$filter.pageall eq '20'">selected="selected"</if>>20条/页</option>
+                <option value='{:U("Admin/System/pageLogList","pageall=50")}'<if condition="$filter.pageall eq '50'">selected="selected"</if>>50条/页</option>
+                <option value='{:U("Admin/System/pageLogList","pageall=80")}'<if condition="$filter.pageall eq '80'">selected="selected"</if>>80条/页</option>
+                <option value='{:U("Admin/System/pageLogList","pageall=100")}'<if condition="$filter.pageall eq '100'">selected="selected"</if>>100条/页</option>
+                <option value='{:U("Admin/System/pageLogList","pageall=500")}'<if condition="$filter.pageall eq '500'">selected="selected"</if>>500条/页</option>
+            </select>
+        </ul>
+
+        <div style="clear: both;"></div>
+    </div>
+
+</div>

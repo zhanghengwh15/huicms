@@ -1,0 +1,130 @@
+<style type="text/css">
+#file_list{padding:10px 0 25px 60px;}
+#file_list ul{clear:both;}
+#file_list ul li{float:left; height:22px; line-height:22px;}
+#file_list ul .aax{width:18px;}
+#file_list ul .aay{width:120px;}
+</style>
+
+<div class="contentcontainer">
+    <div class="headings alt">
+        <h2>编辑管理员</h2>
+    </div>
+    <div class="contentbox">
+        <form action="{:U('Admin/System/doSaveAdmin')}" method="post" id="doEditAdmin" class="formvalidate" enctype="multipart/form-data">
+        <table class="list" cellpadding="0" cellspacing="1" border="0">
+			<tr>
+				<td class="name">用户名：</td>
+				<td>
+                    <input name="u_name" type="text" class="input rounded" value="" size="30" maxlength="50" required validate="{ required:true,maxlength:30,remote:'{:U('Admin/System/checkName')}'}" /> 
+                </td>
+                <td class="field"><span class="red">[必填]</span>这里输入管理员登陆时需要的账号</td>
+			</tr>
+            <tr>
+				<td class="name">密码：</td>
+				<td>
+                    <input name="u_password" id="u_password" type="password" class="input rounded" value="" size="30" maxlength="50" validate="{ required:true,rangelength:[6,20],messages:{required:'密码不能为空'}}" /> 
+                </td>
+				<td class="field"><span class="red">[必填]</span>6 - 20个字符组成，只能使用数字、字母和下划线</td>
+			</tr>
+            <tr>
+				<td class="name">确认密码：</td>
+				<td>
+                    <input name="confirm_password" type="password" class="input rounded" value="" size="30" maxlength="50" validate="{ required:true,rangelength:[6,20],equalTo:'#u_password'}" /> 
+                </td>
+				<td class="field"><span class="red">[必填]</span>6 - 20个字符组成，只能使用数字、字母和下划线</td>
+			</tr>
+			<tr>
+				<td class="name">姓名：</td>
+				<td>
+                    <input name="u_username" type="text" class="input rounded" value="{$data.u_username}" size="30" maxlength="50" validate="{ username:true}" /> 
+                </td>
+				<td class="field">5 - 50个字符组成，只能使用数字、字母和下划线</td>
+			</tr>
+			<tr>
+				<td class="name">性别：</td>
+				<td>
+                    <input name="u_sex" type="radio" value="1" checked /> 男 &nbsp;&nbsp;
+                    <input name="u_sex" type="radio" value="2" /> 女 &nbsp;&nbsp;
+					<input name="u_sex" type="radio" value="0" /> 保密
+				</td>
+				<td class="field"><span class="red">[必填]</span></td>
+			</tr>
+            <tr>
+				<td class="name">手机：</td>
+				<td>
+                    <input name="u_phone" id="u_phone" type="text" class="input rounded" value="" size="30" maxlength="50" /> 
+                </td>
+				<td class="field"></td>
+			</tr>
+            <tr>
+				<td class="name">所属组：</td>
+				<td>
+                    <if condition="$data.u_name eq $admin[SYS_ADMIN]">
+                        <select name="role_id" class="select rounded" disabled="disabled">
+                            <option value="0">系统管理员</option>
+                        </select>
+                    <else />    
+                       <select name="role_id" class="select rounded" validate="{ selected:true}">
+                            <volist name="role" id="re">
+                                <option value="{$re.id}" <if condition="$re.id eq $data[role_id]">selected="selected"</if>>{$re.name}</option>
+                            </volist>
+                        </select> 
+                    </if>
+                    
+                </td>
+				<td class="field"><span class="red">[必填]</span></td>
+			</tr>
+            <tr>
+				<td class="name">邮箱：</td>
+				<td>
+                    <input name="u_email" type="email" class="input rounded" value="" size="30" maxlength="50" validate="{ email:true}"/> 
+                </td>
+				<td class="field"></td>
+			</tr>
+            <tr>
+				<td class="name">头像：</td>
+				<td>
+                    <input name="u_photo" type="file" class="input rounded photo" value=""   size="30" style="width:211px;" /> 
+                </td>
+			</tr>
+            <tr>
+				<td class="name">QQ：</td>
+				<td>
+                    <input name="u_qq" type="text" class="input rounded" value="" size="30" /> 
+                </td>
+				<td class="field"></td>
+			</tr>
+            <tr>
+				<td class="name">状态：</td>
+				<td>
+                    <input name="u_status" type="radio" value="1" checked /> 启用 &nbsp;&nbsp;
+                    <input name="u_status" type="radio" value="0"/> 停用 
+				</td>
+				<td class="field"><span class="red">[必填]</span></td>
+			</tr>
+            <tr>
+				<td class="name">描述：</td>
+				<td>
+                    <textarea class="text-input textarea" id="wysiwyg" name="u_description" rows="10" cols="75"></textarea>
+                </td>
+				<td class="field"></td>
+			</tr>
+		</table>
+		
+		<table class="table top_line">
+			<tr>
+				<td align="right" height="60">
+                    <input id="submit" class="submit" type="submit" value="提交">
+                </td>
+				<td width="80"></td>
+				<td>
+                    <input type="reset" id="reset" class="submit reset" value="重置">
+                </td>
+			</tr>
+		</table>		
+		</form>
+
+        
+    </div>
+</div>
