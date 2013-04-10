@@ -1,0 +1,47 @@
+<style type="text/css">
+    #file_list{padding:10px 0 25px 60px;}
+    #file_list ul{clear:both;}
+    #file_list ul li{float:left; height:22px; line-height:22px;}
+    #file_list ul .aax{width:18px;}
+    #file_list ul .aay{width:120px;}
+</style>
+
+<div class="contentcontainer">
+    <div class="headings alt">
+        <h2>添加菜单</h2>
+    </div>
+    <div class="contentbox">
+        <form action="{:U('Admin/RoleNav/saveRoleNav')}" method="post" id="doEditAdmin" class="formvalidate" enctype="multipart/form-data">
+            <table class="list" cellpadding="0" cellspacing="1" border="0">
+                <tr>
+                    <td class="name">名称：</td>
+                    <td>
+                        <input name="name" type="text" class="input rounded" value="" size="30" maxlength="50" validate='{ required:true,username:true,remote:"{:U("Admin/RoleNav/checkName")}"}' /> 
+                    </td>
+                    <td class="field"><span class="red">[必填]</span></td>
+                </tr>
+                <tr>
+                    <td class="name">排序：</td>
+                    <td>
+                        <input name="sort" type="text" class="input rounded" value="" size="30" maxlength="50" validate="{ required:true,digits:true}"/> 
+                    </td>
+                    <td class="field"><span class="red">[必填]</span>必须输入整数</td>
+                </tr>
+            </table>
+
+            <table class="table top_line">
+                <tr>
+                    <td align="right" height="60">
+                        <input id="submit" class="submit" type="submit" value="提交">
+                    </td>
+                    <td width="80"></td>
+                    <td>
+                        <input type="reset" id="reset" class="submit reset" value="重置">
+                    </td>
+                </tr>
+            </table>		
+        </form>
+
+
+    </div>
+</div>

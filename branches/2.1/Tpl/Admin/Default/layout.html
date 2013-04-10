@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <include file="Common:incTop" />
+    <body id="homepage">
+        <div id="J_ajax_loading" class="ajax_loading">提交请求中，请稍候...</div>
+        <div id="header" class="header">
+            <include file="Common:incHeader" />
+        </div>
+        <div class="contentBox">
+            <!-- 左边菜单栏 -->
+            <div class="sidebar">
+                <include file="Common:incMenu" />
+            </div>
+            <!-- 面包导航 -->
+            <div id="breadcrumb" class="breadcrumb">
+                <include file="Common:incBreadcrumb" />
+            </div>
+            <!-- 内容 -->
+            <div id="rightside" class="rightside">
+                {__CONTENT__}
+            </div>
+        </div>
+
+        
+        <script type='text/javascript' src='__PUBLIC__/Admin/js/jquery.wysiwyg.js'></script>
+        <script type='text/javascript' src='__PUBLIC__/Admin/js/visualize.jQuery.js'></script>
+        <script type="text/javascript" src='__PUBLIC__/Admin/js/functions.js'></script>
+
+        <!--[if IE 6]>
+        <script type='text/javascript' src='__PUBLIC__/Admin/js/png_fix.js'></script>
+        <script type='text/javascript'>
+          DD_belatedPNG.fix('img, .notifycount, .selected');
+        </script>
+        <![endif]--> 
+    </body>
+</html>

@@ -1,0 +1,65 @@
+<div id="leftside" class="leftside">
+    <div class="user">
+        <a href='{:U("Admin/System/pageEditAdmin","uid=$uid")}'>
+            <span class="modify">
+                <span class="mask"></span>
+                <span class="text">编辑</span>
+            </span>
+            <img src="{$Think.session.pic|default='__PUBLIC__/Admin/images/avatar.png'}" width="44" height="44" class="hoverimg" alt="" />
+        </a>
+        <p>登陆者:</p>
+        <p class="username">{$Think.session.admin_name}</p>
+        <p class="userbtn"><a href="{:U('Admin/System/pageEditAdminPasswd')}" title="">修改密码</a></p>
+        <p class="userbtn"><a href="{:U('Admin/User/doLogout')}" title="退出">退出</a></p>
+    </div>
+    <div class="notifications">
+        <p class="notifycount"><a href="" title="" class="notifypop">10</a></p>
+        <p><a href="" title="" class="notifypop">最新通知</a></p>
+        <p class="smltxt">(点击可打开通知)</p>
+    </div>
+    <div id="sliderNavBox" class="sliderNavBox">
+        <div style="display: block; overflow: visible; margin-top: 0px;" id="sliderNavBoxInner">
+            <ul id="nav">
+<!--                <li>
+                    <ul class="navigation">
+                        <li class="heading selected">Current Section</li>
+                        <li><a href="#" title="">Section link here</a></li>
+                        <li><a href="#" title="">Section link here</a></li>
+                        <li><a href="#" title="">Section link here</a></li>
+                    </ul>
+                </li>-->
+                <li>
+                    <a class="expanded heading">管理员管理</a>
+                    <ul class="navigation">
+                        <li><a class="on"  href='{:U("Admin/System/index")}'  title="管理员列表" >管理员列表</a></li>
+                        <li><a href="{:U('Admin/System/pageAddAdmin')}" title="添加管理员">添加管理员</a></li>
+                        <li><a href="{:U('Admin/System/pageLogList')}" title="管理员登陆日志">管理员登陆日志</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="expanded heading">权限组管理</a>
+                    <ul class="navigation">
+                        <li><a href="{:U('Admin/Role/index')}" title="">角色列表</a></li>
+                        <li><a href="{:U('Admin/Role/addRole')}" title="">添加角色</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="expanded heading">权限节点管理</a>
+                    <ul class="navigation">
+                        <li><a href="{:U('Admin/RoleNode/index')}" title="">节点列表</a></li>
+                        <li><a href="{:U('Admin/RoleNode/addRoleNode')}" title="">添加节点</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="expanded heading">菜单管理</a>
+                    <ul class="navigation">
+                        <li><a href="{:U('Admin/RoleNav/index')}" title="菜单列表">菜单列表</a></li>
+                        <li><a href="{:U('Admin/RoleNav/addRoleNav')}" title="添加菜单">添加菜单</a></li>
+                    </ul>
+                </li>  
+            </ul>
+        </div>
+        
+    </div>
+    
+</div>

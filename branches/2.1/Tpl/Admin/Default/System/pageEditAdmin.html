@@ -1,0 +1,144 @@
+<style type="text/css">
+#file_list{padding:10px 0 25px 60px;}
+#file_list ul{clear:both;}
+#file_list ul li{float:left; height:22px; line-height:22px;}
+#file_list ul .aax{width:18px;}
+#file_list ul .aay{width:120px;}
+</style>
+
+<div class="contentcontainer">
+    <div class="headings alt">
+        <h2>编辑管理员</h2>
+    </div>
+    <div class="contentbox">
+        <form action="{:U('Admin/System/doEditAdmin')}" method="post" id="doEditAdmin" class="formvalidate" enctype="multipart/form-data">
+        <table class="list" cellpadding="0" cellspacing="1" border="0">
+			<tr>
+				<td class="name">用户名：</td>
+				<td>
+                    <if condition="$data.u_name eq $admin[SYS_ADMIN]">
+                        <span class="current" style="font-weight:700;font-size: 14px;">{$data.u_name}</span>
+                    <else />    
+                        <input name="u_name" type="text" class="input rounded" value="{$data.u_name}" size="30" maxlength="50" required validate='{ required:true,maxlength:30,remote:"{:U("Admin/System/checkName","uid=$data[u_id]")}"}' /> 
+                    </if>
+                </td>
+				<td class="field"><span class="red">[必填]</span>这里输入管理员登陆时需要的账号</td>
+			</tr>
+            <tr>
+				<td class="name">密码：</td>
+				<td>
+                    <input name="u_password" id="u_password" type="password" class="input rounded" value="" size="30" maxlength="50" validate="{ rangelength:[6,20],messages:{required:'密码不能为空'}}" /> 
+                </td>
+				<td class="field">6 - 20个字符组成.不修改则留空</td>
+			</tr>
+            <tr>
+				<td class="name">确认密码：</td>
+				<td>
+                    <input name="confirm_password" type="password" class="input rounded" value="" size="30" maxlength="50" validate="{ rangelength:[6,20],equalTo:'#u_password'}" /> 
+                </td>
+				<td class="field">6 - 20个字符组成.不修改则留空</td>
+			</tr>
+			<tr>
+				<td class="name">姓名：</td>
+				<td>
+                    <input name="u_username" type="text" class="input rounded" value="{$data.u_username}" size="30" maxlength="50" validate="{ username:true}" /> 
+                </td>
+				<td class="field">5 - 50个字符组成，只能使用数字、字母和下划线</td>
+			</tr>
+			<tr>
+				<td class="name">性别：</td>
+				<td>
+                    <input name="u_sex" type="radio" value="1" <if condition="$data.u_sex eq '1'">checked</if> /> 男 &nbsp;&nbsp;
+                    <input name="u_sex" type="radio" value="2" <if condition="$data.u_sex eq '2'">checked</if>/> 女 &nbsp;&nbsp;
+					<input name="u_sex" type="radio" value="0" <if condition="$data.u_sex eq '0'">checked</if>/> 保密
+				</td>
+				<td class="field"></td>
+			</tr>
+            <tr>
+				<td class="name">手机：</td>
+				<td>
+                    <input name="u_phone" id="u_phone" type="text" class="input rounded" value="{$data.u_phone}" size="30" maxlength="50" /> 
+                </td>
+				<td class="field"></td>
+			</tr>
+            <tr>
+				<td class="name">所属组：</td>
+				<td>
+                    <if condition="$data.u_name eq $admin[SYS_ADMIN]">
+                        <select name="role_id" class="select rounded" disabled="disabled">
+                            <option value="0">系统管理员</option>
+                        </select>
+                    <else />    
+                       <select name="role_id" class="select rounded" validate="{ selected:true}">
+                            <volist name="role" id="re">
+                                <option value="{$re.id}" <if condition="$re.id eq $data[role_id]">selected="selected"</if>>{$re.name}</option>
+                            </volist>
+                        </select> 
+                    </if>
+                    
+                </td>
+				<td class="field"></td>
+			</tr>
+            <tr>
+				<td class="name">邮箱：</td>
+				<td>
+                    <input name="u_email" type="email" class="input rounded" value="{$data.u_email}" size="30" maxlength="50" /> 
+                </td>
+				<td class="field"></td>
+			</tr>
+            <tr>
+				<td class="name">头像：</td>
+				<td>
+                    <input name="u_photo" type="file" class="input rounded photo" value="{$data.u_photo}" onchange="upload();"  size="30" style="width:211px;" /> 
+<!--                    <iframe src="{:U('Admin/System/doUploadAdmin')}" width="183" height="30" border="0" scrolling="no" frameborder="0"></iframe>-->
+<!--                    <include file="Common:incUpload" />-->
+                </td>
+				<td class="field">
+                    <if condition="$data.u_photo neq ''">
+                        <img src="{$data.u_photo}" title="{$data.u_username}" width="40" height="40" alt="{$data.u_username}">
+                    </if>
+                </td>
+			</tr>
+            <tr>
+				<td class="name">QQ：</td>
+				<td>
+                    <input name="u_qq" type="text" class="input rounded" value="{$data.u_qq}" size="30" /> 
+                </td>
+				<td class="field"></td>
+			</tr>
+            <tr>
+				<td class="name">状态：</td>
+				<td>
+                    <input name="u_status" type="radio" value="1" <if condition="$data.u_status eq '1'">checked</if> /> 启用 &nbsp;&nbsp;
+                    <input name="u_status" type="radio" value="0" <if condition="$data.u_status eq '0'">checked</if>/> 停用 
+				</td>
+				<td class="field"></td>
+			</tr>
+            <tr>
+				<td class="name">描述：</td>
+				<td>
+                    <textarea class="text-input textarea" id="wysiwyg" name="u_description" rows="10" cols="75">{$data.u_description}</textarea>
+                </td>
+				<td class="field"></td>
+			</tr>
+		</table>
+		
+		<table class="table top_line">
+			<tr>
+				<td align="right" height="60">
+                    <input id="uid" type="hidden" name="u_id" value="{$data.u_id}" />
+                    <input id="submit" class="submit" type="submit" value="提交">
+<!--                    <a id="submit" class="submit" href="#">提交</a>-->
+                </td>
+				<td width="80"></td>
+				<td>
+                    <input type="reset" id="reset" class="submit reset" value="重置">
+<!--                    <a class="submit reset" href="javascript:form_admin.reset();">重置</a>-->
+                </td>
+			</tr>
+		</table>		
+		</form>
+
+        
+    </div>
+</div>
