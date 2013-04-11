@@ -112,7 +112,7 @@ h6 { font-size:12px;}
 .top-nav { background: url(../images/bg_position.png) no-repeat 0px -100px; width:320px; height: 28px; position: absolute; z-index:1; top: 16px; right: 8px;}
 	.top-nav ul { line-height: 20px; color:#999; height:20px; padding:5px 4px 3px 10px;}
 		.top-nav li { color:#565D68; background: url(../images/bg_position.png) no-repeat scroll -638px -99px; display:inline; padding-left: 4px; margin-left: 2px; float: left;}
-			.top-nav li a { color:#565D68; line-height:16px; height:16px; border:dotted 1 #000; padding-left: 3px;}
+			.top-nav li a { color:#565D68; line-height:16px; height:16px; border:dotted 1 #000; padding-left: 3px; line-height:20px;}
 			.top-nav li a:hover { color: #0085CF; text-decoration: underline;}
 				.top-nav li a span { padding-right: 3px;}
 		.top-nav li.adminid { background: url(../images/bg_position.png) no-repeat scroll -350px -100px; white-space:nowrap; max-width:146px; _width:expression((documentElement.clientWidth >146) ? "146px" : "auto" );/* IE6 */ height:20px; padding: 0 0 0 24px; margin-right:4px; overflow: hidden;}
@@ -786,19 +786,14 @@ h4.dialog-handle-title { font-size: 12px !important; font-weight: 700; line-heig
 
 .fd-wrap dd { clear:both; display:block; width: 100%; margin-top:10px; overflow:hidden;}
 
-/* 动态列表中分享商品内容样式 */
-.fd-media { background:#FCFDFE; clear:both; padding: 10px; border:1px solid #F2F8FB; overflow: hidden; _zoom: 1; }
-.fd-media .goodsimg{ background-color: #FFF; width:120px; height:120px; display: inline-block;}
-.fd-media .goodsinfo{ display: inline-block; padding-left:10px; }
-.fd-media .goodsinfo dl { border-bottom: 0px;clear: both; color: #777777; margin: 4px auto;overflow: hidden;padding: 0;}
-.fd-media .goodsinfo dt { color: #404040; line-height:18px; text-align:left; text-overflow: ellipsis; white-space:nowrap; height: 20px; float: left; padding:0px; margin:0 0 10px 0; overflow: hidden;}
-.fd-media .goodsinfo dd { color: #777; float: left; margin: 2px 0; text-align:left; }
-.fd-media .goodsinfo i { font-style: normal;font-family: MingLiU; font-size: 11px; line-height:14px; color:#FFF; letter-spacing: -1px; letter-spacing: 0\9\0/*IE9*/; display:inline-block; padding:1px 4px; padding:2px 4px 0 4px\9\0/*IE9*/; margin-right:10px; border:solid 1px; border-radius: 4px; box-shadow: inset 1px 1px 0 rgba(255,255,255,0.25); text-shadow: 1px 1px 0 rgba(0,0,0,0.25);}
-i.desc-type-new { background-color:#DE4B82; border-color:#9A2D56!important;} /*新品*/
-i.desc-type-coupon { background-color:#F38419; border-color:#C35B14!important;} /*优惠券*/
-i.desc-type-xianshi { background-color:#3BCFFD; border-color:#2FAAD4!important;} /*限时折扣*/
-i.desc-type-mansong  { background-color:#4C6293; border-color:#364A6F!important;}/*满即送*/
-i.desc-type-bundling { background-color:#44783A; border-color:#2C4B21!important;} /*组合销售*/
-i.desc-type-groupbuy { background-color:#7C7C7E; border-color:#3F3D40!important;}/*团购*/
-i.desc-type-recommend { background-color:#B22D00; border-color:#660000!important;} /*推荐*/
-i.desc-type-hotsell { background-color:#8C008C; border-color:#300040!important;} /*热销*/
+/*ajax加载*/
+.ajax_loading{ color:blue; padding:2px 5px 2px 25px; background:url('../images/ajaxloading.gif') no-repeat 3px 6px; position:absolute; right:10px; top:77px;display: none;}
+.ajax_error{ color:red; padding:2px 5px 2px 25px; background:url('../images/ajaxerror.gif') no-repeat 3px 3px; position:absolute; right:10px; top:78px;display: none;}
+.ajax_success{ color:green; padding:2px 5px 2px 25px; background:url('../images/ajaxsuccess.gif') no-repeat 3px 3px; position:absolute; right:10px; top:78px;display: none;}
+
+.logininput {background: #fff url(../images/bg_login_input.png) repeat-x top;}
+.logininput:focus {border: 1px solid #09C; color: #09C;}
+
+#logincontainer .loginbtn {background: #3197CA url(../images/bg_login_btn.png) repeat-x top; border-radius: 8px; -moz-border-radius: 8px; border: none; font-size: 25px; font-weight: 700; text-shadow: 1px 1px 1px #9cced6; color: #1C5571; width: 260px; padding: 11px 0; margin: 5px 0 0 0; display: block; cursor: pointer; border-top: 1px solid #BEDFEF; letter-spacing: -1px;}
+
+#logincontainer .loginbtn:hover {background: #3197CA url(../images/bg_login_btn.png) -0 -60px; cursor: pointer; color: #103141;}

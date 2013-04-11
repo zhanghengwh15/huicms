@@ -1,6 +1,6 @@
 html, body {height: 100%;scrollbar-arrow-color: #525252;scrollbar-highlight-color: #fff;}
 
-body {height: 100%; font-family: Arial, Helvetica, sans-serif; font-size: 13px; margin: 0; padding: 0; background:#eaeaea; color: #666;}
+body {height: 100%; font-family: Arial, Helvetica, sans-serif; font-size: 13px; margin: 0; padding: 0; color: #666;}
 p {padding: 0; margin: 0;}
 ul, li {list-style: none; padding: 0; margin: 0;}
 img {border: none;}
@@ -134,9 +134,6 @@ p.bottominfo {padding: 10px 15px;}
 .sml {width: 38%;}
 
 /* Table Styles */
-th {background: #E0E0E0 url(../images/bg_th.png) repeat-x top; text-shadow: 1px 1px 1px #fff; font-size: 14px;}
-tr.alt td{background: #F2F2F2 url(../images/bg_td_alt.png) repeat-x top; text-shadow: 1px 1px 1px #fff;}
-
 .extrabottom {padding: 15px; height: 40px; background: url(../images/bg_fade_sml.png) repeat-x top; border-radius: 10px; -moz-border-radius: 10px; margin-top: 10px;}
 .extrabottom ul {float: left;}
 .extrabottom li {float: left; padding-right: 25px;}

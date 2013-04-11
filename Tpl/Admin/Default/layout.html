@@ -11,6 +11,7 @@
         <![endif]-->
         <script type="text/javascript" src="__PUBLIC__/Admin/js/jquery.validation.min.js"></script>
         <script type="text/javascript" src="__PUBLIC__/Admin/js/jquery.cookie.js"></script>
+        <link href="__PUBLIC__/Admin/css/styles.css" rel="stylesheet" type="text/css" id="cssfile">
         <script>
             $(document).ready(function () {
                 $('span.bar-btn').click(function () {
@@ -183,18 +184,21 @@
         </script>
     </head>
     <body style="margin: 0px;" scroll="no">
-<table style="width: 100%;" id="frametable" height="100%" width="100%" cellpadding="0" cellspacing="0">
-    <tbody>
-        <tr>
-            <td colspan="2" height="90" class="mainhd">
-                <include file="Common:incHeader" />
-                <div> </div></td>
-        </tr>
-        <tr>
-            <td class="menutd" valign="top" width="161">
-                <include file="Common:incMenu" />
-                <div class="copyright">
-                    {__CONTENT__}
+        <table style="width: 100%;" id="frametable" height="100%" width="100%" cellpadding="0" cellspacing="0">
+            <tbody>
+                <tr>
+                    <td colspan="2" height="90" class="mainhd">
+                        <include file="Common:incHeader" />
+                        <div> </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="menutd" valign="top" width="161">
+                        <include file="Common:incMenu" />
+                        <div class="copyright">
+                            {__CONTENT__}
+                        </div>
+                    </td>
                 </tr>
             </tbody>
         </table>

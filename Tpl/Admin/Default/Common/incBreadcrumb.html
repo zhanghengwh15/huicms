@@ -1,8 +1,8 @@
 <!--面包屑导航-->
 <div id="crumbs" class="crumbs">
-    <span><a href='{:U("Admin/Index/index")}' title="">首页</a></span>
+    <span><a href='{:U("Admin/Index/index")}' title="控制台">控制台</a></span>
     <span class="arrow">&nbsp;</span>
-    <span><a href='{:U("Admin/$breadcrumbs[url]/index")}'>{$breadcrumbs.module}</a></span>
+    <span><a href='{:U("Admin/$breadcrumbs[url]/index")}' title="{$breadcrumbs.module}">{$breadcrumbs.module}</a></span>
     <span class="arrow">&nbsp;</span>
     <span>{$breadcrumbs.action}</span>
 </div>
