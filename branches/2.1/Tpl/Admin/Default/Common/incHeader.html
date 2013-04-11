@@ -2,32 +2,34 @@
     <div id="title"><a href="./index_files/index.htm"></a></div>
     <div id="topnav" class="top-nav">
         <ul>
-            <li class="adminid" title="您好:admin">您好&nbsp;:&nbsp;<strong>admin</strong></li>
-            <li><a href="http://www.shopnctest.com/huli/index.php?act=index&op=modifypw" target="workspace"><span>修改密码</span></a></li>
-            <li><a href="http://www.shopnctest.com/huli/index.php?act=index&op=logout" title="退出"><span>退出</span></a></li>
-            <li><a href="http://www.shopnctest.com/" target="_blank" title="商城首页"><span>商城首页</span></a></li>
+            <li class="adminid" title="{$Think.session.admin_name}">登陆者&nbsp;:&nbsp;<strong>{$Think.session.admin_name}</strong></li>
+            <li><a href="{:U('Admin/System/pageEditAdminPasswd')}" target="workspace"><span>修改密码</span></a></li>
+            <li><a href="{:U('Admin/User/doLogout')}" title="退出"><span>退出</span></a></li>
+            <li><a href="/" target="_blank" title="前台"><span>前台</span></a></li>
         </ul>
     </div>
     <nav id="nav" class="main-nav">
         <ul>
-            <li><a class="link actived" id="nav_dashboard" href="javascript:;" onclick="openItem(&#39;dashboard&#39;);"><span>控制台</span></a></li>
-            <li><a class="link" id="nav_setting" href="javascript:;" onclick="openItem(&#39;setting&#39;);"><span>设置</span></a></li>
-            <li><a class="link" id="nav_goods" href="javascript:;" onclick="openItem(&#39;goods&#39;);"><span>商品</span></a></li>
-            <li><a class="link" id="nav_store" href="javascript:;" onclick="openItem(&#39;store&#39;);"><span>店铺</span></a></li>
-            <li><a class="link" id="nav_member" href="javascript:;" onclick="openItem(&#39;member&#39;);"><span>会员</span></a></li>
-            <li><a class="link" id="nav_trade" href="javascript:;" onclick="openItem(&#39;trade&#39;);"><span>交易</span></a></li>
-            <li><a class="link" id="nav_website" href="javascript:;" onclick="openItem(&#39;website&#39;);"><span>网站</span></a></li>
-            <li><a class="link" id="nav_operation" href="javascript:;" onclick="openItem(&#39;operation&#39;);"><span>运营</span></a></li>
-            <li><a class="link" id="nav_tool" href="javascript:;" onclick="openItem(&#39;tool&#39;);"><span>工具</span></a></li>
-            <li><a class="link" id="nav_microshop" href="javascript:;" onclick="openItem(&#39;microshop&#39;);"><span>微商城</span></a></li>
+            <li>
+                <a class="link actived" id="nav_dashboard" href="javascript:;" onclick="openItem(&#39;dashboard&#39;);">
+                    <span>控制台</span>
+                </a>
+            </li>
+            <volist name="tops" id="nav">
+            <li>
+                <a class="link" id="nav_setting" href="javascript:;" onclick="openItem(&#39;setting&#39;);">
+                    <span>{$nav.name}</span>
+                </a>
+            </li>
+            </volist>
         </ul>
     </nav>
     <div class="loca">
         <strong>您的位置:</strong>
-        <div id="crumbs" class="crumbs"><span>控制台</span><span class="arrow">&nbsp;</span><span>欢迎页面</span></div>
+        <include file="Common:incBreadcrumb" />
     </div>
     <div class="toolbar">
-        <ul id="skin" class="skin"><span>换肤</span>
+        <ul id="skin" class="skin">
             <li id="skin_0" class="" title="默认风格"></li>
             <li id="skin_1" class="" title="Mac风格"></li>
         </ul>
