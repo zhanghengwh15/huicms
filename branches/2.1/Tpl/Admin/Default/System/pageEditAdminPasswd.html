@@ -1,28 +1,52 @@
-<td valign="top" width="90%">
-    <div class="contentcontainer">
-        <div class="headings alt">
-            <h2>修改密码</h2>
-        </div>
-        <div class="contentbox">
-            <form action="{:U('Admin/System/doEditPasswd')}" method="post" autocomplete="on" class="formvalidate">
-                <p>
-                    <label for="textfield"><strong>旧密码:</strong></label>
-                    <input type="password" id="textfield" class="inputbox" name="old_passwd" required validate="{ required:true}"/> <br />
-                    <span class="smltxt"></span>
-                </p>
-                <p>
-                    <label for="textfield"><span><strong>新密码:</strong></span></label>
-                    <input type="password" id="u_passwd" class="inputbox" name="u_passwd" required validate="{ required:true}"/><br />
-                    <span class="smltxt red"></span>
-                </p>
-                <p>
-                    <label for="textfield"><span><strong>确认密码:</strong></span></label>
-                    <input type="password" id="correctbox" class="inputbox" name="confirm_passwd" required validate="{ required:true,equalTo:'#u_passwd'}"/>
-                </p>
-                <input type="hidden" value="{$data.id}" name="u_id">
-                <input type="submit" value="提交" class="btn" /> 
-                <input type="reset" value="重置" class="btn" /> 
-            </form>         
-        </div>
-    </div>
-</td>
+<div class="rounded table" style="width: 98%;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" class="box_top">
+        <thead class="thead">
+            <tr class="space">
+                <th colspan="10">修改密码</th>
+            </tr>
+        </thead>
+    </table>
+    <form action="{:U('Admin/System/doEditPasswd')}" method="post" autocomplete="on" class="formvalidate">
+        <table class="list" cellpadding="0" cellspacing="1" border="0">
+            <tbody>
+                <tr>
+                    <td class="name" width="150">
+                        <label class="validation" for="member_name"><span class="spanMsg">*</span>旧密码：</label>
+                    </td>
+                    <td><input type="password" class="input rounded" name="title" id="title" name="old_passwd" required validate="{ required:true}" value="" style="width:300px;"></td>
+                    <td class="field"></td>
+                </tr>
+                <tr>
+                    <td class="name">
+                        <label class="validation" for="member_name"><span class="spanMsg">*</span>新密码：</label>
+                    </td>
+                    <td>
+                        <input type="password" class="input rounded" name="u_passwd" required validate="{ required:true}" value="" style="width:300px;">
+                    </td>
+                    <td class="field"></td>
+                </tr>
+                <tr>
+                    <td class="name">
+                        <label class="validation" for="member_name"><span class="spanMsg">*</span>确认密码：</label>
+                    </td>
+                    <td>
+                        <input type="password" class="input rounded" name="confirm_passwd" required validate="{ required:true,equalTo:'#u_passwd'}" value=""  style="width:300px;">
+                    </td>
+                    <td class="field"></td>
+                </tr>
+                
+                  
+            </tbody>
+        </table>
+        <table class="table top_line">
+            <tbody>
+                <tr>
+                    <td align="left" height="60" colspan="2">
+                        <input id="submit" class="submit" type="submit" value="提交">
+                        <input type="reset" id="reset" class="submit reset" value="重置">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>

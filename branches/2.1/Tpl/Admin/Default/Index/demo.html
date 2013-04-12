@@ -1,0 +1,117 @@
+<div class="rounded table" style="width: 98%;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" class="box_top">
+        <thead class="thead">
+            <tr class="space">
+                <th colspan="10">一周动态</th>
+            </tr>
+        </thead>
+    </table>
+    <form action="" method="post" name="category" id="category">
+        <table class="list" cellpadding="0" cellspacing="1" border="0">
+            <tbody>
+                <tr class="even">
+                    <td class="name">
+                        <label class="validation" for="member_name"><span class="spanMsg">*</span>会员名:</label>
+                    </td>
+                    <td>
+                        <select class="select rounded" onchange="window.open(this.options[this.selectedIndex].value,'_self')" size="1"><option selected="selected" value="">请选择频道</option><option value="category_update.php?channel=2">资 讯</option><option value="category_update.php?channel=3">商 品</option><option value="category_update.php?channel=4">图 集</option><option value="category_update.php?channel=5">下 载</option><option value="category_update.php?channel=6">服 务</option><option value="category_update.php?channel=9">网站公告</option><option value="category_update.php?channel=10">焦点图</option></select> <span class="red">*</span>
+                        <img title="添加后不可以对所属频道进行修改。" class="title2div" src="../inc/templates/manage/images/operation/help.png" width="16" height="16" style="line-height: 16px;">							
+                    </td>
+                    <td class="field"></td>
+                </tr>
+
+                <tr class="odd">
+                    <td class="name">所属栏目：</td>
+                    <td>
+                        <select name="nexus" class="select rounded" style="font-family:'Courier New',Courier,monospace;"><option selected="selected" value="">作为一级栏目</option></select> 
+                    </td>
+                    <td class="field"></td>
+                </tr>
+
+                <tr class="even">
+                    <td class="name" width="150">栏目名称：</td>
+                    <td><input type="text" class="input rounded" name="title" id="title" size="30" value=""> <span class="red">*</span></td>
+                    <td class="field"></td>
+                </tr>
+                <tr class="odd">
+                    <td class="name">SEO标题：</td>
+                    <td>
+                        <input type="text" class="input rounded" name="seotitle" size="50" value="" style="width:300px;">
+
+                    </td>
+                    <td class="field"><img title="栏目列表页标题。" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16"></td>
+                </tr>
+                <tr class="even">
+                    <td class="name">SEO关键字：</td>
+                    <td>
+                        <input type="text" class="input rounded" name="seokey" size="50" value="" style="width:300px;">
+
+                    </td>
+                    <td class="field"><img title="多个关键字用逗号隔开。" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16">				</td>
+                </tr>
+                <tr class="odd">
+                    <td class="name">SEO描述：</td>
+                    <td>
+                        <textarea name="seodescr" class="rounded" style="width:300px; height:60px; padding:5px;"></textarea> 
+
+                    </td>
+                    <td class="field"><img title="不得超过 255 个字符。" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16">				</td>
+                </tr>
+                <tr class="even">
+                    <td class="name">访问权限：</td>
+                    <td>
+                        <select name="permission[]" class="rounded" style="width:205px; height:80px;" multiple="" id="select">
+                            <option value="0" selected="">开放栏目(无限制)</option><option value="1">注册会员</option><option value="2">中级会员</option><option value="3">高级会员</option><option value="4">VIP会员</option><option value="5">代理商</option>
+                        </select>
+
+                    </td>
+                    <td class="field"><img title="可以按住 CTRL 多选，权限设置对该栏目下的所有子栏目及内容均有效。" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16"></td>
+                </tr>				
+                <tr class="odd">
+                    <td class="name">栏目列表页模板文件：</td>
+                    <td>
+                        <input type="text" class="input rounded" name="templatelist" id="templatelist" size="30" value="">
+
+                    </td>
+                    <td class="field"><img title="栏目列表页使用的模板文件名称。不含文件后缀名，&lt;br /&gt;如：&lt;span class='green'&gt;news_list&lt;/span&gt;，不填写将采用当前页程序文件名作为缺省值。" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16"></td>
+                </tr>
+                <tr class="even">
+                    <td class="name">内容页模板文件：</td>
+                    <td>
+                        <input type="text" class="input rounded" name="templatecontent" id="templatecontent" size="30" value="">  
+                        <img title="该栏目下的内容页所使用的模板文件名称。多级分类时将采用最后一级&lt;br /&gt;分类填写的内页模板文件。不填写将会继承父级栏目中设定的模板文件。" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16">
+                    </td>
+                    <td class="field"></td>
+                </tr>
+                <tr class="even">
+                    <td class="name">栏目介绍：</td>
+                    <td>
+                        <textarea name="introduction" class="rounded" style="width:300px; height:60px; padding:5px;"></textarea> 
+
+                    </td>
+                    <td class="field"><img title="栏目简要介绍，支持HTML语法，部分模板可能会用到。" class="title2div" src="../inc/templates/manage/images/operation/help.png" width="16" height="16">				</td>
+                </tr>
+
+
+                <tr class="odd">
+                    <td class="name">栏目排序：</td>
+                    <td>
+                        <input type="text" name="sort" value="20" class="input rounded" size="10">  
+
+                    </td>
+                    <td class="field"><img title="升序，栏目排列顺序。" class="title2div" src="../inc/templates/manage/images/operation/help.png" width="16" height="16"></td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table top_line">
+            <tbody>
+                <tr>
+                    <td align="left" height="60" colspan="2">
+                        <input id="submit" class="submit" type="submit" value="提交">
+                        <input type="reset" id="reset" class="submit reset" value="重置">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
