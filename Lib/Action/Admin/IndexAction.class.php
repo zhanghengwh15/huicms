@@ -8,4 +8,12 @@ class IndexAction extends AdminAction {
     public function test(){
         echo "<pre>";print_r("222");exit;
     }
+    
+    public function demo(){
+        $this->display();
+    }
+    
+    public function form(){
+        $this->display();
+    }
 }

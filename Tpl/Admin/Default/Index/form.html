@@ -1,0 +1,98 @@
+<div class="page">
+  <div class="fixed-bar">
+    <div class="item-title">
+      <h3>会员管理</h3>
+      <ul class="tab-base">
+        <li><a href="index.php?act=member&op=member" ><span>管理</span></a></li>
+        <li><a href="JavaScript:void(0);" class="current"><span>新增</span></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="fixed-empty"></div>
+  <form id="user_form" enctype="multipart/form-data" method="post">
+    <input type="hidden" name="form_submit" value="ok" />
+    <table class="table tb-type2">
+      <tbody>
+        <tr class="noborder">
+            <td class="required">会员名:</td>
+          <td class="vatop rowform"><input type="text" value="" name="member_name" id="member_name" class="txt"></td>
+          <td class="vatop tips"></td>
+        </tr>
+        <tr>
+          <td colspan="2" class="required"><label class="validation" for="member_passwd">密码:</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input type="text" id="member_passwd" name="member_passwd" class="txt"></td>
+          <td class="vatop tips"></td>
+        </tr>
+        <tr>
+          <td colspan="2" class="required"><label class="validation" for="member_email">电子邮箱:</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input type="text" value="" id="member_email" name="member_email" class="txt"></td>
+          <td class="vatop tips"></td>
+        </tr>
+        <tr>
+          <td colspan="2" class="required"><label for="member_truename">真实姓名:</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input type="text" value="" id="member_truename" name="member_truename" class="txt"></td>
+          <td class="vatop tips"></td>
+        </tr>
+        <tr>
+          <td colspan="2" class="required"><label> 性别:</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><ul>
+              <li>
+                <label>
+                  <input type="radio" checked="checked" value="0" name="member_sex">
+                  保密</label>
+              </li>
+              <li>
+                <label>
+                  <input type="radio" value="1" name="member_sex">
+                  男</label>
+              </li>
+              <li>
+                <label>
+                  <input type="radio" value="2" name="member_sex">
+                  女</label>
+              </li>
+            </ul></td>
+          <td class="vatop tips"></td>
+        </tr>
+        <tr>
+          <td colspan="2" class="required"><label for="member_qq">QQ:</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input type="text" value="" id="member_qq" name="member_qq" class="txt"></td>
+          <td class="vatop tips"></td>
+        </tr>
+        <tr>
+          <td colspan="2" class="required"><label class="member_ww">阿里旺旺:</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input type="text" value="" id="member_ww" name="member_ww" class="txt"></td>
+          <td class="vatop tips"></td>
+        </tr>
+        <tr>
+          <td colspan="2" class="required"><label>头像:</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><span class="type-file-box">
+            <input type="file" class="type-file-file" id="member_avatar" name="member_avatar" size="30">
+            </span>
+            <input name="link_pic" type="file" class="type-file-file" id="link_pic" size="30">
+            </span></td>
+          <td class="vatop tips">支持格式gif,jpg,jpeg,png</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr class="tfoot">
+          <td colspan="15"><a href="JavaScript:void(0);" class="btn" id="submitBtn"><span>提交</span></a></td>
+        </tr>
+      </tfoot>
+    </table>
+  </form>
+</div>
