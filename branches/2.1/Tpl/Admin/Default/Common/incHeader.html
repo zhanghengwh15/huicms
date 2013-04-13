@@ -12,13 +12,13 @@
     <nav id="nav" class="main-nav">
         <ul>
             <li>
-                <a <if condition="$Think.cookie.nav_id eq '0'">class="link actived"<else />class="link"</if> id="nav_dashboard" href="javascript:;" onclick="openItem('0');">
+                <a <if condition="$Think.cookie.nav_id eq '0'">class="link actived"<else />class="link"</if> id="nav_0" href="javascript:;" onclick="openItem('0');">
                     <span>控制台</span>
                 </a>
             </li>
             <volist name="tops" id="nav">
             <li>
-                <a <if condition="$Think.cookie.nav_id eq $nav[id]">class="link actived"<else />class="link"</if> id="nav_setting" href="javascript:;" onClick="openItem('{$nav.id}');">
+                <a <if condition="$Think.cookie.nav_id eq $nav[id]">class="link actived"<else />class="link"</if> id="nav_{$nav.id}" href="javascript:;" onClick="openItem('{$nav.id}');">
                     <span>{$nav.name}</span>
                 </a>
             </li>
