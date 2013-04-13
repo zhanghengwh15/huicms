@@ -9,7 +9,7 @@
     <div class="contentbox" data-uri='{:U("Admin/System/doEditStatus")}'>
         <table width="100%" class="list td_align">
             <thead>
-                <tr class="even thead">
+                <tr class="thead">
                     <th class="align-center"><input name="u_id" type="checkbox" id="checkboxall" /></th>
                     <th class="align-center">操作</th>
                     <th class="align-center">头像</th>
@@ -34,7 +34,7 @@
                 </if>
                 </td>
                 <td class="align-center">
-                    <img src="{$vo.u_photo|default='__PUBLIC__/Admin/images/avatar.png'}" width="44" height="44" />
+                    <img src="__PUBLIC__/{$vo.u_photo|default='__PUBLIC__/Admin/images/avatar.png'}" width="44" height="44" />
                 </td>
                 <td class="align-center">{$vo.u_name}</td>
 
