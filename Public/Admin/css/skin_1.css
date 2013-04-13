@@ -72,7 +72,7 @@ label, .pointer { cursor:pointer; }
 /* table
 ------------------------------------------------------------------- */
 .table { clear:both; width:100%; margin-top: 8px}
-.table th, .table td{ padding:4px 15px !important; height:26px; }
+.table th{ padding:4px 15px !important; height:26px; }
 .tb-type1{}
 .tb-type1 td{ padding:5px 5px 3px 0;}
 .tb-type1 th{ padding:5px 5px 3px 0; line-height:21px; color: #333;}
