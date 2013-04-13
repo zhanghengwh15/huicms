@@ -42,7 +42,8 @@
             </empty>
             </tbody>
         </table>
-        <ul class="pagination">
+        <div class="pagination">
+            <ul>
             {$page}
             <select name="pageall" onChange="window.location.href=this.value">
                 <option value='{:U("Admin/Role/pageList","pageall=1")}' <if condition="$filter.pageall eq '1'">selected="selected"</if>>1条/页</option>
@@ -55,7 +56,7 @@
                 <option value='{:U("Admin/Role/pageList","pageall=500")}'<if condition="$filter.pageall eq '500'">selected="selected"</if>>500条/页</option>
             </select>
         </ul>
-
+        </div>
         <div style="clear: both;"></div>
     </div>
 
