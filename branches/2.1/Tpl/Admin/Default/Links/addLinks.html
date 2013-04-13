@@ -15,8 +15,31 @@
         <table class="list" cellpadding="0" cellspacing="1" border="0">
             <tbody>
                 <tr>
+                    <td class="name" width="150">
+                        <label class="validation">
+                            <span class="spanMsg">*</span>链接类型：
+                        </label>
+                    </td>  
+                    <td class="rowform">
+                        <ul>
+
+                            <li>
+                                <label>
+                                    <input type="radio" checked="checked" value="0" name="type">文字链接</label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" value="1" name="type">图片链接</label>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="field">
+                        <img title="请选择您的模板支持的链接类型" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16">				
+                    </td>
+                </tr>
+                <tr>
                     <td class="name">
-                        <label class="validation"><span class="spanMsg">*</span>网站名称:</label>
+                        <label class="validation"><span class="spanMsg">*</span>网站名称：</label>
                     </td>
                     <td>
                         <input type="text" class="input rounded" name="name" size="50" value="" style="width:300px;" required validate="{ required:true,maxlength:30,remote:'{:U('Admin/System/checkName')}'}">
@@ -25,7 +48,7 @@
                 </tr>
                 <tr>
                     <td class="name" width="150">
-                        <label class="validation"><span class="spanMsg">*</span>链接地址:</label>
+                        <label class="validation"><span class="spanMsg">*</span>链接地址：</label>
                     </td>
                     <td><input type="text" class="input rounded" name="link_url" id="link_url" size="30" value="" style="width:300px;" required validate="{ required:true}"></td>
                     <td class="field"></td>
@@ -33,7 +56,7 @@
                 
                 <tr class="even">
                     <td class="name">
-                        <label class="validation">链接图片称:</label>
+                        <label class="validation">链接图片称：</label>
                     </td>
                     <td>
                         <input type="text" class="input rounded" name="image_path" id="image_path" size="30" value="" style="float: left;width: 300px;">  
@@ -44,7 +67,7 @@
                 </tr>
                 <tr>
                     <td class="name">
-                        <label class="validation">描述:</label>
+                        <label class="validation">描述：</label>
                     </td>
                     <td>
                         <textarea name="description" class="rounded" style="width:300px; height:60px; padding:5px;"></textarea> 
@@ -53,7 +76,7 @@
                 </tr>
                 <tr>
                     <td class="name">
-                        <label class="validation"><span class="spanMsg">*</span>排序:</label>
+                        <label class="validation"><span class="spanMsg">*</span>排序：</label>
                     </td>
                     <td>
                         <input type="text" name="order" value="10" class="input rounded" size="10">  
