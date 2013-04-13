@@ -139,3 +139,68 @@ $(function(){
     bindAdminMenu();
 })
 
+/**
+ * 全选与取消全选
+ * 将全选的checkbox的class设为checkAll.列表中的checkbox的class设为checkSon
+ * @author Terry<admin@52sum.com>
+ * @date 2013-03-28
+ */
+$(document).ready(function(){
+    /*全选与取消*/
+    $('#checkboxall').click(function(){
+        if($(this).attr('checked')=='checked'){
+            $('.checkSon').attr('checked','checked');
+        }else{
+            $('.checkSon').removeAttr('checked');
+        }
+    });
+    
+    $(".module-item").change(function(){
+        var parent = $(this).parent().parent().parent().parent();
+        if(this.checked)
+        {
+            $('.select-all,.action-item',parent).attr({
+                'disabled':true,
+                'checked':false
+            });
+        }
+        else
+        {
+            $('.select-all,.action-item',parent).attr({
+                'disabled':false
+            });
+        }
+    });
+    $(".select-all").change(function(){
+        var parent = $(this).parent().parent().parent();
+        if(this.checked)
+        {
+            $('.action-item',parent).attr({
+                'checked':true
+            });
+        }
+        else
+        {
+            $('.action-item',parent).attr({
+                'checked':false
+            });
+        }
+    });
+
+    $(".action-item").change(function(){
+        var parent = $(this).parent().parent().parent();
+        if($(".action-item:not([checked])",parent).length == 0)
+        {
+            $('.select-all',parent).attr({
+                'checked':true
+            });
+        }
+        else
+        {
+            $('.select-all',parent).attr({
+                'checked':false
+            });
+        }
+    });
+    
+})
