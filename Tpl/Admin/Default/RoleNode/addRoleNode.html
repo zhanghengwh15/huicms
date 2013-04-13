@@ -1,25 +1,21 @@
-<style type="text/css">
-#file_list{padding:10px 0 25px 60px;}
-#file_list ul{clear:both;}
-#file_list ul li{float:left; height:22px; line-height:22px;}
-#file_list ul .aax{width:18px;}
-#file_list ul .aay{width:120px;}
-</style>
-
-<div class="contentcontainer">
-    <div class="headings alt">
-        <h2>添加节点</h2>
-    </div>
+<div class="rounded table" style="width: 98%;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" class="box_top">
+        <thead class="thead">
+            <tr class="space">
+                <th colspan="10">添加节点</th>
+            </tr>
+        </thead>
+    </table>
     <div class="contentbox">
         <form action="{:U('Admin/RoleNode/saveRoleNode')}" method="post" id="doEditAdmin" class="formvalidate" enctype="multipart/form-data">
         <table class="list" cellpadding="0" cellspacing="1" border="0">
 			<tr>
-				<td class="name">说明：</td>
+				<td class="name" width="150">说明：</td>
 				<td style="padding:12px 8px;">
-                    <p style="padding-bottom:0px;">
-                        1. 只填写模块，为模块的公共授权<br/>
-                        2. 填写操作与模块，为指定模块中节点的授权
-                    </p>
+                    <p style="padding-bottom:0px;margin-bottom: 0px;line-height: 20px;">
+                            1. 只填写模块，为模块的公共授权 <br />
+                            2. 填写操作与模块，为指定模块中节点的授权
+                        </p>
                 </td>
 				<td class="field"></td>
 			</tr>
@@ -38,18 +34,24 @@
 				<td class="field"></td>
 			</tr>
 			<tr>
-				<td class="name">模块：</td>
+                <td class="name">
+                    <label class="validation"><span class="spanMsg">*</span>模块:</label>
+                </td>
 				<td>
                     <input name="module" id="module" type="text" class="input rounded" value="{$data.u_username}" size="30" maxlength="50" validate="{ required:true,username:true}" /> 
                 </td>
-				<td class="field"><span class="red">[必填]</span>(请填写控制器的相应名称，如RoleNode,Article...)</td>
+                <td class="field">
+                    <img title="(请填写控制器的相应名称，如RoleNode,Article...)" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16" style="line-height: 16px;">
+                </td>
 			</tr>
 			<tr>
-				<td class="name">模块名称：</td>
+                <td class="name" width="150">
+                    <label class="validation"><span class="spanMsg">*</span>模块名称:</label>
+                </td>
 				<td>
                     <input name="module_name" id="module_name" type="text" class="input rounded" value="" size="30" maxlength="50" validate="{ username:true}" /> 
 				</td>
-				<td class="field"><span class="red">[必填]</span></td>
+				<td class="field"></td>
 			</tr>
             <tr>
 				<td class="name">状态：</td>
