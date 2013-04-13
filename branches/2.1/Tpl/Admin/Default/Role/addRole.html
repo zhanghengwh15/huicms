@@ -1,29 +1,27 @@
-<style type="text/css">
-    #file_list{padding:10px 0 25px 60px;}
-    #file_list ul{clear:both;}
-    #file_list ul li{float:left; height:22px; line-height:22px;}
-    #file_list ul .aax{width:18px;}
-    #file_list ul .aay{width:120px;}
-</style>
-
-<div class="contentcontainer">
-    <div class="headings alt">
-        <h2>添加角色</h2>
-    </div>
+<div class="rounded table" style="width: 98%;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" class="box_top">
+        <thead class="thead">
+            <tr class="space">
+                <th colspan="10">添加角色</th>
+            </tr>
+        </thead>
+    </table>
     <div class="contentbox">
         <form action="{:U('Admin/Role/doAdd')}" method="post" id="doEditAdmin" class="formvalidate">
             <table class="list" cellpadding="0" cellspacing="1" border="0">
                 <tr>
-                    <td class="name">角色名称：</td>
+                    <td class="name">
+                        <label class="validation"><span class="spanMsg">*</span>角色名称:</label>
+                    </td>
                     <td>
                         <input name="name" type="text" class="input rounded" value="" size="30" maxlength="50" validate='{ required:true,username:true,remote:"{:U("Admin/Role/checkRoleName")}"}' /> 
                     </td>
-                    <td class="field"><span class="red">[必填]</span></td>
+                    <td class="field"></td>
                 </tr>
                 <tr>
                     <td class="name">权限设置：</td>
                     <td style="padding:12px 8px;">
-                        <p style="padding-bottom:0px;">
+                        <p style="padding-bottom:0px;margin-bottom: 0px;line-height: 20px;">
                             1. 如果要指定当前模块下的所有权限，可选中该模块名称 <br />
                             2. 如果要指定当前模块下的操作权限，可选中该模块的操作名称
                         </p>

@@ -1,27 +1,31 @@
-<div class="contentcontainer">
-    <div class="headings altheading">
-        <h2>角色列表</h2>
-    </div>
+<div class="rounded table" style="width: 98%;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" class="box_top">
+        <thead class="thead">
+            <tr class="space">
+                <th colspan="10">角色列表</th>
+            </tr>
+        </thead>
+    </table>
     <div class="contentbox" data-uri='{:U("Admin/Role/doEditStatus")}'>
         <table width="100%" class="list td_align">
             <thead>
-                <tr class="even">
-                    <td class="field_head"><input name="id" type="checkbox" id="checkboxall" /></td>
-                    <td class="field_head">操作</td>
-                    <td class="field_head">角色名称</td>
-                    <td class="field_head">状态</td>
+                <tr class="thead">
+                    <th class="align-center"><input name="id" type="checkbox" id="checkboxall" /></th>
+                    <th class="align-center">操作</th>
+                    <th class="align-center">角色名称</th>
+                    <th class="align-center">状态</th>
                 </tr>
             </thead>
             <tbody>
             <volist name="data" id="list">
                 <tr id="list_{$list.id}">
-                    <td><input type="checkbox" name="id" value="" /></td>
-                    <td>
+                    <td class="align-center"><input type="checkbox" name="id" value="" /></td>
+                    <td class="align-center">
                         <a href='{:U("Admin/Role/editRole?id=$list[id]")}'><img src="__PUBLIC__/Admin/images/icons/icon_edit.png" alt="编辑" title="编辑" /></a>&nbsp;
                         <a href='javascript:;' class="dodel" data-uri='{:U("Admin/Role/doDelete","id=$list[id]")}' val="{$list[id]}" data-msg="确定要删除“{$list.name}”吗？" data-acttype="ajax"><img src="__PUBLIC__/Admin/images/icons/icon_square_close.png" alt="删除" title="删除" /></a>
                     </td>
-                    <td>{$list.name}</td>
-                    <td>
+                    <td class="align-center">{$list.name}</td>
+                    <td class="align-center">
                         <img class="pointer" data-id="{$list[id]}" style="cursor: pointer;" data-field="status" data-value="{$list.status}"
                                 <if condition="$list.status eq '1'">
                                     src="__PUBLIC__/Admin/images/icons/icon_1.png" alt="启用" title="启用"
