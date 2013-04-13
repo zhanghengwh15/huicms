@@ -37,10 +37,14 @@ abstract class AdminAction extends Action{
         }
         //判断用户是否登陆
         $this->doCheckLogin();
-        $bm = array();
+        $bm = M('RoleNav')->field(C('DB_PREFIX').'role_nav.name,'.C('DB_PREFIX').'role_node.*')
+                          ->join(C('DB_PREFIX').'role_node ON '.C('DB_PREFIX').'role_nav.id = '.C('DB_PREFIX').'role_node.`nav_id`')
+                          ->where(C('DB_PREFIX').'role_nav.id =  "'.  cookie('nav_id').'" AND '.C('DB_PREFIX').'role_node.`action` =  "'.cookie('action').'" AND '.C('DB_PREFIX').'role_node.`module` =  "'.cookie('module').'"')
+                          ->find();
+//        echo M('RoleNav')->getLastSql();exit;
         $bm['url']    = MODULE_NAME;
-        $bm['module']    = L(MODULE_NAME);
-        $bm['action']    = L(MODULE_NAME.'_'.ACTION_NAME);
+//        $bm['module']    = L(MODULE_NAME);
+//        $bm['action']    = L(MODULE_NAME.'_'.ACTION_NAME);
         $this->assign ('breadcrumbs',$bm);
         import('ORG.Util.Session');
         $this->assign("uid",session("admin"));
