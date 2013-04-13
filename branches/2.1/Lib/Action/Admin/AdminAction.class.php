@@ -81,8 +81,6 @@ abstract class AdminAction extends Action{
 		if(!empty($menuid)){
 			$this->getMenus($menuid);
 		}
-        
-//        echo "<pre>";print_r($this->menus);exit;
         import('ORG.Util.Page');
     }
     
@@ -105,9 +103,9 @@ abstract class AdminAction extends Action{
      * @date 2013-04-03
      */
     public function getTop(){
-        $tops = D('RoleNav')->where('status=1')->field('id,name')->order("sort")->select();
+        $tops = D('RoleNav')->where('status=1')->field('id,name')->order("sort ASC")->select();
         $this->tops = $tops;
-	$this->assign('tops', $tops);
+        $this->assign('tops', $tops);
     }
     
     /**
@@ -130,7 +128,7 @@ abstract class AdminAction extends Action{
             $where['auth_type'] = 0;
             $no_modules = explode(',', strtoupper(C('NOT_AUTH_MODULE')));
             $access_list = $_SESSION['_ACCESS_LIST'];
-            $node_list = D("RoleNode")->where($where)->field('id,action,action_name,module,module_name')->order('sort ASC,id ASC')->select();
+            $node_list = D("RoleNode")->where($where)->field('id,action,action_name,module,module_name')->order(array('sort'=>'ASC'))->select();
             
             foreach ($node_list as $key => $node) {
                 $menus[$node['module']]['nodes'][] = $node;
