@@ -129,10 +129,7 @@ function bindAdminMenu(){
     });
 }
 
-function openItem(menuid){
-    $.cookie("nav_id",menuid);
-    window.location.reload();
-}    
+ 
     
 
 $(function(){
@@ -204,3 +201,52 @@ $(document).ready(function(){
     });
     
 })
+
+//判断是否是第一次登陆后台
+$(document).ready(function(){
+    if($.cookie('module') != null){
+//		openItem($.cookie('nav_id')+','+$.cookie('module')+','+$.cookie('action'));
+	}else{
+		$('#mainMenu>ul').first().css('display','block');
+		//第一次进入后台时，默认定到欢迎界面
+		$('#item_welcome').addClass('selected');			
+	}
+});
+
+function openItem(menu){
+    var str = menu.split(',');
+    var op = str[0];
+    try{
+        var module = str[1];
+        var action = str[2];
+    }catch(ex){}
+    if (typeof(module)=='undefined'){var nav = menu;}
+    
+    $('.actived').removeClass('actived');
+    $('#nav_'+nav).addClass('actived');
+    $('.selected').removeClass('selected');	
+    $('#mainMenu ul').css('display','none');
+    $('#sort_menu').css('display','block');
+//    var first_obj = $('#sort_menu>li>dl>dd>ol>li:eq(1)').find('a').attr("name");
+    if (typeof(module)=='undefined'){
+        //顶部菜单事件
+		html = $('#sort_menu>li>dl>dd>ol>li').first().html();
+        var first_obj = $('#sort_menu>li>dl>dd>ol>li:eq(1)').find('a').attr("name");
+        first_obj = $('#sort_menu>li>dl>dd>ol>li').first().children('a');
+        $(first_obj).addClass('selected');	
+        $.cookie('nav_id',op);
+    }else{
+        $.cookie('module',module);
+		$.cookie('action',action);
+		$.cookie('nav_id',op);
+        $("#item_"+op).addClass('selected');//使用name，不使用ID，因为ID有重复的
+        $("a[name='item_"+op+"']").addClass('selected');
+    }
+    var url = '/Admin/'+module+'/'+action;
+//    window.location.reload();
+    if (typeof(module)!='undefined'){
+        window.location.href=url;
+    }else{
+        window.location.reload();
+    }
+}   
