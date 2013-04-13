@@ -94,3 +94,48 @@ $(document).ready(function(){
         );
     
 });
+
+$(document).ready(function(){
+    $.metadata.setType("attr","validate");
+});
+
+$(document).ready(function(){   
+    $(".formvalidate").validate({
+        errorElement: "span",
+        errorClass: "errormsg"
+    });   
+});
+
+(function (config) {
+    config['lock'] = true;
+    config['fixed'] = true;
+    config['okVal'] = 'Ok';
+    config['cancelVal'] = 'Cancel';
+// [more..]
+})(art.dialog.defaults);
+
+function bindAdminMenu(){
+    $("[nc_type='parentli']").click(function(){
+        var key = $(this).attr('dataparam');
+        if($(this).find("dd").css("display")=="none"){
+            $("[nc_type='"+key+"']").slideDown("fast");
+            $(this).find('dt').css("background-position","-322px -170px");
+            $(this).find("dd").show();
+        }else{
+            $("[nc_type='"+key+"']").slideUp("fast");
+            $(this).find('dt').css("background-position","-483px -170px");
+            $(this).find("dd").hide();
+        }
+    });
+}
+
+function openItem(menuid){
+    $.cookie("nav_id",menuid);
+    window.location.reload();
+}    
+    
+
+$(function(){
+    bindAdminMenu();
+})
+

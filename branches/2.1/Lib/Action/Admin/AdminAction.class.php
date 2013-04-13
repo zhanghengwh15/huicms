@@ -75,7 +75,14 @@ abstract class AdminAction extends Action{
             }
         }
         $this->getTop();
-        $this->getMenus();
+        $menuid = intval($_GET['menuid']);
+        
+		if(empty($menuid)) $menuid = cookie('nav_id');
+		if(!empty($menuid)){
+			$this->getMenus($menuid);
+		}
+        
+//        echo "<pre>";print_r($this->menus);exit;
         import('ORG.Util.Page');
     }
     
@@ -108,32 +115,37 @@ abstract class AdminAction extends Action{
      * @author Terry<admin@52sum.com>
      * @date 2013-04-03
      */
-    public function getMenus(){
-        $id = intval($this->_get('id'));
+    public function getMenus($menuid){
+        $id = intval($menuid);
         $menus = array();
         if(false){
             $menus = $_SESSION['menu_' . $id . '_' . $_SESSION[C('USER_AUTH_KEY')]];
         }else{
-            if ($id == 0)
-                $id = D("RoleNav")->where('status=1')->order("sort ASC,id ASC")->getField('id');
+//            if ($id == 0)
+//                $id = D("RoleNav")->where('status=1')->order("sort ASC,id ASC")->getField('id');
             $where = array();
             $where['status'] = 1;
-            $where['nav_id'] = $id;
+            $where['nav_id'] = $menuid;
             $where['is_show'] = 1;
             $where['auth_type'] = 0;
             $no_modules = explode(',', strtoupper(C('NOT_AUTH_MODULE')));
             $access_list = $_SESSION['_ACCESS_LIST'];
             $node_list = D("RoleNode")->where($where)->field('id,action,action_name,module,module_name')->order('sort ASC,id ASC')->select();
+            
             foreach ($node_list as $key => $node) {
+                $menus[$node['module']]['nodes'][] = $node;
+                $menus[$node['module']]['name'] = $node['module_name'];
                 if ((isset($access_list[strtoupper($node['module'])]['MODULE']) || isset($access_list[strtoupper($node['module'])][strtoupper($node['action'])])) || $_SESSION['administrator'] || in_array(strtoupper($node['module']), $no_modules)) {
                     $menus[$node['module']]['nodes'][] = $node;
                     $menus[$node['module']]['name'] = $node['module_name'];
                 }
             }
+//            echo "<pre>";print_r($menus);exit;
             $_SESSION['menu_' . $id . '_' . $_SESSION[C('USER_AUTH_KEY')]] = $menus;
             $this->menus = $menus;
 //            echo "<pre>";print_r($menus);exit;
             $this->assign("menus",$menus);
+            return $menus;
         }
     }
 }

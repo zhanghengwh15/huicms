@@ -8,16 +8,17 @@
             <li><a href="/" target="_blank" title="前台"><span>前台</span></a></li>
         </ul>
     </div>
+    
     <nav id="nav" class="main-nav">
         <ul>
             <li>
-                <a class="link actived" id="nav_dashboard" href="javascript:;" onclick="openItem(&#39;dashboard&#39;);">
+                <a <if condition="$Think.cookie.nav_id eq '1'">class="link actived"<else />class="link"</if> id="nav_dashboard" href="javascript:;" onclick="openItem('1');">
                     <span>控制台</span>
                 </a>
             </li>
             <volist name="tops" id="nav">
             <li>
-                <a class="link" id="nav_setting" href="javascript:;">
+                <a <if condition="$Think.cookie.nav_id eq $nav[id]">class="link actived"<else />class="link"</if> id="nav_setting" href="javascript:;" onClick="openItem('{$nav.id}');">
                     <span>{$nav.name}</span>
                 </a>
             </li>

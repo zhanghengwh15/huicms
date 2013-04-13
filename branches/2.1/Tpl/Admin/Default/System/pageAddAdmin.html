@@ -1,130 +1,247 @@
-<style type="text/css">
-#file_list{padding:10px 0 25px 60px;}
-#file_list ul{clear:both;}
-#file_list ul li{float:left; height:22px; line-height:22px;}
-#file_list ul .aax{width:18px;}
-#file_list ul .aay{width:120px;}
-</style>
-
-<div class="contentcontainer">
-    <div class="headings alt">
-        <h2>编辑管理员</h2>
-    </div>
-    <div class="contentbox">
-        <form action="{:U('Admin/System/doSaveAdmin')}" method="post" id="doEditAdmin" class="formvalidate" enctype="multipart/form-data">
+<script type="text/javascript">
+    window.UEDITOR_HOME_URL = "__PUBLIC__/Lib/ueditor/";
+</script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/Lib/ueditor/editor_all.js"></script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/Lib/ueditor/editor_config.js"></script>
+<div class="rounded table" style="width: 98%;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" class="box_top">
+        <thead class="thead">
+            <tr class="space">
+                <th colspan="10">添加管理员</th>
+            </tr>
+        </thead>
+    </table>
+    <form action="{:U('Admin/System/doSaveAdmin')}" method="post" id="doEditAdmin" class="formvalidate">
         <table class="list" cellpadding="0" cellspacing="1" border="0">
-			<tr>
-				<td class="name">用户名：</td>
-				<td>
-                    <input name="u_name" type="text" class="input rounded" value="" size="30" maxlength="50" required validate="{ required:true,maxlength:30,remote:'{:U('Admin/System/checkName')}'}" /> 
-                </td>
-                <td class="field"><span class="red">[必填]</span>这里输入管理员登陆时需要的账号</td>
-			</tr>
-            <tr>
-				<td class="name">密码：</td>
-				<td>
-                    <input name="u_password" id="u_password" type="password" class="input rounded" value="" size="30" maxlength="50" validate="{ required:true,rangelength:[6,20],messages:{required:'密码不能为空'}}" /> 
-                </td>
-				<td class="field"><span class="red">[必填]</span>6 - 20个字符组成，只能使用数字、字母和下划线</td>
-			</tr>
-            <tr>
-				<td class="name">确认密码：</td>
-				<td>
-                    <input name="confirm_password" type="password" class="input rounded" value="" size="30" maxlength="50" validate="{ required:true,rangelength:[6,20],equalTo:'#u_password'}" /> 
-                </td>
-				<td class="field"><span class="red">[必填]</span>6 - 20个字符组成，只能使用数字、字母和下划线</td>
-			</tr>
-			<tr>
-				<td class="name">姓名：</td>
-				<td>
-                    <input name="u_username" type="text" class="input rounded" value="{$data.u_username}" size="30" maxlength="50" validate="{ username:true}" /> 
-                </td>
-				<td class="field">5 - 50个字符组成，只能使用数字、字母和下划线</td>
-			</tr>
-			<tr>
-				<td class="name">性别：</td>
-				<td>
-                    <input name="u_sex" type="radio" value="1" checked /> 男 &nbsp;&nbsp;
-                    <input name="u_sex" type="radio" value="2" /> 女 &nbsp;&nbsp;
-					<input name="u_sex" type="radio" value="0" /> 保密
-				</td>
-				<td class="field"><span class="red">[必填]</span></td>
-			</tr>
-            <tr>
-				<td class="name">手机：</td>
-				<td>
-                    <input name="u_phone" id="u_phone" type="text" class="input rounded" value="" size="30" maxlength="50" /> 
-                </td>
-				<td class="field"></td>
-			</tr>
-            <tr>
-				<td class="name">所属组：</td>
-				<td>
-                    <if condition="$data.u_name eq $admin[SYS_ADMIN]">
-                        <select name="role_id" class="select rounded" disabled="disabled">
-                            <option value="0">系统管理员</option>
-                        </select>
-                    <else />    
-                       <select name="role_id" class="select rounded" validate="{ selected:true}">
+            <tbody>
+                <tr class="even">
+                    <td class="name">
+                        <label class="validation"><span class="spanMsg">*</span>用户名:</label>
+                    </td>
+                    <td>
+                        <input name="u_name" type="text" class="input rounded" value="" size="30" maxlength="50" required validate="{ required:true,maxlength:30,remote:'{:U('Admin/System/checkName')}'}" /> 
+                    </td>
+                    <td class="field">
+                        <img title="这里输入管理员登陆时需要的账号" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16" style="line-height: 16px;">
+                    </td>
+                </tr>
+                <tr class="even">
+                    <td class="name" width="150">
+                        <label class="validation">
+                            <span class="spanMsg">*</span>密码：
+                        </label>
+
+                    </td>
+                    <td>
+                        <input id="u_password" name="u_password" type="password" class="input rounded" value="" size="30" maxlength="50" validate="{ required:true,rangelength:[6,20],equalTo:'#u_password'}" /> 
+                    </td>
+                    <td class="field">
+                        <img title="6 - 20个字符组成，只能使用数字、字母和下划线" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16" style="line-height: 16px;">
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td class="name">
+                        <label class="validation">
+                            <span class="spanMsg">*</span>确认密码：
+                        </label>
+                    </td>
+                    <td>
+                        <input type="password" class="input rounded" name="confirm_password" size="50" value="" style="width:192px;" validate="{ required:true,rangelength:[6,20],equalTo:'#u_password'}">
+
+                    </td>
+                    <td class="field">
+                        <img title="6 - 20个字符组成，只能使用数字、字母和下划线" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16">
+                    </td>
+                </tr>
+                <tr class="even">
+                    <td class="name" width="150">
+                        <label class="validation">
+                            姓名：
+                        </label>
+                    </td>
+                    <td>
+                        <input name="u_username" type="text" class="input rounded" value="{$data.u_username}" size="30" maxlength="50" validate="{ username:true}" /> 
+                    </td>
+                    <td class="field">
+                        <img title="5 - 50个字符组成，只能使用数字、字母和下划线" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16">
+                    </td>
+                </tr>
+                <tr class="even">
+                    <td class="name" width="150">
+                        <label class="validation">
+                            <span class="spanMsg">*</span>性别：
+                        </label>
+                    </td>  
+                    <td class="rowform">
+                        <ul>
+
+                            <li>
+                                <label>
+                                    <input type="radio" checked="checked" value="1" name="u_sex">男</label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" value="2" name="u_sex">女</label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio"  value="0" name="u_sex">保密</label>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="field">
+
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td class="name">
+                        <label class="validation">
+                            <span class="spanMsg">*</span>所属组：
+                        </label>
+                    </td> 
+                    <td>
+                        <select name="role_id" class="select rounded" style="font-family:'Courier New',Courier,monospace;">
                             <volist name="role" id="re">
-                                <option value="{$re.id}" <if condition="$re.id eq $data[role_id]">selected="selected"</if>>{$re.name}</option>
+                                <option value="{$re.id}">{$re.name}</option>
                             </volist>
                         </select> 
-                    </if>
-                    
-                </td>
-				<td class="field"><span class="red">[必填]</span></td>
-			</tr>
-            <tr>
-				<td class="name">邮箱：</td>
-				<td>
-                    <input name="u_email" type="email" class="input rounded" value="" size="30" maxlength="50" validate="{ email:true}"/> 
-                </td>
-				<td class="field"></td>
-			</tr>
-            <tr>
-				<td class="name">头像：</td>
-				<td>
-                    <input name="u_photo" type="file" class="input rounded photo" value=""   size="30" style="width:211px;" /> 
-                </td>
-			</tr>
-            <tr>
-				<td class="name">QQ：</td>
-				<td>
-                    <input name="u_qq" type="text" class="input rounded" value="" size="30" /> 
-                </td>
-				<td class="field"></td>
-			</tr>
-            <tr>
-				<td class="name">状态：</td>
-				<td>
-                    <input name="u_status" type="radio" value="1" checked /> 启用 &nbsp;&nbsp;
-                    <input name="u_status" type="radio" value="0"/> 停用 
-				</td>
-				<td class="field"><span class="red">[必填]</span></td>
-			</tr>
-            <tr>
-				<td class="name">描述：</td>
-				<td>
-                    <textarea class="text-input textarea" id="wysiwyg" name="u_description" rows="10" cols="75"></textarea>
-                </td>
-				<td class="field"></td>
-			</tr>
-		</table>
-		
-		<table class="table top_line">
-			<tr>
-				<td align="right" height="60">
-                    <input id="submit" class="submit" type="submit" value="提交">
-                </td>
-				<td width="80"></td>
-				<td>
-                    <input type="reset" id="reset" class="submit reset" value="重置">
-                </td>
-			</tr>
-		</table>		
-		</form>
 
-        
-    </div>
+                    </td>
+                    <td class="field"></td>
+                </tr>
+
+                <tr class="even">
+                    <td class="name"  width="150">
+                        <label class="validation">
+                            手机：
+                        </label>
+                    </td> 
+                    <td><input name="u_phone" id="u_phone" type="text" class="input rounded" value="" size="30" maxlength="50" /> </td>
+                    <td class="field"></td>
+                </tr>
+                <tr>
+                    <td class="name">
+                        <label class="validation">
+                            邮箱：
+                        </label>
+                    </td> 
+                    <td>
+                        <input name="u_email" type="text" class="input rounded" value="" size="30" maxlength="50" validate="{ email:true}" /> 
+                    </td>
+                    <td class="field"></td>
+                </tr>
+                <tr class="even">
+                    <td class="name">
+                        <label class="validation">
+                            头像：
+                        </label>
+                    </td> 
+                    <td>
+                        <input name="u_photo" type="text" class="input rounded photo" value="" id="photo"   size="30" style="float: left;"/> 
+                        <a href="javascript:upImage('photo');" id="button1" value="" class="type-file-button"></a>
+                    </td>
+                    <td class="field">
+
+                    </td>
+                </tr>
+                <tr class="even">
+                    <td class="name">
+                        <label class="validation">
+                            QQ：
+                        </label>
+                    </td> 
+                    <td>
+                        <input name="u_qq" type="text" class="input rounded" value="" size="30" /> 
+                    </td>
+                    <td class="field">
+
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td class="name" width="150">
+                        <label class="validation">
+                            <span class="spanMsg">*</span>状态：
+                        </label>
+                    </td> 
+                    <td class="rowform">
+                        <ul>
+
+                            <li>
+                                <label>
+                                    <input type="radio" checked="checked" value="1" name="u_status">启用</label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" value="0" name="u_status">停用</label>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="field">
+
+                    </td>
+                </tr>
+                <tr class="even">
+                    <td class="name">
+                        <label class="validation">
+                            描述：
+                        </label>
+                    </td>
+                    <td>
+                        <textarea class="text-input textarea" id="wysiwyg" name="u_description" rows="10" cols="75"></textarea>
+                    </td>
+                    <td class="field"></td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table top_line">
+            <tbody>
+                <tr>
+                    <td align="left" height="60" colspan="2">
+                        <input id="submit" class="submit" type="submit" value="提交">
+                        <input type="reset" id="reset" class="submit reset" value="重置">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
 </div>
+
+<script>
+    //显示一个新对话框
+    function showWin(){
+        artDialog({
+            content:'欢迎使用 "artDialog" 对话框组件！', 
+            fixed:true, 
+            lock:false,
+            style:'succeed'
+        }, function(){
+            artDialog({
+                title:' ', 
+                content:'谢谢观赏', 
+                lock:true, 
+                time:2
+            })
+        });
+    };    
+    //Ueditor上传 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    var dom;
+    var editor = new UE.ui.Editor({
+        imageRealPath:"images"
+    });
+    editor.render("myEditor");
+    var dialog_img;
+    editor.ready(function(){
+        editor.hide();
+        dialog_img = editor.getDialog("insertimage");
+        editor.addListener('beforeInsertImage',function(t, arg){
+            $("#"+dom).val(arg[0]['src']);
+        });
+        editor.addListener('afterUpfile',function(t, arg){
+            $("#"+dom).val(arg[0]['url']);
+        });
+    });
+    function upImage(pid) {
+        dom = pid;
+        dialog_img.open();
+    }
+</script>

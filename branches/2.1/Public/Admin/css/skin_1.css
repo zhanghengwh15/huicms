@@ -101,8 +101,9 @@ label, .pointer { cursor:pointer; }
 .nowrap { white-space: nowrap; }
 .tb-type2 .required { padding:3px 0 3px 5px; font-weight:700; }
 .tb-type2 .rowform{ padding-left:5px; }
-
-
+.rowform li{ overflow:hidden; float:left; margin-right:10px; white-space:nowrap; cursor:pointer; }
+.rowform .nofloat li span.radio { line-height:25px; width:100px; float:left; }
+.type-file-button , input.type-file-button:focus { background: url(../images/bg_position.png) no-repeat -50px -450px;margin-left: 5px; display:inline; width:57px; height:25px; float:left; border: 0;}
 
 
 
@@ -184,7 +185,19 @@ label.validation{font-weight:700; padding-left:16px;line-height: 16px;}
 .title2div{position: relative;top: 4px;}
 
 /* 表单提交按钮样式 a */
-.submit{width:120px; margin: 0px 20px;height:35px; line-height:35px; text-align:center;border: none;cursor: pointer; color:#FFF; background:url(../images/sprite_gray.png) -4px -220px no-repeat;}
+.submit{width:120px; margin: 0px 20px;height:35px; line-height:35px; text-align:center;border: none;cursor: pointer; color:#FFF; background:url('../images/sprite_gray.png') -4px -220px no-repeat;}
 .submit:hover{color:#FFF; text-decoration:none; background-position:-4px -261px;}
 .top_line{margin-top: 20px;margin-bottom: 10px;}
 .spanMsg{padding-right: 10px;vertical-align: middle;font-weight: bold;color: red;font-size:16px;}
+
+.thead th{ font-size:13px; font-weight: 700; color: #333; white-space: nowrap;}
+span.errormsg {color: red;text-indent: 20px;display: inline-block;background-image: url('../images/icons/icon_error.png');background-position: 2px 0px;margin-left: 5px;background-repeat: no-repeat;}
+
+/* 分页样式 */
+.pagination{ margin:10px 5px 5px 0px;padding: 2px; float:right; +float:none; +position: absolute; +right:6px;}
+.pagination ul{ margin: 0; padding: 0; }
+.pagination ul li {line-height: 22px; display: inline; list-style-type: none; float: left; padding: 0px;color: #AAA;}
+.pagination li span{font-size: 13px;  list-style-type: none; display: inline; float: left; padding: 3px 10px; margin: 0 1px 0 0; }
+.pagination li a span , .pagination li a:visited span{ color: #565D68; text-decoration: none; cursor:pointer; -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;/*Firefox\Chrome\Safari\IE9\元素圆角效果*/}
+.pagination li a:hover span, .pagination li a:active span{ color: #000; background-color: #FFF;  cursor:pointer; -khtml-opacity: .9; -moz-opacity: 0.9; -moz-box-shadow:0 0 3px rgba(204, 204, 204, 0.5); -webkit-box-shadow: 0 0 3px rgba(204, 204, 204, 0.5); box-shadow: 0 0 3px rgba(204, 204, 204, 0.5);}
+.pagination li span.currentpage{ color:#FFF; font-weight: bold;  background-color: #748CA9; -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;/*Firefox\Chrome\Safari\IE9\元素圆角效果*/}
