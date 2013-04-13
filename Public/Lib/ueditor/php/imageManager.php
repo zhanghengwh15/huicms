@@ -18,7 +18,6 @@
         foreach ( $files as $file ) {
             $str .= $file . "ue_separate_ue";
         }
-        file_put_contents("imageManager.txt",$str);
         echo $str;
     }
 

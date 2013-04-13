@@ -5,9 +5,25 @@
                 <dl>
                     <dd>
                         <ol>
-                            <li nc_type="">
-                                <a href="JavaScript:void(0);" name="item_welcome" id="item_welcome" onclick="openItem(&#39;welcome,dashboard,dashboard&#39;);" class="selected">欢迎页面</a>
-                            </li>
+                            <volist name="menus" id="menu">
+                                <li nc_type='parentli' dataparam='{$menu.name}'>
+                                    <dt>{$menu.name}</dt>
+                                    <dd style='display:block;'></dd>
+                                </li>
+                                <volist name="menu.nodes" id="me">
+                                    <li nc_type='{$menu.name}'>
+                                        <a href="{:U($me['module'].'/'.$me['action'])}" name="item_sharesetting" id="item_sharesetting">{$me.action_name}</a>
+                                    </li>
+                                </volist>
+                            </volist>
+                            <empty name="menus">
+                                <li nc_type=''>
+                                    <a href='{:U("Index/index")}' name="item_welcome" id="item_welcome">欢迎页面</a>
+                                </li>
+                                <li nc_type=''>
+                                    <a href="JavaScript:void(0);" name="item_aboutus" id="item_aboutus">关于我们</a>
+                                </li>
+                            </empty>
                         </ol>
                     </dd>
                 </dl>
@@ -15,3 +31,4 @@
         </ul>
     </div>
 </div>
+

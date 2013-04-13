@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50516
 File Encoding         : 65001
 
-Date: 2013-04-07 10:37:35
+Date: 2013-04-12 20:37:18
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -43,7 +43,7 @@ CREATE TABLE `hui_admin` (
 -- ----------------------------
 -- Records of hui_admin
 -- ----------------------------
-INSERT INTO `hui_admin` VALUES ('1', 'admin', '21232f297a57a5a743894a0e4a801fc3', '2', '127.0.0.1', '/Public/upload/photo/51552c0566f9d.png', '王辉', '0', '13817918575', 'shuaige@52sum.com', '466209365', '', '63', '1', '2013-04-04 14:46:57', '0000-00-00 00:00:00', '2013-03-29 13:52:05');
+INSERT INTO `hui_admin` VALUES ('1', 'admin', '21232f297a57a5a743894a0e4a801fc3', '2', '127.0.0.1', '/Public/upload/photo/51552c0566f9d.png', '王辉', '0', '13817918575', 'shuaige@52sum.com', '466209365', '', '70', '1', '2013-04-12 19:13:40', '0000-00-00 00:00:00', '2013-03-29 13:52:05');
 INSERT INTO `hui_admin` VALUES ('2', 'terry', '585b66ed3c06f4cadcb3084c0a621437', '2', '127.0.0.1', null, '王辉', '1', '13817918575', 'admin@52sum.com', '466209365', '', '29', '1', '2013-04-02 10:56:22', '2013-03-28 00:00:00', '2013-04-02 01:01:04');
 
 -- ----------------------------
@@ -57,7 +57,7 @@ CREATE TABLE `hui_admin_log` (
   `log_create` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '登陆时间',
   `log_ip` varchar(15) NOT NULL COMMENT '登陆IP',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=88 DEFAULT CHARSET=utf8 COMMENT='管理员日志';
+) ENGINE=InnoDB AUTO_INCREMENT=95 DEFAULT CHARSET=utf8 COMMENT='管理员日志';
 
 -- ----------------------------
 -- Records of hui_admin_log
@@ -105,6 +105,13 @@ INSERT INTO `hui_admin_log` VALUES ('84', '2', 'terry', '2013-04-02 10:53:49', '
 INSERT INTO `hui_admin_log` VALUES ('85', '2', 'terry', '2013-04-02 10:56:22', '127.0.0.1');
 INSERT INTO `hui_admin_log` VALUES ('86', '1', 'admin', '2013-04-03 11:32:09', '127.0.0.1');
 INSERT INTO `hui_admin_log` VALUES ('87', '1', 'admin', '2013-04-04 14:46:57', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('88', '1', 'admin', '2013-04-12 09:35:17', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('89', '1', 'admin', '2013-04-12 14:18:12', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('90', '1', 'admin', '2013-04-12 15:34:08', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('91', '1', 'admin', '2013-04-12 15:48:42', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('92', '1', 'admin', '2013-04-12 19:07:34', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('93', '1', 'admin', '2013-04-12 19:10:20', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('94', '1', 'admin', '2013-04-12 19:13:40', '127.0.0.1');
 
 -- ----------------------------
 -- Table structure for `hui_config`
@@ -191,12 +198,12 @@ CREATE TABLE `hui_role_nav` (
   `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '菜单启用及停用：1.启用，0.停用',
   `sort` int(11) NOT NULL DEFAULT '10' COMMENT '排序',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='菜单表';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='菜单表';
 
 -- ----------------------------
 -- Records of hui_role_nav
 -- ----------------------------
-INSERT INTO `hui_role_nav` VALUES ('1', '系统', '1', '100');
+INSERT INTO `hui_role_nav` VALUES ('2', '系统', '1', '100');
 
 -- ----------------------------
 -- Table structure for `hui_role_node`
@@ -208,6 +215,7 @@ CREATE TABLE `hui_role_node` (
   `action_name` varchar(60) NOT NULL DEFAULT '' COMMENT '节点控制器名称',
   `module` varchar(60) NOT NULL DEFAULT '' COMMENT '节点模型',
   `module_name` varchar(60) NOT NULL DEFAULT '' COMMENT '节点模型名称',
+  `nav_id` int(11) unsigned NOT NULL COMMENT '菜单ID',
   `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '节点是否可用:0为禁用,1为禁用',
   `sort` smallint(6) NOT NULL DEFAULT '0' COMMENT '节点排序',
   `auth_type` tinyint(1) NOT NULL DEFAULT '0' COMMENT '授权模式：1:模块授权(module) 2:操作授权(action) 0:节点授权(node)',
@@ -217,7 +225,7 @@ CREATE TABLE `hui_role_node` (
 -- ----------------------------
 -- Records of hui_role_node
 -- ----------------------------
-INSERT INTO `hui_role_node` VALUES ('1', '', '', 'System', '管理员', '1', '10', '1');
-INSERT INTO `hui_role_node` VALUES ('2', 'index', '管理员列表', 'System', '管理员', '1', '10', '0');
-INSERT INTO `hui_role_node` VALUES ('3', '', '', 'RoleNode', '节点管理', '1', '10', '1');
-INSERT INTO `hui_role_node` VALUES ('4', 'index', '节点列表', 'RoleNode', '节点管理', '1', '10', '0');
+INSERT INTO `hui_role_node` VALUES ('1', '', '', 'System', '管理员', '2', '1', '10', '1');
+INSERT INTO `hui_role_node` VALUES ('2', 'index', '管理员列表', 'System', '管理员', '2', '1', '10', '0');
+INSERT INTO `hui_role_node` VALUES ('3', '', '', 'RoleNode', '节点管理', '2', '1', '10', '1');
+INSERT INTO `hui_role_node` VALUES ('4', 'index', '节点列表', 'RoleNode', '节点管理', '2', '1', '10', '0');

@@ -13,7 +13,9 @@
                     <td class="name" width="150">
                         <label class="validation" for="member_name"><span class="spanMsg">*</span>旧密码：</label>
                     </td>
-                    <td><input type="password" class="input rounded" name="title" id="title" name="old_passwd" required validate="{ required:true}" value="" style="width:300px;"></td>
+                    <td>
+                        <input type="password" class="input rounded" name="old_passwd" id="textfield" name="old_passwd" required value="" validate="{ required:true}"  style="width:300px;">
+                    </td>
                     <td class="field"></td>
                 </tr>
                 <tr>
@@ -21,7 +23,7 @@
                         <label class="validation" for="member_name"><span class="spanMsg">*</span>新密码：</label>
                     </td>
                     <td>
-                        <input type="password" class="input rounded" name="u_passwd" required validate="{ required:true}" value="" style="width:300px;">
+                        <input type="password" class="input rounded" id="u_passwd" name="u_passwd" required validate="{ required:true}" value="" style="width:300px;">
                     </td>
                     <td class="field"></td>
                 </tr>
@@ -30,7 +32,7 @@
                         <label class="validation" for="member_name"><span class="spanMsg">*</span>确认密码：</label>
                     </td>
                     <td>
-                        <input type="password" class="input rounded" name="confirm_passwd" required validate="{ required:true,equalTo:'#u_passwd'}" value=""  style="width:300px;">
+                        <input type="password" class="input rounded" id="correctbox" name="confirm_passwd" required validate="{ required:true,equalTo:'#u_passwd'}" value=""  style="width:300px;">
                     </td>
                     <td class="field"></td>
                 </tr>
@@ -42,6 +44,7 @@
             <tbody>
                 <tr>
                     <td align="left" height="60" colspan="2">
+                        <input type="hidden" value="{$data.id}" name="u_id">
                         <input id="submit" class="submit" type="submit" value="提交">
                         <input type="reset" id="reset" class="submit reset" value="重置">
                     </td>
