@@ -38,7 +38,7 @@ class SystemAction extends AdminAction{
         $count = $admin->join( C("DB_PREFIX")."role ON ".C("DB_PREFIX")."admin.role_id=".C("DB_PREFIX")."role.id")->where()->count();
         $obj_page = new Page($count, $ary_get['pageall']);
         $obj_page->setConfig("header","条");
-        $obj_page->setConfig('theme','<li style="heigth:23px;line-height:16px;padding-top:8px;">共%totalRow%%header%&nbsp;%nowPage%/%totalPage%页&nbsp;%first%&nbsp;%upPage%&nbsp;%prePage%&nbsp;%linkPage%&nbsp;%nextPage%&nbsp;%downPage%&nbsp;%end%</li>');
+        $obj_page->setConfig('theme','<li class="pageSelect">共%totalRow%%header%&nbsp;%nowPage%/%totalPage%页&nbsp;%first%&nbsp;%upPage%&nbsp;%prePage%&nbsp;%linkPage%&nbsp;%nextPage%&nbsp;%downPage%&nbsp;%end%</li>');
         $page = $obj_page->newshow();
         $ary_data = $admin->join( C("DB_PREFIX")."role ON ".C("DB_PREFIX")."admin.role_id=".C("DB_PREFIX")."role.id")->where()->limit($obj_page->firstRow, $obj_page->listRows)->select();
         $this->assign("data",$ary_data);
@@ -316,7 +316,7 @@ class SystemAction extends AdminAction{
         $count = $adminlog->where()->count();
         $obj_page = new Page($count, $ary_get['pageall']);
         $obj_page->setConfig("header","条");
-        $obj_page->setConfig('theme','<li style="heigth:23px;line-height:23px;padding-top:8px;">共%totalRow%%header%&nbsp;%nowPage%/%totalPage%页&nbsp;%first%&nbsp;%upPage%&nbsp;%prePage%&nbsp;%linkPage%&nbsp;%nextPage%&nbsp;%downPage%&nbsp;%end%</li>');
+        $obj_page->setConfig('theme','<li class="pageSelect">共%totalRow%%header%&nbsp;%nowPage%/%totalPage%页&nbsp;%first%&nbsp;%upPage%&nbsp;%prePage%&nbsp;%linkPage%&nbsp;%nextPage%&nbsp;%downPage%&nbsp;%end%</li>');
         $page = $obj_page->newshow();
         $ary_data = $adminlog->where()->limit($obj_page->firstRow, $obj_page->listRows)->order('log_create desc')->select();
         if(!empty($ary_data) && is_array($ary_data)){
