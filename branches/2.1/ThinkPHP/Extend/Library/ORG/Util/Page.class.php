@@ -151,7 +151,6 @@ class Page {
         if(0 == $this->totalRows) return '';
         $p              =   $this->varPage;
         $nowCoolPage    =   ceil($this->nowPage/$this->rollPage);
-        //echo "<pre>";print_r($this->config);exit;
         // 分析分页参数
         if($this->url){
             $depr       =   C('URL_PATHINFO_DEPR');
@@ -199,8 +198,8 @@ class Page {
         }else{
             $nextRow    =   $this->nowPage+$this->rollPage;
             $theEndRow  =   $this->totalPages;
-            $nextPage   =   "<li><a class='demo' href='".str_replace('__PAGE__',$nextRow,$url)."' >下".$this->rollPage."页</a></li>";
-            $theEnd     =   "<li><a class='demo' href='".str_replace('__PAGE__',$theEndRow,$url)."' >".$this->config['last']."</a></li>";
+            $nextPage   =   "<li><a class='demo' href='".str_replace('__PAGE__',$nextRow,$url)."' ><span>下".$this->rollPage."页</span></a></li>";
+            $theEnd     =   "<li><a class='demo' href='".str_replace('__PAGE__',$theEndRow,$url)."' ><span>".$this->config['last']."</span></a></li>";
         }
         // 1 2 3 4 5
         $linkPage = "";
