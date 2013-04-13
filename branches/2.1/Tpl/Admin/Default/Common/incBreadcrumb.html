@@ -2,7 +2,9 @@
 <div id="crumbs" class="crumbs">
     <span><a href='{:U("Admin/Index/index")}' title="控制台">控制台</a></span>
     <span class="arrow">&nbsp;</span>
-    <span><a href='{:U("Admin/$breadcrumbs[url]/index")}' title="{$breadcrumbs.module}">{$breadcrumbs.module}</a></span>
+    <span><a href='javascript:void(0);' title="{$breadcrumbs.name}">{$breadcrumbs.name}</a></span>
     <span class="arrow">&nbsp;</span>
-    <span>{$breadcrumbs.action}</span>
+    <span><a href='{:U("Admin/$breadcrumbs[url]/index")}' title="{$breadcrumbs.module}">{$breadcrumbs.module_name}</a></span>
+    <span class="arrow">&nbsp;</span>
+    <span>{$breadcrumbs.action_name}</span>
 </div>
