@@ -76,7 +76,8 @@ abstract class AdminAction extends Action{
         }
         $this->getTop();
         $menuid = intval($_GET['menuid']);
-        
+//        echo cookie('module')."<br/>";
+//        echo cookie('action');
 		if(empty($menuid)) $menuid = cookie('nav_id');
 		if(!empty($menuid)){
 			$this->getMenus($menuid);
@@ -128,7 +129,7 @@ abstract class AdminAction extends Action{
             $where['auth_type'] = 0;
             $no_modules = explode(',', strtoupper(C('NOT_AUTH_MODULE')));
             $access_list = $_SESSION['_ACCESS_LIST'];
-            $node_list = D("RoleNode")->where($where)->field('id,action,action_name,module,module_name')->order(array('sort'=>'ASC'))->select();
+            $node_list = D("RoleNode")->where($where)->field('id,action,action_name,module,module_name,nav_id')->order(array('sort'=>'ASC'))->select();
             
             foreach ($node_list as $key => $node) {
                 $menus[$node['module']]['nodes'][] = $node;
