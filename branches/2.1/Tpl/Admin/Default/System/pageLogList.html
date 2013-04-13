@@ -1,24 +1,28 @@
-<div class="contentcontainer">
-    <div class="headings altheading">
-        <h2>管理员列表</h2>
-    </div>
+<div class="rounded table" style="width: 98%;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" class="box_top">
+        <thead class="thead">
+            <tr class="space">
+                <th colspan="10">管理员登陆日志</th>
+            </tr>
+        </thead>
+    </table>
     <div class="contentbox" data-uri='{:U("Admin/System/doEditStatus")}'>
         <table width="100%" class="list td_align">
             <thead>
-                <tr class="even">
-                    <td class="field_head">登陆者</td>
-                    <td class="field_head">最后登录IP</td>
-                    <td class="field_head">地点(仅供参考)</td>
-                    <td class="field_head">登录时间</td>
+                <tr class="thead">
+                    <th class="align-center">登陆者</th>
+                    <th class="align-center">最后登录IP</th>
+                    <th class="align-center">地点(仅供参考)</th>
+                    <th class="align-center">登录时间</th>
                 </tr>
             </thead>
             <tbody>
             <volist name="data" id="vo">
                 <tr id="list_{$vo.u_id}">
-                    <td>{$vo.u_name}</td>
-                    <td>{$vo.log_ip}</td>
-                    <td>{$vo.ip_location.country} / {$vo.ip_location.area}</td>
-                    <td>{$vo.log_create|default="0000-00-00 00:00:00"}</td>
+                    <th class="align-center">{$vo.u_name}</th>
+                    <th class="align-center">{$vo.log_ip}</th>
+                    <th class="align-center">{$vo.ip_location.country} / {$vo.ip_location.area}</th>
+                    <th class="align-center">{$vo.log_create|default="0000-00-00 00:00:00"}</th>
                 </tr>
             </volist>
             <empty name="data">
