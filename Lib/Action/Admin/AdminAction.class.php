@@ -35,13 +35,23 @@ abstract class AdminAction extends Action{
 		if (is_file(LANG_PATH . $langSet . '/' . MODULE_NAME . '.php')){
 			L(include LANG_PATH . $langSet . '/' . MODULE_NAME . '.php');
         }
+        $ary_get = $this->_get();
+        if(!empty($ary_get['_URL_'][1]) && isset($ary_get['_URL_'][1])){
+            $module = $ary_get['_URL_'][1];
+            $action = $ary_get['_URL_'][2];
+        }else{
+            $module = cookie('module');
+            $action = cookie('action');
+        }
+//        echo "<pre>";print_r($action);exit;
         //判断用户是否登陆
         $this->doCheckLogin();
         $bm = M('RoleNav')->field(C('DB_PREFIX').'role_nav.name,'.C('DB_PREFIX').'role_node.*')
                           ->join(C('DB_PREFIX').'role_node ON '.C('DB_PREFIX').'role_nav.id = '.C('DB_PREFIX').'role_node.`nav_id`')
-                          ->where(C('DB_PREFIX').'role_nav.id =  "'.  cookie('nav_id').'" AND '.C('DB_PREFIX').'role_node.`action` =  "'.cookie('action').'" AND '.C('DB_PREFIX').'role_node.`module` =  "'.cookie('module').'"')
+                          ->where(C('DB_PREFIX').'role_nav.id =  "'.  cookie('nav_id').'" AND '.C('DB_PREFIX').'role_node.`action` =  "'.$action.'" AND '.C('DB_PREFIX').'role_node.`module` =  "'.$module.'"')
                           ->find();
 //        echo M('RoleNav')->getLastSql();exit;
+//        echo "<pre>";print_r($bm);exit;
         $bm['url']    = MODULE_NAME;
 //        $bm['module']    = L(MODULE_NAME);
 //        $bm['action']    = L(MODULE_NAME.'_'.ACTION_NAME);
