@@ -106,6 +106,7 @@ class UserAction extends Action{
             $data['u_lastlogin_time'] = $time;
             $data['u_countlog'] = array('exp', 'u_countlog + 1');
             $data['u_ip'] = $ip;
+            $_SESSION['ip'] = $ip;
             $admin->where(array('u_name'=>$ary_post['username']))->save($data);
             // 缓存访问权限
             $rbac->saveAccessList();

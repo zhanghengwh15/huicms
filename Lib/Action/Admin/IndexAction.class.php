@@ -3,6 +3,7 @@
 class IndexAction extends AdminAction {
     public function index(){
         $this->display();
+//        $this->redirect(U('Admin/Index/welcomePage'));
     }
     
     public function test(){
