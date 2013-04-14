@@ -1,14 +1,146 @@
-<!--
-To change this template, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
-<html>
-    <head>
-        <title></title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
-</html>
+<div class="page_function">
+    <div class="info">
+        <h3>管理首页</h3>
+        <small><font color="#333">欢迎使用 HUICMS网站管理系统</small> </font></div>
+    <div class="tip">用户名：<strong>{$Think.session.admin_name}</strong> &nbsp;&nbsp;登陆次数：{$Think.session.u_countlog}&nbsp;&nbsp;您等当前登录时间为：{$Think.session.last_time}&nbsp;&nbsp;登录IP为: <php>echo $_SESSION['ip'].":".$_SERVER['SERVER_PORT'];</php></div>
+</div>
+<div class="page">
+    <div class="page_main">
+        <h3>环境信息</h3>
+        <div class="page_table">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td width="120" class="left">操作系统: </td>
+                    <td width="250" class="right"><php>echo PHP_OS;</php></td>
+                    <td width="120" class="left">服务器地址: </td>
+                    <td class="right"><php>echo $_SERVER['SERVER_ADDR'].":".$_SERVER['SERVER_PORT'];</php></td>
+                </tr>
+                <tr>
+                    <td width="120" class="left">获取框架版本号: </td>
+                    <td width="250" class="right"><a target="_blank" href="http://www.thinkphp.cn/">{$Think.version}</a></td>
+                    <td width="120" class="left">jQuery Version: </td>
+                    <td class="right"><a target="_blank" href="http://www.jquery.com/"><script type="text/javascript">document.write($.fn.jquery)</script></a></td>
+                </tr>
+                <tr>
+                    <td width="120" class="left">GD 库: </td>
+                    <td width="250" class="right">
+                        <php>
+                            if(function_exists("imageline")==1){
+                                $gd = gd_info();
+                                echo $gd['GD Version'];
+                                //echo "<font color=green><b>".$gd['GD Version']."</b></font>";
+                            } else {
+                                echo '<font color=red><b>×</b></font>';
+                            }
+                        </php>
+                    </td>
+                    <td width="120" class="left">MySQL 版本: </td>
+                    <td class="right">5.5.29</td>
+                </tr>
+                <tr>
+                    <td class="left">服务器时间: </td>
+                    <td id="timer"><php>echo date("Y-m-d H:i:s",time());</php></td>
+                    <td class="left">WEB服务器: </td>
+                    <td><php>echo $_SERVER['SERVER_SOFTWARE'];</php></td>
+                </tr>
+                <tr>
+                    <td class="left">服务器语言: </td>
+                    <td><php>echo getenv("HTTP_ACCEPT_LANGUAGE");</php></td>
+                    <td class="left">PHP版本: </td>
+                    <td><php>echo PHP_VERSION;</php></td>
+                </tr>
+                <tr>
+                    <td class="left">图像处理支持: </td>
+                    <td>
+                <php> 
+                    if(function_exists("imageline")==1){
+                        echo '<font color=green><b>√</b></font>';
+                    } else {
+                        echo '<font color=red><b>×</b></font>';
+                    } 
+                </php>
+                </td>
+                <td class="left">Session支持: </td>
+                <td>
+                <php> 
+                    if(function_exists("session_start")==1){
+                    echo '<font color=green><b>√</b></font>';
+                    } else {
+                    echo '<font color=red><b>×</b></font>';
+                    } 
+                </php>
+                </td>
+                </tr>
+                <tr>
+                    <td class="left">脚本运行内存: </td>
+                    <td><php> echo get_cfg_var("memory_limit")?get_cfg_var("memory_limit"):"无" ; </php></td>
+                <td class="left">上传大小限制: </td>
+                <td><php> echo get_cfg_var("upload_max_filesize")?get_cfg_var("upload_max_filesize"):"不允许上传文件" ; </php></td>
+                </tr>
+                <tr>
+                    <td class="left">POST提交限制: </td>
+                    <td><php> echo get_cfg_var("post_max_size") ; </php></td>
+                <td class="left">脚本超时时间: </td>
+                <td><php> echo get_cfg_var("max_execution_time") ; </php> s</td>
+                </tr>
+                <tr>
+                    <td class="left">被屏蔽的函数: </td>
+                    <td colspan="3"><php> echo get_cfg_var("disable_functions")?get_cfg_var("disable_functions"):"无" ; </php></td>
+                </tr>
+            </table>
+        </div>
+        <h3>程序信息</h3>
+        <div class="page_table">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td width="120" class="left">程序版本: </td>
+                    <td width="250">HUICMS 正式版 1.1</td>
+                    <td width="120" class="left">官方主页: </td>
+                    <td><a href="http://www.huicms.cn" target="_blank">www.huicms.cn</a></td>
+                </tr>
+                <tr>
+                    <td width="120" class="left">开发团队: </td>
+                    <td width="250">HUICMS工作室</td>
+                    <td width="120" class="left">QQ群: </td>
+                    <td>233931030</td>
+                </tr>
+                <tr>
+                    <td width="120" class="left">交流支持: </td>
+                    <td width="250"><a href="http://bbs.huicms.cn/" target="_blank">bbs.huicms.cn</a> </td>
+                    <td width="120" class="left">帮助手册: </td>
+                    <td><a href="http://bbs.huicms.cn/help/" target="_blank">bbs.huicms.cn/help</a></td>
+                </tr>
+
+
+            </table>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function(){
+        setInterval(showTime, 1000);
+        function timer(obj,txt){
+            obj.text(txt);
+        }
+        function showTime(){                                
+            var today = new Date();
+            var weekday=new Array(7)
+            weekday[1]="星期一"
+            weekday[2]="星期二"
+            weekday[3]="星期三"
+            weekday[4]="星期四"
+            weekday[5]="星期五"
+            weekday[6]="星期六"
+            weekday[7]="星期日"                                        
+            var y=today.getFullYear();
+            var month=today.getMonth();
+            var td=today.getDate();
+            var d=weekday[today.getDay()];
+            var h=today.getHours();
+            var m=today.getMinutes();
+            var s=today.getSeconds(); 
+            str = y+"年"+month+"月"+td+"日"+" "+d+" "+h+"时"+m+"分"+s+"秒";
+            timer($("#timer"),str);
+        } 
+    });
+</script>
