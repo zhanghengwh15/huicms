@@ -50,7 +50,7 @@ abstract class AdminAction extends Action{
                           ->join(C('DB_PREFIX').'role_node ON '.C('DB_PREFIX').'role_nav.id = '.C('DB_PREFIX').'role_node.`nav_id`')
                           ->where(C('DB_PREFIX').'role_nav.id =  "'.  cookie('nav_id').'" AND '.C('DB_PREFIX').'role_node.`action` =  "'.$action.'" AND '.C('DB_PREFIX').'role_node.`module` =  "'.$module.'"')
                           ->find();
-//        echo M('RoleNav')->getLastSql();exit;
+//        echo M('RoleNav')->getLastSql();
 //        echo "<pre>";print_r($bm);exit;
         $bm['url']    = MODULE_NAME;
 //        $bm['module']    = L(MODULE_NAME);
@@ -144,19 +144,26 @@ abstract class AdminAction extends Action{
             $no_modules = explode(',', strtoupper(C('NOT_AUTH_MODULE')));
             $access_list = $_SESSION['_ACCESS_LIST'];
             $node_list = D("RoleNode")->where($where)->field('id,action,action_name,module,module_name,nav_id')->order(array('sort'=>'ASC'))->select();
-            
+//            echo "<pre>";print_r($node_list);exit;
             foreach ($node_list as $key => $node) {
-                $menus[$node['module']]['nodes'][] = $node;
+                $menus[$node['module']]['nodes'][] = array_unique($node);
                 $menus[$node['module']]['name'] = $node['module_name'];
-                if ((isset($access_list[strtoupper($node['module'])]['MODULE']) || isset($access_list[strtoupper($node['module'])][strtoupper($node['action'])])) || $_SESSION['administrator'] || in_array(strtoupper($node['module']), $no_modules)) {
-                    $menus[$node['module']]['nodes'][] = $node;
+                if ((isset($access_list[strtoupper($node['module'])]['MODULE']) 
+                    || isset($access_list[strtoupper($node['module'])][strtoupper($node['action'])])) 
+                    || $_SESSION['administrator'] || in_array(strtoupper($node['module']), $no_modules)) 
+                {
+//                    echo "<pre>";print_r($key);
+                    if(!in_array($node['id'], $menus[$node['module']]['nodes'][$key])){
+                        $menus[$node['module']]['nodes'][] = array_unique($node);
+                    }
                     $menus[$node['module']]['name'] = $node['module_name'];
                 }
+//                var_dump($menus[$node['module']]['nodes']);
             }
 //            echo "<pre>";print_r($menus);exit;
             $_SESSION['menu_' . $id . '_' . $_SESSION[C('USER_AUTH_KEY')]] = $menus;
             $this->menus = $menus;
-//            echo "<pre>";print_r($menus);exit;
+            
             $this->assign("menus",$menus);
             return $menus;
         }
