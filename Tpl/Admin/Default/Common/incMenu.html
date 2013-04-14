@@ -6,24 +6,18 @@
                     <dd>
                         <ol>
                             <volist name="menus" id="menu">
+                                <if condition="$menu.name neq '控制台'">
                                 <li nc_type='parentli' dataparam='{$menu.name}'>
                                     <dt>{$menu.name}</dt>
                                     <dd style='display:block;'></dd>
                                 </li>
+                                </if>
                                 <volist name="menu.nodes" id="me">
                                     <li nc_type='{$menu.name}'>
                                         <a href="javascript:void(0);" <if condition="($Think.cookie.module eq $me[module]) && $Think.cookie.action eq $me[action]">class='selected'</if> onClick="openItem('{$me.nav_id},{$me.module},{$me.action}');" name="item_{$me.module}_{$me.action}" id="item_{$me.module}_{$me.action}">{$me.action_name}</a>
                                     </li>
                                 </volist>
                             </volist>
-                            <empty name="menus">
-                                <li nc_type=''>
-                                    <a href='javascript:void(0);' <if condition="($Think.cookie.module eq 'Index') && $Think.cookie.action eq 'index'">class='selected'</if> onClick="openItem('0,Index,index');" name="item_welcome" id="item_welcome">欢迎页面</a>
-                                </li>
-                                <li nc_type=''>
-                                    <a href="JavaScript:void(0);" onClick="openItem('0,Index,index');" name="item_aboutus" id="item_aboutus">关于我们</a>
-                                </li>
-                            </empty>
                         </ol>
                     </dd>
                 </dl>
