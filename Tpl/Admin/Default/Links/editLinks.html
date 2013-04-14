@@ -8,7 +8,7 @@
     <table width="100%" cellpadding="0" cellspacing="0" border="0" class="box_top">
         <thead class="thead">
             <tr class="space">
-                <th colspan="10">添加友情链接</th>
+                <th colspan="10">编辑友情链接</th>
             </tr>
         </thead>
     </table>
@@ -26,11 +26,11 @@
 
                             <li>
                                 <label>
-                                    <input type="radio" checked="checked" value="0" name="type">文字链接</label>
+                                    <input type="radio" <if condition="$data.type eq '0'">checked="checked"</if> value="0" name="type">文字链接</label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio" value="1" name="type">图片链接</label>
+                                    <input type="radio" <if condition="$data.type eq '1'">checked="checked"</if>value="1" name="type">图片链接</label>
                             </li>
                         </ul>
                     </td>
@@ -43,7 +43,7 @@
                         <label class="validation"><span class="spanMsg">*</span>网站名称：</label>
                     </td>
                     <td>
-                        <input type="text" class="input rounded" name="name" size="50" value="" style="width:300px;" required validate="{ required:true,maxlength:30}">
+                        <input type="text" class="input rounded" name="name" size="50" value="{$data.name}" style="width:300px;" required validate="{ required:true,maxlength:30}">
                     </td>
                     <td class="field"></td>
                 </tr>
@@ -52,7 +52,7 @@
                         <label class="validation">链接颜色：</label>
                     </td>
                     <td>
-                        <input type="text" name="color" id="color" value="" class="input rounded iColorPicker" size="10">
+                        <input type="text" name="color" id="color" value="{$data.color}" <if condition="$data.color neq ''">style="background-color:{$data.color};"</if> class="input rounded iColorPicker" size="10">
                         <a href="javascript:void(0)" id="select_color" onclick="iColorShow('color','select_color')" class="icon_select">
                             <img src="__PUBLIC__/Admin/images/color.png" align="absmiddle">
                         </a>
@@ -65,27 +65,27 @@
                     <td class="name" width="150">
                         <label class="validation"><span class="spanMsg">*</span>链接地址：</label>
                     </td>
-                    <td><input type="text" class="input rounded" name="link_url" id="link_url" size="30" value="http://" style="width:300px;" required validate="{ required:true}"></td>
+                    <td><input type="text" class="input rounded" name="link_url" id="link_url" size="30" value="{$data.link_url|default='http://'}" style="width:300px;" required validate="{ required:true}"></td>
                     <td class="field"></td>
                 </tr>
                 
-                <tr id="image_url" style="display: none;">
+                <tr id="image_url" <if condition="$data.type eq '0'">style="display: none;"</if>>
                     <td class="name">
                         <label class="validation"><span class="spanMsg">*</span>链接图片：</label>
                     </td>
                     <td>
-                        <input type="text" class="input rounded" name="image_path" id="image_path" size="30" value="" style="float: left;width: 300px;">  
+                        <input type="text" class="input rounded" name="image_path" id="image_path" size="30" value="{$data.image_path}" style="float: left;width: 300px;">  
                         <a href="javascript:upImage('image_path');" id="button1" value="" class="type-file-button"></a>
 
                     </td>
-                    <td class="field"></td>
+                    <td class="field"><img <if condition="$data.image_path eq ''">title="这是一张默认的友情链接"<else />title="{$data.name}"</if> class="title2div" src="__PUBLIC__/{$data.image_path|default='images/links.gif'}" width="88" height="31">				</td>
                 </tr>
                 <tr>
                     <td class="name">
                         <label class="validation">描述：</label>
                     </td>
                     <td>
-                        <textarea name="description" class="rounded" style="width:300px; height:60px; padding:5px;"></textarea> 
+                        <textarea name="description" value="{$data.description}" class="rounded" style="width:300px; height:60px; padding:5px;"></textarea> 
                     </td>
                     <td class="field"><img title="描述。" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16">				</td>
                 </tr>
@@ -94,7 +94,7 @@
                         <label class="validation"><span class="spanMsg">*</span>排序：</label>
                     </td>
                     <td>
-                        <input type="text" name="order" value="10" class="input rounded" size="10">  
+                        <input type="text" name="order" value="{$data.order}" class="input rounded" size="10">  
                     </td>
                     <td class="field">
 
@@ -111,11 +111,11 @@
 
                             <li>
                                 <label>
-                                    <input type="radio" checked="checked" value="1" name="status">启用</label>
+                                    <input type="radio" <if condition="$data.status eq '1'">checked="checked"</if> value="1" name="status">启用</label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio" value="0" name="status">停用</label>
+                                    <input type="radio" value="0" name="status" <if condition="$data.status eq '0'">checked="checked"</if>>停用</label>
                             </li>
                         </ul>
                     </td>
@@ -129,6 +129,7 @@
             <tbody>
                 <tr>
                     <td align="left" height="60" colspan="2">
+                        <input type="hidden" value="{$data.id}" name="id">
                         <input id="submit" class="submit" type="submit" value="提交">
                         <input type="reset" id="reset" class="submit reset" value="重置">
                     </td>
