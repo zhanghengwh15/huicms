@@ -21,7 +21,21 @@ class RoleNavAction extends AdminAction{
      * @date 2013-03-27
      */
     public function index() {
-        $this->redirect(U('Admin/RoleNav/pageList'));
+        $rolenav = D("RoleNav");
+        $ary_get['pageall'] = $this->_get('pageall', 'htmlspecialchars', 10);
+        $count = $rolenav->where()->count();
+        
+        $obj_page = new Page($count, $ary_get['pageall']);
+        $obj_page->setConfig("header","条");
+        $obj_page->setConfig('theme','<li class="pageSelect">共%totalRow%%header%&nbsp;%nowPage%/%totalPage%页&nbsp;%first%&nbsp;%upPage%&nbsp;%prePage%&nbsp;%linkPage%&nbsp;%nextPage%&nbsp;%downPage%&nbsp;%end%</li>');
+        $page = $obj_page->newshow();
+        
+        $ary_data = $rolenav->where()->limit($obj_page->firstRow, $obj_page->listRows)->select();
+        $this->assign("data",$ary_data);
+        $this->assign("filter",$ary_get);
+        $this->assign("page",$page);
+        $this->display();
+//        $this->redirect(U('Admin/RoleNav/pageList'));
     }
     
     /**
