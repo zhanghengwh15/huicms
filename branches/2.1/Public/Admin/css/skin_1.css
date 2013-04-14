@@ -204,3 +204,19 @@ span.errormsg {color: red;text-indent: 20px;display: inline-block;background-ima
 .pagination ul li.pageSelect{height:30px;line-height:30px;padding-top:0px;}
 
 .icon_select{border: 0px;margin: 0px 0px 0px 3px;position: relative;top: -2px;}
+
+#title { width: 120px; height: 50px; position: absolute; top: 17px; left: 21px; background: url(../images/mac/shopnc_logo.png) no-repeat; float:left;}
+.txt-short, .txt , .txt2 , .select{ height: 20px; line-height: 20px;}
+.thead {line-height: 34px; height: 34px; font-weight: bold; color: #444; text-align: center;}
+.thead td {border-bottom: 1px solid #bbdbf1;}
+tr td.handler span { display:block; width: 140px; text-align:left; margin: 0 auto;}
+tr.no_data td{ font-size:14px; font-weight: bold; line-height: 120px; color: #5E728A; text-align:center;}
+td.team a { padding-right: 20px; background: url('../images/blog-ico.gif') no-repeat; margin-right:16px; _margin-right:8px;}
+td.team a.tqq { background-position: 100% 0px;}
+td.team a.qzone { background-position: 100% -20px;}
+td.team a.weibo { background-position: 100% -32px;}
+.noborder{height: 32px;line-height: 32px;}
+.space th { font-weight: 600; color: #5E728A; background-color: #F3F5F8;}
+big,.big { font-size:120% !important; line-height:120%;padding:6px !important; height:26px;}
+.w12 { width: 12px; }
+.table th.big{ padding:4px 0px !important; height:26px; }
