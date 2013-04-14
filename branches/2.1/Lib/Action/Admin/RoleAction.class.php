@@ -21,7 +21,20 @@ class RoleAction extends AdminAction{
      * @date 2013-04-01
      */
     public function index() {
-        $this->redirect(U('Admin/Role/pageList'));
+//        $this->redirect(U('Admin/Role/pageList'));
+        $name = $this->getActionName();
+        $role = D($name);
+        $ary_get['pageall'] = $this->_get('pageall', 'htmlspecialchars', 10);
+        $count = $role->where()->count();
+        $obj_page = new Page($count, $ary_get['pageall']);
+        $obj_page->setConfig("header","条");
+        $obj_page->setConfig('theme','<li class="pageSelect">共%totalRow%%header%&nbsp;%nowPage%/%totalPage%页&nbsp;%first%&nbsp;%upPage%&nbsp;%prePage%&nbsp;%linkPage%&nbsp;%nextPage%&nbsp;%downPage%&nbsp;%end%</li>');
+        $page = $obj_page->newshow();
+        $ary_data = $role->where()->limit($obj_page->firstRow, $obj_page->listRows)->select();
+        $this->assign("data", $ary_data);
+        $this->assign("page", $page);
+        $this->assign("filter",$ary_get);
+        $this->display();
     }
     
     /**
