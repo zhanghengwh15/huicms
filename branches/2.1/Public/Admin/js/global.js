@@ -219,9 +219,9 @@ function openItem(menu){
     try{
         var module = str[1];
         var action = str[2];
+        var id = str[3];
     }catch(ex){}
     if (typeof(module)=='undefined'){var nav = menu;}
-    
     $('.actived').removeClass('actived');
     $('#nav_'+nav).addClass('actived');
     $('.selected').removeClass('selected');	
@@ -238,15 +238,17 @@ function openItem(menu){
     }else{
         $.cookie('module',module);
 		$.cookie('action',action);
+        $.cookie('id',id);
 		$.cookie('nav_id',op);
         $("#item_"+op).addClass('selected');//使用name，不使用ID，因为ID有重复的
         $("a[name='item_"+op+"']").addClass('selected');
     }
-    var url = '/Admin/'+module+'/'+action;
-//    window.location.reload();
-    if (typeof(module)!='undefined'){
-        window.location.href=url;
-    }else{
-        window.location.reload();
-    }
+    window.location.reload();return false;
+//    alert(action);return false;
+//    var url = '/Admin/'+module+'/'+action;
+//    if (typeof(module)!='undefined'){
+//        window.location.href=url;
+//    }else{
+//        window.location.reload();
+//    }
 }   
