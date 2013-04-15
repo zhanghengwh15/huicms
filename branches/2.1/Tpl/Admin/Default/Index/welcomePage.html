@@ -1,6 +1,6 @@
 <div class="page_function">
     <div class="info">
-        <h3>管理首页</h3>
+        <h3>管理首页11</h3>
         <small><font color="#333">欢迎使用 HUICMS网站管理系统</small> </font></div>
     <div class="tip">用户名：<strong>{$Think.session.admin_name}</strong> &nbsp;&nbsp;登陆次数：{$Think.session.u_countlog}&nbsp;&nbsp;您等当前登录时间为：{$Think.session.last_time}&nbsp;&nbsp;登录IP为: <php>echo $_SESSION['ip'].":".$_SERVER['SERVER_PORT'];</php></div>
 </div>
@@ -35,7 +35,7 @@
                         </php>
                     </td>
                     <td width="120" class="left">MySQL 版本: </td>
-                    <td class="right">5.5.29</td>
+                    <td class="right"><php>echo mysql_get_server_info();</php></td>
                 </tr>
                 <tr>
                     <td class="left">服务器时间: </td>
