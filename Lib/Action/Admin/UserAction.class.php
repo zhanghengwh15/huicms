@@ -117,6 +117,9 @@ class UserAction extends Action{
             $ary_data['log_ip'] = $ip;
             $ary_data['log_create'] = $time;
             $admin_log->add($ary_data);
+            //将菜单控制台写入COOKIE
+            $rolenav = M('RoleNav')->field('id')->where(array('name'=>'控制台'))->find();
+            cookie("nav_id",$rolenav['id']);
             $this->success(L('LOGIN_SUCCESS'));
         }
     }
