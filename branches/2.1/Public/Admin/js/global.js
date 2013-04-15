@@ -243,12 +243,12 @@ function openItem(menu){
         $("#item_"+op).addClass('selected');//使用name，不使用ID，因为ID有重复的
         $("a[name='item_"+op+"']").addClass('selected');
     }
-    window.location.reload();return false;
+//    window.location.reload();return false;
 //    alert(action);return false;
-//    var url = '/Admin/'+module+'/'+action;
-//    if (typeof(module)!='undefined'){
-//        window.location.href=url;
-//    }else{
-//        window.location.reload();
-//    }
+    var url = '/Admin/'+module+'/'+action;
+    if (typeof(module)!='undefined'){
+        window.location.href=url;
+    }else{
+        window.location.reload();
+    }
 }   
