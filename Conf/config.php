@@ -4,8 +4,8 @@ return array(
     'APP_STATUS' => 'debug',                //调试模式
     'SHOW_PAGE_TRACE' => false,              // 显示页面Trace信息
     'URL_MODEL' => 2,                       //URL访问模式支持 0 (普通模式); 1 (PATHINFO 模式); 2 (REWRITE  模式);3 (兼容模式)
-    'APP_GROUP_LIST' => 'Ucenter,Admin',    //项目分组设定
-    'DEFAULT_GROUP'  => 'Ucenter',          //默认分组
+    'APP_GROUP_LIST' => 'Home,Ucenter,Admin',    //项目分组设定
+    'DEFAULT_GROUP'  => 'Home',          //默认分组
     //类库
     'APP_AUTOLOAD_PATH' => '@.Common',
      //数据库信息
