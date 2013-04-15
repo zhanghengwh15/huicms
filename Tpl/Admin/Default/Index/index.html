@@ -16,7 +16,7 @@
                     <td class="right"><php>echo $_SERVER['SERVER_ADDR'].":".$_SERVER['SERVER_PORT'];</php></td>
                 </tr>
                 <tr>
-                    <td width="120" class="left">获取框架版本号: </td>
+                    <td width="120" class="left">ThinkPHP版本: </td>
                     <td width="250" class="right"><a target="_blank" href="http://www.thinkphp.cn/">{$Think.version}</a></td>
                     <td width="120" class="left">jQuery Version: </td>
                     <td class="right"><a target="_blank" href="http://www.jquery.com/"><script type="text/javascript">document.write($.fn.jquery)</script></a></td>
@@ -35,7 +35,7 @@
                         </php>
                     </td>
                     <td width="120" class="left">MySQL 版本: </td>
-                    <td class="right">5.5.29</td>
+                    <td class="right"><php>echo mysql_get_server_info();</php></td>
                 </tr>
                 <tr>
                     <td class="left">服务器时间: </td>
