@@ -29,6 +29,8 @@ abstract class AdminAction extends Action{
      * @date 2013-3-25
      */
     public function _initialize() {
+        //判断用户是否登陆
+        $this->doCheckLogin();
         $langSet = C('DEFAULT_LANG');
 //        echo "<pre>";print_r(MODULE_NAME);exit;
         // 读取当前模块语言包
@@ -36,26 +38,58 @@ abstract class AdminAction extends Action{
 			L(include LANG_PATH . $langSet . '/' . MODULE_NAME . '.php');
         }
         $ary_get = $this->_get();
-        if(!empty($ary_get['_URL_'][1]) && isset($ary_get['_URL_'][1])){
+        $module = cookie("module");
+        $action = cookie("action");
+        if(!empty($module) && !empty($action)){
+            $module = cookie("module");
+            $action = cookie("action");
+        }else{
             $module = $ary_get['_URL_'][1];
             $action = $ary_get['_URL_'][2];
-        }else{
-            $module = cookie('module');
-            $action = cookie('action');
         }
-//        echo "<pre>";print_r($action);exit;
-        //判断用户是否登陆
-        $this->doCheckLogin();
-        $bm = M('RoleNav')->field(C('DB_PREFIX').'role_nav.name,'.C('DB_PREFIX').'role_node.*')
+        $navid = cookie("nav_id");
+        $rolenav = M('RoleNav')->field(C('DB_PREFIX').'role_nav.name,'.C('DB_PREFIX').'role_node.*')
                           ->join(C('DB_PREFIX').'role_node ON '.C('DB_PREFIX').'role_nav.id = '.C('DB_PREFIX').'role_node.`nav_id`')
-                          ->where(C('DB_PREFIX').'role_nav.id =  "'.  cookie('nav_id').'" AND '.C('DB_PREFIX').'role_node.`action` =  "'.$action.'" AND '.C('DB_PREFIX').'role_node.`module` =  "'.$module.'"')
+                          ->where(C('DB_PREFIX').'role_nav.id =  "'.  $navid.'" AND '.C('DB_PREFIX').'role_node.`action` =  "'.$action.'" AND '.C('DB_PREFIX').'role_node.`module` =  "'.$module.'"')
                           ->find();
-//        echo M('RoleNav')->getLastSql();
-//        echo "<pre>";print_r($bm);exit;
-        $bm['url']    = MODULE_NAME;
-//        $bm['module']    = L(MODULE_NAME);
-//        $bm['action']    = L(MODULE_NAME.'_'.ACTION_NAME);
-        $this->assign ('breadcrumbs',$bm);
+        if(!empty($rolenav) && is_array($rolenav)){
+            cookie("menuid",$rolenav['id']);
+        }
+//        print_r($rolenav);
+        $rolenav['url']    = MODULE_NAME;
+//        if(!empty($ary_get['_URL_'][1]) && isset($ary_get['_URL_'][1])){
+//            
+//            $module = $ary_get['_URL_'][1];
+//            $action = $ary_get['_URL_'][2];
+//            $navid = cookie('nav_id');
+//            if(empty($navid)){
+//                $data = M('RoleNav')->where(array('name'=>'控制台'))->find();
+//                cookie('nav_id',$data['id']);
+//                cookie('module',$module);
+//                cookie('action',$action);
+//                $navid = $data['id'];
+//            }
+//        }else{
+//            $modules = cookie('module');
+//            $actions = cookie('action');
+////            echo $modules;
+//            if(!empty($modules) && !empty($actions)){
+//                $module = cookie('module');
+//                $action = cookie('action');
+//                $navid = cookie('nav_id');
+//            }else{
+//                $data = M('RoleNav')->where(array('name'=>'控制台'))->find();
+//                $module = "Index";
+//                $action = "index";
+//                $navid = $data['id'];
+//            }
+//        }
+//        $bm = M('RoleNav')->field(C('DB_PREFIX').'role_nav.name,'.C('DB_PREFIX').'role_node.*')
+//                          ->join(C('DB_PREFIX').'role_node ON '.C('DB_PREFIX').'role_nav.id = '.C('DB_PREFIX').'role_node.`nav_id`')
+//                          ->where(C('DB_PREFIX').'role_nav.id =  "'.  $navid.'" AND '.C('DB_PREFIX').'role_node.`action` =  "'.$action.'" AND '.C('DB_PREFIX').'role_node.`module` =  "'.$module.'"')
+//                          ->find();
+//        $bm['url']    = MODULE_NAME;
+        $this->assign ('breadcrumbs',$rolenav);
         import('ORG.Util.Session');
         $this->assign("uid",session("admin"));
         $admin_access = D('Config')->getCfgByModule('ADMIN_ACCESS');
@@ -89,13 +123,7 @@ abstract class AdminAction extends Action{
             }
         }
         $this->getTop();
-        $menuid = intval($_GET['menuid']);
-//        echo cookie('module')."<br/>";
-//        echo cookie('action');
-		if(empty($menuid)) $menuid = cookie('nav_id');
-		if(!empty($menuid)){
-			$this->getMenus($menuid);
-		}
+        $this->getMenus($navid);
         import('ORG.Util.Page');
     }
     
@@ -107,7 +135,6 @@ abstract class AdminAction extends Action{
     public function doCheckLogin(){
         //todo 此处要做登录判断
         if (!isset($_SESSION[C('USER_AUTH_KEY')])) {
-//            $this->redirect(U('Admin/User/pageLogin'));
             $this->error(L('NO_LOGIN'), U('Admin/User/pageLogin'));
         }
     }    
@@ -131,20 +158,15 @@ abstract class AdminAction extends Action{
     public function getMenus($menuid){
         $id = intval($menuid);
         $menus = array();
-        if(false){
-            $menus = $_SESSION['menu_' . $id . '_' . $_SESSION[C('USER_AUTH_KEY')]];
-        }else{
-//            if ($id == 0)
-//                $id = D("RoleNav")->where('status=1')->order("sort ASC,id ASC")->getField('id');
-            $where = array();
-            $where['status'] = 1;
-            $where['nav_id'] = $menuid;
-            $where['is_show'] = 1;
-            $where['auth_type'] = 0;
-            $no_modules = explode(',', strtoupper(C('NOT_AUTH_MODULE')));
-            $access_list = $_SESSION['_ACCESS_LIST'];
-            $node_list = D("RoleNode")->where($where)->field('id,action,action_name,module,module_name,nav_id')->order(array('sort'=>'ASC'))->select();
-//            echo "<pre>";print_r($node_list);exit;
+        $where = array();
+        $where['status'] = '1';
+        $where['nav_id'] = $menuid;
+        $where['is_show'] = '1';
+        $where['auth_type'] = 0;
+        $no_modules = explode(',', strtoupper(C('NOT_AUTH_MODULE')));
+        $access_list = $_SESSION['_ACCESS_LIST'];
+        $node_list = D("RoleNode")->where($where)->field('id,action,action_name,module,module_name,nav_id')->order(array('sort'=>'ASC'))->select();
+        if(!empty($node_list) && is_array($node_list)){
             foreach ($node_list as $key => $node) {
                 $menus[$node['module']]['nodes'][] = array_unique($node);
                 $menus[$node['module']]['name'] = $node['module_name'];
@@ -152,20 +174,16 @@ abstract class AdminAction extends Action{
                     || isset($access_list[strtoupper($node['module'])][strtoupper($node['action'])])) 
                     || $_SESSION['administrator'] || in_array(strtoupper($node['module']), $no_modules)) 
                 {
-//                    echo "<pre>";print_r($key);
                     if(!in_array($node['id'], $menus[$node['module']]['nodes'][$key])){
                         $menus[$node['module']]['nodes'][] = array_unique($node);
                     }
                     $menus[$node['module']]['name'] = $node['module_name'];
                 }
-//                var_dump($menus[$node['module']]['nodes']);
             }
-//            echo "<pre>";print_r($menus);exit;
-            $_SESSION['menu_' . $id . '_' . $_SESSION[C('USER_AUTH_KEY')]] = $menus;
-            $this->menus = $menus;
-            
-            $this->assign("menus",$menus);
-            return $menus;
         }
+        $_SESSION['menu_' . $id . '_' . $_SESSION[C('USER_AUTH_KEY')]] = $menus;
+        $this->menus = $menus;
+        $this->assign("menus",$menus);
+        return $menus;
     }
 }
