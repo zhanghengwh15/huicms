@@ -29,14 +29,13 @@ abstract class AdminAction extends Action{
      * @date 2013-3-25
      */
     public function _initialize() {
-        //判断用户是否登陆
-        $this->doCheckLogin();
         $langSet = C('DEFAULT_LANG');
-//        echo "<pre>";print_r(MODULE_NAME);exit;
         // 读取当前模块语言包
 		if (is_file(LANG_PATH . $langSet . '/' . MODULE_NAME . '.php')){
 			L(include LANG_PATH . $langSet . '/' . MODULE_NAME . '.php');
         }
+        //判断用户是否登陆
+        $this->doCheckLogin();
         $ary_get = $this->_get();
         $module = cookie("module");
         $action = cookie("action");
@@ -55,7 +54,6 @@ abstract class AdminAction extends Action{
         if(!empty($rolenav) && is_array($rolenav)){
             cookie("menuid",$rolenav['id']);
         }
-//        print_r($rolenav);
         $rolenav['url']    = MODULE_NAME;
 //        if(!empty($ary_get['_URL_'][1]) && isset($ary_get['_URL_'][1])){
 //            
