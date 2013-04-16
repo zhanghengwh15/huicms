@@ -1,0 +1,117 @@
+<div class="rounded table" style="width: 98%;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" class="box_top">
+        <thead class="thead">
+            <tr class="space">
+                <th colspan="10">留言列表</th>
+            </tr>
+        </thead>
+    </table>
+    <div class="contentbox" data-uri='{:U("Admin/Message/doEditAudit")}'>
+        <table width="100%" class="list td_align">
+            <thead>
+                <tr class="thead">
+                    <th class="align-center"><input name="id" type="checkbox" id="checkboxall" /></th>
+                    <th class="align-center">操作</th>
+                    <th class="align-center">标题</th>
+                    <th class="align-center">Email</th>
+                    <th class="align-center">QQ</th>
+                    <th class="align-center">留言地址</th>
+                    <th class="align-center">回复者</th>
+                    <th class="align-center">留言时间</th>
+                    <th class="align-center">修改时间</th>
+                </tr>
+            </thead>
+            <tbody>
+            <volist name="data" id="vo">
+                <tr id="list_{$vo.id}">
+                    <td class="align-center"><input type="checkbox" value="{$vo.id}" name="checkall" class="checkSon" /></td>
+                    <td class="align-center">
+                        <img class="pointer" data-id="{$vo[id]}" style="cursor: pointer;" data-field="audit" data-value="{$vo.audit}"
+                                <if condition="$vo.audit eq '1'">
+                                    src="__PUBLIC__/Admin/images/icons/icon_1.png" alt="已经通过审核，点击取消审核" title="已经通过审核，点击取消审核"
+                                <else />
+                                    src="__PUBLIC__/Admin/images/icons/icon_0.png" alt="还没有通过审核，点击通过审核" title="还没有通过审核，点击通过审核"
+                                </if> 
+                            />
+                            <img class="pointer" data-id="{$vo[id]}" style="cursor: pointer;" data-field="status" data-value="{$vo.status}"
+                                <if condition="$vo.replyid  eq '1'">
+                                    src="__PUBLIC__/Admin/images/icons/dot_1.png" alt="已经回复，点击查看" title="已经回复，点击查看"
+                                <else />
+                                    src="__PUBLIC__/Admin/images/icons/dot_0.png" alt="还没有回复，点击回复" title="还没有回复，点击回复"
+                                </if> 
+                            />
+<!--                        <a href='{:U("Admin/Message/editMessage","id=$vo[id]")}' title="编辑"><img src="__PUBLIC__/Admin/images/icons/icon_edit.png" alt="编辑" title="编辑" /></a>-->
+                        <a href="javascript:void(0);" title="删除" class="doDel" val="{$vo.id}" data-uri='{:U("Admin/Message/doDelete","id=$vo[id]")}' data-acttype="ajax"><img src="__PUBLIC__/Admin/images/icons/icon_square_close.png" alt="删除" title="删除" /></a>
+                    </td>
+                    <td class="align-center">
+                        {$vo.title}
+                    </td>
+                    <td class="align-center">{$vo.email}</td>
+                    <td class="align-center">{$vo.qq}</td>
+                    <td class="align-center">{$vo.ip_location.country} / {$vo.ip_location.area}</td>
+                    <td class="align-center">{$vo.u_id}</td>
+                    <td class="align-center">{$vo.addtime}</td>
+                    <td class="align-center">{$vo.updatetime}</td>
+                </tr>
+            </volist>
+            <empty name="data">
+                <tr><td colspan="9" class="left align-center">暂时没有数据!</td></tr>
+            </empty>
+            </tbody>
+        </table>
+        <div class="pagination">
+            <ul>
+            {$page}
+            <select name="pageall" onChange="window.location.href=this.value">
+                <option value='{:U("Admin/Links/index","pageall=1")}' <if condition="$filter.pageall eq '1'">selected="selected"</if>>1条/页</option>
+                <option value='{:U("Admin/Links/index","pageall=5")}' <if condition="$filter.pageall eq '5'">selected="selected"</if>>5条/页</option>
+                <option value='{:U("Admin/Links/index","pageall=10")}'<if condition="$filter.pageall eq '10'">selected="selected"</if>>10条/页</option>
+                <option value='{:U("Admin/Links/index","pageall=20")}'<if condition="$filter.pageall eq '20'">selected="selected"</if>>20条/页</option>
+                <option value='{:U("Admin/Links/index","pageall=50")}'<if condition="$filter.pageall eq '50'">selected="selected"</if>>50条/页</option>
+                <option value='{:U("Admin/Links/index","pageall=80")}'<if condition="$filter.pageall eq '80'">selected="selected"</if>>80条/页</option>
+                <option value='{:U("Admin/Links/index","pageall=100")}'<if condition="$filter.pageall eq '100'">selected="selected"</if>>100条/页</option>
+                <option value='{:U("Admin/Links/index","pageall=500")}'<if condition="$filter.pageall eq '500'">selected="selected"</if>>500条/页</option>
+            </select>
+        </ul>
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+
+</div>
+<script>
+    $(document).ready(function(){
+        $(".doDel").click(function(){
+            var dialog = art.dialog({id: 'N3690',title: false});
+            var url = $(this).attr("data-uri");
+            var id = $(this).attr("val");
+            art.dialog({
+                title:'删除留言',
+                drag: false,
+                resize: false,
+                content: '删除后不可恢复,确定删除留言?',
+                okVal:'确定',
+                ok: function () {
+                    $.ajax({
+                        url: url,
+                        cache: false,
+                        dataType:'json',
+                        type:'POST',
+                        data:{},
+                        success: function (msgObj) {
+                            if(msgObj.status == '1'){
+                                dialog.content("<font color='green'>" +msgObj.info + "</font>");
+                            }else{
+                                dialog.content("<font color='red'>" +msgObj.info + "</font>");
+                            }
+                            dialog.time(2);
+                            $("#list_"+id).remove();
+                        }
+
+                    });
+                },
+                cancelVal: '取消',
+                cancel: true //为true等价于function(){}
+            });
+        });
+    });    
+</script>
