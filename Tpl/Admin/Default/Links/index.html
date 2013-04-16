@@ -28,7 +28,7 @@
                     <td class="align-center"><input type="checkbox" value="{$vo.id}" name="checkall" class="checkSon" /></td>
                     <td class="align-center">
                         <a href='{:U("Admin/Links/editLinks","id=$vo[id]")}' title="编辑"><img src="__PUBLIC__/Admin/images/icons/icon_edit.png" alt="编辑" title="编辑" /></a>
-                        <a href="javascript:void(0);" title="删除" class="dodel" val="{$vo.id}" data-uri='{:U("Admin/RoleNav/doDelete","id=$vo[id]")}' data-acttype="ajax"><img src="__PUBLIC__/Admin/images/icons/icon_square_close.png" alt="删除" title="删除" /></a>
+                        <a href="javascript:void(0);" title="删除" class="doDel" val="{$vo.id}" data-uri='{:U("Admin/RoleNav/doDelete","id=$vo[id]")}' data-acttype="ajax"><img src="__PUBLIC__/Admin/images/icons/icon_square_close.png" alt="删除" title="删除" /></a>
                     </td>
                     <td class="align-center"><if condition="$vo.color neq ''"><font color="{$vo.color}">{$vo.name}</font><else />{$vo.name}</if></td>
             <td class="align-center"><img src="__PUBLIC__/{$vo.image_path|default='images/links.gif'}" width="88" height="31"></td>
@@ -75,6 +75,15 @@
 </div>
 <script>
     $(document).ready(function(){
+        $(".doDel").click(function(){
+            art.dialog({
+                title:'谢谢观赏', 
+                content:'删除管理员', 
+                icon:'error',
+                lock:true, 
+                time:3
+            })
+        });
         $(".dodel").click(function(){
             var val = $(this).attr("val");
             var self = $(this),
