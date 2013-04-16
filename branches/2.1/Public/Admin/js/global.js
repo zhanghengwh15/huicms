@@ -243,6 +243,7 @@ function openItem(menu){
         $("#item_"+op).addClass('selected');//使用name，不使用ID，因为ID有重复的
         $("a[name='item_"+op+"']").addClass('selected');
     }
+    
 //    window.location.reload();return false;
 //    alert(action);return false;
     var url = '/Admin/'+module+'/'+action;
@@ -252,3 +253,45 @@ function openItem(menu){
         window.location.reload();
     }
 }   
+
+
+/**
+ * 定义提示信息
+ * @author Terry<admin@52sum.com>
+ * @date 2013-04-16
+ */
+function showMsg(flag,msg,content,send){
+    var img_class = '';
+    if(flag){
+        img_class = 'success';
+    }else{
+        img_class = 'error';
+    }
+    if(typeof(send) == 'undefined'){
+        send = 5;
+    }
+    art.dialog({
+        title:msg, 
+        width:'200px',
+        height:'200px',
+        content:'<h2>' +content +'</h2>', 
+        resize: false,
+        drag: false,
+        init: function () {
+            var that = this, i = send;
+            var fn = function () {
+                that.title(msg + '<font color="red">'+i+'</font>' + '秒后关闭');
+                !i && that.close();
+                i --;
+            };
+            timer = setInterval(fn, 1000);
+            fn();
+        },
+        close: function () {
+            clearInterval(timer);
+        },
+        
+        icon:img_class,
+        lock:true
+    })
+}
