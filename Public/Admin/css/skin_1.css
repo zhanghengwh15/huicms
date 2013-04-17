@@ -206,7 +206,8 @@ span.errormsg {color: red;text-indent: 20px;display: inline-block;background-ima
 .icon_select{border: 0px;margin: 0px 0px 0px 3px;position: relative;top: -2px;}
 
 #title { width: 120px; height: 50px; position: absolute; top: 17px; left: 21px; background: url(../images/mac/shopnc_logo.png) no-repeat; float:left;}
-.txt-short, .txt , .txt2 , .select{ height: 20px; line-height: 20px;}
+.txt-short, .txt , .txt2 { height: 20px; line-height: 20px;}
+.select{ height: 26px; line-height: 26px;}
 .thead {font-weight: bold; color: #444; text-align: center;}
 .thead td {border-bottom: 1px solid #bbdbf1;}
 tr td.handler span { display:block; width: 140px; text-align:left; margin: 0 auto;}
@@ -233,3 +234,16 @@ big,.big { font-size:120% !important; line-height:120%;padding:6px !important; h
 .page_table table td {padding: 10px;border-bottom-width: 1px;border-bottom-style: dotted;border-bottom-color: #C6D8E6;}
 .page_table .left{text-align: right;}
 .page_table .right{text-align: left;}
+
+/*后台地图*/
+.d-content { display:inline-block; display:block\0/*IE8 BUG*/; display:inline-block\9\0; *zoom:1; *display:inline; text-align:left; border:0 none; width:100%;  }
+.table_map{text-align:left; line-height:30px; width:100%;border:1px solid #eee; border-bottom:none;}
+.table_map tr{border-bottom:1px solid #eee;}
+.table_map tr:hover{ background:#fbffe4}
+.table_map th{vertical-align:middle;background:#cde8f5; padding:0 10px; color:#666; text-align:right}
+.table_map_sub tr{border:none; line-height: 22px;}
+.table_map_sub th{ background:none; font-weight:normal; text-align:left;}
+.table_map_sub td a{float:left;color:#0364ae; margin-right:20px;}
+.table_map_sub td a:hover{text-decoration: underline;}
+.table_map_sub td label{float:left;color:#0364ae; width:120px;}
+.table_map_sub td label input{ float:left; margin:8px 5px 0 0;}
