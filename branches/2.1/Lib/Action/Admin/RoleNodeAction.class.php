@@ -63,7 +63,7 @@ class RoleNodeAction extends AdminAction{
      */
     public function addRoleNode(){
         $rolenav = D("RoleNav");
-        $ary_rolenav = $rolenav->where(array('status'=>'1'))->select();
+        $ary_rolenav = $rolenav->where(array('status'=>'1'))->order('sort ASC')->select();
         $this->assign("rolenav",$ary_rolenav);
         $this->display();
     }
