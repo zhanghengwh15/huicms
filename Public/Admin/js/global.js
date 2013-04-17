@@ -295,3 +295,17 @@ function showMsg(flag,msg,content,send){
         lock:true
     })
 }
+
+$(document).ready(function(){
+    //后台地图
+    $('#adminMap').live('click', function(){
+        var title = $(this).attr('title');
+        var data_uri = $(this).attr('data-uri');
+        art.dialog({id:'admin_map', title:title, padding:'',width:'50%', lock:true});
+        var dialog = art.dialog.get('admin_map');
+        $.get(data_uri, function(html){
+            dialog.content(html);
+        });
+    });
+});
+
