@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2013 年 04 月 13 日 17:57
+-- 生成日期: 2013 年 04 月 17 日 23:39
 -- 服务器版本: 5.5.29
 -- PHP 版本: 5.4.6-1ubuntu1.2
 
@@ -45,15 +45,14 @@ CREATE TABLE IF NOT EXISTS `hui_admin` (
   `u_create_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '创建时间',
   `u_update_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '更新时间',
   PRIMARY KEY (`u_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='管理员' AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='管理员' AUTO_INCREMENT=2 ;
 
 --
 -- 转存表中的数据 `hui_admin`
 --
 
 INSERT INTO `hui_admin` (`u_id`, `u_name`, `u_passwd`, `role_id`, `u_ip`, `u_photo`, `u_username`, `u_sex`, `u_phone`, `u_email`, `u_qq`, `u_description`, `u_countlog`, `u_status`, `u_lastlogin_time`, `u_create_time`, `u_update_time`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1, '127.0.0.1', 'upload/images/20130413/13658436934230.png', '王辉', 0, '13817918575', 'shuaige@52sum.com', '466209365', '', 84, 1, '2013-04-13 16:11:51', '0000-00-00 00:00:00', '2013-04-13 17:02:13'),
-(4, 'demo', '585b66ed3c06f4cadcb3084c0a621437', 3, '127.0.0.1', NULL, '王辉', 1, '', '', '', '', 2, 1, '2013-04-02 00:26:15', '2013-04-02 00:20:58', '0000-00-00 00:00:00');
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1, '127.0.0.1', 'upload/images/20130413/13658436934230.png', '王辉', 0, '13817918575', 'shuaige@52sum.com', '466209365', '', 122, 1, '2013-04-17 21:19:51', '0000-00-00 00:00:00', '2013-04-13 17:02:13');
 
 -- --------------------------------------------------------
 
@@ -68,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `hui_admin_log` (
   `log_create` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '登陆时间',
   `log_ip` varchar(15) NOT NULL COMMENT '登陆IP',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='管理员日志' AUTO_INCREMENT=114 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='管理员日志' AUTO_INCREMENT=152 ;
 
 --
 -- 转存表中的数据 `hui_admin_log`
@@ -143,7 +142,45 @@ INSERT INTO `hui_admin_log` (`id`, `u_id`, `u_name`, `log_create`, `log_ip`) VAL
 (110, 1, 'admin', '2013-04-09 23:15:56', '127.0.0.1'),
 (111, 1, 'admin', '2013-04-10 23:06:38', '127.0.0.1'),
 (112, 1, 'admin', '2013-04-13 16:01:57', '127.0.0.1'),
-(113, 1, 'admin', '2013-04-13 16:11:51', '127.0.0.1');
+(113, 1, 'admin', '2013-04-13 16:11:51', '127.0.0.1'),
+(114, 1, 'admin', '2013-04-13 22:41:50', '127.0.0.1'),
+(115, 1, 'admin', '2013-04-13 23:50:37', '127.0.0.1'),
+(116, 1, 'admin', '2013-04-13 23:59:47', '127.0.0.1'),
+(117, 1, 'admin', '2013-04-14 00:33:29', '127.0.0.1'),
+(118, 1, 'admin', '2013-04-14 14:27:09', '127.0.0.1'),
+(119, 1, 'admin', '2013-04-14 17:24:40', '127.0.0.1'),
+(120, 1, 'admin', '2013-04-14 22:14:25', '127.0.0.1'),
+(121, 1, 'admin', '2013-04-15 01:14:32', '127.0.0.1'),
+(122, 1, 'admin', '2013-04-15 01:39:16', '127.0.0.1'),
+(123, 1, 'admin', '2013-04-15 01:42:29', '127.0.0.1'),
+(124, 1, 'admin', '2013-04-15 01:43:18', '127.0.0.1'),
+(125, 1, 'admin', '2013-04-15 01:44:38', '127.0.0.1'),
+(126, 1, 'admin', '2013-04-15 01:52:48', '127.0.0.1'),
+(127, 1, 'admin', '2013-04-15 01:59:51', '127.0.0.1'),
+(128, 1, 'admin', '2013-04-15 02:21:59', '127.0.0.1'),
+(129, 1, 'admin', '2013-04-15 09:30:49', '127.0.0.1'),
+(130, 1, 'admin', '2013-04-15 12:02:48', '127.0.0.1'),
+(131, 1, 'admin', '2013-04-15 12:55:32', '127.0.0.1'),
+(132, 1, 'admin', '2013-04-15 13:11:22', '127.0.0.1'),
+(133, 1, 'admin', '2013-04-15 19:43:07', '127.0.0.1'),
+(134, 1, 'admin', '2013-04-15 20:05:06', '127.0.0.1'),
+(135, 1, 'admin', '2013-04-15 20:09:08', '127.0.0.1'),
+(136, 1, 'admin', '2013-04-15 20:14:26', '127.0.0.1'),
+(137, 1, 'admin', '2013-04-15 20:36:49', '127.0.0.1'),
+(138, 1, 'admin', '2013-04-15 20:41:36', '127.0.0.1'),
+(139, 1, 'admin', '2013-04-15 22:44:26', '127.0.0.1'),
+(140, 1, 'admin', '2013-04-16 00:11:45', '127.0.0.1'),
+(141, 1, 'admin', '2013-04-16 01:46:21', '127.0.0.1'),
+(142, 1, 'admin', '2013-04-16 21:29:12', '127.0.0.1'),
+(143, 1, 'admin', '2013-04-16 22:09:27', '127.0.0.1'),
+(144, 1, 'admin', '2013-04-16 22:31:55', '127.0.0.1'),
+(145, 1, 'admin', '2013-04-16 23:26:41', '127.0.0.1'),
+(146, 1, 'admin', '2013-04-17 00:35:47', '127.0.0.1'),
+(147, 1, 'admin', '2013-04-17 00:49:10', '127.0.0.1'),
+(148, 1, 'admin', '2013-04-17 01:10:13', '127.0.0.1'),
+(149, 1, 'admin', '2013-04-17 09:53:10', '127.0.0.1'),
+(150, 1, 'admin', '2013-04-17 20:41:24', '127.0.0.1'),
+(151, 1, 'admin', '2013-04-17 21:19:51', '127.0.0.1');
 
 -- --------------------------------------------------------
 
@@ -180,15 +217,50 @@ INSERT INTO `hui_config` (`c_id`, `c_module`, `c_key`, `c_value`, `c_value_desc`
 CREATE TABLE IF NOT EXISTS `hui_links` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键，自增',
   `name` varchar(50) NOT NULL DEFAULT '' COMMENT '友情链接文字，显示在友情链接上的文字',
-  `image_path` varchar(255) NOT NULL DEFAULT '' COMMENT '友情链接图片地址',
+  `image_path` varchar(255) DEFAULT '' COMMENT '友情链接图片地址',
   `link_url` varchar(255) NOT NULL DEFAULT '' COMMENT '友情链接地址，url',
-  `is_image_link` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否是图片链接:0否，1是',
+  `description` text COMMENT '链接描述',
+  `color` varchar(50) DEFAULT NULL COMMENT '链接颜色',
+  `type` tinyint(1) NOT NULL DEFAULT '0' COMMENT '链接类型:0.文字类型,1.图片类型',
   `order` int(11) NOT NULL DEFAULT '0' COMMENT '排序，升序规定前台友情链接的显示顺序',
   `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '友情链接状态，默认1，正常；0，废弃；2，进入回收站',
   `create_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '友情链接添加时间',
   `update_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '友情链接最后修改时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='友情链接表' AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='友情链接表' AUTO_INCREMENT=5 ;
+
+--
+-- 转存表中的数据 `hui_links`
+--
+
+INSERT INTO `hui_links` (`id`, `name`, `image_path`, `link_url`, `description`, `color`, `type`, `order`, `status`, `create_time`, `update_time`) VALUES
+(1, 'PHP工作室', '/Public/Lib/ueditor/php/../../../upload//photo/5153214e77636.jpg', 'http://www.baidu.com', '', '#2F3192', 1, 10, 1, '0000-00-00 00:00:00', '2013-04-14 10:14:09'),
+(3, '中文站', '', 'http://www.baidu.com', '', '#707070', 0, 20, 1, '2013-04-14 07:44:22', '0000-00-00 00:00:00'),
+(4, '普通', 'upload/photo/515321a73e88d.jpg', 'http://www.huicms.cn', '', '#FF0000', 1, 30, 1, '2013-04-14 07:46:02', '2013-04-14 10:16:39');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `hui_message`
+--
+
+CREATE TABLE IF NOT EXISTS `hui_message` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '留言id',
+  `title` varchar(50) NOT NULL COMMENT '留言标题',
+  `content` text NOT NULL COMMENT '留言内容',
+  `m_id` int(11) NOT NULL DEFAULT '0' COMMENT '留言者',
+  `nickname` varchar(50) NOT NULL COMMENT '留言姓名',
+  `email` varchar(50) NOT NULL COMMENT '留言EMAIL',
+  `qq` varchar(14) DEFAULT NULL COMMENT '留言QQ',
+  `visible` tinyint(1) NOT NULL COMMENT '是否管理员只能可看:0.否,1.是',
+  `ip` varchar(15) NOT NULL COMMENT '留言者IP',
+  `audit` tinyint(1) NOT NULL DEFAULT '0' COMMENT '审核:0.未审核,1,已审核',
+  `u_id` int(11) DEFAULT NULL COMMENT '留言者id',
+  `replyid` int(11) DEFAULT NULL COMMENT '回复id',
+  `addtime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '留言时间',
+  `updatetime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '留言更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='留言表' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -262,7 +334,7 @@ CREATE TABLE IF NOT EXISTS `hui_role_nav` (
   `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '菜单启用及停用：1.启用，0.停用',
   `sort` int(11) NOT NULL DEFAULT '10' COMMENT '排序',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='菜单表' AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='菜单表' AUTO_INCREMENT=11 ;
 
 --
 -- 转存表中的数据 `hui_role_nav`
@@ -270,7 +342,15 @@ CREATE TABLE IF NOT EXISTS `hui_role_nav` (
 
 INSERT INTO `hui_role_nav` (`id`, `name`, `status`, `sort`) VALUES
 (1, '系统管理', 1, 10),
-(2, '模块管理', 1, 60);
+(2, '模块管理', 1, 60),
+(3, '控制台', 1, 0),
+(4, '用户管理', 1, 70),
+(5, '内容管理', 1, 80),
+(6, '商品管理', 1, 90),
+(7, '模板管理', 0, 100),
+(8, '数据', 1, 110),
+(9, '全局', 1, 120),
+(10, '订单管理', 1, 85);
 
 -- --------------------------------------------------------
 
@@ -290,7 +370,7 @@ CREATE TABLE IF NOT EXISTS `hui_role_node` (
   `auth_type` tinyint(1) NOT NULL DEFAULT '0' COMMENT '授权模式：1:模块授权(module) 2:操作授权(action) 0:节点授权(node)',
   `is_show` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否菜单显示:0.不显示,1.显示',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='节点表' AUTO_INCREMENT=29 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='节点表' AUTO_INCREMENT=101 ;
 
 --
 -- 转存表中的数据 `hui_role_node`
@@ -320,7 +400,76 @@ INSERT INTO `hui_role_node` (`id`, `action`, `action_name`, `module`, `module_na
 (25, 'doDelete', '删除角色', 'Role', '角色管理', 1, 1, 20, 0, 0),
 (26, '', '', 'Links', '友情链接管理', 2, 1, 60, 1, 1),
 (27, 'index', '链接列表', 'Links', '友情链接管理', 2, 1, 10, 0, 1),
-(28, 'addLinks', '添加链接', 'Links', '友情链接管理', 2, 1, 10, 0, 1);
+(28, 'addLinks', '添加链接', 'Links', '友情链接管理', 2, 1, 10, 0, 1),
+(29, 'editLinks', '编辑链接', 'Links', '友情链接', 2, 1, 0, 0, 0),
+(33, '', '', 'Message', '留言管理', 2, 1, 10, 1, 1),
+(34, 'index', '留言列表', 'Message', '留言管理', 2, 1, 10, 0, 1),
+(35, '', '', 'Index', '控制台', 3, 1, 10, 1, 1),
+(36, 'index', '欢迎页面', 'Index', '控制台', 3, 1, 10, 0, 1),
+(37, 'aboutUs', '关于我们', 'Index', '控制台', 3, 1, 10, 0, 1),
+(38, 'index', '会员列表', 'Member', '会员管理', 4, 1, 10, 0, 1),
+(39, 'addMember', '添加会员', 'Member', '会员管理', 4, 1, 10, 0, 1),
+(40, 'editMember', '编辑会员', 'Member', '会员管理', 4, 1, 10, 0, 0),
+(41, '', '', 'MemberGroup', '会员组管理', 4, 1, 10, 1, 1),
+(42, '', '', '会员等级管理', 'MemberLevel', 4, 1, 10, 1, 1),
+(43, 'index', '会员等级列表', 'MemberLevel', '会员等级管理', 4, 1, 10, 0, 1),
+(44, 'addMemberLevel', '添加会员等级', 'MemberLevel', '会员等级管理', 4, 1, 10, 0, 1),
+(45, '', '', 'Article', '文章管理', 5, 1, 10, 1, 1),
+(46, 'index', '文章列表', 'Article', '文章管理', 5, 1, 10, 0, 1),
+(47, 'addArticle', '添加文章', 'Article', '文章管理', 5, 1, 10, 0, 1),
+(48, 'editArticle', '编辑文章', 'Article', '文章管理', 5, 1, 10, 0, 0),
+(49, 'doDelete', '删除文章', 'Article', '文章管理', 5, 1, 10, 0, 0),
+(50, '', '', 'ArticleCategory', '文章分类管理', 5, 1, 10, 1, 1),
+(51, 'index', '文章分类列表', 'ArticleCategory', '文章分类管理', 5, 1, 10, 0, 1),
+(52, 'addArticleCategory', '添加文章分类', 'ArticleCategory', '文章分类管理', 5, 1, 10, 0, 1),
+(53, 'editArticleCategory', '编辑文章分类', 'ArticleCategory', '文章分类管理', 5, 1, 10, 0, 0),
+(54, '', '', 'Goods', '商品管理', 6, 1, 10, 1, 1),
+(55, 'index', '商品列表', 'Goods', '商品管理', 6, 1, 10, 0, 1),
+(56, 'addGoods', '添加商品', 'Goods', '商品管理', 6, 1, 10, 0, 1),
+(57, 'editGoods', '编辑商品', 'Goods', '商品管理', 6, 1, 10, 0, 0),
+(58, '', '', 'Theme', '模板管理', 7, 1, 10, 1, 1),
+(59, 'index', '模板列表', 'Theme', '模板管理', 7, 1, 10, 0, 1),
+(60, '', '', 'Orders', '订单管理', 10, 1, 10, 1, 1),
+(61, 'index', '订单列表', 'Orders', '订单管理', 10, 1, 10, 0, 1),
+(62, '', '', 'Ad', '广告管理', 2, 1, 10, 1, 1),
+(63, 'index', '广告列表', 'Ad', '广告管理', 2, 1, 10, 0, 1),
+(64, 'addAd', '添加广告', 'Ad', '广告管理', 2, 1, 10, 0, 1),
+(65, 'editAd', '编辑广告', 'Ad', '广告管理', 2, 1, 10, 0, 0),
+(66, '', '', 'Database', '数据库管理', 8, 1, 10, 1, 1),
+(67, 'backup', '数据备份', 'Database', '数据库管理', 8, 1, 10, 0, 1),
+(68, 'restore', '数据恢复', 'Database', '数据库管理', 8, 1, 10, 0, 1),
+(69, '', '', 'Delivery', '配送设置', 10, 1, 10, 1, 1),
+(70, 'index', '配送公司列表', 'Delivery', '配送设置', 10, 1, 10, 0, 1),
+(71, 'addDelivery', '添加配送公司', 'Delivery', '配送设置', 10, 1, 10, 0, 1),
+(72, 'editDelivery', '编辑配送公司', 'Delivery', '配送设置', 10, 1, 10, 0, 0),
+(73, '', '', 'GoodsCategory', '商品分类管理', 6, 1, 10, 1, 1),
+(74, 'index', '商品分类列表', 'GoodsCategory', '商品分类管理', 6, 1, 10, 0, 1),
+(75, 'addGoodsCategory', '添加商品分类', 'GoodsCategory', '商品分类管理', 6, 1, 10, 0, 1),
+(76, 'editGoodsCategory', '编辑商品分类', 'GoodsCategory', '商品分类管理', 6, 1, 10, 0, 0),
+(77, '', '', 'Download', '资源下载', 2, 1, 10, 1, 1),
+(78, 'index', '资源列表', 'Download', '资源下载', 5, 1, 10, 0, 1),
+(79, 'addDownload', '添加资源', 'Download', '资源下载', 5, 1, 10, 0, 1),
+(80, 'editDownload', '编辑资源', 'Download', '资源下载', 0, 1, 10, 0, 0),
+(81, 'logDatabase', '数据操作日志', 'Database', '数据库管理', 8, 1, 1, 0, 1),
+(82, '', '', 'Payment', '支付设置', 10, 1, 10, 1, 1),
+(83, 'index', '支付列表', 'Payment', '支付设置', 10, 1, 10, 0, 1),
+(84, 'addPayment', '添加支付', 'Payment', '支付设置', 10, 1, 10, 0, 1),
+(85, 'editPayment', '编辑支付接口', 'Payment', '支付设置', 10, 1, 10, 0, 0),
+(86, '', '', 'Comment', '商品评论', 6, 1, 10, 1, 1),
+(87, 'index', '评论列表', 'Comment', '商品评论', 6, 1, 10, 0, 1),
+(88, 'Set', '评论设置', 'Comment', '商品评论', 6, 1, 1, 0, 1),
+(89, '', '', 'Brand', '品牌管理', 6, 1, 10, 1, 1),
+(90, 'index', '品牌列表', 'Brand', '品牌管理', 6, 1, 10, 0, 1),
+(91, 'addBrand', '添加品牌', 'Brand', '品牌管理', 6, 1, 10, 0, 1),
+(92, 'editBrand', '编辑品牌', 'Brand', '品牌管理', 6, 1, 10, 0, 0),
+(93, '', '', 'Setting', '核心设置', 9, 1, 10, 1, 1),
+(94, 'index', '站点设置', 'Setting', '核心设置', 9, 1, 10, 0, 1),
+(95, 'Case', '缓存设置', 'Setting', '核心设置', 9, 1, 10, 0, 1),
+(96, 'Security', '安全设置', 'Setting', '核心设置', 9, 1, 10, 0, 1),
+(97, '', '', 'Customer', '在线客服', 2, 1, 10, 1, 1),
+(98, 'index', '客服列表', 'Customer', '在线客服', 2, 1, 10, 0, 1),
+(99, 'addCustomer', '添加客服', 'Customer', '在线客服', 2, 1, 10, 0, 1),
+(100, 'editCustomer', '编辑客服', 'Customer', '在线客服', 2, 1, 10, 0, 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
