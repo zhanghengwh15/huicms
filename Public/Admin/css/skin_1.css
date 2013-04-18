@@ -247,3 +247,4 @@ big,.big { font-size:120% !important; line-height:120%;padding:6px !important; h
 .table_map_sub td a:hover{text-decoration: underline;}
 .table_map_sub td label{float:left;color:#0364ae; width:120px;}
 .table_map_sub td label input{ float:left; margin:8px 5px 0 0;}
+.fl {float:left;}
