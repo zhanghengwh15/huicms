@@ -38,7 +38,7 @@ class IndexAction extends AdminAction {
                     $ary_where['nav_id'] = $v['id'];
                     $ary_where['module_name'] = array('EQ',$sv['module_name']);
                     $ary_where['action'] = array('NEQ','');
-                    $ary_where['action_name'] = array('notlike',array('%添加%','%编辑%','%删除%'),'AND');
+                    $ary_where['action_name'] = array('notlike',array('%编辑%','%删除%'),'AND');
                     $v['sub'][$key]['sub'] = D("RoleNode")->where($ary_where)->select();
 //                    echo D("RoleNode")->getLastSql();
                 }
