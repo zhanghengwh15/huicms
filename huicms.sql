@@ -196,8 +196,7 @@ CREATE TABLE IF NOT EXISTS `hui_config` (
   `c_value_desc` varchar(100) NOT NULL DEFAULT '' COMMENT '配置值描述',
   `c_create_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP COMMENT '记录创建时间',
   `c_update_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '记录最后更新时间',
-  PRIMARY KEY (`c_id`),
-  UNIQUE KEY `c_key` (`c_key`) USING BTREE
+  PRIMARY KEY (`c_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='系统配置表，配置值使用序列化数组存储' AUTO_INCREMENT=3 ;
 
 --
