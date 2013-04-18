@@ -47,10 +47,14 @@ abstract class AdminAction extends Action{
             $action = $ary_get['_URL_'][2];
         }
         $navid = cookie("nav_id");
+        $navname = D("RoleNav")->where(array('id'=>$navid))->find();
+        session("navname",$navname['name']);
         $rolenav = M('RoleNav')->field(C('DB_PREFIX').'role_nav.name,'.C('DB_PREFIX').'role_node.*')
                           ->join(C('DB_PREFIX').'role_node ON '.C('DB_PREFIX').'role_nav.id = '.C('DB_PREFIX').'role_node.`nav_id`')
                           ->where(C('DB_PREFIX').'role_nav.id =  "'.  $navid.'" AND '.C('DB_PREFIX').'role_node.`action` =  "'.$action.'" AND '.C('DB_PREFIX').'role_node.`module` =  "'.$module.'"')
                           ->find();
+//        echo M('RoleNav')->getLastSql();exit;
+//        echo "<pre>";print_r($navid);exit;
         if(!empty($rolenav) && is_array($rolenav)){
             cookie("menuid",$rolenav['id']);
         }
