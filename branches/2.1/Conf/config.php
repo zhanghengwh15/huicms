@@ -7,7 +7,7 @@ return array(
     'APP_GROUP_LIST' => 'Home,Ucenter,Admin',    //项目分组设定
     'DEFAULT_GROUP'  => 'Home',          //默认分组
     //类库
-    'APP_AUTOLOAD_PATH' => '@.Common',
+    'APP_AUTOLOAD_PATH' => '@.Common,@.Common.Apis',
      //数据库信息
     'DB_TYPE' => 'mysql',                   // 数据库类型
     'DB_NAME' => 'huicms', // 数据库名
