@@ -248,3 +248,54 @@ big,.big { font-size:120% !important; line-height:120%;padding:6px !important; h
 .table_map_sub td label{float:left;color:#0364ae; width:120px;}
 .table_map_sub td label input{ float:left; margin:8px 5px 0 0;}
 .fl {float:left;}
+.fixed-bar {background: #FFF url(../images/fixed_bg.png) repeat-x scroll center bottom; width: 99%; padding: 8px 20px 8px 0; margin-left: 20px; top: 0; left: 0; z-index: 99;}
+* html .fixedbar { width: 100%; margin-top: -10px; position: relative; left: -20px;}
+.fixed-empty { height: 50px !important;}
+.item-title { line-height: 20px; margin-bottom: 0 !important; clear: both; overflow: hidden; _padding-bottom: 10px; +padding-bottom: 10px;}
+.item-title h3 { float: left; margin-right:20px; }
+.tab-base {float: left; overflow: hidden; padding-top:16px; }
+.tab-base li { float: left;}
+.tab-base a { font-weight: 700; line-height: 20px; background: #FFF url(../images/bg_position.png) no-repeat 0px -200px; height: 20px; float: left; padding-left: 14px; margin-right:4px;  cursor: pointer;}
+.tab-base a:hover { color: #5E728A; background-position: 0 -220px; }
+.tab-base a span { color: #565D68; background: url(../images/bg_position.png) no-repeat 9999px 9999px; float: left; padding-right: 10px; }
+.tab-base a:hover span {  background-position: 100% -220px;}
+.tab-base a.current, .tab-base a:hover.current { background-position: 0 -240px; cursor: default;}
+.tab-base a.current span, .tab-base a:hover.current span{ color: #FFF; background-position: 100% -240px;}
+
+.nav{background:url(../images/admin/content/hr.png) 0 bottom repeat-x;}
+.nav{
+	margin-bottom:15px;
+	height:35px;
+}
+.nav ul{
+	height:35px;
+	float:left;
+}
+.nav li,
+.nav .return{
+	float:left;
+}
+.nav li a,
+.nav .return a{
+	float:left;
+	line-height:32px;
+	color:#666;
+	padding:0 15px;
+	text-align:center;
+}
+.nav li a:hover{
+	border-bottom:2px solid #aaa;
+	color:#333;
+	text-decoration:none;
+}
+
+.nav li.current a{
+	border-bottom:2px solid #266aae;
+	font-weight:700;
+	color:#266aae;
+}
+.nav .return a{
+	background:url(../images/admin/content/return.png) 2px center no-repeat;
+	color:#990000;
+	padding:0 20px;
+}
