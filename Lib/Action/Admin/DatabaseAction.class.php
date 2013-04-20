@@ -40,7 +40,21 @@ class DatabaseAction extends AdminAction {
      */
     public function doSaveBackup(){
         $ary_post = $this->_post();
-        echo "<pre>";print_r($ary_post);exit;
+        if(IS_POST || isset($ary_post['datasubmit'])){
+            $sizelimit = isset($ary_post['sizelimit']) && abs(intval($ary_post['sizelimit'])) ? abs(intval($ary_post['sizelimit'])) : $this->error("每个分卷文件大小有误");
+            $filename = isset($ary_post['backup_name']) && trim($ary_post['backup_name']) ?
+                    trim($ary_post['backup_name']) : $this->error("文件名不能为空");
+            $backup_path = APP_PATH.'Public/database/backup/';
+            $backup_tables = isset($_POST['backup_tables']) && $_POST['backup_tables'] ? $_POST['backup_tables'] :
+                    $this->error("请选择需要备份的表");
+            if (is_dir($backup_path . $filename)){
+                $this->error($filename . "目录不存在");
+            }
+            mkdir(APP_PATH . $backup_path . $filename);
+            echo "<pre>";print_r($backup_tables);exit;
+        }else{
+            $this->error("备份数据有误,请重试...");
+        }
     }
     
     /**
