@@ -76,13 +76,16 @@
 <script>
     $(document).ready(function(){
         $(".doDel").click(function(){
-            art.dialog({
+            var dialog = art.dialog({
                 title:'谢谢观赏', 
                 content:'删除管理员', 
                 icon:'error',
                 lock:true, 
-                time:3
-            })
+                button:[{
+                        name:'关闭'
+                 }]
+            });
+            dialog.shake && dialog.shake();// 调用抖动接口
         });
         $(".dodel").click(function(){
             var val = $(this).attr("val");
