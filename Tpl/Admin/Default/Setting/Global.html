@@ -1,0 +1,136 @@
+<div class="rounded table" style="width: 98%;border: 0px;" >
+
+<!-- start -->
+<div class="nav">
+	<ul class="cc">
+		<li><a href="{:U('Admin/Setting/index')}">站点信息</a></li>
+		<li class="current"><a href="{:U('Admin/Setting/Global')}">全局参数</a></li>
+	</ul>
+</div>
+<form action="{:U('Admin/Setting/doSaveWebsite')}" method="post" class="formvalidate">
+        <table class="list" cellpadding="0" cellspacing="1" border="0">
+            <tbody>
+                <tr>
+                    <td class="name" width="150">
+                        <label class="validation">
+                            <span class="spanMsg">*</span>链接类型：
+                        </label>
+                    </td>  
+                    <td class="rowform select_type">
+                        <ul>
+
+                            <li>
+                                <label>
+                                    <input type="radio" checked="checked" value="0" name="type">文字链接</label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" value="1" name="type">图片链接</label>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="field">
+                        <img title="请选择您的模板支持的链接类型" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16">				
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name">
+                        <label class="validation"><span class="spanMsg">*</span>网站名称：</label>
+                    </td>
+                    <td>
+                        <input type="text" class="input rounded" name="name" size="50" value="" style="width:300px;" required validate="{ required:true,maxlength:30}">
+                    </td>
+                    <td class="field"></td>
+                </tr>
+                <tr>
+                    <td class="name">
+                        <label class="validation">链接颜色：</label>
+                    </td>
+                    <td>
+                        <input type="text" name="color" id="color" value="" class="input rounded iColorPicker" size="10">
+                        <a href="javascript:void(0)" id="select_color" onclick="iColorShow('color','select_color')" class="icon_select">
+                            <img src="__PUBLIC__/Admin/images/color.png" align="absmiddle">
+                        </a>
+                    </td>
+                    <td class="field">
+                        <img title="链接名称链接颜色，只对文字链接时有效，留空将采用全局链接样式" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16">				
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name" width="150">
+                        <label class="validation"><span class="spanMsg">*</span>链接地址：</label>
+                    </td>
+                    <td><input type="text" class="input rounded" name="link_url" id="link_url" size="30" value="http://" style="width:300px;" required validate="{ required:true}"></td>
+                    <td class="field"></td>
+                </tr>
+                
+                <tr id="image_url" style="display: none;">
+                    <td class="name">
+                        <label class="validation"><span class="spanMsg">*</span>链接图片：</label>
+                    </td>
+                    <td>
+                        <input type="text" class="input rounded" name="image_path" id="image_path" size="30" value="" style="float: left;width: 300px;">  
+                        <a href="javascript:upImage('image_path');" id="button1" value="" class="type-file-button"></a>
+
+                    </td>
+                    <td class="field"></td>
+                </tr>
+                <tr>
+                    <td class="name">
+                        <label class="validation">描述：</label>
+                    </td>
+                    <td>
+                        <textarea name="description" class="rounded" style="width:300px; height:60px; padding:5px;"></textarea> 
+                    </td>
+                    <td class="field"><img title="描述。" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16">				</td>
+                </tr>
+                <tr>
+                    <td class="name">
+                        <label class="validation"><span class="spanMsg">*</span>排序：</label>
+                    </td>
+                    <td>
+                        <input type="text" name="order" value="10" class="input rounded" size="10">  
+                    </td>
+                    <td class="field">
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name" width="150">
+                        <label class="validation">
+                            <span class="spanMsg">*</span>状态：
+                        </label>
+                    </td>  
+                    <td class="rowform">
+                        <ul>
+
+                            <li>
+                                <label>
+                                    <input type="radio" checked="checked" value="1" name="status">启用</label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" value="0" name="status">停用</label>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="field">
+                        <img title="当链接状态为停用时,将不再前台显示" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16">				
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table top_line">
+            <tbody>
+                <tr>
+                    <td align="left" height="60" colspan="2">
+                        <input id="submit" class="submit" type="submit" value="提交">
+                        <input type="reset" id="reset" class="submit reset" value="重置">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+<!-- end -->
+
+</div>
