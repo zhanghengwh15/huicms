@@ -23,7 +23,12 @@ class IndexAction extends Action{
     }
     
     public function demo(){
+        $ary_title = array(
+            'name'  =>  'toolss'
+        );
+        $this->assign("title",  $ary_title);
         $this->display();
     }
+    
     
 }
