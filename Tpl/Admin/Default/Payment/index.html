@@ -1,0 +1,118 @@
+<div class="rounded table" style="width: 98%;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" class="box_top">
+        <thead class="thead">
+            <tr class="space">
+                <th colspan="10">支付方式</th>
+            </tr>
+        </thead>
+    </table>
+    <div class="contentbox" data-uri='{:U("Admin/Role/doEditStatus")}'>
+        <table width="100%" class="list td_align">
+            <thead>
+                <tr class="thead">
+                    <th class="align-center">支付方式名称</th>
+                    <th class="align-center">插件版本</th>
+                    <th class="align-center">插件作者</th>
+                    <th class="align-center">描述</th>
+                    <th class="align-center">排序</th>
+                    <th class="align-center">管理操作</th>
+                </tr>
+            </thead>
+            <tbody>
+            <volist name="data.data" id="list">
+                <tr>
+                    <td class="align-center">{$list.pay_name}</td>
+                    <td class="align-center">{$list.pay_version}</td>
+                    <td class="align-center">{$list.pay_author}</td>
+                    <td class="align-center">{$list.pay_desc}</td>
+                    <td class="align-center">{$list.pay_order}</td>
+                    <td class="align-center">
+                        <eq name="list.pay_status" value="1">
+                            <a href='{:U("Admin/Links/editLinks","id=$vo[id]")}' title="编辑"><img src="__PUBLIC__/Admin/images/icons/icon_edit.png" alt="编辑" title="编辑" /></a>
+                            <a href="javascript:void(0);" title="删除" class="doDel" val="{$vo.id}" data-uri='{:U("Admin/RoleNav/doDelete","id=$vo[id]")}' data-acttype="ajax"><img src="__PUBLIC__/Admin/images/icons/icon_square_close.png" alt="删除" title="删除" /></a>
+                        <else />
+                            <a href='{:U("Admin/Links/editLinks")}' title="安装">安装</a>
+                        </eq>
+                    </td>
+                </tr>
+            </volist>
+            <empty name="data">
+                <tr><td colspan="99">暂时没有数据!</td></tr>
+            </empty>
+            </tbody>
+        </table>
+        <div style="clear: both;"></div>
+    </div>
+
+</div>
+<script>
+    $(document).ready(function(){
+        $(".dodel").click(function(){
+            var val = $(this).attr("val");
+            var self = $(this),
+            msg = self.attr('data-msg'),
+            url = self.attr('data-uri');
+            if(confirm(msg)){
+                $.ajax({
+                    url:url,
+                    cache:false,
+                    dataType:"json",
+                    data: {},
+                    type:"POST",
+                    beforeSend:function(){
+                        $("#J_ajax_loading").stop().removeClass('ajax_error').addClass('ajax_loading').html("提交请求中，请稍候...").show();
+                    },
+                    error:function(){
+                        $("#J_ajax_loading").removeClass('ajax_success').addClass('ajax_error').html("AJAX请求发生错误！").show().fadeOut(5000);
+                    },
+                    success:function(msgObj){
+                        $("#J_ajax_loading").hide();
+                        if(msgObj.status == '1'){
+                            $("#list_"+val).remove();
+                            $("#J_ajax_loading").removeClass('ajax_error').addClass('ajax_success').html(msgObj.info).show().fadeOut(5000);
+                        }else{
+                            $("#J_ajax_loading").removeClass('ajax_success').addClass('ajax_error').html(msgObj.info).show().fadeOut(5000);
+                        }
+                    }
+                });
+            }
+        });
+    
+        //切换
+        $('.pointer').live('click', function() {
+            var url = $(".contentbox").attr("data-uri");
+            var img    = this,
+            s_val  = ($(img).attr('data-value'))== 0 ? 1 : 0,
+            s_name = $(img).attr('data-field'),
+            s_id   = $(img).attr('data-id'),
+            s_src  = $(img).attr('src');
+            s_msg = ($(img).attr('data-value'))== 0 ? '启用' : '停用';
+            $.ajax({
+                url:url,
+                cache:false,
+                dataType:"json",
+                data: {id:s_id, field:s_name, val:s_val},
+                type:"POST",
+                beforeSend:function(){
+                    $("#J_ajax_loading").stop().removeClass('ajax_error').addClass('ajax_loading').html("提交请求中，请稍候...").show();
+                },
+                error:function(){
+                    $("#J_ajax_loading").addClass('ajax_error').html("AJAX请求发生错误！").show().fadeOut(5000);
+                },
+                success:function(msgObj){
+                    $("#J_ajax_loading").hide();
+                    if(msgObj.status == '1'){
+                        $("#J_ajax_loading").removeClass('ajax_error').addClass('ajax_success').html(msgObj.info).show().fadeOut(5000);
+                        if(s_src.indexOf('0')>-1) {
+                                $(img).attr({'src':s_src.replace('0','1'),'data-value':s_val,'title':s_msg,'alt':s_msg});
+                        } else {
+                                $(img).attr({'src':s_src.replace('1','0'),'data-value':s_val,'title':s_msg,'alt':s_msg});
+                        }
+                    }else{
+                        $("#J_ajax_loading").removeClass('ajax_success').addClass('ajax_error').html(msgObj.info).show().fadeOut(5000);
+                    }
+                }
+            });
+        });
+    });    
+</script>
