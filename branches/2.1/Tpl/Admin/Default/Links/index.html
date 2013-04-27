@@ -11,7 +11,7 @@
             <thead>
                 <tr class="thead">
                     <th class="align-center"><input name="u_id" type="checkbox" id="checkboxall" /></th>
-                    <th class="align-center">操作</th>
+                    
                     <th class="align-center">名称</th>
                     <th class="align-center">图片</th>
                     <th class="align-center">地址</th>
@@ -20,16 +20,14 @@
                     <th class="align-center">添加时间</th>
                     <th class="align-center">修改时间</th>
                     <th class="align-center">状态</th>
+                    <th class="align-center">操作</th>
                 </tr>
             </thead>
             <tbody>
             <volist name="data" id="vo">
                 <tr id="list_{$vo.id}">
                     <td class="align-center"><input type="checkbox" value="{$vo.id}" name="checkall" class="checkSon" /></td>
-                    <td class="align-center">
-                        <a href='{:U("Admin/Links/editLinks","id=$vo[id]")}' title="编辑"><img src="__PUBLIC__/Admin/images/icons/icon_edit.png" alt="编辑" title="编辑" /></a>
-                        <a href="javascript:void(0);" title="删除" class="doDel" val="{$vo.id}" data-uri='{:U("Admin/RoleNav/doDelete","id=$vo[id]")}' data-acttype="ajax"><img src="__PUBLIC__/Admin/images/icons/icon_square_close.png" alt="删除" title="删除" /></a>
-                    </td>
+                    
                     <td class="align-center"><if condition="$vo.color neq ''"><font color="{$vo.color}">{$vo.name}</font><else />{$vo.name}</if></td>
             <td class="align-center"><img src="__PUBLIC__/{$vo.image_path|default='images/links.gif'}" width="88" height="31"></td>
                     <td class="align-center">{$vo.link_url|default="暂无"}</td>
@@ -46,6 +44,12 @@
                                 </if> 
                             />
                         </if>
+                    </td>
+                    <td class="align-center">
+                        <div class="button-group">
+                            <a href='{:U("Admin/Links/editLinks","id=$vo[id]")}'  class="button danger icon pill edit" alt="编辑" title="编辑"></a>
+                            <a href="javascript:void(0);"  data-uri='{:U("Admin/RoleNav/doDelete","id=$vo[id]")}' val="{$vo.id}" data-msg="确定要删除“{$vo.name}”吗？" data-acttype="ajax" class="button danger icon pill remove doDel" title="删除"></a>
+                        </div>
                     </td>
                 </tr>
             </volist>
