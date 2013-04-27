@@ -205,12 +205,12 @@ $(document).ready(function(){
 //判断是否是第一次登陆后台
 $(document).ready(function(){
     if($.cookie('module') != null){
-//		openItem($.cookie('nav_id')+','+$.cookie('module')+','+$.cookie('action'));
-	}else{
-		$('#mainMenu>ul').first().css('display','block');
-		//第一次进入后台时，默认定到欢迎界面
-		$('#item_welcome').addClass('selected');			
-	}
+    //		openItem($.cookie('nav_id')+','+$.cookie('module')+','+$.cookie('action'));
+    }else{
+        $('#mainMenu>ul').first().css('display','block');
+        //第一次进入后台时，默认定到欢迎界面
+        $('#item_welcome').addClass('selected');			
+    }
 });
 
 function openItem(menu){
@@ -221,31 +221,33 @@ function openItem(menu){
         var action = str[2];
         var id = str[3];
     }catch(ex){}
-    if (typeof(module)=='undefined'){var nav = menu;}
+    if (typeof(module)=='undefined'){
+        var nav = menu;
+    }
     $('.actived').removeClass('actived');
     $('#nav_'+nav).addClass('actived');
     $('.selected').removeClass('selected');	
     $('#mainMenu ul').css('display','none');
     $('#sort_menu').css('display','block');
-//    var first_obj = $('#sort_menu>li>dl>dd>ol>li:eq(1)').find('a').attr("name");
+    //    var first_obj = $('#sort_menu>li>dl>dd>ol>li:eq(1)').find('a').attr("name");
     if (typeof(module)=='undefined'){
         //顶部菜单事件
-		html = $('#sort_menu>li>dl>dd>ol>li').first().html();
+        html = $('#sort_menu>li>dl>dd>ol>li').first().html();
         var first_obj = $('#sort_menu>li>dl>dd>ol>li:eq(1)').find('a').attr("name");
         first_obj = $('#sort_menu>li>dl>dd>ol>li').first().children('a');
         $(first_obj).addClass('selected');	
         $.cookie('nav_id',op);
     }else{
         $.cookie('module',module);
-		$.cookie('action',action);
+        $.cookie('action',action);
         $.cookie('id',id);
-		$.cookie('nav_id',op);
+        $.cookie('nav_id',op);
         $("#item_"+op).addClass('selected');//使用name，不使用ID，因为ID有重复的
         $("a[name='item_"+op+"']").addClass('selected');
     }
     
-//    window.location.reload();return false;
-//    alert(action);return false;
+    //    window.location.reload();return false;
+    //    alert(action);return false;
     var url = '/Admin/'+module+'/'+action;
     if (typeof(module)!='undefined'){
         window.location.href=url;
@@ -301,7 +303,15 @@ $(document).ready(function(){
     $('#adminMap').live('click', function(){
         var title = $(this).attr('title');
         var data_uri = $(this).attr('data-uri');
-        art.dialog({id:'admin_map', title:title, padding:'',resize: false,drag: false,width:'50%', lock:true});
+        art.dialog({
+            id:'admin_map', 
+            title:title, 
+            padding:'',
+            resize: false,
+            drag: false,
+            width:'50%', 
+            lock:true
+        });
         var dialog = art.dialog.get('admin_map');
         $.get(data_uri, function(html){
             dialog.content(html);
@@ -309,3 +319,20 @@ $(document).ready(function(){
     });
 });
 
+$(document).ready(function(){
+    artDialog.fn.shake = function (){
+        var style = this.DOM.wrap[0].style,
+        p = [4, 8, 4, 0, -4, -8, -4, 0],
+        fx = function () {
+            style.marginLeft = p.shift() + 'px';
+            if (p.length <= 0) {
+                style.marginLeft = 0;
+                clearInterval(timerId);
+            };
+        };
+        p = p.concat(p.concat(p));
+        timerId = setInterval(fx, 13);
+        return this;
+    };
+    
+});

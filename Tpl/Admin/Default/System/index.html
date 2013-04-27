@@ -11,7 +11,7 @@
             <thead>
                 <tr class="thead">
                     <th class="align-center"><input name="u_id" type="checkbox" id="checkboxall" /></th>
-                    <th class="align-center">操作</th>
+                    
                     <th class="align-center">头像</th>
                     <th class="align-center">管理员帐号</th>
                     <th class="align-center">所属组</th>
@@ -21,18 +21,14 @@
                     <th class="align-center">创建时间</th>
                     <th class="align-center">更新时间</th>
                     <th class="align-center">状态</th>
+                    <th class="align-center">操作</th>
                 </tr>
             </thead>
             <tbody>
             <volist name="data" id="vo">
                 <tr id="list_{$vo.u_id}">
                     <td class="align-center"><input type="checkbox" value="{$vo.u_id}" name="checkall" class="checkSon" /></td>
-                    <td class="align-center">
-                        <a href='{:U("Admin/System/pageEditAdmin","uid=$vo[u_id]")}' title="编辑"><img src="__PUBLIC__/Admin/images/icons/icon_edit.png" alt="编辑" title="编辑" /></a>
-                <if condition="$vo.u_name neq $admin[SYS_ADMIN]">
-                    <a href="javascript:void(0);" title="删除" class="dodel" val="{$vo.u_id}" data-uri='{:U("Admin/System/doDelete","uid=$vo[u_id]")}' data-acttype="ajax"><img src="__PUBLIC__/Admin/images/icons/icon_square_close.png" alt="删除" title="删除" /></a>
-                </if>
-                </td>
+                    
                 <td class="align-center">
                     <img src="__PUBLIC__/{$vo.u_photo|default='/Admin/images/avatar.png'}" width="44" height="44" />
                 </td>
@@ -62,6 +58,14 @@
                 />
                 </if>
                 </td>
+                <td class="align-center">
+                        <if condition="$vo.u_name neq $admin[SYS_ADMIN]">
+                            <a href='{:U("Admin/System/pageEditAdmin","uid=$vo[u_id]")}'  class="button danger icon pill settings" alt="编辑" title="编辑"></a>
+                            <a href="javascript:void(0);"  val="{$vo.u_id}" data-uri='{:U("Admin/System/doDelete","uid=$vo[u_id]")}' data-acttype="ajax" class="button danger icon pill remove dodel" title="删除"></a>
+                        <else />
+                            <a href='{:U("Admin/System/pageEditAdmin","uid=$vo[u_id]")}'  class="button danger icon pill edit" alt="编辑" title="编辑" style="-webkit-border-radius: 50em;"></a>
+                        </if>
+                    </td>
                 </tr>
             </volist>
             <empty name="data">

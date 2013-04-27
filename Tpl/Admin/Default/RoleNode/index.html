@@ -42,8 +42,10 @@
 <!--                        <img data-id="{$list[id]}" data-field="status" data-value="{$list.status}" src="__PUBLIC__/Admin/images/status-{$list.status}.gif"<if condition="$list.status eq '1'"> title="启用"<else /> title="停用"</if> class="pointer" />-->
                     </td>
                     <td class="align-center">
-                        <a href='{:U("Admin/RoleNode/editRoleNode?id=$list[id]")}'><img src="__PUBLIC__/Admin/images/icons/icon_edit.png" alt="编辑" title="编辑" /></a>&nbsp;
-                        <a href='javascript:;' class="dodel" data-uri='{:U("Admin/RoleNode/doDelete","id=$list[id]")}' val="{$list[id]}" data-msg="确定要删除“{$list.name}”吗？" data-acttype="ajax"><img src="__PUBLIC__/Admin/images/icons/icon_square_close.png" alt="删除" title="删除" /></a>
+                        <div class="button-group">
+                            <a href='{:U("Admin/RoleNode/editRoleNode?id=$list[id]")}'  class="button danger icon pill edit" alt="编辑" title="编辑"></a>
+                            <a href="javascript:void(0);"  data-uri='{:U("Admin/RoleNode/doDelete","id=$list[id]")}' val="{$list[id]}" data-msg="确定要删除“{$list.name}”吗？" data-acttype="ajax" class="button danger icon pill remove dodel" title="删除"></a>
+                        </div>
                     </td>
                 </tr>
             </volist>
