@@ -106,13 +106,16 @@ $(document).ready(function(){
     });   
 });
 
-(function (config) {
-    config['lock'] = true;
-    config['fixed'] = true;
-    config['okVal'] = 'Ok';
-    config['cancelVal'] = 'Cancel';
-// [more..]
-})(art.dialog.defaults);
+$(document).ready(function(){
+    (function (d) {
+        d['lock'] = true;
+        d['fixed'] = true;
+        d['okValue'] = '确定';
+        d['cancelValue'] = '取消';
+        d['title'] = '提示消息';
+    })($.dialog.defaults);
+
+});
 
 function bindAdminMenu(){
     $("[nc_type='parentli']").click(function(){
@@ -272,7 +275,7 @@ function showMsg(flag,msg,content,send){
     if(typeof(send) == 'undefined'){
         send = 5;
     }
-    art.dialog({
+    $.dialog({
         title:msg, 
         width:'200px',
         height:'200px',
@@ -303,7 +306,7 @@ $(document).ready(function(){
     $('#adminMap').live('click', function(){
         var title = $(this).attr('title');
         var data_uri = $(this).attr('data-uri');
-        art.dialog({
+        $.dialog({
             id:'admin_map', 
             title:title, 
             padding:'',
@@ -312,27 +315,9 @@ $(document).ready(function(){
             width:'50%', 
             lock:true
         });
-        var dialog = art.dialog.get('admin_map');
+        var dialog = $.dialog.get('admin_map');
         $.get(data_uri, function(html){
             dialog.content(html);
         });
     });
-});
-
-$(document).ready(function(){
-    artDialog.fn.shake = function (){
-        var style = this.DOM.wrap[0].style,
-        p = [4, 8, 4, 0, -4, -8, -4, 0],
-        fx = function () {
-            style.marginLeft = p.shift() + 'px';
-            if (p.length <= 0) {
-                style.marginLeft = 0;
-                clearInterval(timerId);
-            };
-        };
-        p = p.concat(p.concat(p));
-        timerId = setInterval(fx, 13);
-        return this;
-    };
-    
 });
