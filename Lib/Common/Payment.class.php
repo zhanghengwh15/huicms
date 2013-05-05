@@ -40,6 +40,7 @@ class Payment {
 
     public function getPayment($code = '') {
         $modules = $this->readPayment($this->file_path);
+        
         foreach ($modules as $payment) {
             if (empty($code) || $payment['code']) {
                 $config = array();

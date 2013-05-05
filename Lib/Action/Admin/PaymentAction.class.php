@@ -25,4 +25,17 @@ class PaymentAction extends AdminAction{
         $this->display();
     }
     
+    /**
+     * 安装及配置
+     * @author Terry<admin@huicms.cn>
+     * @date 2013-04-28
+     */
+    public function addPayment(){
+        $ary_get = $this->_get();
+        $list = $this->payment->getPayment($ary_get['id']);
+        echo "<pre>";print_r($ary_get);exit;
+        $this->display();
+        
+    }
+    
 }

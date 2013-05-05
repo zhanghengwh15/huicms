@@ -14,6 +14,8 @@ em, cite, th{ font-style:normal; font-weight:normal; }
 table{ border-collapse:collapse; }
 th{ text-align:left; }
 label, .pointer { cursor:pointer; }
+body fieldset{border: 1px solid #D8D8D8;padding: 10px;}
+body fieldset legend{padding: 3px 8px;font: 700;border: 1px solid #D8D8D8;background-color: #F9F9F9;}
 
 /* 框架头部及主导航
 ------------------------------------------------------------------- */
