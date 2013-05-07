@@ -38,7 +38,7 @@
                                 <a href='javascript:void(0);'  class="button danger icon pill settings" pay_name="{$list.pay_name}" pay_id="{$list.pay_id}" alt="配置" title="配置" type="settings"></a>
                                 <a href="javascript:void(0);"  data-uri='{:U("Admin/Role/doDelete","id=$list[id]")}' val="{$list[id]}" data-msg="确定要删除“{$list.name}”吗？" data-acttype="ajax" class="button danger icon pill remove dodel" title="删除"></a>
                             <else />
-                                <a href='javascript:void(0);'  class="button danger icon pill install" alt="安装" title="安装" pay_name="{$list.pay_name}" type="install" style="-webkit-border-radius: 50em;"></a>
+                                <a href='javascript:void(0);'  class="button danger icon pill install" alt="安装" title="安装" pay_name="{$list.pay_name}" pay_code="{$list.pay_code}" type="install" style="-webkit-border-radius: 50em;"></a>
                             </eq>
 
                         </div>
@@ -60,10 +60,18 @@
             var name = $(this).attr("pay_name");
             var id = $(this).attr("pay_id");
             var type = $(this).attr("type");
+            var code = $(this).attr("pay_code");
+            var typenames;
+            if(type == 'settings'){
+                typenames = '修改';
+            }else{
+                typenames = '安装';
+            }
             $.dialog({
                 id:'add', 
+                width:700,
                 padding:'0px',
-                title:'修改--'+name, 
+                title: typenames +' -- '+name, 
                 resize: false,
                 drag: false,
                 cancel: true,
@@ -78,9 +86,9 @@
             });
             var dialog = $.dialog.get('add');
             if(type == 'settings'){
-                var url = '/Admin/Payment/addPayment?id='+id+'&pay_name='+name;
+                var url = '/Admin/Payment/addPayment?id='+id+'&pay_name='+name+'&type='+type;
             }else{
-                var url = '/Admin/Payment/addPayment?pay_name='+name;
+                var url = '/Admin/Payment/addPayment?code='+code+'&type='+type;
             }
             
             $.get(url, function(html){
