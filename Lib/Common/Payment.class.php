@@ -40,9 +40,8 @@ class Payment {
 
     public function getPayment($code = '') {
         $modules = $this->readPayment($this->file_path);
-        
         foreach ($modules as $payment) {
-            if (empty($code) || $payment['code']) {
+            if (!empty($code) || $payment['code']) {
                 $config = array();
                 foreach ($payment['config'] as $conf) {
                     $name = $conf['name'];
@@ -53,13 +52,14 @@ class Payment {
                     $config[$name] = $conf;
                 }
             }
+//            echo "<pre>";print_r($modules);exit;
             $payment_info[$payment['code']] = array(
                 "pay_id" => 0,
                 "pay_code" => $payment['code'],
                 "pay_name" => $payment['name'],
                 "pay_desc" => $payment['desc'],
                 "pay_fee" => '0',
-                "pay_config" => $config,
+                "config" => $config,
                 "pay_is_cod" => $payment['is_cod'],
                 "pay_is_online" => $payment['is_online'],
                 "pay_status" => '0',
