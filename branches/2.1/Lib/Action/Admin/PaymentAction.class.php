@@ -32,10 +32,23 @@ class PaymentAction extends AdminAction{
      */
     public function addPayment(){
         $ary_get = $this->_get();
-        $list = $this->payment->getPayment($ary_get['id']);
-        echo "<pre>";print_r($ary_get);exit;
-        $this->display();
-        
+        if(!empty($ary_get['type']) && isset($ary_get['type'])){
+            $list = array();
+            switch ($ary_get['type']){
+                case 'install':
+                    $list = $this->payment->getPayment($ary_get['code']);
+                    extract($list);
+                    break;
+                case 'settings':
+                    $list = M("Payment")->where(array('pay_id'=>$ary_get['id']))->find();
+                    extract($list);
+                    break;
+            }
+            $this->assign("config",$list);
+            $this->display();
+        }else{
+            $this->error("操作有误，请重试...");
+        }
     }
     
 }
