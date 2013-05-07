@@ -35,10 +35,10 @@
                                                 </eq>-->
                         <div class="button-group">
                             <eq name="list.pay_status" value="1">
-                                <a href='javascript:void(0);'  class="button danger icon pill settings" pay_name="{$list.pay_name}" pay_id="{$list.pay_id}" alt="配置" title="配置"></a>
+                                <a href='javascript:void(0);'  class="button danger icon pill settings" pay_name="{$list.pay_name}" pay_id="{$list.pay_id}" alt="配置" title="配置" type="settings"></a>
                                 <a href="javascript:void(0);"  data-uri='{:U("Admin/Role/doDelete","id=$list[id]")}' val="{$list[id]}" data-msg="确定要删除“{$list.name}”吗？" data-acttype="ajax" class="button danger icon pill remove dodel" title="删除"></a>
                             <else />
-                                <a href='{:U("Admin/Role/editRole?id=$list[id]")}'  class="button danger icon pill install" alt="安装" title="安装" pay_name="{$list.pay_name}" style="-webkit-border-radius: 50em;"></a>
+                                <a href='javascript:void(0);'  class="button danger icon pill install" alt="安装" title="安装" pay_name="{$list.pay_name}" type="install" style="-webkit-border-radius: 50em;"></a>
                             </eq>
 
                         </div>
@@ -56,9 +56,10 @@
 </div>
 <script>
     $(document).ready(function(){
-        $('.settings').live('click', function(){
+        $('.button-group a').live('click', function(){
             var name = $(this).attr("pay_name");
             var id = $(this).attr("pay_id");
+            var type = $(this).attr("type");
             $.dialog({
                 id:'add', 
                 padding:'0px',
@@ -76,11 +77,16 @@
                 lock:true
             });
             var dialog = $.dialog.get('add');
-            var url = '/Admin/Payment/addPayment?id='+id+'&pay_name='+name;
+            if(type == 'settings'){
+                var url = '/Admin/Payment/addPayment?id='+id+'&pay_name='+name;
+            }else{
+                var url = '/Admin/Payment/addPayment?pay_name='+name;
+            }
+            
             $.get(url, function(html){
                 dialog.content(html);
             });
-            dialog.shake && dialog.shake();// 调用抖动接口
+//            dialog.shake && dialog.shake();// 调用抖动接口
         });
     });
 </script>
