@@ -52,4 +52,13 @@ class PaymentAction extends AdminAction{
         }
     }
     
+    /**
+     * 安装及修改支付方式信息
+     * @author Terry<admin@huicms.cn>
+     * @date 2013-05-09
+     */
+    public function doSavePayment(){
+        $ary_post = $this->_post();
+        echo "<pre>";print_r($ary_post);exit;
+    }
 }
