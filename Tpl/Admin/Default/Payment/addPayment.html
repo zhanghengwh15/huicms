@@ -4,99 +4,50 @@
 </script>
 <script type="text/javascript" charset="utf-8" src="__PUBLIC__/Lib/ueditor/editor_all.js"></script>
 <script type="text/javascript" charset="utf-8" src="__PUBLIC__/Lib/ueditor/editor_config.js"></script>
-<div class="table" style="width: 660px;height: 500px;margin: 10px auto;overflow: auto;overflow: auto;" id="add">
-    <form action="{:U('Admin/System/doSaveAdmin')}" method="post" id="formvalidate" class="formvalidate" name="formvalidate">
+<div class="table" style="width: 740px;height: 500px;margin: 10px auto;overflow: auto;overflow: auto;" id="add">
+    <form action="{:U('Admin/Payment/doSavePayment')}" method="post" id="formvalidate" class="formvalidate" name="formvalidate">
         <fieldset>
             <legend>参数设置</legend>
             <table class="list" cellpadding="0" cellspacing="1" border="0">
                 <tbody>
                     <tr>
-                        <td class="name" width="150">
-                            <label class="validation"><span class="spanMsg">*</span>支付方式:</label>
+                        <td class="name" width="250">
+                            <label class="validation">支付方式:</label>
                         </td>
                         <td>
-                            <input name="u_name" type="text" class="input rounded" value="" size="30" maxlength="50" required validate="{ required:true,maxlength:30,remote:'{:U('Admin/System/checkName')}',messages:{required:'支付方式不能为空'}}" /> 
-                        </td>
-                        <td class="field">
-                            <img title="这里输入管理员登陆时需要的账号" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16" style="line-height: 16px;">
+                            {$Think.lang.$list[pay_code]}
                         </td>
                     </tr>
                     <tr>
                         <td class="name">
-                            <label class="validation"><span class="spanMsg">*</span>支付方式名称:</label>
+                            <label class="validation">支付方式名称:</label>
                         </td>
                         <td>
-                            <input name="u_name" type="text" class="input rounded" value="" size="30" maxlength="50" required validate="{ required:true,maxlength:30,remote:'{:U('Admin/System/checkName')}',messages:{required:'支付方式不能为空'}}" /> 
-                        </td>
-                        <td class="field">
-                            <img title="这里输入管理员登陆时需要的账号" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16" style="line-height: 16px;">
+                            <input name="u_name" type="text" class="input rounded" value="{$list.pay_name}" size="30" maxlength="50" required validate="{ required:true,maxlength:30,remote:'{:U('Admin/System/checkName')}',messages:{required:'支付方式不能为空'}}" /> 
+                            <label>*</label>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="name">
-                            <label class="validation"><span class="spanMsg">*</span>支付方式:</label>
-                        </td>
-                        <td>
-                            <input name="u_name" type="text" class="input rounded" value="" size="30" maxlength="50" required validate="{ required:true,maxlength:30,remote:'{:U('Admin/System/checkName')}',messages:{required:'支付方式不能为空'}}" /> 
-                        </td>
-                        <td class="field">
-                            <img title="这里输入管理员登陆时需要的账号" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16" style="line-height: 16px;">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="name">
-                            <label class="validation">
-                                <span class="spanMsg">*</span>支付方式名称：
-                            </label>
-                        </td>
-                        <td>
-                            <input type="password" class="input rounded" name="confirm_password" size="50" value="" style="width:192px;" validate="{ required:true,rangelength:[6,20],equalTo:'#u_password'}">
-
-                        </td>
-                        <td class="field">
-                            <img title="6 - 20个字符组成，只能使用数字、字母和下划线" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="name" width="150">
-                            <label class="validation">
-                                网银在线商户号：
-                            </label>
-                        </td>
-                        <td>
-                            <input name="u_username" type="text" class="input rounded" value="{$data.u_username}" size="30" maxlength="50" validate="{ username:true}" /> 
-                        </td>
-                        <td class="field">
-                            <img title="5 - 50个字符组成，只能使用数字、字母和下划线" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="name" width="150">
-                            <label class="validation">
-                                <span class="spanMsg">*</span>性别：
-                            </label>
-                        </td>  
-                        <td class="rowform">
-                            <ul>
-
-                                <li>
-                                    <label>
-                                        <input type="radio" checked="checked" value="1" name="u_sex">男</label>
-                                </li>
-                                <li>
-                                    <label>
-                                        <input type="radio" value="2" name="u_sex">女</label>
-                                </li>
-                                <li>
-                                    <label>
-                                        <input type="radio"  value="0" name="u_sex">保密</label>
-                                </li>
-                            </ul>
-                        </td>
-                        <td class="field">
-
-                        </td>
-                    </tr>                    
+                    <foreach name="list.config" item="conf" key="ky">
+                        <tr>
+                            <td class="name">
+                                <label class="validation">{$conf.name}:</label>
+                            </td>
+                            <td>
+                                <input name="config_name[]" type="hidden"  value="{$ky}"/> 
+                                    <if condition="$conf.type eq 'text'">
+                                        <input name="u_name" type="text" class="input rounded" value="" size="30" maxlength="50" /> 
+                                    <elseif condition="$conf.type eq 'select'" />
+                                        <select name="config_value[]" value="0">
+                                            <foreach name="conf.range" item="val" key="k">
+                                                <option value="{$k}" <if condition="$conf.val eq $k">selected="selected"</if>>{$val}</option>
+                                            </foreach>
+                                        </select>
+                                        <!--<input name="u_name" type="text" class="input rounded" value="" size="30" maxlength="50" />--> 
+                                    </if>
+                            </td>
+                        </tr>
+                    </foreach>
+                    
                     <tr>
                         <td class="name">
                             <label class="validation">
@@ -104,43 +55,58 @@
                             </label>
                         </td> 
                         <td>
-                            <input name="u_qq" type="text" class="input rounded" value="" size="30" /> 
+                            <textarea class="text-input textarea" id="wysiwyg" name="pay_desc" rows="10" cols="75">{$list.pay_desc}</textarea>
                         </td>
-                        <td class="field">
-
+                    </tr>
+                    <tr>
+                        <td class="name">
+                            <label class="validation">排序：</label>
+                        </td>
+                        <td>
+                            <input type="text" name="pay_order" value="10" class="input rounded" size="10">  
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="name">
+                            <label class="validation">在线支付：</label>
+                        </td>
+                        <td>
+                            <if condition="$list.pay_is_online eq '1'">是<else />否</if>
                         </td>
                     </tr>
                     <tr>
                         <td class="name" width="150">
                             <label class="validation">
-                                <span class="spanMsg">*</span>状态：
+                                <span class="spanMsg">*</span>支付手续费：
                             </label>
-                        </td> 
+                        </td>  
                         <td class="rowform">
-                            <ul>
+                            <ul id="payiscode">
 
                                 <li>
                                     <label>
-                                        <input type="radio" checked="checked" value="1" name="u_status">启用</label>
+                                        <input type="radio" <if condition="$list.pay_is_cod eq '0'">checked="checked"</if> value="0" name="pay_is_cod">按比例收费
+                                    </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" value="0" name="u_status">停用</label>
+                                        <input type="radio" value="1" <if condition="$list.pay_is_cod eq '1'">checked="checked"</if> name="pay_is_cod">固定费用</label>
                                 </li>
                             </ul>
                         </td>
-                        <td class="field">
-
+                    </tr>
+                    <tr id="rate">
+                        <td class="name">
+                        </td>
+                        <td>
+                            费率&nbsp<input type="text" name="pay_fee" value="{$list.pay_fee}" class="input rounded" size="10">%&nbsp;&nbsp;说明：顾客将支付订单总金额乘以此费率作为手续费；
                         </td>
                     </tr>
-                    <tr>
+                    <tr id="fix" style="display: none;">
                         <td class="name">
-                            <label class="validation">
-                                描述：
-                            </label>
                         </td>
-                        <td colspan="2">
-                            <textarea class="text-input textarea" id="wysiwyg" name="u_description" rows="10" cols="75"></textarea>
+                        <td>
+                            金额&nbsp<input type="text" name="pay_fee" value="{$list.pay_fee}" class="input rounded" size="10">&nbsp;&nbsp;说明：顾客每笔订单需要支付的手续费；
                         </td>
                     </tr>
                 </tbody>
@@ -148,3 +114,19 @@
         </fieldset>
     </form>
 </div>
+<script>
+    $(document).ready(function(){
+        $("#payiscode input[type='radio']").click(function(){
+            var val = $(this).val();
+            if(val == '1'){
+                $("#fix").show();
+                $("#rate").hide();
+            }else{
+                $("#rate").show();
+                $("#fix").hide();
+            }
+        });
+        
+        
+    })
+</script>
