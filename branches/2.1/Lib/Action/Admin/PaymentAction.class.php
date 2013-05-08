@@ -44,7 +44,8 @@ class PaymentAction extends AdminAction{
                     extract($list);
                     break;
             }
-            $this->assign("config",$list);
+//            echo "<pre>";print_r($list);exit;
+            $this->assign("list",$list);
             $this->display();
         }else{
             $this->error("操作有误，请重试...");
