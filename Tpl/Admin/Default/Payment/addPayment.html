@@ -4,7 +4,7 @@
 </script>
 <script type="text/javascript" charset="utf-8" src="__PUBLIC__/Lib/ueditor/editor_all.js"></script>
 <script type="text/javascript" charset="utf-8" src="__PUBLIC__/Lib/ueditor/editor_config.js"></script>
-<div class="table" style="width: 740px;height: 500px;margin: 10px auto;overflow: auto;overflow: auto;" id="add">
+<div class="table" style="width: 710px;height: 500px;margin: 10px auto;overflow: auto;overflow: auto;" id="add">
     <form action="{:U('Admin/Payment/doSavePayment')}" method="post" id="formvalidate" class="formvalidate" name="formvalidate">
         <fieldset>
             <legend>参数设置</legend>
@@ -12,7 +12,7 @@
                 <tbody>
                     <tr>
                         <td class="name" width="250">
-                            <label class="validation">支付方式:</label>
+                            <label class="validation">支付方式&nbsp:</label>
                         </td>
                         <td>
                             {$Think.lang.$list[pay_code]}
@@ -20,7 +20,7 @@
                     </tr>
                     <tr>
                         <td class="name">
-                            <label class="validation">支付方式名称:</label>
+                            <label class="validation">支付方式名称&nbsp:</label>
                         </td>
                         <td>
                             <input name="u_name" type="text" class="input rounded" value="{$list.pay_name}" size="30" maxlength="50" required validate="{ required:true,maxlength:30,remote:'{:U('Admin/System/checkName')}',messages:{required:'支付方式不能为空'}}" /> 
@@ -30,7 +30,7 @@
                     <foreach name="list.config" item="conf" key="ky">
                         <tr>
                             <td class="name">
-                                <label class="validation">{$conf.name}:</label>
+                                <label class="validation">{$conf.name}&nbsp:</label>
                             </td>
                             <td>
                                 <input name="config_name[]" type="hidden"  value="{$ky}"/> 
@@ -51,7 +51,7 @@
                     <tr>
                         <td class="name">
                             <label class="validation">
-                                支付方式描述：
+                                支付方式描述&nbsp:
                             </label>
                         </td> 
                         <td>
@@ -60,7 +60,7 @@
                     </tr>
                     <tr>
                         <td class="name">
-                            <label class="validation">排序：</label>
+                            <label class="validation">排序&nbsp:</label>
                         </td>
                         <td>
                             <input type="text" name="pay_order" value="10" class="input rounded" size="10">  
@@ -68,7 +68,7 @@
                     </tr>
                     <tr>
                         <td class="name">
-                            <label class="validation">在线支付：</label>
+                            <label class="validation">在线支付&nbsp:</label>
                         </td>
                         <td>
                             <if condition="$list.pay_is_online eq '1'">是<else />否</if>
@@ -77,7 +77,7 @@
                     <tr>
                         <td class="name" width="150">
                             <label class="validation">
-                                <span class="spanMsg">*</span>支付手续费：
+                                <span class="spanMsg">*</span>支付手续费&nbsp:
                             </label>
                         </td>  
                         <td class="rowform">
