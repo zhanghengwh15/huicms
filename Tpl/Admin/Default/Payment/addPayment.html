@@ -5,7 +5,7 @@
 <script type="text/javascript" charset="utf-8" src="__PUBLIC__/Lib/ueditor/editor_all.js"></script>
 <script type="text/javascript" charset="utf-8" src="__PUBLIC__/Lib/ueditor/editor_config.js"></script>
 <div class="table" style="width: 710px;height: 500px;margin: 10px auto;overflow: auto;overflow: auto;" id="add">
-    <form action="{:U('Admin/Payment/doSavePayment')}" method="post" id="formvalidate" class="formvalidate" name="formvalidate">
+    <form action="#" method="post" id="formvalidate" class="formvalidate" name="formvalidate">
         <fieldset>
             <legend>参数设置</legend>
             <table class="list" cellpadding="0" cellspacing="1" border="0">
@@ -20,11 +20,10 @@
                     </tr>
                     <tr>
                         <td class="name">
-                            <label class="validation">支付方式名称&nbsp:</label>
+                            <label class="validation"><span class="spanMsg">*</span>支付方式名称&nbsp:</label>
                         </td>
                         <td>
-                            <input name="u_name" type="text" class="input rounded" value="{$list.pay_name}" size="30" maxlength="50" required validate="{ required:true,maxlength:30,remote:'{:U('Admin/System/checkName')}',messages:{required:'支付方式不能为空'}}" /> 
-                            <label>*</label>
+                            <input name="pay_name" type="text" class="input rounded" value="{$list.pay_name}" size="30" maxlength="50" required validate="{ required:true,maxlength:30,messages:{required:'支付方式不能为空'}}" /> 
                         </td>
                     </tr>
                     <foreach name="list.config" item="conf" key="ky">

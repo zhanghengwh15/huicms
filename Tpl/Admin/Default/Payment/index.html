@@ -78,10 +78,11 @@
                 cancel: true,
                 ok: function () {
                     var res = $("#formvalidate").valid(); 
+                    var uri = "{:U('Admin/Payment/doSavePayment')}";
                     if(res){
-                        document.formvalidate.submit();
+                        //document.formvalidate.submit();
+                        alert(uri);return false;
                     }
-                    return false;
                 },
                 lock:true
             });
