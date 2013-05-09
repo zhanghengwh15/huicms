@@ -42,6 +42,9 @@ class PaymentAction extends AdminAction{
                 case 'settings':
                     $list = M("Payment")->where(array('pay_id'=>$ary_get['id']))->find();
                     extract($list);
+                    if(!empty($list) && is_array($list)){
+                        $list['config'] = json_decode($list['pay_config'],true);
+                    }
                     break;
             }
 //            echo "<pre>";print_r($list);exit;
