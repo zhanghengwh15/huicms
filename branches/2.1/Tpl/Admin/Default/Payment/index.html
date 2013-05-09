@@ -35,10 +35,10 @@
                                                 </eq>-->
                         <div class="button-group">
                             <eq name="list.pay_status" value="1">
-                                <a href='javascript:void(0);'  class="button danger icon pill settings" pay_name="{$list.pay_name}" pay_id="{$list.pay_id}" alt="配置" title="配置" type="settings"></a>
-                                <a href="javascript:void(0);"  data-uri='{:U("Admin/Role/doDelete","id=$list[id]")}' val="{$list[id]}" data-msg="确定要删除“{$list.name}”吗？" data-acttype="ajax" class="button danger icon pill remove dodel" title="删除"></a>
+                                <a href='javascript:void(0);'  class="button danger icon pill settings doadd" pay_name="{$list.pay_name}" pay_id="{$list.pay_id}" alt="配置" title="配置" type="settings"></a>
+                                <a href="javascript:void(0);"  data-uri='{:U("Admin/Payment/doDelete","pay_id=$list[pay_id]")}' val="{$list[pay_id]}" data-msg="确定要删除 <font color='red'>{$list.pay_name}</font> 吗？" data-acttype="ajax" class="button danger icon pill remove dodel" title="删除"></a>
                             <else />
-                                <a href='javascript:void(0);'  class="button danger icon pill install" alt="安装" title="安装" pay_name="{$list.pay_name}" pay_code="{$list.pay_code}" type="install" style="-webkit-border-radius: 50em;"></a>
+                                <a href='javascript:void(0);'  class="button danger icon pill install doadd" alt="安装" title="安装" pay_name="{$list.pay_name}" pay_code="{$list.pay_code}" type="install" style="-webkit-border-radius: 50em;"></a>
                             </eq>
 
                         </div>
@@ -56,7 +56,8 @@
 </div>
 <script>
     $(document).ready(function(){
-        $('.button-group a').live('click', function(){
+        //安装/编辑支付列表
+        $('.button-group a.doadd').live('click', function(){
             var name = $(this).attr("pay_name");
             var id = $(this).attr("pay_id");
             var type = $(this).attr("type");
@@ -80,8 +81,17 @@
                     var res = $("#formvalidate").valid(); 
                     var uri = "{:U('Admin/Payment/doSavePayment')}";
                     if(res){
+                        var data = $("#formvalidate").serialize();
                         //document.formvalidate.submit();
-                        alert(uri);return false;
+                        $.post(uri, data, function(msgObj) {
+                            if(msgObj.status == '1'){
+                                $.dialog.alert(msgObj.info);
+                            }else{
+                                $.dialog.alert(msgObj.info);
+                            }
+                        }, 'json');
+                    }else{
+                        return false;
                     }
                 },
                 lock:true
@@ -97,6 +107,30 @@
                 dialog.content(html);
             });
 //            dialog.shake && dialog.shake();// 调用抖动接口
+        });
+        
+        //卸载支付列表
+        $(".dodel").click(function(){
+            var title = $(this).attr("data-msg");
+            var pay_id = $(this).attr("val");
+            var uri = $(this).attr("data-uri");
+            $.dialog.confirm(title, function () {
+                $.ajax({
+                    url:uri,
+                    cache:false,
+                    dataType:'json',
+                    type:'GET',
+                    data:{},
+                    success:function(msgObj){
+                        if(msgObj.status == '1'){
+                            $.dialog.alert(msgObj.info);
+                        }else{
+                            $.dialog.alert(msgObj.info);
+                        }
+                    }
+                });
+            }, function () {
+            });
         });
     });
 </script>

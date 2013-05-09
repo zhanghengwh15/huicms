@@ -4,7 +4,7 @@
 </script>
 <script type="text/javascript" charset="utf-8" src="__PUBLIC__/Lib/ueditor/editor_all.js"></script>
 <script type="text/javascript" charset="utf-8" src="__PUBLIC__/Lib/ueditor/editor_config.js"></script>
-<div class="table" style="width: 710px;height: 500px;margin: 10px auto;overflow: auto;overflow: auto;" id="add">
+<div class="table" style="width: 100%;height: 500px;margin: 0px auto;overflow: auto;overflow: auto;" id="add">
     <form action="#" method="post" id="formvalidate" class="formvalidate" name="formvalidate">
         <fieldset>
             <legend>参数设置</legend>
@@ -23,6 +23,10 @@
                             <label class="validation"><span class="spanMsg">*</span>支付方式名称&nbsp:</label>
                         </td>
                         <td>
+                            <input type="hidden"  name="name" value="{$Think.lang.$list[pay_code]}" />
+                            <input type="hidden"  name="pay_code" value="{$list.pay_code}" />
+                            <input type="hidden"  name="pay_id" value="{$list.pay_id}" />
+                            <input type="hidden"  name="pay_is_online" value="{$list.pay_is_online}" />
                             <input name="pay_name" type="text" class="input rounded" value="{$list.pay_name}" size="30" maxlength="50" required validate="{ required:true,maxlength:30,messages:{required:'支付方式不能为空'}}" /> 
                         </td>
                     </tr>
@@ -34,7 +38,7 @@
                             <td>
                                 <input name="config_name[]" type="hidden"  value="{$ky}"/> 
                                     <if condition="$conf.type eq 'text'">
-                                        <input name="u_name" type="text" class="input rounded" value="" size="30" maxlength="50" /> 
+                                        <input name="config_value[]" type="text" class="input rounded" value="{$conf.value}" size="30" maxlength="50" /> 
                                     <elseif condition="$conf.type eq 'select'" />
                                         <select name="config_value[]" value="0">
                                             <foreach name="conf.range" item="val" key="k">
@@ -54,7 +58,7 @@
                             </label>
                         </td> 
                         <td>
-                            <textarea class="text-input textarea" id="wysiwyg" name="pay_desc" rows="10" cols="75">{$list.pay_desc}</textarea>
+                            <textarea class="text-input textarea" id="wysiwyg" name="pay_desc" rows="10" cols="56">{$list.pay_desc}</textarea>
                         </td>
                     </tr>
                     <tr>
@@ -98,14 +102,14 @@
                         <td class="name">
                         </td>
                         <td>
-                            费率&nbsp<input type="text" name="pay_fee" value="{$list.pay_fee}" class="input rounded" size="10">%&nbsp;&nbsp;说明：顾客将支付订单总金额乘以此费率作为手续费；
+                            费率&nbsp<input type="text" name="pay_rate" value="{$list.pay_fee}" class="input rounded" size="10">%&nbsp;&nbsp;说明：顾客将支付订单总金额乘以此费率作为手续费；
                         </td>
                     </tr>
                     <tr id="fix" style="display: none;">
                         <td class="name">
                         </td>
                         <td>
-                            金额&nbsp<input type="text" name="pay_fee" value="{$list.pay_fee}" class="input rounded" size="10">&nbsp;&nbsp;说明：顾客每笔订单需要支付的手续费；
+                            金额&nbsp<input type="text" name="pay_fix" value="{$list.pay_fee}" class="input rounded" size="10">&nbsp;&nbsp;说明：顾客每笔订单需要支付的手续费；
                         </td>
                     </tr>
                 </tbody>
