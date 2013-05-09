@@ -779,3 +779,6 @@ big,.big { font-size:120% !important; line-height:120%;padding:6px !important; h
 }
 .btn-large{padding:11px 19px;font-size:17.5px;-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px}
 .btn-large [class^="icon-"],.btn-large [class*=" icon-"]{margin-top:4px}
+
+form label.error{ color: red; text-indent: 30px; display: inline-block; background-image:url('../images/ico.png'); background-position: 12px 2px; background-repeat:no-repeat;height: 20px;line-height: 20px;}
+.formvalidate{margin: 10px;}
