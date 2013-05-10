@@ -21,11 +21,12 @@ class RoleNavAction extends AdminAction{
      * @date 2013-03-27
      */
     public function index() {
+        
         $rolenav = D("RoleNav");
         $ary_get['pageall'] = $this->_get('pageall', 'htmlspecialchars', 10);
         $count = $rolenav->where()->count();
-        
-        $obj_page = new Page($count, $ary_get['pageall']);
+//        $obj_page = new Page($count, $ary_get['pageall']);
+        $obj_page = new Pager($count, $ary_get['pageall']);
         $obj_page->setConfig("header","条");
         $obj_page->setConfig('theme','<li class="pageSelect">共%totalRow%%header%&nbsp;%nowPage%/%totalPage%页&nbsp;%first%&nbsp;%upPage%&nbsp;%prePage%&nbsp;%linkPage%&nbsp;%nextPage%&nbsp;%downPage%&nbsp;%end%</li>');
         $page = $obj_page->newshow();
