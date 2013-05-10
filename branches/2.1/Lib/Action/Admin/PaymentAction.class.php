@@ -61,8 +61,9 @@ class PaymentAction extends AdminAction{
      * @date 2013-05-09
      */
     public function doSavePayment(){
-        $ary_post = $this->_post();
         $name = $this->getActionName();
+        
+        $ary_post = $this->_post();
         $ary_data = $this->payment->getPayment($ary_post['pay_code']);
         $config = $ary_data['config'];
         if(!empty($ary_post['config_name']) && is_array($ary_post['config_name'])){
@@ -85,12 +86,19 @@ class PaymentAction extends AdminAction{
         $data['pay_version'] = $ary_data['pay_version'];
         $data['pay_author'] = $ary_data['pay_author'];
         $data['pay_config'] = json_encode($config);
-        
-        $ary_result = D($name)->add($data);
-        if(FALSE !== $ary_result){
-            $this->success("安装成功");
+        $msgstr = '';
+        if(!empty($ary_post['pay_id']) && isset($ary_post['pay_id'])){
+            $ary_result = D($name)->where(array('pay_id'=>$ary_post['pay_id']))->data($data)->save();
+            $msgstr = '编辑';
         }else{
-            $this->error("安装失败");
+            $ary_result = D($name)->add($data);
+            $msgstr = '安装';
+        }
+        
+        if(FALSE !== $ary_result){
+            $this->success($msgstr ."成功");
+        }else{
+            $this->error($msgstr ."失败");
         }
     }
     
