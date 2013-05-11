@@ -782,3 +782,7 @@ big,.big { font-size:120% !important; line-height:120%;padding:6px !important; h
 
 form label.error{ color: red; text-indent: 30px; display: inline-block; background-image:url('../images/ico.png'); background-position: 12px 2px; background-repeat:no-repeat;height: 20px;line-height: 20px;}
 .formvalidate{margin: 10px;}
+.showMessage{float: left;}
+.showMessage .aui_iconBg{float: left;}
+.showMessage img.images{width:48px; height:48px; margin:10px 0 0px 10px; background-position: center center; background-repeat:no-repeat;}
+.showMessage .aui_content{float: left;}
