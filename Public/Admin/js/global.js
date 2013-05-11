@@ -321,3 +321,50 @@ $(document).ready(function(){
         });
     });
 });
+
+//后台统一提示信息
+function showMessage(status,msg,url,time){
+    var str;
+    var status = parseInt(status);
+    
+    if(status == '2'){
+        str = 'warning';        //警告
+    }else if(status == '0'){
+        str = 'error';        //失败信息
+    }else{
+        str = 'succeed';        //成功信息
+    }
+    var time = parseInt(time)?parseInt(time):3;
+    var times = time;
+    time = time*1000;
+    $.dialog({
+        title:"消息",
+        padding:'0px',
+        content:'<div class="showMessage">\n\
+                    <div class="aui_iconBg">\n\
+                        <img src="../../Public/Lib/artdialog/skins/icons/'+str+'.png" class="images" />\n\
+                    </div>\n\
+                    <div class="aui_content" style="margin: 22px 15px 22px 5px;">\n\
+                        <b style="color:#666;">'+msg+'</b>\n\
+                    </div>\n\
+                </div>',
+        time:time             
+    });
+    if(status == 1){
+        var i = times;
+        var timer = setInterval(function () {
+            i--;
+            if (i === 0) {
+                clearInterval(timer);
+                $.dialog({
+                    title:false,
+                    initialize:function(){
+                        location.href = url;
+                        return false;
+                    }
+                });
+            };
+        }, 1000);
+    }
+    return false;
+}
