@@ -69,7 +69,7 @@
                 typenames = '安装';
             }
 
-            $.dialog({
+            var dialog = $.dialog({
                 id:'add', 
                 width:740,
                 padding:'0px',
@@ -84,11 +84,8 @@
                         var data = $("#formvalidate").serialize();
                         //document.formvalidate.submit();
                         $.post(uri, data, function(msgObj) {
-                            if(msgObj.status == '1'){
-                                $.dialog.alert(msgObj.info);
-                            }else{
-                                $.dialog.alert(msgObj.info);
-                            }
+                            showMessage(msgObj.status,msgObj.info,"{:U('Admin/Payment/index')}",5);
+                            return false;
                         }, 'json');
                     }else{
                         return false;
@@ -96,7 +93,7 @@
                 },
                 lock:true
             });
-            var dialog = $.dialog.get('add');
+            //var dialog = $.dialog.get('add');
             if(type == 'settings'){
                 var url = '/Admin/Payment/addPayment?id='+id+'&pay_name='+name+'&type='+type;
             }else{
@@ -122,11 +119,8 @@
                     type:'GET',
                     data:{},
                     success:function(msgObj){
-                        if(msgObj.status == '1'){
-                            $.dialog.alert(msgObj.info);
-                        }else{
-                            $.dialog.alert(msgObj.info);
-                        }
+                        showMessage(msgObj.status,msgObj.info,"{:U('Admin/Payment/index')}");
+                        return false;
                     }
                 });
             }, function () {
