@@ -26,6 +26,24 @@ $.alert = $.dialog.alert = function (content, callback) {
     });
 };
 
+/**
+ * 短暂提示
+ * @param	{String}	提示内容
+ * @param	{Number}	显示时间 (默认1.5秒)
+ */
+$.tips = $.dialog.tips = function (content, icon, time) {
+    return artDialog({
+        id: 'Tips',
+        icon:icon,
+        title: false,
+        content:'<div style="padding: 0 1em;">' + content + '</div>',
+        cancel: false,
+        ok:false,
+        fixed: true,
+        time:(time || 1.5),
+        lock: true
+    });
+};
 
 /**
  * 确认选择
@@ -43,7 +61,6 @@ $.confirm = $.dialog.confirm = function (content, ok, cancel) {
         cancel: cancel
     });
 };
-
 
 /**
  * 输入框
