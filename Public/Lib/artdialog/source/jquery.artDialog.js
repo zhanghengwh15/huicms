@@ -122,13 +122,16 @@ artDialog.fn = artDialog.prototype = {
         var dom;
 
         _activeElement = document.activeElement;
-        
+        var icon = config.icon,
+			iconBg = icon && (_isIE6 ? {png: 'icons/' + icon + '.png'}
+			: {backgroundImage: 'url(\'' + config.path + '/skins/icons/' + icon + '.png\')'});
         this.closed = false;
         this.config = config;
         this.dom = dom = this.dom || this._innerHTML(config);
         
         config.skin && dom.wrap.addClass(config.skin);
-        
+        dom.icon[0].style.display = icon ? '' : 'none';
+		dom.iconBg.css(iconBg || {background: 'none'});
         dom.wrap.css('position', config.fixed ? 'fixed' : 'absolute');
         dom.close[config.cancel === false ? 'hide' : 'show']();
         dom.content.css('padding', config.padding);
