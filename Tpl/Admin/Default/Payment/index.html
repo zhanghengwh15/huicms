@@ -84,7 +84,7 @@
                         var data = $("#formvalidate").serialize();
                         //document.formvalidate.submit();
                         $.post(uri, data, function(msgObj) {
-                            showMessage(msgObj.status,msgObj.info,"{:U('Admin/Payment/index')}",5);
+                            showMessage(msgObj.status,msgObj.info,"{:U('Admin/Payment/index')}",3);
                             return false;
                         }, 'json');
                     }else{
