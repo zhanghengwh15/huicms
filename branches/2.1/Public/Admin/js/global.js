@@ -334,7 +334,7 @@ function showMessage(status,msg,url,time){
     }else{
         str = 'succeed';        //成功信息
     }
-    var time = parseInt(time)?parseInt(time):3;
+    var time = parseInt(time)?parseInt(time):1;
     var times = time;
     time = time*1000;
     $.dialog({
