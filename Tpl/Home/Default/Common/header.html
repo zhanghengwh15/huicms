@@ -1,4 +1,4 @@
-<div id="head">
+<!--<div id="head">
     <div class="warp">
         <div id="nav">
             <ul>
@@ -14,4 +14,55 @@
         </div>
         <div class="fn-clear"></div>
     </div>
+</div>-->
+<div class="header">
+    <div class="central">
+
+        <ul class="nav">
+            <li id="menu-item-2003" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2003">
+                <a href="http://www.huicms.cn">首页</a>
+            </li>
+            <li id="menu-item-2008" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2008">
+                <a href="/">交流讨论</a>
+            </li>
+            <li id="menu-item-2012" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2012">
+                <a href="http://t.qq.com/php200">关注我们</a>
+            </li>
+        </ul>
+        <ul class="header-menu">
+            <li class="menu-profile">
+
+                <a class="btn btn-arrow btn-headermenu" href="javascript:;">用户登陆<i class="arrow"></i></a>
+                <span class="popup-arrow" style="display: none;"><i></i></span>
+                <div class="popup-layer" style="display: none;">
+                    <div class="popup">
+                        <form class="popup-signin" name="loginform" action="/" method="post">
+                            <h4>用户名：</h4>
+                            <input class="ipt" type="text" name="log" value="" size="20">
+                            <h4>密码：</h4>
+                            <input class="ipt" type="password" name="pwd" value="" size="20">
+                            <input class="btn btn-primary" type="submit" name="submit" value="立即登录">
+                            <p><a class="btn btn-mini" href="/">注册</a><a class="btn btn-mini" href="/">找回密码</a></p>
+                            <input type="hidden" name="redirect_to" value="/">
+                        </form>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <form method="get" class="search-form" action="/">
+            <input class="search-input" name="s" type="text" placeholder="输入关键字搜索" autofocus="" x-webkit-speech=""><input class="btn btn-primary search-submit" type="submit" value="搜索">
+        </form>
+    </div>
 </div>
+<div class="focus">
+	<div class="central">
+		<div class="toptip"><strong>最新消息：</strong>网站正在开发中...</div>
+	</div>
+</div>
+<script>
+    $(".btn-headermenu").click(function(){
+        $(".popup-arrow").show();
+        $(".popup-layer").show();
+    });    
+    
+</script>
