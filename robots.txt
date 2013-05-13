@@ -2,3 +2,4 @@ User-agent: *
 Disallow: /Public/
 Disallow: /Lib/
 Disallow: /Thinkphp/
+Disallow: /svnCount/
