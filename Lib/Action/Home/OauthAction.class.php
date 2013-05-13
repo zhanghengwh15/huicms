@@ -11,6 +11,10 @@ class OauthAction extends HomeAction{
     }
     
     public function index(){
+        
+    }
+    
+    public function OtherLogin(){
         $ary_get = $this->_get();
         echo "<pre>";print_r($ary_get);exit;
     }
