@@ -8,7 +8,7 @@
  * @author Terry <admin@52sum.com>
  * @date 2013-04-15
  */
-class IndexAction extends Action{
+class IndexAction extends HomeAction{
     /**
      * 基类初始化操作
      * @author Terry <admin@52sum.com>
