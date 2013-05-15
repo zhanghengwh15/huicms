@@ -73,7 +73,7 @@
             function login(){
                 $("#resultMsg").stop().removeClass('ajaxerror').addClass('loading').html("{$Think.lang.SUBMITLOADING}").show();
                 var url = "{:U('Admin/User/doLogin')}";
-                var data = $("#login").serialize();
+                var data = $("#lgin").serialize();
                 $.ajax({
                     url:url,
                     cache:false,
