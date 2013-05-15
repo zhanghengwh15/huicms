@@ -24,7 +24,7 @@ class UserAction extends Action{
      * @date 2013-03-21
      */
     public function pageLogin() {
-        $this->display();
+        $this->display("Login");
     }
     
     /**
