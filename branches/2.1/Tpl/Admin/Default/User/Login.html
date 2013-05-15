@@ -1,0 +1,50 @@
+{__NOLAYOUT__}
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6 lt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7 lt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8 lt8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="UTF-8" />
+        <title>{$Think.lang.LOGINWEB}</title>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin/css/style.css" />
+        <script src="__PUBLIC__/Lib/jquery/js/jquery-1.8.3.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <section>				
+                <div id="container_demo" >
+                    <div id="wrapper">
+                        <div id="login" class="animate form">
+                            <form  action="{:U('Admin/User/doLogin')}" autocomplete="off" id="login" method="post"> 
+                                <h1>管理登录</h1> 
+                                <p> 
+                                    <label for="username" class="uname" data-icon="u" >用户名</label>
+                                    <input id="username" name="username" required="required" type="text" autocomplete="off" placeholder="请输入用户名"/>
+                                </p>
+                                <p> 
+                                    <label for="password" class="youpasswd" data-icon="p">密码</label>
+                                    <input id="password" name="password" required="required" type="password" placeholder="请输入密码" /> 
+                                </p>
+<p> 
+                                    <label for="password" class="youpasswd" data-icon="p">验证码</label><br/>
+                                    <input id="password" name="password" required="required" type="password" placeholder="请输入验证码" autocomplete="off" style="width: 35%;"/> 
+                                </p>
+                                <p class="keeplogin"> 
+									<input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" /> 
+									<label for="loginkeeping">记住登录状态</label>
+								</p>
+                                <p class="login button"> 
+                                    <input type="submit" value="登录"  style="width: 30%;"/> 
+								</p>
+                            </form>
+                        </div>
+
+                        
+                    </div>
+                </div>  
+            </section>
+        </div>
+    </body>
+</html>
