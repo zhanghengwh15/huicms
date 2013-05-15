@@ -37,7 +37,7 @@
 									<label for="loginkeeping">记住登录状态</label>
 								</p>
                                 <p class="login button"> 
-                                    <input type="submit" value="{$Think.lang.LOGIN}"  style="width: 30%;"/> 
+                                    <input type="submit" value="{$Think.lang.LOGIN}" id="submit" style="width: 30%;"/> 
 								</p>
                             </form>
                         </div>
@@ -71,7 +71,10 @@
             });
             
             function login(){
-                $("#resultMsg").stop().removeClass('ajaxerror').addClass('loading').html("{$Think.lang.SUBMITLOADING}").show();
+//                $("#submit").val("正在登录");
+//                $("#submit").css("width", "auto");
+//                $("#submit").css("background","url('__PUBLIC__/Admin/images/loading.gif') no-repeat rgb(61, 157, 179)");
+                $('<span id="resultMsg" />').stop().removeClass('ajaxerror').addClass('loading').html("{$Think.lang.SUBMITLOADING}").show();
                 var url = "{:U('Admin/User/doLogin')}";
                 var data = $("#lgin").serialize();
                 $.ajax({
@@ -81,14 +84,15 @@
                     data:data,
                     type:"POST",
                     error:function(){
-                        $("#resultMsg").addClass('ajaxerror').html("{$Think.lang.AJAXERROR}！").show().fadeOut(5000);
+                        $('<span id="resultMsg" />').removeClass("loading").addClass("ajaxerror").html("{$Think.lang.AJAXERROR}").appendTo('.login').fadeOut(3000); 
                     },
                     success:function(msgObj){
                         $("#resultMsg").hide();
                         if(msgObj.status == '1'){
                             window.location.href = "{:U('Admin/Index/index')}";
                         }else{
-                            $("#resultMsg").addClass('ajaxerror').html(msgObj.info).show().fadeOut(5000);
+                            $('<span id="resultMsg" />').removeClass("loading").addClass("ajaxerror").html(msgObj.info).appendTo('.login').fadeOut(3000); 
+                            //$("#resultMsg").addClass('ajaxerror').html(msgObj.info).show().fadeOut(3000);
                             fleshVerify();
                         }
                     }
