@@ -17,26 +17,27 @@
                 <div id="container_demo" >
                     <div id="wrapper">
                         <div id="login" class="animate form">
-                            <form  action="{:U('Admin/User/doLogin')}" autocomplete="off" id="login" method="post"> 
+                            <form  action="{:U('Admin/User/doLogin')}" autocomplete="off" id="lgin" method="post"> 
                                 <h1>管理登录</h1> 
                                 <p> 
-                                    <label for="username" class="uname" data-icon="u" >用户名</label>
-                                    <input id="username" name="username" required="required" type="text" autocomplete="off" placeholder="请输入用户名"/>
+                                    <label for="username" class="uname" data-icon="u" >{$Think.lang.USERNAME}</label>
+                                    <input id="username" name="username" required="required" type="text" value="" autocomplete="off" placeholder="请输入用户名"/>
                                 </p>
                                 <p> 
-                                    <label for="password" class="youpasswd" data-icon="p">密码</label>
-                                    <input id="password" name="password" required="required" type="password" placeholder="请输入密码" /> 
+                                    <label for="password" class="youpasswd" data-icon="p">{$Think.lang.PASSWORD}</label>
+                                    <input id="password" name="passwd" required="required" type="password" value="" placeholder="请输入密码" /> 
                                 </p>
 <p> 
-                                    <label for="password" class="youpasswd" data-icon="p">验证码</label><br/>
-                                    <input id="password" name="password" required="required" type="password" placeholder="请输入验证码" autocomplete="off" style="width: 35%;"/> 
+                                    <label for="password" class="youpasswd" data-icon="p">{$Think.lang.CODE}</label><br/>
+                                    <input id="code" name="code" required="required" type="type" value="" placeholder="请输入验证码" autocomplete="off" style="width: 67%;"/> 
+                                    <img id="verify" src="{:U('Admin/User/verify')}" class="changeVerify" style="cursor: pointer;position: relative;top: 3px;float: right" title="{$Think.lang.CLICKUPDATECODE}" />
                                 </p>
                                 <p class="keeplogin"> 
 									<input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" /> 
 									<label for="loginkeeping">记住登录状态</label>
 								</p>
                                 <p class="login button"> 
-                                    <input type="submit" value="登录"  style="width: 30%;"/> 
+                                    <input type="submit" value="{$Think.lang.LOGIN}"  style="width: 30%;"/> 
 								</p>
                             </form>
                         </div>
@@ -46,5 +47,60 @@
                 </div>  
             </section>
         </div>
+        <script>
+            $(document).ready(function(){
+                var timer;
+                $(".changeVerify").click(function(){
+                    clearTimeout(timer);
+                    $('#verify').attr('src','{:U("Admin/User/verify")}'+'?r='+Math.random());
+                });
+                
+                $("#lgin").submit(function(){
+                    login();
+                    return false;
+                });
+                
+                $("#code").keypress(function(){
+                    $(this).val($(this).val().toUpperCase());
+                })
+                
+                $("#code").blur(function(){
+                    $(this).val($(this).val().toUpperCase());
+                })
+                
+            });
+            
+            function login(){
+                $("#resultMsg").stop().removeClass('ajaxerror').addClass('loading').html("{$Think.lang.SUBMITLOADING}").show();
+                var url = "{:U('Admin/User/doLogin')}";
+                var data = $("#login").serialize();
+                $.ajax({
+                    url:url,
+                    cache:false,
+                    dataType:"json",
+                    data:data,
+                    type:"POST",
+                    error:function(){
+                        $("#resultMsg").addClass('ajaxerror').html("{$Think.lang.AJAXERROR}！").show().fadeOut(5000);
+                    },
+                    success:function(msgObj){
+                        $("#resultMsg").hide();
+                        if(msgObj.status == '1'){
+                            window.location.href = "{:U('Admin/Index/index')}";
+                        }else{
+                            $("#resultMsg").addClass('ajaxerror').html(msgObj.info).show().fadeOut(5000);
+                            fleshVerify();
+                        }
+                    }
+                });
+            }
+            
+            function fleshVerify(){
+                var time = new Date().getTime();
+                $("#verify").attr('src',"{:U('Admin/User/verify')}?r="+time);
+            }
+            
+            
+        </script>
     </body>
 </html>
