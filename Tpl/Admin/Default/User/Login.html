@@ -55,7 +55,7 @@
                     $('#verify').attr('src','{:U("Admin/User/verify")}'+'?r='+Math.random());
                 });
                 
-                $("#lgin").submit(function(){
+                $("#lgin").click(function(){
                     login();
                     return false;
                 });
@@ -71,10 +71,28 @@
             });
             
             function login(){
+                var username = $("#username").val();
+                var pass = $("#password").val();
+                var code = $("#code").val();
+                if(username==""){
+                    $('<span id="resultMsg" />').addClass("ajaxerror").html("用户名不能为空！").appendTo('.login').fadeOut(2000);
+                    $("#username").focus();
+                    return false;
+                }
+                if(pass==""){
+                    $('<span id="resultMsg" />').addClass("ajaxerror").html("密码不能为空！").appendTo('.login').fadeOut(2000);
+                    $("#password").focus();
+                    return false;
+                }
+                if(code==""){
+                    $('<span id="resultMsg" />').addClass("ajaxerror").html("验证码不能为空！").appendTo('.login').fadeOut(2000);
+                    $("#code").focus();
+                    return false;
+                }
 //                $("#submit").val("正在登录");
 //                $("#submit").css("width", "auto");
 //                $("#submit").css("background","url('__PUBLIC__/Admin/images/loading.gif') no-repeat rgb(61, 157, 179)");
-                $('<span id="resultMsg" />').stop().removeClass('ajaxerror').addClass('loading').html("{$Think.lang.SUBMITLOADING}").show();
+                //$('<span id="resultMsg" />').stop().removeClass('ajaxerror').addClass('loading').html("{$Think.lang.SUBMITLOADING}").show();
                 var url = "{:U('Admin/User/doLogin')}";
                 var data = $("#lgin").serialize();
                 $.ajax({
@@ -84,7 +102,7 @@
                     data:data,
                     type:"POST",
                     error:function(){
-                        $('<span id="resultMsg" />').removeClass("loading").addClass("ajaxerror").html("{$Think.lang.AJAXERROR}").appendTo('.login').fadeOut(3000); 
+                        $('<span id="resultMsg" />').addClass("ajaxerror").html("{$Think.lang.AJAXERROR}").appendTo('.login').fadeOut(3000); 
                     },
                     success:function(msgObj){
                         $("#resultMsg").hide();
