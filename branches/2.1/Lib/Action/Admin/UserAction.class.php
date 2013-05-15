@@ -34,7 +34,7 @@ class UserAction extends Action{
      */
     public function verify() {
         import('ORG.Util.Image');
-        Image::buildImageVerify(6, 1, 'png', 120, 50, 'code');
+        Image::buildImageVerify(6, 1, 'png', 100, 38, 'code');
     }
     
     /**
