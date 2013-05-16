@@ -105,9 +105,12 @@
                         $('<span id="resultMsg" />').addClass("ajaxerror").html("{$Think.lang.AJAXERROR}").appendTo('.login').fadeOut(3000); 
                     },
                     success:function(msgObj){
-                        $("#resultMsg").hide();
                         if(msgObj.status == '1'){
-                            window.location.href = "{:U('Admin/Index/index')}";
+                            $('<span id="resultMsg" />').removeClass("ajaxerror").css({"color":"#669533","background":"url('__PUBLIC__/Admin/images/loading.gif') no-repeat 1px"}).html(msgObj.info+" 正在进入系统！.......").appendTo('.login');
+                            setTimeout(function(){
+                                window.location.href="{:U('Admin/Index/index')}";
+                            },1500);
+                            //window.location.href = "{:U('Admin/Index/index')}";
                         }else{
                             $('<span id="resultMsg" />').addClass("ajaxerror").html(msgObj.info).appendTo('.login').fadeOut(3000); 
                             //$("#resultMsg").addClass('ajaxerror').html(msgObj.info).show().fadeOut(3000);
