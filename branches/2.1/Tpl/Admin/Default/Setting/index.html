@@ -12,7 +12,7 @@
             <li><a href="{:U('Admin/Setting/Global')}">全局参数</a></li>
         </ul>
     </div>
-    <form action="{:U('Admin/Links/doSaveLinks')}" method="post" class="formvalidate">
+    <form action="{:U('Admin/Setting/doSaveWebsite')}" method="post" class="formvalidate">
         <table class="list" cellpadding="0" cellspacing="1" border="0">
             <tbody>
 
@@ -21,16 +21,25 @@
                         <label class="validation"><span class="spanMsg">*</span>网站名称：</label>
                     </td>
                     <td>
-                        <input type="text" class="input rounded" name="name" size="50" value="" style="width:300px;" required validate="{ required:true,maxlength:30}">
+                        <input type="text" class="input rounded" name="site_name" size="50" value="{$config.site_name}" style="width:300px;" required validate="{ required:true,maxlength:30}">
                     </td>
                     <td class="field"></td>
                 </tr>
                 <tr>
                     <td class="name">
-                        <label class="validation"><span class="spanMsg">*</span>SEO关键字：</label>
+                        <label class="validation"><span class="spanMsg">*</span>Title：</label>
                     </td>
                     <td>
-                        <input type="text" class="input rounded" name="name" size="50" value="" style="width:300px;" required validate="{ required:true,maxlength:30}">
+                        <input type="text" class="input rounded" name="site_title" size="50" value="{$config.site_title}" style="width:300px;" required validate="{ required:true,maxlength:30}">
+                    </td>
+                    <td class="field"></td>
+                </tr>
+                <tr>
+                    <td class="name">
+                        <label class="validation"><span class="spanMsg">*</span>Keywords：</label>
+                    </td>
+                    <td>
+                        <input type="text" class="input rounded" name="site_keyword" size="50" value="{$config.site_keyword}" style="width:300px;" required validate="{ required:true,maxlength:30}">
                     </td>
                     <td class="field">
                         <img title="用逗号隔开，主要用于网站首页及一些插件页缺省关键字。" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16">
@@ -38,38 +47,28 @@
                 </tr>
                 <tr>
                     <td class="name">
-                        <label class="validation"><span class="spanMsg">*</span>SEO描述：</label>
+                        <label class="validation"><span class="spanMsg">*</span>Description：</label>
                     </td>
                     <td>
-                        <textarea name="description" class="rounded" style="width:300px; height:60px; padding:5px;"></textarea> 
-                    </td>
-                    <td class="field"></td>
-                </tr>
-                <tr id="image_url">
-                    <td class="name">
-                        <label class="validation"><span class="spanMsg">*</span>网站LOGO：</label>
-                    </td>
-                    <td>
-                        <input type="text" class="input rounded" name="image_path" id="image_path" size="30" value="" style="float: left;width: 300px;">  
-                        <a href="javascript:upImage('image_path');" id="button1" value="" class="type-file-button"></a>
+                        <textarea name="site_description" class="rounded" style="width:300px; height:60px; padding:5px;">{$config.site_description}</textarea> 
                     </td>
                     <td class="field"></td>
                 </tr>
                 <tr>
                     <td class="name">
-                        <label class="validation"><span class="spanMsg">*</span>ICP证书号：</label>
+                        <label class="validation"><span class="spanMsg">*</span>ICP备案号：</label>
                     </td>
                     <td>
-                        <input type="text" class="input rounded" name="name" size="50" value="" style="width:300px;" required validate="{ required:true,maxlength:30}">
+                        <input type="text" class="input rounded" name="site_icp" size="50" value="{$config.site_icp}" style="width:300px;" required validate="{ required:true,maxlength:30}">
                     </td>
                     <td class="field"></td>
                 </tr>
                 <tr>
                     <td class="name">
-                        <label class="validation">版权信息：</label>
+                        <label class="validation">统计代码：</label>
                     </td>
                     <td>
-                        <textarea name="description" class="rounded" style="width:300px; height:60px; padding:5px;"></textarea> 
+                        <textarea name="site_code" class="rounded" style="width:300px; height:60px; padding:5px;">{$config.site_code}</textarea> 
                     </td>
                     <td class="field">
                         <img title="描述。" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16">
@@ -86,11 +85,11 @@
 
                             <li>
                                 <label>
-                                    <input type="radio" value="1" checked="checked" name="status">开启</label>
+                                    <input type="radio" value="1" <if condition="$config.site_status eq '1'">checked="checked"</if> name="site_status">开启</label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  value="0" name="status">关闭</label>
+                                    <input type="radio"  value="0" <if condition="$config.site_status eq '0'">checked="checked"</if> name="site_status">关闭</label>
                             </li>
                         </ul>
                     </td>
@@ -98,12 +97,12 @@
                         <img title="当链接状态为停用时,将不再前台显示" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16">				
                     </td>
                 </tr>
-                <tr id="closeHelp" style="display: none;">
+                <tr id="closeHelp" <if condition="$config.site_status eq '1'">style="display: none;</if>">
                     <td class="name">
                         <label class="validation"><span class="spanMsg">*</span>关闭说明：</label>
                     </td>
                     <td>
-                        <textarea name="description" class="rounded" style="width:300px; height:60px; padding:5px;">网站关闭中...</textarea> 
+                        <textarea name="site_close" class="rounded" style="width:300px; height:60px; padding:5px;">{$config.site_close}</textarea> 
                     </td>
                     <td class="field"></td>
                 </tr>
@@ -125,7 +124,7 @@
 </div>
 <script>
     $(document).ready(function(){
-        $(".rowform input[name='status']").click(function(){
+        $(".rowform input[name='site_status']").click(function(){
             var val = $(this).val();
             if(val == '0'){
                 $("#closeHelp").fadeIn();
