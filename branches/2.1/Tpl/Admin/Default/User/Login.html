@@ -55,7 +55,7 @@
                     $('#verify').attr('src','{:U("Admin/User/verify")}'+'?r='+Math.random());
                 });
                 
-                $("#lgin").click(function(){
+                $("#lgin").submit(function(){
                     login();
                     return false;
                 });
@@ -109,7 +109,7 @@
                         if(msgObj.status == '1'){
                             window.location.href = "{:U('Admin/Index/index')}";
                         }else{
-                            $('<span id="resultMsg" />').removeClass("loading").addClass("ajaxerror").html(msgObj.info).appendTo('.login').fadeOut(3000); 
+                            $('<span id="resultMsg" />').addClass("ajaxerror").html(msgObj.info).appendTo('.login').fadeOut(3000); 
                             //$("#resultMsg").addClass('ajaxerror').html(msgObj.info).show().fadeOut(3000);
                             fleshVerify();
                         }
