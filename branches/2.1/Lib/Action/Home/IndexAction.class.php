@@ -15,6 +15,7 @@ class IndexAction extends HomeAction{
      * @date 2012-04-15
      */
     public function _initialize() {
+        parent::_initialize();
         import('ORG.Util.Page');
     }
     
