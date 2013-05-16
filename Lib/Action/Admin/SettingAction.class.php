@@ -16,7 +16,10 @@ class SettingAction extends AdminAction{
     }
     
     public function index(){
-        
+        $ary_data = D('Config')->getCfgByModule('WEBSITE');
+        $config = json_decode($ary_data['WEBSITE'], true);
+//        echo "<pre>";print_r($config);exit;
+        $this->assign("config",$config);
         $this->display();
         
     }
@@ -28,8 +31,19 @@ class SettingAction extends AdminAction{
      */
     public function doSaveWebsite(){
         $ary_post = $this->_post();
-        echo "<pre>";print_r($ary_post);exit;
-        
-        
+        if(!empty($ary_post) && is_array($ary_post)){
+            $module = "WEBSITE";
+            $key = "WEBSITE";
+            $value = json_encode($ary_post);
+            $desc = "站点信息配置";
+            $config = D("Config")->setConfig($module,$key,$value,$desc);
+            if(FALSE !== $config){
+                $this->success("保存成功");
+            }else{
+                $this->error("保存失败");
+            }
+        }else{
+            $this->error("数据有误");
+        }
     }
 }
