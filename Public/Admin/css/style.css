@@ -545,4 +545,4 @@ p.change_link{
 }
 #resultMsg {height: 47px;line-height: 47px;float: left;padding-left: 26px;position: absolute;left: 30px;}
 .loading{background:url('../images/ajaxloading.gif') no-repeat 5px 16px; color:green;}
-.ajaxerror{background:url('../images/ajaxerror.gif') no-repeat 5px 16px; color:#f30;}
+.ajaxerror{background:url('../images/ajaxerror.gif') no-repeat 5px 16px; color:red;}
