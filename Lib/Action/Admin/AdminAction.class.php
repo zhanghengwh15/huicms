@@ -33,7 +33,7 @@ abstract class AdminAction extends Action{
         $this->_name = $this->getActionName();
         $langSet = C('DEFAULT_LANG');
         //读取公共语言包
-        L(include LANG_PATH . $langSet . '/common.php');
+        L(include LANG_PATH . $langSet . '/Common.php');
         
         // 读取当前模块语言包
 		if (is_file(LANG_PATH . $langSet . '/' . MODULE_NAME . '.php')){
