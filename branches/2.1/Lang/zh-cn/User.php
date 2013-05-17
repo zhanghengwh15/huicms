@@ -1,5 +1,6 @@
 <?php
 $array = array(
+    'LOGIN_SUCCESS' =>'登录成功',
     'LOGOUT_SUCCESS' => '登出成功!',
     'BEEN_LOGOUT' => '登出成功!',
     'PlEASE_USERNAME' => '请输入用户名!',
@@ -9,11 +10,11 @@ $array = array(
     'ACCOUNT_EXIT_DISABLED' => '帐号不存在或者已禁用！',
     'PASSWD_ERROR' => '密码错误！',
     'NO_LOGIN' => '用户尚未登录',
-    "LOGIN" => "登陆",
+    "LOGIN" => "登录",
     "USERNAME" => "用户名",
     "PASSWORD" => "密  码",
     "CODE" => "验证码",
-    "LOGINWEB" => "登陆页",
+    "LOGINWEB" => "登录页",
     "CLICKUPDATECODE" => "点击更新验证码",
     "SUBMITLOADING" => "提交请求中，请稍候...",
     "AJAXERROR" => "AJAX请求发生错误",
