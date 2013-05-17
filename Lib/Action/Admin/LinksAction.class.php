@@ -139,4 +139,6 @@ class LinksAction extends AdminAction{
             $this->error("数据有误");
         }
     }
+    
+    
 }
