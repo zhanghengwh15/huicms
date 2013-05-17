@@ -11,6 +11,7 @@
  * @copyright Copyright (C) 2012, Shanghai Huicms Co., Ltd.
  */
 abstract class AdminAction extends Action{
+    protected $_name = '';
     /**
      * 顶部大栏目
      * @var array
@@ -29,7 +30,11 @@ abstract class AdminAction extends Action{
      * @date 2013-3-25
      */
     public function _initialize() {
+        $this->_name = $this->getActionName();
         $langSet = C('DEFAULT_LANG');
+        //读取公共语言包
+        L(include LANG_PATH . $langSet . '/common.php');
+        
         // 读取当前模块语言包
 		if (is_file(LANG_PATH . $langSet . '/' . MODULE_NAME . '.php')){
 			L(include LANG_PATH . $langSet . '/' . MODULE_NAME . '.php');
@@ -131,7 +136,7 @@ abstract class AdminAction extends Action{
     
     /**
      * 判断用户是否登陆
-     * @author Terry<wanghui@guanyisoft.com>
+     * @author Terry<wanghui@huicms.com>
      * @date 2013-3-25
      */
     public function doCheckLogin(){
@@ -187,5 +192,25 @@ abstract class AdminAction extends Action{
         $this->menus = $menus;
         $this->assign("menus",$menus);
         return $menus;
+    }
+    
+    /**
+     * 删除友情链接
+     * @author Terry<admin@huicms.cn>
+     * @date 2013-05-16
+     */
+    public function doDelete(){
+        $mod = D($this->_name);
+        $pk = $mod->getPk();
+        $ids = trim($this->_request($pk), ',');
+        if ($ids) {
+            if (false !== $mod->delete($ids)) {
+                $this->success("删除成功");
+            } else {
+                $this->error("删除失败");
+            }
+        } else {
+            $this->error("请选择删除的对象");
+        }
     }
 }
