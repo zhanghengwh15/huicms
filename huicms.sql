@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2013 年 05 月 14 日 13:43
+-- 生成日期: 2013 年 05 月 16 日 23:13
 -- 服务器版本: 5.5.31-0ubuntu0.13.04.1
 -- PHP 版本: 5.4.9-4ubuntu2
 
@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `hui_admin` (
 --
 
 INSERT INTO `hui_admin` (`u_id`, `u_name`, `u_passwd`, `role_id`, `u_ip`, `u_photo`, `u_username`, `u_sex`, `u_phone`, `u_email`, `u_qq`, `u_description`, `u_countlog`, `u_status`, `u_lastlogin_time`, `u_create_time`, `u_update_time`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1, '127.0.0.1', 'upload/images/20130510/13681909983907.jpg', '王辉', 0, '13817918575', 'shuaige@52sum.com', '466209365', '', 170, 1, '2013-05-14 11:19:04', '0000-00-00 00:00:00', '2013-05-12 23:20:59');
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1, '127.0.0.1', 'upload/images/20130510/13681909983907.jpg', '王辉', 0, '13817918575', 'shuaige@52sum.com', '466209365', '', 196, 1, '2013-05-16 17:07:48', '0000-00-00 00:00:00', '2013-05-12 23:20:59');
 
 -- --------------------------------------------------------
 
@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `hui_admin_log` (
   `log_create` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '登陆时间',
   `log_ip` varchar(15) NOT NULL COMMENT '登陆IP',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='管理员日志' AUTO_INCREMENT=200 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='管理员日志' AUTO_INCREMENT=226 ;
 
 --
 -- 转存表中的数据 `hui_admin_log`
@@ -228,7 +228,33 @@ INSERT INTO `hui_admin_log` (`id`, `u_id`, `u_name`, `log_create`, `log_ip`) VAL
 (196, 1, 'admin', '2013-05-12 23:17:45', '127.0.0.1'),
 (197, 1, 'admin', '2013-05-13 10:41:47', '127.0.0.1'),
 (198, 1, 'admin', '2013-05-13 20:41:40', '127.0.0.1'),
-(199, 1, 'admin', '2013-05-14 11:19:04', '127.0.0.1');
+(199, 1, 'admin', '2013-05-14 11:19:04', '127.0.0.1'),
+(200, 1, 'admin', '2013-05-14 15:11:06', '127.0.0.1'),
+(201, 1, 'admin', '2013-05-15 00:02:49', '127.0.0.1'),
+(202, 1, 'admin', '2013-05-15 10:31:27', '127.0.0.1'),
+(203, 1, 'admin', '2013-05-15 13:13:35', '127.0.0.1'),
+(204, 1, 'admin', '2013-05-15 16:49:51', '127.0.0.1'),
+(205, 1, 'admin', '2013-05-15 22:48:15', '127.0.0.1'),
+(206, 1, 'admin', '2013-05-16 00:20:13', '127.0.0.1'),
+(207, 1, 'admin', '2013-05-16 00:49:03', '127.0.0.1'),
+(208, 1, 'admin', '2013-05-16 11:24:23', '127.0.0.1'),
+(209, 1, 'admin', '2013-05-16 13:48:30', '127.0.0.1'),
+(210, 1, 'admin', '2013-05-16 16:11:11', '127.0.0.1'),
+(211, 1, 'admin', '2013-05-16 16:11:34', '127.0.0.1'),
+(212, 1, 'admin', '2013-05-16 16:12:32', '127.0.0.1'),
+(213, 1, 'admin', '2013-05-16 16:13:39', '127.0.0.1'),
+(214, 1, 'admin', '2013-05-16 16:15:07', '127.0.0.1'),
+(215, 1, 'admin', '2013-05-16 16:15:12', '127.0.0.1'),
+(216, 1, 'admin', '2013-05-16 16:15:13', '127.0.0.1'),
+(217, 1, 'admin', '2013-05-16 16:15:13', '127.0.0.1'),
+(218, 1, 'admin', '2013-05-16 16:15:13', '127.0.0.1'),
+(219, 1, 'admin', '2013-05-16 16:15:13', '127.0.0.1'),
+(220, 1, 'admin', '2013-05-16 16:15:14', '127.0.0.1'),
+(221, 1, 'admin', '2013-05-16 16:18:28', '127.0.0.1'),
+(222, 1, 'admin', '2013-05-16 16:19:27', '127.0.0.1'),
+(223, 1, 'admin', '2013-05-16 16:20:43', '127.0.0.1'),
+(224, 1, 'admin', '2013-05-16 16:22:45', '127.0.0.1'),
+(225, 1, 'admin', '2013-05-16 17:07:48', '127.0.0.1');
 
 -- --------------------------------------------------------
 
@@ -246,7 +272,7 @@ CREATE TABLE IF NOT EXISTS `hui_config` (
   `c_update_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '记录最后更新时间',
   PRIMARY KEY (`c_id`),
   KEY `c_key` (`c_key`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='系统配置表，配置值使用序列化数组存储' AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='系统配置表，配置值使用序列化数组存储' AUTO_INCREMENT=5 ;
 
 --
 -- 转存表中的数据 `hui_config`
@@ -254,7 +280,9 @@ CREATE TABLE IF NOT EXISTS `hui_config` (
 
 INSERT INTO `hui_config` (`c_id`, `c_module`, `c_key`, `c_value`, `c_value_desc`, `c_create_time`, `c_update_time`) VALUES
 (1, 'ADMIN_ACCESS', 'EXPIRED_TIME', '500', '登陆超时时间', '2013-05-03 02:25:45', '0000-00-00 00:00:00'),
-(2, 'ADMIN_ACCESS', 'SYS_ADMIN', 'admin', '系统管理员', '2013-03-25 16:43:50', '0000-00-00 00:00:00');
+(2, 'ADMIN_ACCESS', 'SYS_ADMIN', 'admin', '系统管理员', '2013-03-25 16:43:50', '0000-00-00 00:00:00'),
+(3, '', '', NULL, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(4, 'WEBSITE', 'WEBSITE', '{"site_name":"HuiCMS\\u5185\\u5bb9\\u7ba1\\u7406\\u7cfb\\u7edf","site_title":"Title","site_keyword":"HuiCMS,\\u5f00\\u6e90cms,\\u514d\\u8d39cms,\\u5c0f\\u5de7cms,\\u7b80\\u5355cms","site_description":"HuiCMS\\u662f\\u4e00\\u6b3e\\u57fa\\u4e8ePHP+MYSQL\\uff0c\\u91c7\\u7528THINKPHP\\u6846\\u67b6\\u7f16\\u5199\\u7684\\u4e00\\u6b3e\\u9488\\u5bf9\\u5927\\u5c0f\\u578b\\u516c\\u53f8\\u4f01\\u4e1a\\u7b49\\u901a\\u7528\\u7684cms\\u7a0b\\u5e8f\\u3002","site_icp":"42222641276051353636","site_code":"","site_status":"1","site_close":"\\u7ad9\\u70b9\\u7ef4\\u62a4\\u4e2d"}', '站点信息配置', '2013-05-16 06:18:26', '2013-05-16 06:18:26');
 
 -- --------------------------------------------------------
 
@@ -275,7 +303,7 @@ CREATE TABLE IF NOT EXISTS `hui_links` (
   `create_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '友情链接添加时间',
   `update_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '友情链接最后修改时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='友情链接表' AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='友情链接表' AUTO_INCREMENT=6 ;
 
 --
 -- 转存表中的数据 `hui_links`
@@ -284,7 +312,8 @@ CREATE TABLE IF NOT EXISTS `hui_links` (
 INSERT INTO `hui_links` (`id`, `name`, `image_path`, `link_url`, `description`, `color`, `type`, `order`, `status`, `create_time`, `update_time`) VALUES
 (1, 'PHP工作室', '/Public/Lib/ueditor/php/../../../upload//photo/5153214e77636.jpg', 'http://www.baidu.com', '', '#2F3192', 1, 10, 1, '0000-00-00 00:00:00', '2013-04-14 10:14:09'),
 (3, '中文站', '', 'http://www.baidu.com', '', '#707070', 0, 20, 1, '2013-04-14 07:44:22', '0000-00-00 00:00:00'),
-(4, '普通', 'upload/photo/515321a73e88d.jpg', 'http://www.huicms.cn', '', '#FF0000', 1, 30, 1, '2013-04-14 07:46:02', '2013-04-14 10:16:39');
+(4, '普通', 'upload/photo/515321a73e88d.jpg', 'http://www.huicms.cn', '', '#FF0000', 1, 30, 1, '2013-04-14 07:46:02', '2013-04-14 10:16:39'),
+(5, '', '', '', NULL, NULL, 0, 0, 1, '2013-05-15 17:06:15', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -350,14 +379,14 @@ CREATE TABLE IF NOT EXISTS `hui_payment` (
   `pay_version` varchar(20) NOT NULL COMMENT '版本号',
   PRIMARY KEY (`pay_id`),
   UNIQUE KEY `pay_code` (`pay_code`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
 
 --
 -- 转存表中的数据 `hui_payment`
 --
 
 INSERT INTO `hui_payment` (`pay_id`, `name`, `pay_name`, `pay_code`, `pay_desc`, `pay_fee`, `pay_config`, `pay_is_cod`, `pay_is_online`, `pay_order`, `pay_status`, `pay_author`, `pay_website`, `pay_version`) VALUES
-(9, '网银在线', '网银在线', 'Bank', '网银在线与中国银行、中国工商银行、中国农业银行、中国建设银行、招商银行等国内各大银行，以及VISA、MasterCard、JCB等国际信用卡组织保持了长期、紧密、良好的合作关系。<a href="http://www.chinabank.com.cn" target="_blank"><font color="red">立即在线申请</font></a>', '0', '[]', 0, 0, 10, 1, 'HUICMS研发团队', 'http://www.chinabank.com.cn', '1.0');
+(13, '支付宝', '支付宝', 'Alipay', '支付宝是国内领先的独立第三方支付平台，由阿里巴巴集团创办。致力于为中国电子商务提供“简单、安全、快速”的在线支付解决方案。<a href="http://b.alipay.com/" target="_blank"><font color="red">立即在线申请</font></a>', '0', '{"alipay_account":{"name":"\\u652f\\u4ed8\\u5b9d\\u5e10\\u6237","type":"text","value":""},"alipay_key":{"name":"\\u4ea4\\u6613\\u5b89\\u5168\\u6821\\u9a8c\\u7801(key)","type":"text","value":""},"alipay_partner":{"name":"\\u5408\\u4f5c\\u8005\\u8eab\\u4efd(parterID)","type":"text","value":""},"service_type":{"name":"\\u9009\\u62e9\\u63a5\\u53e3\\u7c7b\\u578b","type":"select","value":"0","range":["\\u4f7f\\u7528\\u62c5\\u4fdd\\u4ea4\\u6613\\u63a5\\u53e3","\\u4f7f\\u7528\\u6807\\u51c6\\u53cc\\u63a5\\u53e3","\\u4f7f\\u7528\\u5373\\u65f6\\u5230\\u8d26\\u4ea4\\u6613\\u63a5\\u53e3"]}}', 0, 1, 10, 1, 'HUICMS研发团队', 'http://www.alipay.com', '1.0');
 
 -- --------------------------------------------------------
 
@@ -449,7 +478,7 @@ CREATE TABLE IF NOT EXISTS `hui_role_node` (
   `auth_type` tinyint(1) NOT NULL DEFAULT '0' COMMENT '授权模式：1:模块授权(module) 2:操作授权(action) 0:节点授权(node)',
   `is_show` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否菜单显示:0.不显示,1.显示',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='节点表' AUTO_INCREMENT=101 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='节点表' AUTO_INCREMENT=103 ;
 
 --
 -- 转存表中的数据 `hui_role_node`
@@ -546,7 +575,9 @@ INSERT INTO `hui_role_node` (`id`, `action`, `action_name`, `module`, `module_na
 (97, '', '', 'Customer', '在线客服', 2, 1, 10, 1, 1),
 (98, 'index', '客服列表', 'Customer', '在线客服', 2, 1, 10, 0, 1),
 (99, 'addCustomer', '添加客服', 'Customer', '在线客服', 2, 1, 10, 0, 1),
-(100, 'editCustomer', '编辑客服', 'Customer', '在线客服', 2, 1, 10, 0, 0);
+(100, 'editCustomer', '编辑客服', 'Customer', '在线客服', 2, 1, 10, 0, 0),
+(101, '', '', 'Oauth', '登陆接口', 2, 1, 10, 1, 1),
+(102, 'index', '接口列表', 'Oauth', '登陆接口', 2, 1, 10, 0, 1);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
