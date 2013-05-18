@@ -48,7 +48,7 @@
                     <td class="align-center">
                         <div class="button-group">
                             <a href='{:U("Admin/Links/editLinks","id=$vo[id]")}'  class="button danger icon pill edit" alt="编辑" title="编辑"></a>
-                            <a href="javascript:void(0);"  data-uri='{:U("Admin/RoleNav/doDelete","id=$vo[id]")}' val="{$vo.id}" data-msg="确定要删除“{$vo.name}”吗？" data-acttype="ajax" class="button danger icon pill remove doDel" title="删除"></a>
+                            <a href="javascript:void(0);"  data-uri='{:U("Admin/Links/doDelete","id=$vo[id]")}' val="{$vo.id}" data-msg="确定要删除“{$vo.name}”吗？" data-acttype="ajax" class="button danger icon pill remove doDel" title="删除"></a>
                         </div>
                     </td>
                 </tr>
@@ -79,47 +79,27 @@
 </div>
 <script>
     $(document).ready(function(){
+        //卸载支付列表
         $(".doDel").click(function(){
-            var dialog = art.dialog({
-                title:'谢谢观赏', 
-                content:'删除管理员', 
-                icon:'error',
-                lock:true, 
-                button:[{
-                        name:'关闭'
-                 }]
-            });
-            dialog.shake && dialog.shake();// 调用抖动接口
-        });
-        $(".dodel").click(function(){
-            var val = $(this).attr("val");
-            var self = $(this),
-            url = self.attr('data-uri');
-            if(confirm("确定删除管理员？")){
+            var title = $(this).attr("data-msg");
+            var uri = $(this).attr("data-uri");
+            $.dialog.confirm(title, function () {
                 $.ajax({
-                    url:url,
+                    url:uri,
                     cache:false,
-                    dataType:"json",
-                    data: {},
-                    type:"POST",
-                    beforeSend:function(){
-                        $("#J_ajax_loading").stop().removeClass('ajax_error').addClass('ajax_loading').html("提交请求中，请稍候...").show();
-                    },
-                    error:function(){
-                        $("#J_ajax_loading").removeClass('ajax_success').addClass('ajax_error').html("AJAX请求发生错误！").show().fadeOut(5000);
-                    },
+                    dataType:'json',
+                    type:'GET',
+                    data:{},
                     success:function(msgObj){
-                        $("#J_ajax_loading").hide();
-                        if(msgObj.status == '1'){
-                            $("#list_"+val).remove();
-                            $("#J_ajax_loading").removeClass('ajax_error').addClass('ajax_success').html(msgObj.info).show().fadeOut(5000);
-                        }else{
-                            $("#J_ajax_loading").removeClass('ajax_success').addClass('ajax_error').html(msgObj.info).show().fadeOut(5000);
-                        }
+                        showMessage(msgObj.status,msgObj.info,"{:U('Admin/Links/index')}");
+                        return false;
                     }
                 });
-            }
+            }, function () {
+            });
         });
+        
+        
     
         //切换
         $('.pointer').live('click', function() {
