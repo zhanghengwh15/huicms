@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2013 年 05 月 16 日 23:13
+-- 生成日期: 2013 年 05 月 19 日 15:28
 -- 服务器版本: 5.5.31-0ubuntu0.13.04.1
 -- PHP 版本: 5.4.9-4ubuntu2
 
@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `hui_admin` (
 --
 
 INSERT INTO `hui_admin` (`u_id`, `u_name`, `u_passwd`, `role_id`, `u_ip`, `u_photo`, `u_username`, `u_sex`, `u_phone`, `u_email`, `u_qq`, `u_description`, `u_countlog`, `u_status`, `u_lastlogin_time`, `u_create_time`, `u_update_time`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1, '127.0.0.1', 'upload/images/20130510/13681909983907.jpg', '王辉', 0, '13817918575', 'shuaige@52sum.com', '466209365', '', 196, 1, '2013-05-16 17:07:48', '0000-00-00 00:00:00', '2013-05-12 23:20:59');
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1, '127.0.0.1', 'upload/images/20130510/13681909983907.jpg', '王辉', 0, '13817918575', 'shuaige@52sum.com', '466209365', '', 202, 1, '2013-05-19 14:35:01', '0000-00-00 00:00:00', '2013-05-12 23:20:59');
 
 -- --------------------------------------------------------
 
@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `hui_admin_log` (
   `log_create` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '登陆时间',
   `log_ip` varchar(15) NOT NULL COMMENT '登陆IP',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='管理员日志' AUTO_INCREMENT=226 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='管理员日志' AUTO_INCREMENT=232 ;
 
 --
 -- 转存表中的数据 `hui_admin_log`
@@ -254,7 +254,13 @@ INSERT INTO `hui_admin_log` (`id`, `u_id`, `u_name`, `log_create`, `log_ip`) VAL
 (222, 1, 'admin', '2013-05-16 16:19:27', '127.0.0.1'),
 (223, 1, 'admin', '2013-05-16 16:20:43', '127.0.0.1'),
 (224, 1, 'admin', '2013-05-16 16:22:45', '127.0.0.1'),
-(225, 1, 'admin', '2013-05-16 17:07:48', '127.0.0.1');
+(225, 1, 'admin', '2013-05-16 17:07:48', '127.0.0.1'),
+(226, 1, 'admin', '2013-05-16 23:53:24', '127.0.0.1'),
+(227, 1, 'admin', '2013-05-17 01:18:37', '127.0.0.1'),
+(228, 1, 'admin', '2013-05-17 13:16:55', '127.0.0.1'),
+(229, 1, 'admin', '2013-05-17 14:46:29', '127.0.0.1'),
+(230, 1, 'admin', '2013-05-18 18:29:27', '127.0.0.1'),
+(231, 1, 'admin', '2013-05-19 14:35:01', '127.0.0.1');
 
 -- --------------------------------------------------------
 
@@ -303,17 +309,14 @@ CREATE TABLE IF NOT EXISTS `hui_links` (
   `create_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '友情链接添加时间',
   `update_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '友情链接最后修改时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='友情链接表' AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='友情链接表' AUTO_INCREMENT=5 ;
 
 --
 -- 转存表中的数据 `hui_links`
 --
 
 INSERT INTO `hui_links` (`id`, `name`, `image_path`, `link_url`, `description`, `color`, `type`, `order`, `status`, `create_time`, `update_time`) VALUES
-(1, 'PHP工作室', '/Public/Lib/ueditor/php/../../../upload//photo/5153214e77636.jpg', 'http://www.baidu.com', '', '#2F3192', 1, 10, 1, '0000-00-00 00:00:00', '2013-04-14 10:14:09'),
-(3, '中文站', '', 'http://www.baidu.com', '', '#707070', 0, 20, 1, '2013-04-14 07:44:22', '0000-00-00 00:00:00'),
-(4, '普通', 'upload/photo/515321a73e88d.jpg', 'http://www.huicms.cn', '', '#FF0000', 1, 30, 1, '2013-04-14 07:46:02', '2013-04-14 10:16:39'),
-(5, '', '', '', NULL, NULL, 0, 0, 1, '2013-05-15 17:06:15', '0000-00-00 00:00:00');
+(4, '普通', 'upload/photo/515321a73e88d.jpg', 'http://www.huicms.cn', '', '#FF0000', 1, 30, 1, '2013-04-14 07:46:02', '2013-04-14 10:16:39');
 
 -- --------------------------------------------------------
 
@@ -338,6 +341,31 @@ CREATE TABLE IF NOT EXISTS `hui_message` (
   `updatetime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '留言更新时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='留言表' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `hui_nav`
+--
+
+CREATE TABLE IF NOT EXISTS `hui_nav` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '菜单ID',
+  `name` varchar(50) NOT NULL COMMENT '菜单名称',
+  `url` text COMMENT '菜单URL',
+  `order` int(11) NOT NULL DEFAULT '10' COMMENT '排序',
+  `target` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否新窗口打开:0.否,1是',
+  `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否显示',
+  `create_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '创建时间',
+  `update_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='前台菜单' AUTO_INCREMENT=2 ;
+
+--
+-- 转存表中的数据 `hui_nav`
+--
+
+INSERT INTO `hui_nav` (`id`, `name`, `url`, `order`, `target`, `status`, `create_time`, `update_time`) VALUES
+(1, '首页', 'http://www.baidu.com', 10, 1, 1, '2013-05-18 16:00:00', '2013-05-18 16:00:00');
 
 -- --------------------------------------------------------
 
