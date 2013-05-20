@@ -58,17 +58,16 @@
                 
             </li>
         </ul>
-        <div class="login">
-            <a href="{:U('Home/Oauth/OtherLogin','t=qq')}" class="login_icon" title="使用QQ帐号进行登录">
-                <img src="__PUBLIC__/Home/images/icon_qq.png"/>
-            </a>
-            <a href="javascript:alert('尚未开发');" class="login_icon" title="使用新浪微博进行登录">
-                <img src="__PUBLIC__/Home/images/icon_sina.png"/>
-            </a>
-            <a href="javascript:alert('尚未开发');" class="login_icon" title="使用腾讯微博进行登录">
-                <img src="__PUBLIC__/Home/images/icon_qqt.png"/>
-            </a>
-        </div>
+        <notempty name="oauth">
+            <div class="login">
+                <volist name="oauth" id="oh">
+                    <a href='{:U("Home/Oauth/OtherLogin","t=$oh[type]")}' class="login_icon" title="{$oh.name}">
+                    <img src="__PUBLIC__/Home/images/icon_{$oh.type}.png"/>
+                </a>
+                </volist>
+            </div>
+        </notempty>
+        
         <form method="get" class="search-form" action="/">
             <input class="search-input" name="s" type="text" placeholder="输入关键字搜索" autofocus="" x-webkit-speech=""><input class="btn btn-primary search-submit" type="submit" value="搜索">
         </form>
