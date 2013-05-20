@@ -10,7 +10,7 @@
         <table width="100%" class="list td_align">
             <thead>
                 <tr class="thead">
-                    <th class="align-center"><input name="u_id" type="checkbox" id="checkboxall" /></th>
+                    <th class="align-center"><input name="u_id" type="checkbox" class="checkAll" id="checkboxall" data-checklist="checkSon_x" data-direction="x" /></th>
                     
                     <th class="align-center">头像</th>
                     <th class="align-center">管理员帐号</th>
@@ -27,7 +27,7 @@
             <tbody>
             <volist name="data" id="vo">
                 <tr id="list_{$vo.u_id}">
-                    <td class="align-center"><input type="checkbox" value="{$vo.u_id}" name="checkall" class="checkSon" /></td>
+                    <td class="align-center"><input type="checkbox" value="{$vo.u_id}" name="checkall" class="checkSon" data-xid="checkSon_x"/></td>
                     
                 <td class="align-center">
                     <img src="__PUBLIC__/{$vo.u_photo|default='/Admin/images/avatar.png'}" width="44" height="44" />
