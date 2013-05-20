@@ -155,6 +155,58 @@ $(document).ready(function(){
         }
     });
     
+    if($('.list').length) {
+        
+        var checkAll = $('input.checkAll');
+        $.each(checkAll,function(){
+            var check_all = $(this), check_items;
+            //分组各纵横项
+            var check_all_direction = check_all.data('direction');
+            check_items = $('input.checkSon[data-'+ check_all_direction +'id="'+ check_all.data('checklist') +'"]');
+            //点击全选框
+            check_all.change(function (e) {
+                var check_wrap = check_all.parents('.tbList'); //当前操作区域所有复选框的父标签（重用考虑）
+
+                if ($(this).attr('checked')) {
+                    //全选状态
+                    check_items.attr('checked', true);
+
+                    //所有项都被选中
+                    if( check_wrap.find('input.checkSon').length === check_wrap.find('input.checkSon:checked').length) {
+                        check_wrap.find(checkAll).attr('checked', true);
+                    }
+
+                } else {
+                    //非全选状态
+                    check_items.removeAttr('checked');
+
+                    //另一方向的全选框取消全选状态
+                    var direction_invert = check_all_direction === 'x' ? 'y' : 'x';
+                    check_wrap.find($('input.checkAll[data-direction="'+ direction_invert +'"]')).removeAttr('checked');
+                }
+
+            });
+            
+            //点击非全选时判断是否全部勾选
+            check_items.change(function(){
+
+                if($(this).attr('checked')) {
+
+                    if(check_items.filter(':checked').length === check_items.length) {
+                        //已选择和未选择的复选框数相等
+                        check_all.attr('checked', true);
+                    }
+
+                }else{
+                    check_all.removeAttr('checked');
+                }
+
+            });
+        });
+    }
+    
+    
+    
     $(".module-item").change(function(){
         var parent = $(this).parent().parent().parent().parent();
         if(this.checked)
