@@ -18,7 +18,11 @@ class OauthAction extends HomeAction{
         $ary_get = $this->_get();
         $ary_data = array();
         $ary_data['state'] = $_SESSION['state'] = md5(uniqid(rand(), TRUE));
-        $ary_data['scope'] = $_SESSION['scope'] = "get_user_info,add_share,get_info,list_album,add_album,upload_pic,add_topic,add_one_blog,add_weibo";
+        if($ary_get['t'] == 'qq'){
+            $ary_data['scope'] = $_SESSION['scope'] = "get_user_info,add_share,get_info,list_album,add_album,upload_pic,add_topic,add_one_blog,add_weibo";
+        }else{
+            $ary_data['scope'] = 'all';
+        }
         $ary_data['response_type'] = "code";
         $url=str_replace('__APP__/','/','http://'.$_SERVER['HTTP_HOST'].U('Home/Oauth/OtherCallbackLogin',array('t'=>'qq')));
         $ary_data['redirect_uri'] = $url;
