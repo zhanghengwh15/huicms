@@ -12,9 +12,9 @@
                 <tr class="thead">
                     <th class="align-center">接口名称</th>
                     <th class="align-center">接口代码</th>
-                    <th class="align-center">是否启用</th>
                     <th class="align-center">排序</th>
-                    <th class="align-center">接口描述</th>
+                    <th class="align-center" style="text-align: left;">接口描述</th>
+                    <th class="align-center">版本号</th>
                     <th class="align-center">作者</th>
                     <th class="align-center">操作</th>
                 </tr>
@@ -23,16 +23,16 @@
             <volist name="data.data" id="list">
                 <tr>
                     <td class="align-center">{$list.name}</td>
+                    <td class="align-center">{$list.code}</td>
+                    <td class="align-center">{$list.order|default='0'}</td>
+                    <td class="align-center" style="text-align: left;">{$list.description}</td>
                     <td class="align-center">{$list.version}</td>
                     <td class="align-center">{$list.author}</td>
-                    <td class="align-center">{$list.description}</td>
-                    <td class="align-center">{$list.order}</td>
-                    <td class="align-center">{$list.version}</td>
                     <td class="align-center">
                         <div class="button-group">
                             <eq name="list.status" value="1">
                                 <a href='javascript:void(0);'  class="button danger icon pill settings doadd" name="{$list.name}" o_id="{$list.id}" alt="配置" title="配置" type="settings"></a>
-                                <a href="javascript:void(0);"  data-uri='{:U("Admin/Payment/doDelete","id=$list[id]")}' val="{$list[id]}" data-msg="确定要删除 <font color='red'>{$list.name}</font> 吗？" data-acttype="ajax" class="button danger icon pill remove dodel" title="删除"></a>
+                                <a href="javascript:void(0);"  data-uri='{:U("Admin/Oauth/doDelete","id=$list[id]")}' val="{$list[id]}" data-msg="确定要删除 <font color='red'>{$list.name}</font> 吗？" data-acttype="ajax" class="button danger icon pill remove doDel" title="删除"></a>
                             <else />
                                 <a href='javascript:void(0);'  class="button danger icon pill install doadd" alt="安装" title="安装" name="{$list.name}" code="{$list.code}" type="install" style="-webkit-border-radius: 50em;"></a>
                             </eq>
@@ -75,12 +75,12 @@
                 cancel: true,
                 ok: function () {
                     var res = $("#formvalidate").valid(); 
-                    var uri = "{:U('Admin/Payment/doSavePayment')}";
+                    var uri = "{:U('Admin/Oauth/doSaveOauth')}";
                     if(res){
                         var data = $("#formvalidate").serialize();
                         //document.formvalidate.submit();
                         $.post(uri, data, function(msgObj) {
-                            showMessage(msgObj.status,msgObj.info,"{:U('Admin/Payment/index')}",3);
+                            showMessage(msgObj.status,msgObj.info,"{:U('Admin/Oauth/index')}",3);
                             return false;
                         }, 'json');
                     }else{
@@ -103,9 +103,8 @@
         });
         
         //卸载支付列表
-        $(".dodel").click(function(){
+        $(".doDel").click(function(){
             var title = $(this).attr("data-msg");
-            var id = $(this).attr("val");
             var uri = $(this).attr("data-uri");
             $.dialog.confirm(title, function () {
                 $.ajax({
@@ -115,7 +114,7 @@
                     type:'GET',
                     data:{},
                     success:function(msgObj){
-                        showMessage(msgObj.status,msgObj.info,"{:U('Admin/Payment/index')}");
+                        showMessage(msgObj.status,msgObj.info,"{:U('Admin/Oauth/index')}");
                         return false;
                     }
                 });

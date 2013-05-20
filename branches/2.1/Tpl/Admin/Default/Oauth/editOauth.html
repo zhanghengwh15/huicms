@@ -29,13 +29,11 @@
                     <foreach name="list.config" item="conf" key="ky">
                         <tr>
                             <td class="name">
-                                <label class="validation">{$conf.name}&nbsp:</label>
+                                <label class="validation">{$ky|ucwords}&nbsp:</label>
                             </td>
                             <td>
                                 <input name="config_name[]" type="hidden"  value="{$ky}"/> 
-                                    <if condition="$conf.type eq 'text'">
-                                        <input name="config_value[]" type="text" class="input rounded" value="{$conf.value}" size="30" maxlength="50" />
-                                    </if>
+                                <input name="config_value[]" type="text" class="input rounded" value="{$conf}" size="30" maxlength="50" />
                             </td>
                             <td>
                                 {$list.description}
