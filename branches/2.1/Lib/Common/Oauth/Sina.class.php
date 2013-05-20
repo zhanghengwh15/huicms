@@ -12,3 +12,9 @@ if (isset($set_modules) && $set_modules == TRUE) {
     );
     return;
 }
+class Sina{
+    
+    
+    
+    
+}

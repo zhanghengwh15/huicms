@@ -45,4 +45,18 @@ abstract class HomeAction extends Action{
 //        echo "<pre>";print_r($oauth);exit;
         $this->assign("oauth",$oauth);
     }
+    
+    public function _empty() {
+        $this->_404();
+    }
+    
+    protected function _404($url = '') {
+        if ($url) {
+            redirect($url);
+        } else {
+            send_http_status(404);
+            $this->display(TMPL_PATH . '404.html');
+            exit;
+        }
+    }
 }
