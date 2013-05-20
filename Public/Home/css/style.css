@@ -21,7 +21,7 @@ a {
 .logo a {display: block;width: 130px;height: 30px;line-height: 30px;font-size: 26px;font-weight: bold;color: #fff;text-decoration: none;}
 
 /* 第三方登陆 */
-.login{width: 100px;position: relative;top: 2px;height: 30px;line-height: 30px;float: right;margin-left: 3px;}
+.login{width: auto;position: relative;top: 2px;height: 30px;line-height: 30px;float: right;margin-left: 3px;}
 a.login_icon {height: 30px;line-height: 30px;text-align: center;vertical-align: middle;margin:0 3px;}
 
 /* nav */
