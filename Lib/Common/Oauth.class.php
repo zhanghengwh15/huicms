@@ -58,7 +58,7 @@ class Oauth {
                 "code" => $valoauth['code'],
                 "name" => $valoauth['name'],
                 "config" => $config,
-                "description" => '',
+                "description" => $valoauth['desc'],
                 "status" => '0',
                 "author" => $valoauth['author'],
                 "version" => $valoauth['version']
