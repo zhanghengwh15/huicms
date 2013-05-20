@@ -16,7 +16,8 @@ abstract class HomeAction extends Action{
      * @date 2012-04-15
      */
     public function _initialize() {
-        $this->_title();
+        $this->_title();        //获取网站标题信息
+        $this->_oauth();        //获取登录授权
         if(!C('site_status')){
             header('Content-Type:text/html; charset=utf-8');
             exit(C('site_close'));
@@ -31,5 +32,17 @@ abstract class HomeAction extends Action{
 //        echo "<pre>";print_r($page_seo);exit;
         C($page_seo);
         $this->assign($page_seo);
+    }
+    
+    public function _oauth(){
+        $oauth = D("Oauth")->where(array('status'=>'1'))->select();
+        if(!empty($oauth) && is_array($oauth)){
+            foreach($oauth as $key => $val){
+                $oauth[$key]['type'] = strtolower($val['code']);
+                
+            }
+        }
+//        echo "<pre>";print_r($oauth);exit;
+        $this->assign("oauth",$oauth);
     }
 }
