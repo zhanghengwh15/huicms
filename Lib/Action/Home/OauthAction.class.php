@@ -23,11 +23,10 @@ class OauthAction extends HomeAction{
         $url=str_replace('__APP__/','/','http://'.$_SERVER['HTTP_HOST'].U('Home/Oauth/OtherCallbackLogin',array('t'=>'qq')));
         $ary_data['redirect_uri'] = $url;
         $type = ucwords($ary_get['t']);
-        $$ary_get['t'] = new $type('100421540','6962200fa1201fb8568ac4ffa4c63fbc');
+        $config = M("Oauth")->where(array('code'=>$type,'status'=>'1'))->find();
+        $ary_config = json_decode($config['config'],true);
+        $$ary_get['t'] = new $type($ary_config['app_key'],$ary_config['app_secret']);
         $loginUrl = $$ary_get['t']->getOauthUrl($ary_data);
-//        echo "<pre>";print_r($loginUrl);exit;
-        //https://graph.qq.com/oauth2.0/authorize?state=5b532cd944838952344a80990740ffad&scope=get_user_info,add_share,list_album,add_album,upload_pic,add_topic,add_one_blog,add_weibo&response_type=code&redirect_uri=http%3A%2F%2Fcms21.net%2FHome%2FOauth%2FOtherCallbackLogin%2Ft%2Fqq&client_id=100421540
-        //https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=100421540&redirect_uri=http%3A%2F%2Fhuicms.cn%2FHome%2FOauth%2FOtherCallbackLogin%2Ft%2Fqq&state=e71d267e086e9e310c9f5079d24956c1&scope=get_user_info,add_share,list_album,add_album,upload_pic,add_topic,add_one_blog,add_weibo
         location($loginUrl);exit;
     }
     
@@ -41,7 +40,10 @@ class OauthAction extends HomeAction{
             $ary_data['code'] = $ary_get['code'];
             $url=str_replace('__APP__/','/','http://'.$_SERVER['HTTP_HOST'].U('Home/Oauth/OtherCallbackLogin',array('t'=>'qq')));
             $ary_data['redirect_uri'] = $url;
-            $$ary_get['t'] = new $type('100421540','6962200fa1201fb8568ac4ffa4c63fbc');
+            $config = M("Oauth")->where(array('code'=>$type,'status'=>'1'))->find();
+            $ary_config = json_decode($config['config'],true);
+            $$ary_get['t'] = new $type($ary_config['app_key'],$ary_config['app_secret']);
+            //$$ary_get['t'] = new $type('100421540','6962200fa1201fb8568ac4ffa4c63fbc');
 //            echo "<pre>";print_r($ary_data);exit;
             $accessToken = $$ary_get['t']->getAccessToken($ary_data);
             if(!empty($accessToken) && is_array($accessToken)){
