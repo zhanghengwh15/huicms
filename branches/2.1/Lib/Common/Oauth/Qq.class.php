@@ -4,7 +4,7 @@ if (isset($set_modules) && $set_modules == TRUE) {
     $modules[$i]['code'] = basename(__FILE__, '.class.php');
     $modules[$i]['name'] = 'QQ登录';
     $modules[$i]['desc'] = '申请地址：http://connect.opensns.qq.com/';
-    $modules[$i]['author'] = 'HUICMS研发团队';
+    $modules[$i]['author'] = 'HuiCms研发团队';
     $modules[$i]['website'] = 'http://open.qq.com';
     $modules[$i]['version'] = '1.0';
     $modules[$i]['config'] = array(
