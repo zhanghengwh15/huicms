@@ -1,0 +1,126 @@
+<div class="rounded table" style="width: 98%;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" class="box_top">
+        <thead class="thead">
+            <tr class="space">
+                <th colspan="10">登陆接口</th>
+            </tr>
+        </thead>
+    </table>
+    <div class="contentbox" data-uri='{:U("Admin/Role/doEditStatus")}'>
+        <table width="100%" class="list td_align">
+            <thead>
+                <tr class="thead">
+                    <th class="align-center">接口名称</th>
+                    <th class="align-center">接口代码</th>
+                    <th class="align-center">是否启用</th>
+                    <th class="align-center">排序</th>
+                    <th class="align-center">接口描述</th>
+                    <th class="align-center">作者</th>
+                    <th class="align-center">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+            <volist name="data.data" id="list">
+                <tr>
+                    <td class="align-center">{$list.name}</td>
+                    <td class="align-center">{$list.version}</td>
+                    <td class="align-center">{$list.author}</td>
+                    <td class="align-center">{$list.description}</td>
+                    <td class="align-center">{$list.order}</td>
+                    <td class="align-center">{$list.version}</td>
+                    <td class="align-center">
+                        <div class="button-group">
+                            <eq name="list.status" value="1">
+                                <a href='javascript:void(0);'  class="button danger icon pill settings doadd" name="{$list.name}" o_id="{$list.id}" alt="配置" title="配置" type="settings"></a>
+                                <a href="javascript:void(0);"  data-uri='{:U("Admin/Payment/doDelete","id=$list[id]")}' val="{$list[id]}" data-msg="确定要删除 <font color='red'>{$list.name}</font> 吗？" data-acttype="ajax" class="button danger icon pill remove dodel" title="删除"></a>
+                            <else />
+                                <a href='javascript:void(0);'  class="button danger icon pill install doadd" alt="安装" title="安装" name="{$list.name}" code="{$list.code}" type="install" style="-webkit-border-radius: 50em;"></a>
+                            </eq>
+
+                        </div>
+                    </td>
+                </tr>
+            </volist>
+            <empty name="data">
+                <tr><td colspan="99">暂时没有数据!</td></tr>
+            </empty>
+            </tbody>
+        </table>
+        <div style="clear: both;"></div>
+    </div>
+
+</div>
+<script>
+    $(document).ready(function(){
+        //安装/编辑支付列表
+        $('.button-group a.doadd').live('click', function(){
+            var name = $(this).attr("name");
+            var id = $(this).attr("o_id");
+            var type = $(this).attr("type");
+            var code = $(this).attr("code");
+            var typenames;
+            if(type == 'settings'){
+                typenames = '修改';
+            }else{
+                typenames = '安装';
+            }
+
+            var dialog = $.dialog({
+                id:'add', 
+                height:'80px',
+                padding:'0px',
+                title: typenames +' -- '+name, 
+                resize: false,
+                drag: false,
+                cancel: true,
+                ok: function () {
+                    var res = $("#formvalidate").valid(); 
+                    var uri = "{:U('Admin/Payment/doSavePayment')}";
+                    if(res){
+                        var data = $("#formvalidate").serialize();
+                        //document.formvalidate.submit();
+                        $.post(uri, data, function(msgObj) {
+                            showMessage(msgObj.status,msgObj.info,"{:U('Admin/Payment/index')}",3);
+                            return false;
+                        }, 'json');
+                    }else{
+                        return false;
+                    }
+                },
+                lock:true
+            });
+            //var dialog = $.dialog.get('add');
+            if(type == 'settings'){
+                var url = '/Admin/Oauth/addOauth?id='+id+'&name='+name+'&type='+type;
+            }else{
+                var url = '/Admin/Oauth/addOauth?code='+code+'&type='+type;
+            }
+            
+            $.get(url, function(html){
+                dialog.content(html);
+            });
+//            dialog.shake && dialog.shake();// 调用抖动接口
+        });
+        
+        //卸载支付列表
+        $(".dodel").click(function(){
+            var title = $(this).attr("data-msg");
+            var id = $(this).attr("val");
+            var uri = $(this).attr("data-uri");
+            $.dialog.confirm(title, function () {
+                $.ajax({
+                    url:uri,
+                    cache:false,
+                    dataType:'json',
+                    type:'GET',
+                    data:{},
+                    success:function(msgObj){
+                        showMessage(msgObj.status,msgObj.info,"{:U('Admin/Payment/index')}");
+                        return false;
+                    }
+                });
+            }, function () {
+            });
+        });
+    });
+</script>
