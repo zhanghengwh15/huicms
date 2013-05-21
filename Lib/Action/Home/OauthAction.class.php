@@ -20,11 +20,13 @@ class OauthAction extends HomeAction{
         $ary_data['state'] = $_SESSION['state'] = md5(uniqid(rand(), TRUE));
         if($ary_get['t'] == 'qq'){
             $ary_data['scope'] = $_SESSION['scope'] = "get_user_info,add_share,get_info,list_album,add_album,upload_pic,add_topic,add_one_blog,add_weibo";
-        }else{
+        }else if($ary_get['t'] == 'tqq'){
             $ary_data['scope'] = 'all';
+        }else if($ary_get['scope']){
+            $ary_data['scope'] = 'email,direct_messages_write,direct_messages_read,friendships_groups_read,friendships_groups_write,statuses_to_me_read';
         }
         $ary_data['response_type'] = "code";
-        $url=str_replace('__APP__/','/','http://'.$_SERVER['HTTP_HOST'].U('Home/Oauth/OtherCallbackLogin',array('t'=>'qq')));
+        $url=str_replace('__APP__/','/','http://'.$_SERVER['HTTP_HOST'].U('Home/Oauth/OtherCallbackLogin',array('t'=>$ary_get['t'])));
         $ary_data['redirect_uri'] = $url;
         $type = ucwords($ary_get['t']);
         $config = M("Oauth")->where(array('code'=>$type,'status'=>'1'))->find();
@@ -42,14 +44,15 @@ class OauthAction extends HomeAction{
             //获取Access_Token
             $ary_data = array();
             $ary_data['code'] = $ary_get['code'];
-            $url=str_replace('__APP__/','/','http://'.$_SERVER['HTTP_HOST'].U('Home/Oauth/OtherCallbackLogin',array('t'=>'qq')));
+            $url=str_replace('__APP__/','/','http://'.$_SERVER['HTTP_HOST'].U('Home/Oauth/OtherCallbackLogin',array('t'=>$ary_get['t'])));
             $ary_data['redirect_uri'] = $url;
             $config = M("Oauth")->where(array('code'=>$type,'status'=>'1'))->find();
             $ary_config = json_decode($config['config'],true);
             $$ary_get['t'] = new $type($ary_config['app_key'],$ary_config['app_secret']);
             //$$ary_get['t'] = new $type('100421540','6962200fa1201fb8568ac4ffa4c63fbc');
-//            echo "<pre>";print_r($ary_data);exit;
+            
             $accessToken = $$ary_get['t']->getAccessToken($ary_data);
+//            echo "<pre>";print_r($ary_config);exit;
             if(!empty($accessToken) && is_array($accessToken)){
                 session("userinfo",$accessToken);
                 $this->success("登录成功",U('Home/Index/index'),3);

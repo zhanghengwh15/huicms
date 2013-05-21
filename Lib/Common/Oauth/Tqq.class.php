@@ -56,4 +56,35 @@ class Tqq{
         }
         return $resultUrl;
     }
+    
+    public function getAccessToken($ary_param = array()){
+        $ary_param['grant_type'] = 'authorization_code';
+        $ary_param['client_id'] = $this->str_appid;
+        $ary_param['redirect_uri']   = urlencode($ary_param['redirect_uri']);
+        $ary_param['client_secret']  = $this->str_appkey;
+        $ary_param['code'] = $ary_param['code'];
+        $this->str_url = $this->str_url."cgi-bin/oauth2/access_token?";
+        if(!empty($ary_param) && is_array($ary_param)){
+            $url = '';
+            $count = count($ary_param);
+            $i = '0';
+            foreach ($ary_param as $ky=>$vl){
+                $url .= $ky."=".$vl;
+                $i ++;
+                if($i != $count){
+                    $url .= "&";
+                }
+            }
+            $resultUrl = $this->str_url . $url;
+        }
+//        echo "<pre>";print_r($resultUrl);exit;
+        $response = file_get_contents($resultUrl);
+        $params = array();
+        parse_str($response, $params);
+//        echo "<pre>";print_r($response);exit;
+        $_SESSION["access_token"] = $params["access_token"];
+        $user = $this->getOauthUser(array('access_token'=>$params['access_token']));
+        $_SESSION["openid"] = $user['openid'];
+        return $user;
+    }
 }
