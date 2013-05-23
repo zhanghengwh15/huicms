@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2013 年 05 月 23 日 14:40
+-- 生成日期: 2013 年 05 月 23 日 15:10
 -- 服务器版本: 5.5.31-0ubuntu0.13.04.1
 -- PHP 版本: 5.4.9-4ubuntu2
 
@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `hui_admin` (
 --
 
 INSERT INTO `hui_admin` (`u_id`, `u_name`, `u_passwd`, `role_id`, `u_ip`, `u_photo`, `u_username`, `u_sex`, `u_phone`, `u_email`, `u_qq`, `u_description`, `u_countlog`, `u_status`, `u_lastlogin_time`, `u_create_time`, `u_update_time`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1, '127.0.0.1', 'upload/images/20130510/13681909983907.jpg', '王辉', 0, '13817918575', 'shuaige@52sum.com', '466209365', '', 214, 1, '2013-05-23 00:00:20', '0000-00-00 00:00:00', '2013-05-12 23:20:59');
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1, '127.0.0.1', 'upload/images/20130510/13681909983907.jpg', '王辉', 0, '13817918575', 'shuaige@52sum.com', '466209365', '', 215, 1, '2013-05-23 14:51:31', '0000-00-00 00:00:00', '2013-05-12 23:20:59');
 
 -- --------------------------------------------------------
 
@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `hui_admin_log` (
   `log_create` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '登陆时间',
   `log_ip` varchar(15) NOT NULL COMMENT '登陆IP',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='管理员日志' AUTO_INCREMENT=244 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='管理员日志' AUTO_INCREMENT=245 ;
 
 --
 -- 转存表中的数据 `hui_admin_log`
@@ -272,7 +272,8 @@ INSERT INTO `hui_admin_log` (`id`, `u_id`, `u_name`, `log_create`, `log_ip`) VAL
 (240, 1, 'admin', '2013-05-20 23:01:55', '127.0.0.1'),
 (241, 1, 'admin', '2013-05-21 11:04:35', '127.0.0.1'),
 (242, 1, 'admin', '2013-05-21 14:37:56', '127.0.0.1'),
-(243, 1, 'admin', '2013-05-23 00:00:20', '127.0.0.1');
+(243, 1, 'admin', '2013-05-23 00:00:20', '127.0.0.1'),
+(244, 1, 'admin', '2013-05-23 14:51:31', '127.0.0.1');
 
 -- --------------------------------------------------------
 
@@ -363,6 +364,7 @@ CREATE TABLE IF NOT EXISTS `hui_message` (
 CREATE TABLE IF NOT EXISTS `hui_nav` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '菜单ID',
   `name` varchar(50) NOT NULL COMMENT '菜单名称',
+  `alias_name` varchar(50) NOT NULL COMMENT '导航别名',
   `url` text COMMENT '菜单URL',
   `order` int(11) NOT NULL DEFAULT '10' COMMENT '排序',
   `type` varchar(25) NOT NULL DEFAULT 'main' COMMENT '导航类型:main.主导航,bottom.底部导航',
@@ -377,8 +379,8 @@ CREATE TABLE IF NOT EXISTS `hui_nav` (
 -- 转存表中的数据 `hui_nav`
 --
 
-INSERT INTO `hui_nav` (`id`, `name`, `url`, `order`, `type`, `target`, `status`, `create_time`, `update_time`) VALUES
-(1, '首页', 'http://www.baidu.com', 10, 'main', 1, 1, '2013-05-18 16:00:00', '2013-05-18 16:00:00');
+INSERT INTO `hui_nav` (`id`, `name`, `alias_name`, `url`, `order`, `type`, `target`, `status`, `create_time`, `update_time`) VALUES
+(1, '首页', 'index', 'http://www.baidu.com', 10, 'main', 1, 1, '2013-05-18 16:00:00', '2013-05-18 16:00:00');
 
 -- --------------------------------------------------------
 
