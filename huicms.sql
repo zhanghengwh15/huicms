@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2013 年 05 月 19 日 15:28
+-- 生成日期: 2013 年 05 月 23 日 14:40
 -- 服务器版本: 5.5.31-0ubuntu0.13.04.1
 -- PHP 版本: 5.4.9-4ubuntu2
 
@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `hui_admin` (
 --
 
 INSERT INTO `hui_admin` (`u_id`, `u_name`, `u_passwd`, `role_id`, `u_ip`, `u_photo`, `u_username`, `u_sex`, `u_phone`, `u_email`, `u_qq`, `u_description`, `u_countlog`, `u_status`, `u_lastlogin_time`, `u_create_time`, `u_update_time`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1, '127.0.0.1', 'upload/images/20130510/13681909983907.jpg', '王辉', 0, '13817918575', 'shuaige@52sum.com', '466209365', '', 202, 1, '2013-05-19 14:35:01', '0000-00-00 00:00:00', '2013-05-12 23:20:59');
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1, '127.0.0.1', 'upload/images/20130510/13681909983907.jpg', '王辉', 0, '13817918575', 'shuaige@52sum.com', '466209365', '', 214, 1, '2013-05-23 00:00:20', '0000-00-00 00:00:00', '2013-05-12 23:20:59');
 
 -- --------------------------------------------------------
 
@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `hui_admin_log` (
   `log_create` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '登陆时间',
   `log_ip` varchar(15) NOT NULL COMMENT '登陆IP',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='管理员日志' AUTO_INCREMENT=232 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='管理员日志' AUTO_INCREMENT=244 ;
 
 --
 -- 转存表中的数据 `hui_admin_log`
@@ -260,7 +260,19 @@ INSERT INTO `hui_admin_log` (`id`, `u_id`, `u_name`, `log_create`, `log_ip`) VAL
 (228, 1, 'admin', '2013-05-17 13:16:55', '127.0.0.1'),
 (229, 1, 'admin', '2013-05-17 14:46:29', '127.0.0.1'),
 (230, 1, 'admin', '2013-05-18 18:29:27', '127.0.0.1'),
-(231, 1, 'admin', '2013-05-19 14:35:01', '127.0.0.1');
+(231, 1, 'admin', '2013-05-19 14:35:01', '127.0.0.1'),
+(232, 1, 'admin', '2013-05-19 20:27:15', '127.0.0.1'),
+(233, 1, 'admin', '2013-05-19 20:32:56', '127.0.0.1'),
+(234, 1, 'admin', '2013-05-19 22:52:14', '127.0.0.1'),
+(235, 1, 'admin', '2013-05-19 23:51:06', '127.0.0.1'),
+(236, 1, 'admin', '2013-05-20 10:43:54', '127.0.0.1'),
+(237, 1, 'admin', '2013-05-20 11:46:37', '127.0.0.1'),
+(238, 1, 'admin', '2013-05-20 13:34:56', '127.0.0.1'),
+(239, 1, 'admin', '2013-05-20 14:34:30', '127.0.0.1'),
+(240, 1, 'admin', '2013-05-20 23:01:55', '127.0.0.1'),
+(241, 1, 'admin', '2013-05-21 11:04:35', '127.0.0.1'),
+(242, 1, 'admin', '2013-05-21 14:37:56', '127.0.0.1'),
+(243, 1, 'admin', '2013-05-23 00:00:20', '127.0.0.1');
 
 -- --------------------------------------------------------
 
@@ -288,7 +300,7 @@ INSERT INTO `hui_config` (`c_id`, `c_module`, `c_key`, `c_value`, `c_value_desc`
 (1, 'ADMIN_ACCESS', 'EXPIRED_TIME', '500', '登陆超时时间', '2013-05-03 02:25:45', '0000-00-00 00:00:00'),
 (2, 'ADMIN_ACCESS', 'SYS_ADMIN', 'admin', '系统管理员', '2013-03-25 16:43:50', '0000-00-00 00:00:00'),
 (3, '', '', NULL, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(4, 'WEBSITE', 'WEBSITE', '{"site_name":"HuiCMS\\u5185\\u5bb9\\u7ba1\\u7406\\u7cfb\\u7edf","site_title":"Title","site_keyword":"HuiCMS,\\u5f00\\u6e90cms,\\u514d\\u8d39cms,\\u5c0f\\u5de7cms,\\u7b80\\u5355cms","site_description":"HuiCMS\\u662f\\u4e00\\u6b3e\\u57fa\\u4e8ePHP+MYSQL\\uff0c\\u91c7\\u7528THINKPHP\\u6846\\u67b6\\u7f16\\u5199\\u7684\\u4e00\\u6b3e\\u9488\\u5bf9\\u5927\\u5c0f\\u578b\\u516c\\u53f8\\u4f01\\u4e1a\\u7b49\\u901a\\u7528\\u7684cms\\u7a0b\\u5e8f\\u3002","site_icp":"42222641276051353636","site_code":"","site_status":"1","site_close":"\\u7ad9\\u70b9\\u7ef4\\u62a4\\u4e2d"}', '站点信息配置', '2013-05-16 06:18:26', '2013-05-16 06:18:26');
+(4, 'WEBSITE', 'WEBSITE', '{"site_name":"HuiCMS\\u5185\\u5bb9\\u7ba1\\u7406\\u7cfb\\u7edf","site_title":"Title","site_keyword":"HuiCMS,\\u5f00\\u6e90cms,\\u514d\\u8d39cms,\\u5c0f\\u5de7cms,\\u7b80\\u5355cms","site_description":"HuiCMS\\u662f\\u4e00\\u6b3e\\u57fa\\u4e8ePHP+MYSQL\\uff0c\\u91c7\\u7528THINKPHP\\u6846\\u67b6\\u7f16\\u5199\\u7684\\u4e00\\u6b3e\\u9488\\u5bf9\\u5927\\u5c0f\\u578b\\u516c\\u53f8\\u4f01\\u4e1a\\u7b49\\u901a\\u7528\\u7684cms\\u7a0b\\u5e8f\\u3002","site_icp":"42222641276051353636","site_code":"","site_status":"1","site_close":"\\u7f51\\u7ad9\\u5173\\u95ed\\u4e2d"}', '站点信息配置', '2013-05-19 13:15:36', '2013-05-19 13:15:36');
 
 -- --------------------------------------------------------
 
@@ -353,6 +365,7 @@ CREATE TABLE IF NOT EXISTS `hui_nav` (
   `name` varchar(50) NOT NULL COMMENT '菜单名称',
   `url` text COMMENT '菜单URL',
   `order` int(11) NOT NULL DEFAULT '10' COMMENT '排序',
+  `type` varchar(25) NOT NULL DEFAULT 'main' COMMENT '导航类型:main.主导航,bottom.底部导航',
   `target` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否新窗口打开:0.否,1是',
   `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否显示',
   `create_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '创建时间',
@@ -364,8 +377,8 @@ CREATE TABLE IF NOT EXISTS `hui_nav` (
 -- 转存表中的数据 `hui_nav`
 --
 
-INSERT INTO `hui_nav` (`id`, `name`, `url`, `order`, `target`, `status`, `create_time`, `update_time`) VALUES
-(1, '首页', 'http://www.baidu.com', 10, 1, 1, '2013-05-18 16:00:00', '2013-05-18 16:00:00');
+INSERT INTO `hui_nav` (`id`, `name`, `url`, `order`, `type`, `target`, `status`, `create_time`, `update_time`) VALUES
+(1, '首页', 'http://www.baidu.com', 10, 'main', 1, 1, '2013-05-18 16:00:00', '2013-05-18 16:00:00');
 
 -- --------------------------------------------------------
 
@@ -379,7 +392,10 @@ CREATE TABLE IF NOT EXISTS `hui_oauth` (
   `name` varchar(50) NOT NULL COMMENT '名称',
   `config` text NOT NULL COMMENT '以json格式存储配置信息',
   `description` text NOT NULL COMMENT '描述',
+  `order` int(11) NOT NULL DEFAULT '10' COMMENT '排序',
   `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '状态',
+  `author` varchar(50) NOT NULL COMMENT '作者',
+  `version` varchar(50) NOT NULL COMMENT '版本',
   PRIMARY KEY (`id`),
   UNIQUE KEY `code` (`code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='第三方登陆表' AUTO_INCREMENT=1 ;
@@ -480,13 +496,13 @@ INSERT INTO `hui_role_nav` (`id`, `name`, `status`, `sort`) VALUES
 (1, '系统管理', 1, 10),
 (2, '模块管理', 1, 60),
 (3, '控制台', 1, 0),
-(4, '用户管理', 1, 70),
-(5, '内容管理', 1, 80),
-(6, '商品管理', 1, 90),
-(7, '模板管理', 0, 100),
+(4, '用户管理', 0, 70),
+(5, '内容管理', 0, 80),
+(6, '商品管理', 0, 90),
+(7, '模板管理', 1, 100),
 (8, '数据', 1, 110),
 (9, '全局', 1, 120),
-(10, '订单管理', 1, 85);
+(10, '订单管理', 0, 85);
 
 -- --------------------------------------------------------
 
@@ -506,7 +522,7 @@ CREATE TABLE IF NOT EXISTS `hui_role_node` (
   `auth_type` tinyint(1) NOT NULL DEFAULT '0' COMMENT '授权模式：1:模块授权(module) 2:操作授权(action) 0:节点授权(node)',
   `is_show` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否菜单显示:0.不显示,1.显示',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='节点表' AUTO_INCREMENT=103 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='节点表' AUTO_INCREMENT=107 ;
 
 --
 -- 转存表中的数据 `hui_role_node`
@@ -605,7 +621,11 @@ INSERT INTO `hui_role_node` (`id`, `action`, `action_name`, `module`, `module_na
 (99, 'addCustomer', '添加客服', 'Customer', '在线客服', 2, 1, 10, 0, 1),
 (100, 'editCustomer', '编辑客服', 'Customer', '在线客服', 2, 1, 10, 0, 0),
 (101, '', '', 'Oauth', '登陆接口', 2, 1, 10, 1, 1),
-(102, 'index', '接口列表', 'Oauth', '登陆接口', 2, 1, 10, 0, 1);
+(102, 'index', '接口列表', 'Oauth', '登陆接口', 2, 1, 10, 0, 1),
+(103, '', '', 'Nav', '导航管理', 7, 1, 10, 1, 1),
+(104, 'index', '导航设置', 'Nav', '导航管理', 7, 1, 10, 0, 1),
+(105, 'addNav', '添加导航', 'Nav', '导航管理', 7, 1, 10, 0, 1),
+(106, 'editNav', '编辑导航', 'Nav', '导航管理', 7, 1, 10, 0, 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
