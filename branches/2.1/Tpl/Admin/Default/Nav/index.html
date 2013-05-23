@@ -1,14 +1,147 @@
-<!--
-To change this template, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
-<html>
-    <head>
-        <title></title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
-</html>
+<div class="rounded table" style="width: 98%;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" class="box_top">
+        <thead class="thead">
+            <tr class="space">
+                <th colspan="10">导航列表</th>
+            </tr>
+        </thead>
+    </table>
+    <div class="contentbox" data-uri='{:U("Admin/Nav/doEditStatus")}'>
+        <table width="100%" class="list td_align">
+            <thead>
+                <tr class="thead">
+                    <th class="align-center"><input name="id" type="checkbox" id="checkboxall" /></th>
+                    
+                    <th class="align-center">导航名称</th>
+                    <th class="align-center">别名</th>
+                    <th class="align-center">链接地址</th>
+                    <th class="align-center">导航位置</th>
+                    <th class="align-center">打开方式</th>
+                    <th class="align-center">排序</th>
+                    <th class="align-center">状态</th>
+                    <th class="align-center">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+            <volist name="data" id="list">
+                <tr id="list_{$list.id}">
+                    <td class="align-center"><input type="checkbox" name="id" value="" /></td>
+                    
+                    <td class="align-center">{$list.name}</td>
+                    <td class="align-center">{$list.alias_name}</td>
+                    <td class="align-center">{$list.url}</td>
+                    <td class="align-center"><if condition="$list.type eq 'main'">主导航<else />底部导航</if></td>
+                    <td class="align-center">{$list.target}</td>
+                    <td class="align-center">{$list.order}</td>
+                    <td class="align-center">
+                        <img class="pointer" data-id="{$list[id]}" style="cursor: pointer;" data-field="status" data-value="{$list.status}"
+                                <if condition="$list.status eq '1'">
+                                    src="__PUBLIC__/Admin/images/icons/icon_1.png" alt="启用" title="启用"
+                                <else />
+                                    src="__PUBLIC__/Admin/images/icons/icon_0.png" alt="停用" title="停用"
+                                </if> 
+                            />
+                    </td>
+                    <td class="align-center">
+                        <div class="button-group">
+                            <a href='{:U("Admin/Role/editRole?id=$list[id]")}'  class="button danger icon pill edit" alt="编辑" title="编辑"></a>
+                            <a href="javascript:void(0);"  data-uri='{:U("Admin/Role/doDelete","id=$list[id]")}' val="{$list[id]}" data-msg="确定要删除“{$list.name}”吗？" data-acttype="ajax" class="button danger icon pill remove dodel" title="删除"></a>
+                        </div>
+                    </td>
+                </tr>
+            </volist>
+            <empty name="data">
+                <tr><td colspan="99">暂时没有数据!</td></tr>
+            </empty>
+            </tbody>
+        </table>
+        <div class="pagination">
+            <ul>
+            {$page}
+            <select name="pageall" onChange="window.location.href=this.value">
+                <option value='{:U("Admin/Role/index","pageall=1")}' <if condition="$filter.pageall eq '1'">selected="selected"</if>>1条/页</option>
+                <option value='{:U("Admin/Role/index","pageall=5")}' <if condition="$filter.pageall eq '5'">selected="selected"</if>>5条/页</option>
+                <option value='{:U("Admin/Role/index","pageall=10")}'<if condition="$filter.pageall eq '10'">selected="selected"</if>>10条/页</option>
+                <option value='{:U("Admin/Role/index","pageall=20")}'<if condition="$filter.pageall eq '20'">selected="selected"</if>>20条/页</option>
+                <option value='{:U("Admin/Role/index","pageall=50")}'<if condition="$filter.pageall eq '50'">selected="selected"</if>>50条/页</option>
+                <option value='{:U("Admin/Role/index","pageall=80")}'<if condition="$filter.pageall eq '80'">selected="selected"</if>>80条/页</option>
+                <option value='{:U("Admin/Role/index","pageall=100")}'<if condition="$filter.pageall eq '100'">selected="selected"</if>>100条/页</option>
+                <option value='{:U("Admin/Role/index","pageall=500")}'<if condition="$filter.pageall eq '500'">selected="selected"</if>>500条/页</option>
+            </select>
+        </ul>
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+
+</div>
+<script>
+    $(document).ready(function(){
+        $(".dodel").click(function(){
+            var val = $(this).attr("val");
+            var self = $(this),
+            msg = self.attr('data-msg'),
+            url = self.attr('data-uri');
+            if(confirm(msg)){
+                $.ajax({
+                    url:url,
+                    cache:false,
+                    dataType:"json",
+                    data: {},
+                    type:"POST",
+                    beforeSend:function(){
+                        $("#J_ajax_loading").stop().removeClass('ajax_error').addClass('ajax_loading').html("提交请求中，请稍候...").show();
+                    },
+                    error:function(){
+                        $("#J_ajax_loading").removeClass('ajax_success').addClass('ajax_error').html("AJAX请求发生错误！").show().fadeOut(5000);
+                    },
+                    success:function(msgObj){
+                        $("#J_ajax_loading").hide();
+                        if(msgObj.status == '1'){
+                            $("#list_"+val).remove();
+                            $("#J_ajax_loading").removeClass('ajax_error').addClass('ajax_success').html(msgObj.info).show().fadeOut(5000);
+                        }else{
+                            $("#J_ajax_loading").removeClass('ajax_success').addClass('ajax_error').html(msgObj.info).show().fadeOut(5000);
+                        }
+                    }
+                });
+            }
+        });
+    
+        //切换
+        $('.pointer').live('click', function() {
+            var url = $(".contentbox").attr("data-uri");
+            var img    = this,
+            s_val  = ($(img).attr('data-value'))== 0 ? 1 : 0,
+            s_name = $(img).attr('data-field'),
+            s_id   = $(img).attr('data-id'),
+            s_src  = $(img).attr('src');
+            s_msg = ($(img).attr('data-value'))== 0 ? '启用' : '停用';
+            $.ajax({
+                url:url,
+                cache:false,
+                dataType:"json",
+                data: {id:s_id, field:s_name, val:s_val},
+                type:"POST",
+                beforeSend:function(){
+                    $("#J_ajax_loading").stop().removeClass('ajax_error').addClass('ajax_loading').html("提交请求中，请稍候...").show();
+                },
+                error:function(){
+                    $("#J_ajax_loading").addClass('ajax_error').html("AJAX请求发生错误！").show().fadeOut(5000);
+                },
+                success:function(msgObj){
+                    $("#J_ajax_loading").hide();
+                    if(msgObj.status == '1'){
+                        $("#J_ajax_loading").removeClass('ajax_error').addClass('ajax_success').html(msgObj.info).show().fadeOut(5000);
+                        if(s_src.indexOf('0')>-1) {
+                                $(img).attr({'src':s_src.replace('0','1'),'data-value':s_val,'title':s_msg,'alt':s_msg});
+                        } else {
+                                $(img).attr({'src':s_src.replace('1','0'),'data-value':s_val,'title':s_msg,'alt':s_msg});
+                        }
+                    }else{
+                        $("#J_ajax_loading").removeClass('ajax_success').addClass('ajax_error').html(msgObj.info).show().fadeOut(5000);
+                    }
+                }
+            });
+        });
+    });    
+</script>
