@@ -102,7 +102,8 @@ $(document).ready(function(){
 $(document).ready(function(){   
     $(".formvalidate").validate({
         errorElement: "span",
-        errorClass: "errormsg"
+        errorClass: "errormsg",
+        success:"valid"
     });   
 });
 

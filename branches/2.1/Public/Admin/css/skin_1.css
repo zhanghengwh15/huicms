@@ -194,7 +194,7 @@ label.validation{font-weight:700; padding-left:16px;line-height: 16px;}
 
 .thead th{ font-size:13px; font-weight: 700; color: #333; white-space: nowrap;}
 span.errormsg {color: red;text-indent: 20px;display: inline-block;background-image: url('../images/icons/icon_error.png');background-position: 2px -1px;margin-left: 5px;background-repeat: no-repeat;}
-
+span.valid {background: url("../images/checked.gif") no-repeat left;width: 14px;height: 13px;overflow: hidden;padding: 0;margin: 5px 0 0 5px;display: inline-block;}
 /* 分页样式 */
 .pagination{ margin:10px 5px 5px 0px;padding: 2px; float:right; +float:none; +position: absolute; +right:6px;}
 .pagination ul{ margin: 0; padding: 0; }
