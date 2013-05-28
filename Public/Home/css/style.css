@@ -313,7 +313,7 @@ padding:12px 0;
 	position: absolute;
 	bottom:0px;
 	right:20px;
-	z-index: 10000;
+	z-index: 5;
 	text-shadow: 0 0 2px #FFF;
 }
 #slider-controls a {
