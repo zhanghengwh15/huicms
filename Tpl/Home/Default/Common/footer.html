@@ -1,3 +1,18 @@
+<notempty name="links">
+    <div id="links">
+        <h2>
+            <span class="h2_txt">友情链接/Links</span>
+        </h2>
+        <div class="link_con">
+            <span class="link_a">
+                <volist name="links" id="link">
+                    <a href="{$link.link_url}" target="_blank" title="{$link.description}"><font color="{$link.color}">{$link.name}</font></a> 
+                </volist>
+            </span>
+        </div>
+    </div>
+</notempty>
+    
 <footer class="indexFooter">
 	<div class="wrap clearfix">
         <p>版权所有©<span class="ffa">2013-2020</span>&nbsp;&nbsp;HuiCms&nbsp;&nbsp;<span class="ffa">{$site_icp}</span></p>
