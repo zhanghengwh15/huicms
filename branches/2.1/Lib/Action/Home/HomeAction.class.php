@@ -17,6 +17,7 @@ abstract class HomeAction extends Action{
      */
     public function _initialize() {
         $this->_title();        //获取网站标题信息
+        $this->_nav();
         $this->_oauth();        //获取登录授权
         if(!C('site_status')){
             header('Content-Type:text/html; charset=utf-8');
@@ -58,5 +59,11 @@ abstract class HomeAction extends Action{
             $this->display(TMPL_PATH . '404.html');
             exit;
         }
+    }
+    
+    public function _nav(){
+        $nav = D("Nav")->where(array('status'=>'1','`type`'=>'main'))->order('`order` desc')->select();
+//        echo "<pre>";print_r($nav);exit;
+        $this->assign("nav",$nav);
     }
 }
