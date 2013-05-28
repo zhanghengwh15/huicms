@@ -1,14 +1,114 @@
-<!--
-To change this template, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
-<html>
-    <head>
-        <title></title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
-</html>
+<div class="rounded table" style="width: 98%;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" class="box_top">
+        <thead class="thead">
+            <tr class="space">
+                <th colspan="10">编辑导航</th>
+            </tr>
+        </thead>
+    </table>
+    <form action="{:U('Admin/Nav/doSaveNav')}" method="post" class="formvalidate">
+        <table class="list" cellpadding="0" cellspacing="1" border="0">
+            <tbody>               
+                <tr>
+                    <td class="name">
+                        <label class="validation"><span class="spanMsg">*</span>导航名称：</label>
+                    </td>
+                    <td>
+                        <input type="text" class="input rounded" name="name" size="40" value="{$data.name}" style="width:300px;" validate='{ required:true,maxlength:30,remote:"{:U("Admin/Nav/checkName","id=$data[id]")}",messages:{required:"导航名称不能为空",maxlength:"导航名称不能超出30字符"}}'>
+                    </td>
+                    <td class="field"></td>
+                </tr>
+                <tr>
+                    <td class="name">
+                        <label class="validation"><span class="spanMsg">*</span>别名：</label>
+                    </td>
+                    <td>
+                        <input type="text" name="alias_name" id="alias_name" value="{$data.alias_name}" class="input rounded iColorPicker" size="40" style="width:300px;" required validate="{ required:true,maxlength:30}">
+                    </td>
+                    <td class="field">
+                        <img title="链接名称链接颜色，只对文字链接时有效，留空将采用全局链接样式" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16">				
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name" width="150">
+                        <label class="validation"><span class="spanMsg">*</span>链接地址：</label>
+                    </td>
+                    <td><input type="text" class="input rounded" name="url" id="url" size="30" value="{$data.url}" style="width:300px;" required validate="{ required:true}"></td>
+                    <td class="field"></td>
+                </tr>
+                <tr class="odd">
+                    <td class="name">
+                        <label class="validation">
+                            <span class="spanMsg">*</span>导航位置：
+                        </label>
+                    </td> 
+                    <td>
+                        <select name="type" class="select rounded" style="font-family:'Courier New',Courier,monospace;">
+                            <option value="main" <if condition="$data.type eq 'main'">selected="selected"</if>>主导航</option>
+                                <option value="bottom" <if condition="$data.type eq 'bottom'">selected="selected"</if>>底部导航</option>
+                        </select> 
+
+                    </td>
+                    <td class="field"></td>
+                </tr>
+                <tr class="odd">
+                    <td class="name">
+                        <label class="validation">
+                            <span class="spanMsg">*</span>打开方式：
+                        </label>
+                    </td> 
+                    <td>
+                        <select name="target" class="select rounded" style="font-family:'Courier New',Courier,monospace;">
+                                <option value="_blank" <if condition="$data.target eq '_blank'">selected="selected"</if>>新窗口打开</option>
+                                <option value="_self" <if condition="$data.target eq '_self'">selected="selected"</if>>本窗口</option>
+                        </select> 
+
+                    </td>
+                    <td class="field"></td>
+                </tr>
+                <tr>
+                    <td class="name">
+                        <label class="validation"><span class="spanMsg">*</span>排序：</label>
+                    </td>
+                    <td>
+                        <input type="text" name="order" value="{$data.order}" class="input rounded" size="10">  
+                    </td>
+                    <td class="field">
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name" width="150">
+                        <label class="validation">
+                            <span class="spanMsg">*</span>状态：
+                        </label>
+                    </td>  
+                    <td class="rowform">
+                        <ul>
+
+                            <li>
+                                <label>
+                                    <input type="radio" <if condition="$data.status eq '1'">checked="checked"</if> value="1" name="status">启用</label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" value="0" name="status" <if condition="$data.status eq '0'">checked="checked"</if>>停用</label>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table top_line">
+            <tbody>
+                <tr>
+                    <td align="center" height="60" colspan="2">
+                        <input name="id" type="hidden" value="{$data.id}">
+                        <input id="submit" class="btn" type="submit" value="提交">
+                        <input type="reset" id="reset" class="btn reset" value="重置">                        
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
