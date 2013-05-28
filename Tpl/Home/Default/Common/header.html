@@ -21,15 +21,11 @@
             <a href="http://www.huicms.cn" title="HuiCms">HuiCms</a>
         </div>
         <ul class="nav">
-            <li id="menu-item-2003" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2003">
-                <a href="http://www.huicms.cn" class="on">首页</a>
-            </li>
-            <li id="menu-item-2008" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2008">
-                <a href="/">交流讨论</a>
-            </li>
-            <li id="menu-item-2012" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2012">
-                <a href="http://t.qq.com/php200">关注我们</a>
-            </li>
+            <volist name="nav" id="nv">
+                <li id="menu-item-2003" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2003">
+                    <a href="{$nv.url}" class="on" target="{$nv.target}">{$nv.name}</a>
+                </li>
+            </volist>
         </ul>
         <ul class="header-menu">
             <li class="menu-profile">
