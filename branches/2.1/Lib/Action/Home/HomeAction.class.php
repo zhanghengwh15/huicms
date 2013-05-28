@@ -19,6 +19,7 @@ abstract class HomeAction extends Action{
         $this->_title();        //获取网站标题信息
         $this->_nav();
         $this->_oauth();        //获取登录授权
+        $this->_links();
         if(!C('site_status')){
             header('Content-Type:text/html; charset=utf-8');
             exit(C('site_close'));
@@ -65,5 +66,10 @@ abstract class HomeAction extends Action{
         $nav = D("Nav")->where(array('status'=>'1','`type`'=>'main'))->order('`order` desc')->select();
 //        echo "<pre>";print_r($nav);exit;
         $this->assign("nav",$nav);
+    }
+    
+    public function _links(){
+        $links = D("Links")->where(array('type'=>'0','status'=>'1'))->order('`order` desc')->select();
+        $this->assign("links",$links);
     }
 }
