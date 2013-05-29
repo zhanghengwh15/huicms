@@ -1,6 +1,6 @@
 <?php
 /**
- * 前台展厅控制器基类
+ * 前台展厅控制器
  *
  * @package Action
  * @subpackage Home
