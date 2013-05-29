@@ -1,32 +1,25 @@
--- phpMyAdmin SQL Dump
--- version 3.5.8.1deb1
--- http://www.phpmyadmin.net
---
--- 主机: localhost
--- 生成日期: 2013 年 05 月 23 日 15:10
--- 服务器版本: 5.5.31-0ubuntu0.13.04.1
--- PHP 版本: 5.4.9-4ubuntu2
+/*
+Navicat MySQL Data Transfer
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
+Source Server         : 本地
+Source Server Version : 50516
+Source Host           : localhost:3306
+Source Database       : huicms
 
+Target Server Type    : MYSQL
+Target Server Version : 50516
+File Encoding         : 65001
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+Date: 2013-05-28 17:00:40
+*/
 
---
--- 数据库: `huicms`
---
+SET FOREIGN_KEY_CHECKS=0;
 
--- --------------------------------------------------------
-
---
--- 表的结构 `hui_admin`
---
-
-CREATE TABLE IF NOT EXISTS `hui_admin` (
+-- ----------------------------
+-- Table structure for `hui_admin`
+-- ----------------------------
+DROP TABLE IF EXISTS `hui_admin`;
+CREATE TABLE `hui_admin` (
   `u_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '管理员ID',
   `u_name` varchar(50) NOT NULL COMMENT '管理员用户名',
   `u_passwd` varchar(32) NOT NULL COMMENT '管理员密码',
@@ -45,243 +38,235 @@ CREATE TABLE IF NOT EXISTS `hui_admin` (
   `u_create_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '创建时间',
   `u_update_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '更新时间',
   PRIMARY KEY (`u_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='管理员' AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='管理员';
 
---
--- 转存表中的数据 `hui_admin`
---
+-- ----------------------------
+-- Records of hui_admin
+-- ----------------------------
+INSERT INTO `hui_admin` VALUES ('1', 'admin', '21232f297a57a5a743894a0e4a801fc3', '1', '127.0.0.1', 'upload/photo/515321a73e88d.jpg', '王辉', '0', '13817918575', 'shuaige@52sum.com', '466209365', '', '215', '1', '2013-05-23 14:51:31', '0000-00-00 00:00:00', '2013-05-28 10:23:34');
 
-INSERT INTO `hui_admin` (`u_id`, `u_name`, `u_passwd`, `role_id`, `u_ip`, `u_photo`, `u_username`, `u_sex`, `u_phone`, `u_email`, `u_qq`, `u_description`, `u_countlog`, `u_status`, `u_lastlogin_time`, `u_create_time`, `u_update_time`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1, '127.0.0.1', 'upload/images/20130510/13681909983907.jpg', '王辉', 0, '13817918575', 'shuaige@52sum.com', '466209365', '', 215, 1, '2013-05-23 14:51:31', '0000-00-00 00:00:00', '2013-05-12 23:20:59');
-
--- --------------------------------------------------------
-
---
--- 表的结构 `hui_admin_log`
---
-
-CREATE TABLE IF NOT EXISTS `hui_admin_log` (
+-- ----------------------------
+-- Table structure for `hui_admin_log`
+-- ----------------------------
+DROP TABLE IF EXISTS `hui_admin_log`;
+CREATE TABLE `hui_admin_log` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '登陆日志ID',
   `u_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '登陆者ID',
   `u_name` varchar(60) NOT NULL DEFAULT '' COMMENT '登陆管理员',
   `log_create` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '登陆时间',
   `log_ip` varchar(15) NOT NULL COMMENT '登陆IP',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='管理员日志' AUTO_INCREMENT=245 ;
+) ENGINE=InnoDB AUTO_INCREMENT=245 DEFAULT CHARSET=utf8 COMMENT='管理员日志';
 
---
--- 转存表中的数据 `hui_admin_log`
---
+-- ----------------------------
+-- Records of hui_admin_log
+-- ----------------------------
+INSERT INTO `hui_admin_log` VALUES ('45', '1', 'admin', '2013-03-26 09:19:12', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('46', '1', 'admin', '2013-03-26 09:49:42', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('47', '1', 'admin', '2013-03-26 10:17:12', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('48', '1', 'admin', '2013-03-26 10:31:40', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('49', '1', 'admin', '2013-03-26 10:54:49', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('50', '1', 'admin', '2013-03-26 11:02:52', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('51', '1', 'admin', '2013-03-26 11:11:38', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('52', '1', 'admin', '2013-03-26 11:30:13', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('53', '1', 'admin', '2013-03-26 11:31:47', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('54', '1', 'admin', '2013-03-26 11:33:47', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('55', '1', 'admin', '2013-03-26 14:14:22', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('56', '1', 'admin', '2013-03-26 20:00:24', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('57', '1', 'admin', '2013-03-26 21:05:14', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('58', '1', 'admin', '2013-03-26 21:05:36', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('59', '1', 'admin', '2013-03-26 22:13:32', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('60', '1', 'admin', '2013-03-27 01:28:33', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('61', '1', 'admin', '2013-03-27 09:10:42', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('62', '1', 'admin', '2013-03-27 13:28:21', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('63', '1', 'admin', '2013-03-27 20:19:25', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('64', '1', 'admin', '2013-03-27 21:30:28', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('65', '1', 'admin', '2013-03-27 22:34:50', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('66', '1', 'admin', '2013-03-27 22:44:34', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('67', '1', 'admin', '2013-03-27 22:44:55', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('68', '1', 'admin', '2013-03-27 22:58:58', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('69', '1', 'admin', '2013-03-28 01:13:17', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('70', '1', 'admin', '2013-03-28 09:38:12', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('71', '1', 'admin', '2013-03-28 13:08:47', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('72', '1', 'admin', '2013-03-29 00:16:41', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('73', '1', 'admin', '2013-03-29 09:50:23', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('74', '1', 'admin', '2013-03-29 11:42:02', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('75', '1', 'admin', '2013-03-29 13:10:23', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('76', '1', 'admin', '2013-03-31 23:39:30', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('77', '1', 'admin', '2013-04-01 00:18:36', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('78', '1', 'admin', '2013-04-01 09:12:04', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('79', '3', '测试', '2013-04-01 11:16:51', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('80', '1', 'admin', '2013-04-01 12:52:00', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('81', '1', 'admin', '2013-04-01 19:48:47', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('82', '1', 'admin', '2013-04-01 20:09:19', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('83', '1', 'admin', '2013-04-01 20:14:02', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('84', '3', '测试', '2013-04-01 20:14:25', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('85', '3', '测试', '2013-04-01 22:41:32', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('86', '3', '测试', '2013-04-01 22:43:22', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('87', '3', '测试', '2013-04-01 22:46:32', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('88', '3', '测试', '2013-04-01 22:47:59', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('89', '1', 'admin', '2013-04-01 22:48:12', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('90', '3', '测试', '2013-04-01 22:50:05', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('91', '1', 'admin', '2013-04-01 23:36:03', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('92', '3', '测试', '2013-04-01 23:36:49', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('93', '1', 'admin', '2013-04-01 23:37:49', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('94', '3', '测试', '2013-04-01 23:39:30', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('95', '1', 'admin', '2013-04-01 23:48:37', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('96', '3', '测试', '2013-04-01 23:53:05', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('97', '3', '测试', '2013-04-02 00:00:31', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('98', '3', '测试', '2013-04-02 00:02:59', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('99', '1', 'admin', '2013-04-02 00:13:33', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('100', '1', 'admin', '2013-04-02 00:20:31', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('101', '4', 'demo', '2013-04-02 00:26:15', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('102', '1', 'admin', '2013-04-02 00:28:34', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('103', '1', 'admin', '2013-04-02 23:10:22', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('104', '1', 'admin', '2013-04-04 18:35:16', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('105', '1', 'admin', '2013-04-07 22:56:36', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('106', '1', 'admin', '2013-04-09 19:51:55', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('107', '1', 'admin', '2013-04-09 20:30:54', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('108', '1', 'admin', '2013-04-09 21:17:28', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('109', '1', 'admin', '2013-04-09 22:14:21', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('110', '1', 'admin', '2013-04-09 23:15:56', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('111', '1', 'admin', '2013-04-10 23:06:38', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('112', '1', 'admin', '2013-04-13 16:01:57', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('113', '1', 'admin', '2013-04-13 16:11:51', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('114', '1', 'admin', '2013-04-13 22:41:50', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('115', '1', 'admin', '2013-04-13 23:50:37', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('116', '1', 'admin', '2013-04-13 23:59:47', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('117', '1', 'admin', '2013-04-14 00:33:29', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('118', '1', 'admin', '2013-04-14 14:27:09', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('119', '1', 'admin', '2013-04-14 17:24:40', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('120', '1', 'admin', '2013-04-14 22:14:25', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('121', '1', 'admin', '2013-04-15 01:14:32', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('122', '1', 'admin', '2013-04-15 01:39:16', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('123', '1', 'admin', '2013-04-15 01:42:29', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('124', '1', 'admin', '2013-04-15 01:43:18', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('125', '1', 'admin', '2013-04-15 01:44:38', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('126', '1', 'admin', '2013-04-15 01:52:48', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('127', '1', 'admin', '2013-04-15 01:59:51', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('128', '1', 'admin', '2013-04-15 02:21:59', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('129', '1', 'admin', '2013-04-15 09:30:49', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('130', '1', 'admin', '2013-04-15 12:02:48', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('131', '1', 'admin', '2013-04-15 12:55:32', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('132', '1', 'admin', '2013-04-15 13:11:22', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('133', '1', 'admin', '2013-04-15 19:43:07', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('134', '1', 'admin', '2013-04-15 20:05:06', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('135', '1', 'admin', '2013-04-15 20:09:08', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('136', '1', 'admin', '2013-04-15 20:14:26', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('137', '1', 'admin', '2013-04-15 20:36:49', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('138', '1', 'admin', '2013-04-15 20:41:36', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('139', '1', 'admin', '2013-04-15 22:44:26', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('140', '1', 'admin', '2013-04-16 00:11:45', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('141', '1', 'admin', '2013-04-16 01:46:21', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('142', '1', 'admin', '2013-04-16 21:29:12', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('143', '1', 'admin', '2013-04-16 22:09:27', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('144', '1', 'admin', '2013-04-16 22:31:55', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('145', '1', 'admin', '2013-04-16 23:26:41', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('146', '1', 'admin', '2013-04-17 00:35:47', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('147', '1', 'admin', '2013-04-17 00:49:10', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('148', '1', 'admin', '2013-04-17 01:10:13', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('149', '1', 'admin', '2013-04-17 09:53:10', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('150', '1', 'admin', '2013-04-17 20:41:24', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('151', '1', 'admin', '2013-04-17 21:19:51', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('152', '1', 'admin', '2013-04-18 09:12:56', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('153', '1', 'admin', '2013-04-18 11:48:32', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('154', '1', 'admin', '2013-04-18 17:02:50', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('155', '1', 'admin', '2013-04-19 14:21:04', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('156', '1', 'admin', '2013-04-23 22:44:36', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('157', '1', 'admin', '2013-04-25 23:18:43', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('158', '1', 'admin', '2013-04-26 09:29:43', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('159', '1', 'admin', '2013-04-26 14:10:49', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('160', '1', 'admin', '2013-04-26 20:51:53', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('161', '1', 'admin', '2013-04-26 21:49:16', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('162', '1', 'admin', '2013-04-27 09:24:12', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('163', '1', 'admin', '2013-04-27 09:45:20', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('164', '1', 'admin', '2013-04-27 23:35:16', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('165', '1', 'admin', '2013-04-28 09:23:11', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('166', '1', 'admin', '2013-04-28 09:58:28', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('167', '1', 'admin', '2013-04-28 16:09:29', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('168', '1', 'admin', '2013-04-30 13:17:08', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('169', '1', 'admin', '2013-05-02 17:16:14', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('170', '1', 'admin', '2013-05-07 16:15:30', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('171', '1', 'admin', '2013-05-08 09:43:21', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('172', '1', 'admin', '2013-05-08 13:24:41', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('173', '1', 'admin', '2013-05-08 19:33:13', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('174', '1', 'admin', '2013-05-08 20:10:53', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('175', '1', 'admin', '2013-05-08 21:10:20', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('176', '1', 'admin', '2013-05-08 23:00:55', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('177', '1', 'admin', '2013-05-08 23:05:32', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('178', '1', 'admin', '2013-05-09 09:35:10', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('179', '1', 'admin', '2013-05-09 11:16:33', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('180', '1', 'admin', '2013-05-09 13:26:37', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('181', '1', 'admin', '2013-05-10 01:58:11', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('182', '1', 'admin', '2013-05-10 10:17:43', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('183', '1', 'admin', '2013-05-10 14:24:20', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('184', '1', 'admin', '2013-05-10 20:54:12', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('185', '1', 'admin', '2013-05-10 22:46:47', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('186', '1', 'admin', '2013-05-11 00:49:08', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('187', '1', 'admin', '2013-05-11 01:26:38', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('188', '1', 'admin', '2013-05-11 02:14:43', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('189', '1', 'admin', '2013-05-11 14:52:25', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('190', '1', 'admin', '2013-05-11 14:56:10', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('191', '1', 'admin', '2013-05-11 16:15:08', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('192', '1', 'admin', '2013-05-11 16:20:25', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('193', '1', 'admin', '2013-05-12 00:21:29', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('194', '1', 'admin', '2013-05-12 13:49:22', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('195', '1', 'admin', '2013-05-12 14:01:25', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('196', '1', 'admin', '2013-05-12 23:17:45', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('197', '1', 'admin', '2013-05-13 10:41:47', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('198', '1', 'admin', '2013-05-13 20:41:40', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('199', '1', 'admin', '2013-05-14 11:19:04', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('200', '1', 'admin', '2013-05-14 15:11:06', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('201', '1', 'admin', '2013-05-15 00:02:49', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('202', '1', 'admin', '2013-05-15 10:31:27', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('203', '1', 'admin', '2013-05-15 13:13:35', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('204', '1', 'admin', '2013-05-15 16:49:51', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('205', '1', 'admin', '2013-05-15 22:48:15', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('206', '1', 'admin', '2013-05-16 00:20:13', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('207', '1', 'admin', '2013-05-16 00:49:03', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('208', '1', 'admin', '2013-05-16 11:24:23', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('209', '1', 'admin', '2013-05-16 13:48:30', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('210', '1', 'admin', '2013-05-16 16:11:11', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('211', '1', 'admin', '2013-05-16 16:11:34', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('212', '1', 'admin', '2013-05-16 16:12:32', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('213', '1', 'admin', '2013-05-16 16:13:39', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('214', '1', 'admin', '2013-05-16 16:15:07', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('215', '1', 'admin', '2013-05-16 16:15:12', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('216', '1', 'admin', '2013-05-16 16:15:13', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('217', '1', 'admin', '2013-05-16 16:15:13', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('218', '1', 'admin', '2013-05-16 16:15:13', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('219', '1', 'admin', '2013-05-16 16:15:13', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('220', '1', 'admin', '2013-05-16 16:15:14', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('221', '1', 'admin', '2013-05-16 16:18:28', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('222', '1', 'admin', '2013-05-16 16:19:27', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('223', '1', 'admin', '2013-05-16 16:20:43', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('224', '1', 'admin', '2013-05-16 16:22:45', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('225', '1', 'admin', '2013-05-16 17:07:48', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('226', '1', 'admin', '2013-05-16 23:53:24', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('227', '1', 'admin', '2013-05-17 01:18:37', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('228', '1', 'admin', '2013-05-17 13:16:55', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('229', '1', 'admin', '2013-05-17 14:46:29', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('230', '1', 'admin', '2013-05-18 18:29:27', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('231', '1', 'admin', '2013-05-19 14:35:01', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('232', '1', 'admin', '2013-05-19 20:27:15', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('233', '1', 'admin', '2013-05-19 20:32:56', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('234', '1', 'admin', '2013-05-19 22:52:14', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('235', '1', 'admin', '2013-05-19 23:51:06', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('236', '1', 'admin', '2013-05-20 10:43:54', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('237', '1', 'admin', '2013-05-20 11:46:37', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('238', '1', 'admin', '2013-05-20 13:34:56', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('239', '1', 'admin', '2013-05-20 14:34:30', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('240', '1', 'admin', '2013-05-20 23:01:55', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('241', '1', 'admin', '2013-05-21 11:04:35', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('242', '1', 'admin', '2013-05-21 14:37:56', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('243', '1', 'admin', '2013-05-23 00:00:20', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('244', '1', 'admin', '2013-05-23 14:51:31', '127.0.0.1');
 
-INSERT INTO `hui_admin_log` (`id`, `u_id`, `u_name`, `log_create`, `log_ip`) VALUES
-(45, 1, 'admin', '2013-03-26 09:19:12', '127.0.0.1'),
-(46, 1, 'admin', '2013-03-26 09:49:42', '127.0.0.1'),
-(47, 1, 'admin', '2013-03-26 10:17:12', '127.0.0.1'),
-(48, 1, 'admin', '2013-03-26 10:31:40', '127.0.0.1'),
-(49, 1, 'admin', '2013-03-26 10:54:49', '127.0.0.1'),
-(50, 1, 'admin', '2013-03-26 11:02:52', '127.0.0.1'),
-(51, 1, 'admin', '2013-03-26 11:11:38', '127.0.0.1'),
-(52, 1, 'admin', '2013-03-26 11:30:13', '127.0.0.1'),
-(53, 1, 'admin', '2013-03-26 11:31:47', '127.0.0.1'),
-(54, 1, 'admin', '2013-03-26 11:33:47', '127.0.0.1'),
-(55, 1, 'admin', '2013-03-26 14:14:22', '127.0.0.1'),
-(56, 1, 'admin', '2013-03-26 20:00:24', '127.0.0.1'),
-(57, 1, 'admin', '2013-03-26 21:05:14', '127.0.0.1'),
-(58, 1, 'admin', '2013-03-26 21:05:36', '127.0.0.1'),
-(59, 1, 'admin', '2013-03-26 22:13:32', '127.0.0.1'),
-(60, 1, 'admin', '2013-03-27 01:28:33', '127.0.0.1'),
-(61, 1, 'admin', '2013-03-27 09:10:42', '127.0.0.1'),
-(62, 1, 'admin', '2013-03-27 13:28:21', '127.0.0.1'),
-(63, 1, 'admin', '2013-03-27 20:19:25', '127.0.0.1'),
-(64, 1, 'admin', '2013-03-27 21:30:28', '127.0.0.1'),
-(65, 1, 'admin', '2013-03-27 22:34:50', '127.0.0.1'),
-(66, 1, 'admin', '2013-03-27 22:44:34', '127.0.0.1'),
-(67, 1, 'admin', '2013-03-27 22:44:55', '127.0.0.1'),
-(68, 1, 'admin', '2013-03-27 22:58:58', '127.0.0.1'),
-(69, 1, 'admin', '2013-03-28 01:13:17', '127.0.0.1'),
-(70, 1, 'admin', '2013-03-28 09:38:12', '127.0.0.1'),
-(71, 1, 'admin', '2013-03-28 13:08:47', '127.0.0.1'),
-(72, 1, 'admin', '2013-03-29 00:16:41', '127.0.0.1'),
-(73, 1, 'admin', '2013-03-29 09:50:23', '127.0.0.1'),
-(74, 1, 'admin', '2013-03-29 11:42:02', '127.0.0.1'),
-(75, 1, 'admin', '2013-03-29 13:10:23', '127.0.0.1'),
-(76, 1, 'admin', '2013-03-31 23:39:30', '127.0.0.1'),
-(77, 1, 'admin', '2013-04-01 00:18:36', '127.0.0.1'),
-(78, 1, 'admin', '2013-04-01 09:12:04', '127.0.0.1'),
-(79, 3, '测试', '2013-04-01 11:16:51', '127.0.0.1'),
-(80, 1, 'admin', '2013-04-01 12:52:00', '127.0.0.1'),
-(81, 1, 'admin', '2013-04-01 19:48:47', '127.0.0.1'),
-(82, 1, 'admin', '2013-04-01 20:09:19', '127.0.0.1'),
-(83, 1, 'admin', '2013-04-01 20:14:02', '127.0.0.1'),
-(84, 3, '测试', '2013-04-01 20:14:25', '127.0.0.1'),
-(85, 3, '测试', '2013-04-01 22:41:32', '127.0.0.1'),
-(86, 3, '测试', '2013-04-01 22:43:22', '127.0.0.1'),
-(87, 3, '测试', '2013-04-01 22:46:32', '127.0.0.1'),
-(88, 3, '测试', '2013-04-01 22:47:59', '127.0.0.1'),
-(89, 1, 'admin', '2013-04-01 22:48:12', '127.0.0.1'),
-(90, 3, '测试', '2013-04-01 22:50:05', '127.0.0.1'),
-(91, 1, 'admin', '2013-04-01 23:36:03', '127.0.0.1'),
-(92, 3, '测试', '2013-04-01 23:36:49', '127.0.0.1'),
-(93, 1, 'admin', '2013-04-01 23:37:49', '127.0.0.1'),
-(94, 3, '测试', '2013-04-01 23:39:30', '127.0.0.1'),
-(95, 1, 'admin', '2013-04-01 23:48:37', '127.0.0.1'),
-(96, 3, '测试', '2013-04-01 23:53:05', '127.0.0.1'),
-(97, 3, '测试', '2013-04-02 00:00:31', '127.0.0.1'),
-(98, 3, '测试', '2013-04-02 00:02:59', '127.0.0.1'),
-(99, 1, 'admin', '2013-04-02 00:13:33', '127.0.0.1'),
-(100, 1, 'admin', '2013-04-02 00:20:31', '127.0.0.1'),
-(101, 4, 'demo', '2013-04-02 00:26:15', '127.0.0.1'),
-(102, 1, 'admin', '2013-04-02 00:28:34', '127.0.0.1'),
-(103, 1, 'admin', '2013-04-02 23:10:22', '127.0.0.1'),
-(104, 1, 'admin', '2013-04-04 18:35:16', '127.0.0.1'),
-(105, 1, 'admin', '2013-04-07 22:56:36', '127.0.0.1'),
-(106, 1, 'admin', '2013-04-09 19:51:55', '127.0.0.1'),
-(107, 1, 'admin', '2013-04-09 20:30:54', '127.0.0.1'),
-(108, 1, 'admin', '2013-04-09 21:17:28', '127.0.0.1'),
-(109, 1, 'admin', '2013-04-09 22:14:21', '127.0.0.1'),
-(110, 1, 'admin', '2013-04-09 23:15:56', '127.0.0.1'),
-(111, 1, 'admin', '2013-04-10 23:06:38', '127.0.0.1'),
-(112, 1, 'admin', '2013-04-13 16:01:57', '127.0.0.1'),
-(113, 1, 'admin', '2013-04-13 16:11:51', '127.0.0.1'),
-(114, 1, 'admin', '2013-04-13 22:41:50', '127.0.0.1'),
-(115, 1, 'admin', '2013-04-13 23:50:37', '127.0.0.1'),
-(116, 1, 'admin', '2013-04-13 23:59:47', '127.0.0.1'),
-(117, 1, 'admin', '2013-04-14 00:33:29', '127.0.0.1'),
-(118, 1, 'admin', '2013-04-14 14:27:09', '127.0.0.1'),
-(119, 1, 'admin', '2013-04-14 17:24:40', '127.0.0.1'),
-(120, 1, 'admin', '2013-04-14 22:14:25', '127.0.0.1'),
-(121, 1, 'admin', '2013-04-15 01:14:32', '127.0.0.1'),
-(122, 1, 'admin', '2013-04-15 01:39:16', '127.0.0.1'),
-(123, 1, 'admin', '2013-04-15 01:42:29', '127.0.0.1'),
-(124, 1, 'admin', '2013-04-15 01:43:18', '127.0.0.1'),
-(125, 1, 'admin', '2013-04-15 01:44:38', '127.0.0.1'),
-(126, 1, 'admin', '2013-04-15 01:52:48', '127.0.0.1'),
-(127, 1, 'admin', '2013-04-15 01:59:51', '127.0.0.1'),
-(128, 1, 'admin', '2013-04-15 02:21:59', '127.0.0.1'),
-(129, 1, 'admin', '2013-04-15 09:30:49', '127.0.0.1'),
-(130, 1, 'admin', '2013-04-15 12:02:48', '127.0.0.1'),
-(131, 1, 'admin', '2013-04-15 12:55:32', '127.0.0.1'),
-(132, 1, 'admin', '2013-04-15 13:11:22', '127.0.0.1'),
-(133, 1, 'admin', '2013-04-15 19:43:07', '127.0.0.1'),
-(134, 1, 'admin', '2013-04-15 20:05:06', '127.0.0.1'),
-(135, 1, 'admin', '2013-04-15 20:09:08', '127.0.0.1'),
-(136, 1, 'admin', '2013-04-15 20:14:26', '127.0.0.1'),
-(137, 1, 'admin', '2013-04-15 20:36:49', '127.0.0.1'),
-(138, 1, 'admin', '2013-04-15 20:41:36', '127.0.0.1'),
-(139, 1, 'admin', '2013-04-15 22:44:26', '127.0.0.1'),
-(140, 1, 'admin', '2013-04-16 00:11:45', '127.0.0.1'),
-(141, 1, 'admin', '2013-04-16 01:46:21', '127.0.0.1'),
-(142, 1, 'admin', '2013-04-16 21:29:12', '127.0.0.1'),
-(143, 1, 'admin', '2013-04-16 22:09:27', '127.0.0.1'),
-(144, 1, 'admin', '2013-04-16 22:31:55', '127.0.0.1'),
-(145, 1, 'admin', '2013-04-16 23:26:41', '127.0.0.1'),
-(146, 1, 'admin', '2013-04-17 00:35:47', '127.0.0.1'),
-(147, 1, 'admin', '2013-04-17 00:49:10', '127.0.0.1'),
-(148, 1, 'admin', '2013-04-17 01:10:13', '127.0.0.1'),
-(149, 1, 'admin', '2013-04-17 09:53:10', '127.0.0.1'),
-(150, 1, 'admin', '2013-04-17 20:41:24', '127.0.0.1'),
-(151, 1, 'admin', '2013-04-17 21:19:51', '127.0.0.1'),
-(152, 1, 'admin', '2013-04-18 09:12:56', '127.0.0.1'),
-(153, 1, 'admin', '2013-04-18 11:48:32', '127.0.0.1'),
-(154, 1, 'admin', '2013-04-18 17:02:50', '127.0.0.1'),
-(155, 1, 'admin', '2013-04-19 14:21:04', '127.0.0.1'),
-(156, 1, 'admin', '2013-04-23 22:44:36', '127.0.0.1'),
-(157, 1, 'admin', '2013-04-25 23:18:43', '127.0.0.1'),
-(158, 1, 'admin', '2013-04-26 09:29:43', '127.0.0.1'),
-(159, 1, 'admin', '2013-04-26 14:10:49', '127.0.0.1'),
-(160, 1, 'admin', '2013-04-26 20:51:53', '127.0.0.1'),
-(161, 1, 'admin', '2013-04-26 21:49:16', '127.0.0.1'),
-(162, 1, 'admin', '2013-04-27 09:24:12', '127.0.0.1'),
-(163, 1, 'admin', '2013-04-27 09:45:20', '127.0.0.1'),
-(164, 1, 'admin', '2013-04-27 23:35:16', '127.0.0.1'),
-(165, 1, 'admin', '2013-04-28 09:23:11', '127.0.0.1'),
-(166, 1, 'admin', '2013-04-28 09:58:28', '127.0.0.1'),
-(167, 1, 'admin', '2013-04-28 16:09:29', '127.0.0.1'),
-(168, 1, 'admin', '2013-04-30 13:17:08', '127.0.0.1'),
-(169, 1, 'admin', '2013-05-02 17:16:14', '127.0.0.1'),
-(170, 1, 'admin', '2013-05-07 16:15:30', '127.0.0.1'),
-(171, 1, 'admin', '2013-05-08 09:43:21', '127.0.0.1'),
-(172, 1, 'admin', '2013-05-08 13:24:41', '127.0.0.1'),
-(173, 1, 'admin', '2013-05-08 19:33:13', '127.0.0.1'),
-(174, 1, 'admin', '2013-05-08 20:10:53', '127.0.0.1'),
-(175, 1, 'admin', '2013-05-08 21:10:20', '127.0.0.1'),
-(176, 1, 'admin', '2013-05-08 23:00:55', '127.0.0.1'),
-(177, 1, 'admin', '2013-05-08 23:05:32', '127.0.0.1'),
-(178, 1, 'admin', '2013-05-09 09:35:10', '127.0.0.1'),
-(179, 1, 'admin', '2013-05-09 11:16:33', '127.0.0.1'),
-(180, 1, 'admin', '2013-05-09 13:26:37', '127.0.0.1'),
-(181, 1, 'admin', '2013-05-10 01:58:11', '127.0.0.1'),
-(182, 1, 'admin', '2013-05-10 10:17:43', '127.0.0.1'),
-(183, 1, 'admin', '2013-05-10 14:24:20', '127.0.0.1'),
-(184, 1, 'admin', '2013-05-10 20:54:12', '127.0.0.1'),
-(185, 1, 'admin', '2013-05-10 22:46:47', '127.0.0.1'),
-(186, 1, 'admin', '2013-05-11 00:49:08', '127.0.0.1'),
-(187, 1, 'admin', '2013-05-11 01:26:38', '127.0.0.1'),
-(188, 1, 'admin', '2013-05-11 02:14:43', '127.0.0.1'),
-(189, 1, 'admin', '2013-05-11 14:52:25', '127.0.0.1'),
-(190, 1, 'admin', '2013-05-11 14:56:10', '127.0.0.1'),
-(191, 1, 'admin', '2013-05-11 16:15:08', '127.0.0.1'),
-(192, 1, 'admin', '2013-05-11 16:20:25', '127.0.0.1'),
-(193, 1, 'admin', '2013-05-12 00:21:29', '127.0.0.1'),
-(194, 1, 'admin', '2013-05-12 13:49:22', '127.0.0.1'),
-(195, 1, 'admin', '2013-05-12 14:01:25', '127.0.0.1'),
-(196, 1, 'admin', '2013-05-12 23:17:45', '127.0.0.1'),
-(197, 1, 'admin', '2013-05-13 10:41:47', '127.0.0.1'),
-(198, 1, 'admin', '2013-05-13 20:41:40', '127.0.0.1'),
-(199, 1, 'admin', '2013-05-14 11:19:04', '127.0.0.1'),
-(200, 1, 'admin', '2013-05-14 15:11:06', '127.0.0.1'),
-(201, 1, 'admin', '2013-05-15 00:02:49', '127.0.0.1'),
-(202, 1, 'admin', '2013-05-15 10:31:27', '127.0.0.1'),
-(203, 1, 'admin', '2013-05-15 13:13:35', '127.0.0.1'),
-(204, 1, 'admin', '2013-05-15 16:49:51', '127.0.0.1'),
-(205, 1, 'admin', '2013-05-15 22:48:15', '127.0.0.1'),
-(206, 1, 'admin', '2013-05-16 00:20:13', '127.0.0.1'),
-(207, 1, 'admin', '2013-05-16 00:49:03', '127.0.0.1'),
-(208, 1, 'admin', '2013-05-16 11:24:23', '127.0.0.1'),
-(209, 1, 'admin', '2013-05-16 13:48:30', '127.0.0.1'),
-(210, 1, 'admin', '2013-05-16 16:11:11', '127.0.0.1'),
-(211, 1, 'admin', '2013-05-16 16:11:34', '127.0.0.1'),
-(212, 1, 'admin', '2013-05-16 16:12:32', '127.0.0.1'),
-(213, 1, 'admin', '2013-05-16 16:13:39', '127.0.0.1'),
-(214, 1, 'admin', '2013-05-16 16:15:07', '127.0.0.1'),
-(215, 1, 'admin', '2013-05-16 16:15:12', '127.0.0.1'),
-(216, 1, 'admin', '2013-05-16 16:15:13', '127.0.0.1'),
-(217, 1, 'admin', '2013-05-16 16:15:13', '127.0.0.1'),
-(218, 1, 'admin', '2013-05-16 16:15:13', '127.0.0.1'),
-(219, 1, 'admin', '2013-05-16 16:15:13', '127.0.0.1'),
-(220, 1, 'admin', '2013-05-16 16:15:14', '127.0.0.1'),
-(221, 1, 'admin', '2013-05-16 16:18:28', '127.0.0.1'),
-(222, 1, 'admin', '2013-05-16 16:19:27', '127.0.0.1'),
-(223, 1, 'admin', '2013-05-16 16:20:43', '127.0.0.1'),
-(224, 1, 'admin', '2013-05-16 16:22:45', '127.0.0.1'),
-(225, 1, 'admin', '2013-05-16 17:07:48', '127.0.0.1'),
-(226, 1, 'admin', '2013-05-16 23:53:24', '127.0.0.1'),
-(227, 1, 'admin', '2013-05-17 01:18:37', '127.0.0.1'),
-(228, 1, 'admin', '2013-05-17 13:16:55', '127.0.0.1'),
-(229, 1, 'admin', '2013-05-17 14:46:29', '127.0.0.1'),
-(230, 1, 'admin', '2013-05-18 18:29:27', '127.0.0.1'),
-(231, 1, 'admin', '2013-05-19 14:35:01', '127.0.0.1'),
-(232, 1, 'admin', '2013-05-19 20:27:15', '127.0.0.1'),
-(233, 1, 'admin', '2013-05-19 20:32:56', '127.0.0.1'),
-(234, 1, 'admin', '2013-05-19 22:52:14', '127.0.0.1'),
-(235, 1, 'admin', '2013-05-19 23:51:06', '127.0.0.1'),
-(236, 1, 'admin', '2013-05-20 10:43:54', '127.0.0.1'),
-(237, 1, 'admin', '2013-05-20 11:46:37', '127.0.0.1'),
-(238, 1, 'admin', '2013-05-20 13:34:56', '127.0.0.1'),
-(239, 1, 'admin', '2013-05-20 14:34:30', '127.0.0.1'),
-(240, 1, 'admin', '2013-05-20 23:01:55', '127.0.0.1'),
-(241, 1, 'admin', '2013-05-21 11:04:35', '127.0.0.1'),
-(242, 1, 'admin', '2013-05-21 14:37:56', '127.0.0.1'),
-(243, 1, 'admin', '2013-05-23 00:00:20', '127.0.0.1'),
-(244, 1, 'admin', '2013-05-23 14:51:31', '127.0.0.1');
-
--- --------------------------------------------------------
-
---
--- 表的结构 `hui_config`
---
-
-CREATE TABLE IF NOT EXISTS `hui_config` (
+-- ----------------------------
+-- Table structure for `hui_config`
+-- ----------------------------
+DROP TABLE IF EXISTS `hui_config`;
+CREATE TABLE `hui_config` (
   `c_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自动增长id',
   `c_module` varchar(100) NOT NULL DEFAULT '' COMMENT '配置模块名称',
   `c_key` varchar(100) NOT NULL DEFAULT '' COMMENT '配置key必须是唯一',
@@ -291,25 +276,21 @@ CREATE TABLE IF NOT EXISTS `hui_config` (
   `c_update_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '记录最后更新时间',
   PRIMARY KEY (`c_id`),
   KEY `c_key` (`c_key`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='系统配置表，配置值使用序列化数组存储' AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='系统配置表，配置值使用序列化数组存储';
 
---
--- 转存表中的数据 `hui_config`
---
+-- ----------------------------
+-- Records of hui_config
+-- ----------------------------
+INSERT INTO `hui_config` VALUES ('1', 'ADMIN_ACCESS', 'EXPIRED_TIME', '500', '登陆超时时间', '2013-05-03 10:25:45', '0000-00-00 00:00:00');
+INSERT INTO `hui_config` VALUES ('2', 'ADMIN_ACCESS', 'SYS_ADMIN', 'admin', '系统管理员', '2013-03-26 00:43:50', '0000-00-00 00:00:00');
+INSERT INTO `hui_config` VALUES ('3', '', '', null, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO `hui_config` VALUES ('4', 'WEBSITE', 'WEBSITE', '{\"site_name\":\"HuiCMS\\u5185\\u5bb9\\u7ba1\\u7406\\u7cfb\\u7edf\",\"site_title\":\"Title\",\"site_keyword\":\"HuiCMS,\\u5f00\\u6e90cms,\\u514d\\u8d39cms,\\u5c0f\\u5de7cms,\\u7b80\\u5355cms\",\"site_description\":\"HuiCMS\\u662f\\u4e00\\u6b3e\\u57fa\\u4e8ePHP+MYSQL\\uff0c\\u91c7\\u7528THINKPHP\\u6846\\u67b6\\u7f16\\u5199\\u7684\\u4e00\\u6b3e\\u9488\\u5bf9\\u5927\\u5c0f\\u578b\\u516c\\u53f8\\u4f01\\u4e1a\\u7b49\\u901a\\u7528\\u7684cms\\u7a0b\\u5e8f\\u3002\",\"site_icp\":\"42222641276051353636\",\"site_code\":\"\",\"site_status\":\"1\",\"site_close\":\"\\u7f51\\u7ad9\\u5173\\u95ed\\u4e2d\"}', '站点信息配置', '2013-05-19 21:15:36', '2013-05-19 21:15:36');
 
-INSERT INTO `hui_config` (`c_id`, `c_module`, `c_key`, `c_value`, `c_value_desc`, `c_create_time`, `c_update_time`) VALUES
-(1, 'ADMIN_ACCESS', 'EXPIRED_TIME', '500', '登陆超时时间', '2013-05-03 02:25:45', '0000-00-00 00:00:00'),
-(2, 'ADMIN_ACCESS', 'SYS_ADMIN', 'admin', '系统管理员', '2013-03-25 16:43:50', '0000-00-00 00:00:00'),
-(3, '', '', NULL, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(4, 'WEBSITE', 'WEBSITE', '{"site_name":"HuiCMS\\u5185\\u5bb9\\u7ba1\\u7406\\u7cfb\\u7edf","site_title":"Title","site_keyword":"HuiCMS,\\u5f00\\u6e90cms,\\u514d\\u8d39cms,\\u5c0f\\u5de7cms,\\u7b80\\u5355cms","site_description":"HuiCMS\\u662f\\u4e00\\u6b3e\\u57fa\\u4e8ePHP+MYSQL\\uff0c\\u91c7\\u7528THINKPHP\\u6846\\u67b6\\u7f16\\u5199\\u7684\\u4e00\\u6b3e\\u9488\\u5bf9\\u5927\\u5c0f\\u578b\\u516c\\u53f8\\u4f01\\u4e1a\\u7b49\\u901a\\u7528\\u7684cms\\u7a0b\\u5e8f\\u3002","site_icp":"42222641276051353636","site_code":"","site_status":"1","site_close":"\\u7f51\\u7ad9\\u5173\\u95ed\\u4e2d"}', '站点信息配置', '2013-05-19 13:15:36', '2013-05-19 13:15:36');
-
--- --------------------------------------------------------
-
---
--- 表的结构 `hui_links`
---
-
-CREATE TABLE IF NOT EXISTS `hui_links` (
+-- ----------------------------
+-- Table structure for `hui_links`
+-- ----------------------------
+DROP TABLE IF EXISTS `hui_links`;
+CREATE TABLE `hui_links` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键，自增',
   `name` varchar(50) NOT NULL DEFAULT '' COMMENT '友情链接文字，显示在友情链接上的文字',
   `image_path` varchar(255) DEFAULT '' COMMENT '友情链接图片地址',
@@ -322,22 +303,44 @@ CREATE TABLE IF NOT EXISTS `hui_links` (
   `create_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '友情链接添加时间',
   `update_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '友情链接最后修改时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='友情链接表' AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='友情链接表';
 
---
--- 转存表中的数据 `hui_links`
---
+-- ----------------------------
+-- Records of hui_links
+-- ----------------------------
+INSERT INTO `hui_links` VALUES ('4', '普通', 'upload/photo/515321a73e88d.jpg', 'http://www.huicms.cn', '', '#FF0000', '1', '30', '1', '2013-04-14 15:46:02', '2013-04-14 18:16:39');
 
-INSERT INTO `hui_links` (`id`, `name`, `image_path`, `link_url`, `description`, `color`, `type`, `order`, `status`, `create_time`, `update_time`) VALUES
-(4, '普通', 'upload/photo/515321a73e88d.jpg', 'http://www.huicms.cn', '', '#FF0000', 1, 30, 1, '2013-04-14 07:46:02', '2013-04-14 10:16:39');
+-- ----------------------------
+-- Table structure for `hui_members`
+-- ----------------------------
+DROP TABLE IF EXISTS `hui_members`;
+CREATE TABLE `hui_members` (
+  `m_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `m_name` varchar(50) NOT NULL DEFAULT '' COMMENT '用户名',
+  `m_nickname` varchar(50) DEFAULT '' COMMENT '用户昵称',
+  `m_passwd` varchar(32) NOT NULL COMMENT '密码',
+  `m_sex` tinyint(1) NOT NULL DEFAULT '0' COMMENT '性别：0.保密，1.男，2.女',
+  `m_email` varchar(60) NOT NULL COMMENT '邮箱',
+  `m_login_ip` varchar(60) DEFAULT NULL COMMENT '登陆IP',
+  `m_login_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP COMMENT '登陆时间',
+  `m_weibo_uid` varchar(20) DEFAULT NULL COMMENT '对应的新浪微博uid',
+  `m_tencent_uid` varchar(20) DEFAULT NULL COMMENT '腾讯微博UID',
+  `m_verify_status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '电子邮件验证标示 0未验证，1已验证',
+  `m_status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否审核，0未审核，1已审核',
+  `m_reg_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '注册时间',
+  `m_qq` int(15) DEFAULT NULL COMMENT '用户QQ',
+  PRIMARY KEY (`m_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='会员表';
 
--- --------------------------------------------------------
+-- ----------------------------
+-- Records of hui_members
+-- ----------------------------
 
---
--- 表的结构 `hui_message`
---
-
-CREATE TABLE IF NOT EXISTS `hui_message` (
+-- ----------------------------
+-- Table structure for `hui_message`
+-- ----------------------------
+DROP TABLE IF EXISTS `hui_message`;
+CREATE TABLE `hui_message` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '留言id',
   `title` varchar(50) NOT NULL COMMENT '留言标题',
   `content` text NOT NULL COMMENT '留言内容',
@@ -353,15 +356,17 @@ CREATE TABLE IF NOT EXISTS `hui_message` (
   `addtime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '留言时间',
   `updatetime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '留言更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='留言表' AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='留言表';
 
--- --------------------------------------------------------
+-- ----------------------------
+-- Records of hui_message
+-- ----------------------------
 
---
--- 表的结构 `hui_nav`
---
-
-CREATE TABLE IF NOT EXISTS `hui_nav` (
+-- ----------------------------
+-- Table structure for `hui_nav`
+-- ----------------------------
+DROP TABLE IF EXISTS `hui_nav`;
+CREATE TABLE `hui_nav` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '菜单ID',
   `name` varchar(50) NOT NULL COMMENT '菜单名称',
   `alias_name` varchar(50) NOT NULL COMMENT '导航别名',
@@ -373,22 +378,18 @@ CREATE TABLE IF NOT EXISTS `hui_nav` (
   `create_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '创建时间',
   `update_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='前台菜单' AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='前台菜单';
 
---
--- 转存表中的数据 `hui_nav`
---
+-- ----------------------------
+-- Records of hui_nav
+-- ----------------------------
+INSERT INTO `hui_nav` VALUES ('1', '首页', 'index', 'http://www.baidu.com', '10', 'main', '1', '1', '2013-05-19 00:00:00', '2013-05-19 00:00:00');
 
-INSERT INTO `hui_nav` (`id`, `name`, `alias_name`, `url`, `order`, `type`, `target`, `status`, `create_time`, `update_time`) VALUES
-(1, '首页', 'index', 'http://www.baidu.com', 10, 'main', 1, 1, '2013-05-18 16:00:00', '2013-05-18 16:00:00');
-
--- --------------------------------------------------------
-
---
--- 表的结构 `hui_oauth`
---
-
-CREATE TABLE IF NOT EXISTS `hui_oauth` (
+-- ----------------------------
+-- Table structure for `hui_oauth`
+-- ----------------------------
+DROP TABLE IF EXISTS `hui_oauth`;
+CREATE TABLE `hui_oauth` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '第三方登陆ID',
   `code` varchar(50) NOT NULL COMMENT '代码(唯一标识)',
   `name` varchar(50) NOT NULL COMMENT '名称',
@@ -400,15 +401,17 @@ CREATE TABLE IF NOT EXISTS `hui_oauth` (
   `version` varchar(50) NOT NULL COMMENT '版本',
   PRIMARY KEY (`id`),
   UNIQUE KEY `code` (`code`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='第三方登陆表' AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='第三方登陆表';
 
--- --------------------------------------------------------
+-- ----------------------------
+-- Records of hui_oauth
+-- ----------------------------
 
---
--- 表的结构 `hui_payment`
---
-
-CREATE TABLE IF NOT EXISTS `hui_payment` (
+-- ----------------------------
+-- Table structure for `hui_payment`
+-- ----------------------------
+DROP TABLE IF EXISTS `hui_payment`;
+CREATE TABLE `hui_payment` (
   `pay_id` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(120) NOT NULL COMMENT '支付方式名称',
   `pay_name` varchar(120) NOT NULL COMMENT '支付方式',
@@ -425,94 +428,78 @@ CREATE TABLE IF NOT EXISTS `hui_payment` (
   `pay_version` varchar(20) NOT NULL COMMENT '版本号',
   PRIMARY KEY (`pay_id`),
   UNIQUE KEY `pay_code` (`pay_code`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COMMENT='支付方式';
 
---
--- 转存表中的数据 `hui_payment`
---
+-- ----------------------------
+-- Records of hui_payment
+-- ----------------------------
+INSERT INTO `hui_payment` VALUES ('13', '支付宝', '支付宝', 'Alipay', '支付宝是国内领先的独立第三方支付平台，由阿里巴巴集团创办。致力于为中国电子商务提供“简单、安全、快速”的在线支付解决方案。<a href=\"http://b.alipay.com/\" target=\"_blank\"><font color=\"red\">立即在线申请</font></a>', '0', '{\"alipay_account\":{\"name\":\"\\u652f\\u4ed8\\u5b9d\\u5e10\\u6237\",\"type\":\"text\",\"value\":\"\"},\"alipay_key\":{\"name\":\"\\u4ea4\\u6613\\u5b89\\u5168\\u6821\\u9a8c\\u7801(key)\",\"type\":\"text\",\"value\":\"\"},\"alipay_partner\":{\"name\":\"\\u5408\\u4f5c\\u8005\\u8eab\\u4efd(parterID)\",\"type\":\"text\",\"value\":\"\"},\"service_type\":{\"name\":\"\\u9009\\u62e9\\u63a5\\u53e3\\u7c7b\\u578b\",\"type\":\"select\",\"value\":\"0\",\"range\":[\"\\u4f7f\\u7528\\u62c5\\u4fdd\\u4ea4\\u6613\\u63a5\\u53e3\",\"\\u4f7f\\u7528\\u6807\\u51c6\\u53cc\\u63a5\\u53e3\",\"\\u4f7f\\u7528\\u5373\\u65f6\\u5230\\u8d26\\u4ea4\\u6613\\u63a5\\u53e3\"]}}', '0', '1', '10', '1', 'HUICMS研发团队', 'http://www.alipay.com', '1.0');
 
-INSERT INTO `hui_payment` (`pay_id`, `name`, `pay_name`, `pay_code`, `pay_desc`, `pay_fee`, `pay_config`, `pay_is_cod`, `pay_is_online`, `pay_order`, `pay_status`, `pay_author`, `pay_website`, `pay_version`) VALUES
-(13, '支付宝', '支付宝', 'Alipay', '支付宝是国内领先的独立第三方支付平台，由阿里巴巴集团创办。致力于为中国电子商务提供“简单、安全、快速”的在线支付解决方案。<a href="http://b.alipay.com/" target="_blank"><font color="red">立即在线申请</font></a>', '0', '{"alipay_account":{"name":"\\u652f\\u4ed8\\u5b9d\\u5e10\\u6237","type":"text","value":""},"alipay_key":{"name":"\\u4ea4\\u6613\\u5b89\\u5168\\u6821\\u9a8c\\u7801(key)","type":"text","value":""},"alipay_partner":{"name":"\\u5408\\u4f5c\\u8005\\u8eab\\u4efd(parterID)","type":"text","value":""},"service_type":{"name":"\\u9009\\u62e9\\u63a5\\u53e3\\u7c7b\\u578b","type":"select","value":"0","range":["\\u4f7f\\u7528\\u62c5\\u4fdd\\u4ea4\\u6613\\u63a5\\u53e3","\\u4f7f\\u7528\\u6807\\u51c6\\u53cc\\u63a5\\u53e3","\\u4f7f\\u7528\\u5373\\u65f6\\u5230\\u8d26\\u4ea4\\u6613\\u63a5\\u53e3"]}}', 0, 1, 10, 1, 'HUICMS研发团队', 'http://www.alipay.com', '1.0');
-
--- --------------------------------------------------------
-
---
--- 表的结构 `hui_role`
---
-
-CREATE TABLE IF NOT EXISTS `hui_role` (
+-- ----------------------------
+-- Table structure for `hui_role`
+-- ----------------------------
+DROP TABLE IF EXISTS `hui_role`;
+CREATE TABLE `hui_role` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '用户组ID',
   `name` varchar(50) NOT NULL DEFAULT '' COMMENT '用户组名称',
   `status` smallint(2) NOT NULL DEFAULT '1' COMMENT '该用户组是否显示：0为不显示，1为显示',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='角色表' AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='角色表';
 
---
--- 转存表中的数据 `hui_role`
---
+-- ----------------------------
+-- Records of hui_role
+-- ----------------------------
+INSERT INTO `hui_role` VALUES ('1', '超级管理员', '1');
+INSERT INTO `hui_role` VALUES ('3', '普通', '1');
 
-INSERT INTO `hui_role` (`id`, `name`, `status`) VALUES
-(1, '超级管理员', 1),
-(3, '普通', 1);
-
--- --------------------------------------------------------
-
---
--- 表的结构 `hui_role_access`
---
-
-CREATE TABLE IF NOT EXISTS `hui_role_access` (
+-- ----------------------------
+-- Table structure for `hui_role_access`
+-- ----------------------------
+DROP TABLE IF EXISTS `hui_role_access`;
+CREATE TABLE `hui_role_access` (
   `role_id` smallint(6) NOT NULL DEFAULT '0' COMMENT '节点id',
   `node_id` smallint(6) unsigned NOT NULL COMMENT '角色id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='角色节点关系表';
 
---
--- 转存表中的数据 `hui_role_access`
---
+-- ----------------------------
+-- Records of hui_role_access
+-- ----------------------------
+INSERT INTO `hui_role_access` VALUES ('3', '7');
+INSERT INTO `hui_role_access` VALUES ('3', '12');
+INSERT INTO `hui_role_access` VALUES ('3', '16');
+INSERT INTO `hui_role_access` VALUES ('3', '20');
 
-INSERT INTO `hui_role_access` (`role_id`, `node_id`) VALUES
-(3, 7),
-(3, 12),
-(3, 16),
-(3, 20);
-
--- --------------------------------------------------------
-
---
--- 表的结构 `hui_role_nav`
---
-
-CREATE TABLE IF NOT EXISTS `hui_role_nav` (
+-- ----------------------------
+-- Table structure for `hui_role_nav`
+-- ----------------------------
+DROP TABLE IF EXISTS `hui_role_nav`;
+CREATE TABLE `hui_role_nav` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '菜单id',
   `name` varchar(50) NOT NULL COMMENT '菜单名称',
   `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '菜单启用及停用：1.启用，0.停用',
   `sort` int(11) NOT NULL DEFAULT '10' COMMENT '排序',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='菜单表' AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COMMENT='菜单表';
 
---
--- 转存表中的数据 `hui_role_nav`
---
+-- ----------------------------
+-- Records of hui_role_nav
+-- ----------------------------
+INSERT INTO `hui_role_nav` VALUES ('1', '系统管理', '1', '10');
+INSERT INTO `hui_role_nav` VALUES ('2', '模块管理', '1', '60');
+INSERT INTO `hui_role_nav` VALUES ('3', '控制台', '1', '0');
+INSERT INTO `hui_role_nav` VALUES ('4', '用户管理', '0', '70');
+INSERT INTO `hui_role_nav` VALUES ('5', '内容管理', '0', '80');
+INSERT INTO `hui_role_nav` VALUES ('6', '商品管理', '0', '90');
+INSERT INTO `hui_role_nav` VALUES ('7', '模板管理', '1', '100');
+INSERT INTO `hui_role_nav` VALUES ('8', '数据', '1', '110');
+INSERT INTO `hui_role_nav` VALUES ('9', '全局', '1', '120');
+INSERT INTO `hui_role_nav` VALUES ('10', '订单管理', '0', '85');
 
-INSERT INTO `hui_role_nav` (`id`, `name`, `status`, `sort`) VALUES
-(1, '系统管理', 1, 10),
-(2, '模块管理', 1, 60),
-(3, '控制台', 1, 0),
-(4, '用户管理', 0, 70),
-(5, '内容管理', 0, 80),
-(6, '商品管理', 0, 90),
-(7, '模板管理', 1, 100),
-(8, '数据', 1, 110),
-(9, '全局', 1, 120),
-(10, '订单管理', 0, 85);
-
--- --------------------------------------------------------
-
---
--- 表的结构 `hui_role_node`
---
-
-CREATE TABLE IF NOT EXISTS `hui_role_node` (
+-- ----------------------------
+-- Table structure for `hui_role_node`
+-- ----------------------------
+DROP TABLE IF EXISTS `hui_role_node`;
+CREATE TABLE `hui_role_node` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '节点ID',
   `action` varchar(60) NOT NULL DEFAULT '' COMMENT '节点控制器',
   `action_name` varchar(60) NOT NULL DEFAULT '' COMMENT '节点控制器名称',
@@ -524,111 +511,105 @@ CREATE TABLE IF NOT EXISTS `hui_role_node` (
   `auth_type` tinyint(1) NOT NULL DEFAULT '0' COMMENT '授权模式：1:模块授权(module) 2:操作授权(action) 0:节点授权(node)',
   `is_show` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否菜单显示:0.不显示,1.显示',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='节点表' AUTO_INCREMENT=107 ;
+) ENGINE=InnoDB AUTO_INCREMENT=107 DEFAULT CHARSET=utf8 COMMENT='节点表';
 
---
--- 转存表中的数据 `hui_role_node`
---
-
-INSERT INTO `hui_role_node` (`id`, `action`, `action_name`, `module`, `module_name`, `nav_id`, `status`, `sort`, `auth_type`, `is_show`) VALUES
-(4, '', '', 'RoleNode', '节点管理', 1, 1, 30, 1, 1),
-(5, 'addRoleNode', '添加节点', 'RoleNode', '节点管理', 1, 1, 30, 0, 1),
-(6, 'editRoleNode', '编辑节点', 'RoleNode', '节点管理', 1, 1, 30, 0, 0),
-(7, 'index', '节点列表', 'RoleNode', '节点管理', 1, 1, 30, 0, 1),
-(9, '', '', 'System', '管理员', 1, 1, 10, 1, 1),
-(10, 'index', '管理员列表', 'System', '管理员', 1, 1, 10, 0, 1),
-(11, 'pageAddAdmin', '添加管理员', 'System', '管理员', 1, 1, 20, 0, 1),
-(12, 'pageEditAdmin', '编辑管理员', 'System', '管理员', 1, 1, 10, 0, 0),
-(13, '', '', 'Role', '角色管理', 1, 1, 20, 1, 1),
-(14, 'index', '角色列表', 'Role', '角色管理', 1, 1, 20, 0, 1),
-(15, 'addRole', '添加角色', 'Role', '角色管理', 1, 1, 20, 0, 1),
-(16, 'editRole', '编辑角色', 'Role', '角色管理', 1, 1, 20, 0, 0),
-(17, '', '', 'RoleNav', '菜单管理', 1, 1, 40, 1, 1),
-(18, 'index', '菜单列表', 'RoleNav', '菜单管理', 1, 1, 40, 0, 1),
-(19, 'addRoleNav', '添加菜单', 'RoleNav', '菜单管理', 1, 1, 40, 0, 1),
-(20, 'editRoleNav', '编辑菜单', 'RoleNav', '菜单管理', 1, 1, 40, 0, 0),
-(21, 'doDelete', '删除菜单', 'RoleNav', '菜单管理', 1, 1, 40, 0, 0),
-(22, 'doDelete', '删除节点', 'RoleNode', '节点管理', 1, 1, 30, 0, 0),
-(23, 'pageLogList', '管理员登陆日志', 'System', '管理员', 1, 1, 10, 0, 1),
-(24, 'doDelete', '删除管理员', 'System', '管理员', 1, 1, 10, 0, 0),
-(25, 'doDelete', '删除角色', 'Role', '角色管理', 1, 1, 20, 0, 0),
-(26, '', '', 'Links', '友情链接管理', 2, 1, 60, 1, 1),
-(27, 'index', '链接列表', 'Links', '友情链接管理', 2, 1, 10, 0, 1),
-(28, 'addLinks', '添加链接', 'Links', '友情链接管理', 2, 1, 10, 0, 1),
-(29, 'editLinks', '编辑链接', 'Links', '友情链接', 2, 1, 0, 0, 0),
-(33, '', '', 'Message', '留言管理', 2, 1, 10, 1, 1),
-(34, 'index', '留言列表', 'Message', '留言管理', 2, 1, 10, 0, 1),
-(35, '', '', 'Index', '控制台', 3, 1, 10, 1, 1),
-(36, 'index', '欢迎页面', 'Index', '控制台', 3, 1, 10, 0, 1),
-(37, 'aboutUs', '关于我们', 'Index', '控制台', 3, 1, 10, 0, 1),
-(38, 'index', '会员列表', 'Member', '会员管理', 4, 1, 10, 0, 1),
-(39, 'addMember', '添加会员', 'Member', '会员管理', 4, 1, 10, 0, 1),
-(40, 'editMember', '编辑会员', 'Member', '会员管理', 4, 1, 10, 0, 0),
-(42, '', '', 'MemberLevel', '会员等级管理', 4, 1, 10, 1, 1),
-(43, 'index', '会员等级列表', 'MemberLevel', '会员等级管理', 4, 1, 10, 0, 1),
-(44, 'addMemberLevel', '添加会员等级', 'MemberLevel', '会员等级管理', 4, 1, 10, 0, 1),
-(45, '', '', 'Article', '文章管理', 5, 1, 10, 1, 1),
-(46, 'index', '文章列表', 'Article', '文章管理', 5, 1, 10, 0, 1),
-(47, 'addArticle', '添加文章', 'Article', '文章管理', 5, 1, 10, 0, 1),
-(48, 'editArticle', '编辑文章', 'Article', '文章管理', 5, 1, 10, 0, 0),
-(49, 'doDelete', '删除文章', 'Article', '文章管理', 5, 1, 10, 0, 0),
-(50, '', '', 'ArticleCategory', '文章分类管理', 5, 1, 10, 1, 1),
-(51, 'index', '文章分类列表', 'ArticleCategory', '文章分类管理', 5, 1, 10, 0, 1),
-(52, 'addArticleCategory', '添加文章分类', 'ArticleCategory', '文章分类管理', 5, 1, 10, 0, 1),
-(53, 'editArticleCategory', '编辑文章分类', 'ArticleCategory', '文章分类管理', 5, 1, 10, 0, 0),
-(54, '', '', 'Goods', '商品管理', 6, 1, 10, 1, 1),
-(55, 'index', '商品列表', 'Goods', '商品管理', 6, 1, 10, 0, 1),
-(56, 'addGoods', '添加商品', 'Goods', '商品管理', 6, 1, 10, 0, 1),
-(57, 'editGoods', '编辑商品', 'Goods', '商品管理', 6, 1, 10, 0, 0),
-(58, '', '', 'Theme', '模板管理', 7, 1, 10, 1, 1),
-(59, 'index', '模板列表', 'Theme', '模板管理', 7, 1, 10, 0, 1),
-(60, '', '', 'Orders', '订单管理', 10, 1, 10, 1, 1),
-(61, 'index', '订单列表', 'Orders', '订单管理', 10, 1, 10, 0, 1),
-(62, '', '', 'Ad', '广告管理', 2, 1, 10, 1, 1),
-(63, 'index', '广告列表', 'Ad', '广告管理', 2, 1, 10, 0, 1),
-(64, 'addAd', '添加广告', 'Ad', '广告管理', 2, 1, 10, 0, 1),
-(65, 'editAd', '编辑广告', 'Ad', '广告管理', 2, 1, 10, 0, 0),
-(66, '', '', 'Database', '数据库管理', 8, 1, 10, 1, 1),
-(67, 'backup', '数据备份', 'Database', '数据库管理', 8, 1, 10, 0, 1),
-(68, 'restore', '数据恢复', 'Database', '数据库管理', 8, 1, 10, 0, 1),
-(69, '', '', 'Delivery', '配送设置', 10, 1, 10, 1, 1),
-(70, 'index', '配送公司列表', 'Delivery', '配送设置', 10, 1, 10, 0, 1),
-(71, 'addDelivery', '添加配送公司', 'Delivery', '配送设置', 10, 1, 10, 0, 1),
-(72, 'editDelivery', '编辑配送公司', 'Delivery', '配送设置', 10, 1, 10, 0, 0),
-(73, '', '', 'GoodsCategory', '商品分类管理', 6, 1, 10, 1, 1),
-(74, 'index', '商品分类列表', 'GoodsCategory', '商品分类管理', 6, 1, 10, 0, 1),
-(75, 'addGoodsCategory', '添加商品分类', 'GoodsCategory', '商品分类管理', 6, 1, 10, 0, 1),
-(76, 'editGoodsCategory', '编辑商品分类', 'GoodsCategory', '商品分类管理', 6, 1, 10, 0, 0),
-(77, '', '', 'Download', '资源下载', 2, 1, 10, 1, 1),
-(78, 'index', '资源列表', 'Download', '资源下载', 5, 1, 10, 0, 1),
-(79, 'addDownload', '添加资源', 'Download', '资源下载', 5, 1, 10, 0, 1),
-(80, 'editDownload', '编辑资源', 'Download', '资源下载', 0, 1, 10, 0, 0),
-(81, 'logDatabase', '数据操作日志', 'Database', '数据库管理', 8, 1, 1, 0, 1),
-(82, '', '', 'Payment', '支付设置', 10, 1, 10, 1, 1),
-(83, 'index', '支付列表', 'Payment', '支付设置', 10, 1, 10, 0, 1),
-(85, 'editPayment', '编辑支付接口', 'Payment', '支付设置', 10, 1, 10, 0, 0),
-(86, '', '', 'Comment', '商品评论', 6, 1, 10, 1, 1),
-(87, 'index', '评论列表', 'Comment', '商品评论', 6, 1, 10, 0, 1),
-(88, 'Set', '评论设置', 'Comment', '商品评论', 6, 1, 1, 0, 1),
-(89, '', '', 'Brand', '品牌管理', 6, 1, 10, 1, 1),
-(90, 'index', '品牌列表', 'Brand', '品牌管理', 6, 1, 10, 0, 1),
-(91, 'addBrand', '添加品牌', 'Brand', '品牌管理', 6, 1, 10, 0, 1),
-(92, 'editBrand', '编辑品牌', 'Brand', '品牌管理', 6, 1, 10, 0, 0),
-(93, '', '', 'Setting', '核心设置', 9, 1, 10, 1, 1),
-(94, 'index', '站点设置', 'Setting', '核心设置', 9, 1, 10, 0, 1),
-(95, 'Case', '缓存设置', 'Setting', '核心设置', 9, 1, 10, 0, 1),
-(96, 'Security', '安全设置', 'Setting', '核心设置', 9, 1, 10, 0, 1),
-(97, '', '', 'Customer', '在线客服', 2, 1, 10, 1, 1),
-(98, 'index', '客服列表', 'Customer', '在线客服', 2, 1, 10, 0, 1),
-(99, 'addCustomer', '添加客服', 'Customer', '在线客服', 2, 1, 10, 0, 1),
-(100, 'editCustomer', '编辑客服', 'Customer', '在线客服', 2, 1, 10, 0, 0),
-(101, '', '', 'Oauth', '登陆接口', 2, 1, 10, 1, 1),
-(102, 'index', '接口列表', 'Oauth', '登陆接口', 2, 1, 10, 0, 1),
-(103, '', '', 'Nav', '导航管理', 7, 1, 10, 1, 1),
-(104, 'index', '导航设置', 'Nav', '导航管理', 7, 1, 10, 0, 1),
-(105, 'addNav', '添加导航', 'Nav', '导航管理', 7, 1, 10, 0, 1),
-(106, 'editNav', '编辑导航', 'Nav', '导航管理', 7, 1, 10, 0, 0);
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+-- ----------------------------
+-- Records of hui_role_node
+-- ----------------------------
+INSERT INTO `hui_role_node` VALUES ('4', '', '', 'RoleNode', '节点管理', '1', '1', '30', '1', '1');
+INSERT INTO `hui_role_node` VALUES ('5', 'addRoleNode', '添加节点', 'RoleNode', '节点管理', '1', '1', '30', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('6', 'editRoleNode', '编辑节点', 'RoleNode', '节点管理', '1', '1', '30', '0', '0');
+INSERT INTO `hui_role_node` VALUES ('7', 'index', '节点列表', 'RoleNode', '节点管理', '1', '1', '30', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('9', '', '', 'System', '管理员', '1', '1', '10', '1', '1');
+INSERT INTO `hui_role_node` VALUES ('10', 'index', '管理员列表', 'System', '管理员', '1', '1', '10', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('11', 'pageAddAdmin', '添加管理员', 'System', '管理员', '1', '1', '20', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('12', 'pageEditAdmin', '编辑管理员', 'System', '管理员', '1', '1', '10', '0', '0');
+INSERT INTO `hui_role_node` VALUES ('13', '', '', 'Role', '角色管理', '1', '1', '20', '1', '1');
+INSERT INTO `hui_role_node` VALUES ('14', 'index', '角色列表', 'Role', '角色管理', '1', '1', '20', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('15', 'addRole', '添加角色', 'Role', '角色管理', '1', '1', '20', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('16', 'editRole', '编辑角色', 'Role', '角色管理', '1', '1', '20', '0', '0');
+INSERT INTO `hui_role_node` VALUES ('17', '', '', 'RoleNav', '菜单管理', '1', '1', '40', '1', '1');
+INSERT INTO `hui_role_node` VALUES ('18', 'index', '菜单列表', 'RoleNav', '菜单管理', '1', '1', '40', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('19', 'addRoleNav', '添加菜单', 'RoleNav', '菜单管理', '1', '1', '40', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('20', 'editRoleNav', '编辑菜单', 'RoleNav', '菜单管理', '1', '1', '40', '0', '0');
+INSERT INTO `hui_role_node` VALUES ('21', 'doDelete', '删除菜单', 'RoleNav', '菜单管理', '1', '1', '40', '0', '0');
+INSERT INTO `hui_role_node` VALUES ('22', 'doDelete', '删除节点', 'RoleNode', '节点管理', '1', '1', '30', '0', '0');
+INSERT INTO `hui_role_node` VALUES ('23', 'pageLogList', '管理员登陆日志', 'System', '管理员', '1', '1', '10', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('24', 'doDelete', '删除管理员', 'System', '管理员', '1', '1', '10', '0', '0');
+INSERT INTO `hui_role_node` VALUES ('25', 'doDelete', '删除角色', 'Role', '角色管理', '1', '1', '20', '0', '0');
+INSERT INTO `hui_role_node` VALUES ('26', '', '', 'Links', '友情链接管理', '2', '1', '60', '1', '1');
+INSERT INTO `hui_role_node` VALUES ('27', 'index', '链接列表', 'Links', '友情链接管理', '2', '1', '10', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('28', 'addLinks', '添加链接', 'Links', '友情链接管理', '2', '1', '10', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('29', 'editLinks', '编辑链接', 'Links', '友情链接', '2', '1', '0', '0', '0');
+INSERT INTO `hui_role_node` VALUES ('33', '', '', 'Message', '留言管理', '2', '1', '10', '1', '1');
+INSERT INTO `hui_role_node` VALUES ('34', 'index', '留言列表', 'Message', '留言管理', '2', '1', '10', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('35', '', '', 'Index', '控制台', '3', '1', '10', '1', '1');
+INSERT INTO `hui_role_node` VALUES ('36', 'index', '欢迎页面', 'Index', '控制台', '3', '1', '10', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('37', 'aboutUs', '关于我们', 'Index', '控制台', '3', '1', '10', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('38', 'index', '会员列表', 'Member', '会员管理', '4', '1', '10', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('39', 'addMember', '添加会员', 'Member', '会员管理', '4', '1', '10', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('40', 'editMember', '编辑会员', 'Member', '会员管理', '4', '1', '10', '0', '0');
+INSERT INTO `hui_role_node` VALUES ('42', '', '', 'MemberLevel', '会员等级管理', '4', '1', '10', '1', '1');
+INSERT INTO `hui_role_node` VALUES ('43', 'index', '会员等级列表', 'MemberLevel', '会员等级管理', '4', '1', '10', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('44', 'addMemberLevel', '添加会员等级', 'MemberLevel', '会员等级管理', '4', '1', '10', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('45', '', '', 'Article', '文章管理', '5', '1', '10', '1', '1');
+INSERT INTO `hui_role_node` VALUES ('46', 'index', '文章列表', 'Article', '文章管理', '5', '1', '10', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('47', 'addArticle', '添加文章', 'Article', '文章管理', '5', '1', '10', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('48', 'editArticle', '编辑文章', 'Article', '文章管理', '5', '1', '10', '0', '0');
+INSERT INTO `hui_role_node` VALUES ('49', 'doDelete', '删除文章', 'Article', '文章管理', '5', '1', '10', '0', '0');
+INSERT INTO `hui_role_node` VALUES ('50', '', '', 'ArticleCategory', '文章分类管理', '5', '1', '10', '1', '1');
+INSERT INTO `hui_role_node` VALUES ('51', 'index', '文章分类列表', 'ArticleCategory', '文章分类管理', '5', '1', '10', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('52', 'addArticleCategory', '添加文章分类', 'ArticleCategory', '文章分类管理', '5', '1', '10', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('53', 'editArticleCategory', '编辑文章分类', 'ArticleCategory', '文章分类管理', '5', '1', '10', '0', '0');
+INSERT INTO `hui_role_node` VALUES ('54', '', '', 'Goods', '商品管理', '6', '1', '10', '1', '1');
+INSERT INTO `hui_role_node` VALUES ('55', 'index', '商品列表', 'Goods', '商品管理', '6', '1', '10', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('56', 'addGoods', '添加商品', 'Goods', '商品管理', '6', '1', '10', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('57', 'editGoods', '编辑商品', 'Goods', '商品管理', '6', '1', '10', '0', '0');
+INSERT INTO `hui_role_node` VALUES ('58', '', '', 'Theme', '模板管理', '7', '1', '10', '1', '1');
+INSERT INTO `hui_role_node` VALUES ('59', 'index', '模板列表', 'Theme', '模板管理', '7', '1', '10', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('60', '', '', 'Orders', '订单管理', '10', '1', '10', '1', '1');
+INSERT INTO `hui_role_node` VALUES ('61', 'index', '订单列表', 'Orders', '订单管理', '10', '1', '10', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('62', '', '', 'Ad', '广告管理', '2', '1', '10', '1', '1');
+INSERT INTO `hui_role_node` VALUES ('63', 'index', '广告列表', 'Ad', '广告管理', '2', '1', '10', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('64', 'addAd', '添加广告', 'Ad', '广告管理', '2', '1', '10', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('65', 'editAd', '编辑广告', 'Ad', '广告管理', '2', '1', '10', '0', '0');
+INSERT INTO `hui_role_node` VALUES ('66', '', '', 'Database', '数据库管理', '8', '1', '10', '1', '1');
+INSERT INTO `hui_role_node` VALUES ('67', 'backup', '数据备份', 'Database', '数据库管理', '8', '1', '10', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('68', 'restore', '数据恢复', 'Database', '数据库管理', '8', '1', '10', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('69', '', '', 'Delivery', '配送设置', '10', '1', '10', '1', '1');
+INSERT INTO `hui_role_node` VALUES ('70', 'index', '配送公司列表', 'Delivery', '配送设置', '10', '1', '10', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('71', 'addDelivery', '添加配送公司', 'Delivery', '配送设置', '10', '1', '10', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('72', 'editDelivery', '编辑配送公司', 'Delivery', '配送设置', '10', '1', '10', '0', '0');
+INSERT INTO `hui_role_node` VALUES ('73', '', '', 'GoodsCategory', '商品分类管理', '6', '1', '10', '1', '1');
+INSERT INTO `hui_role_node` VALUES ('74', 'index', '商品分类列表', 'GoodsCategory', '商品分类管理', '6', '1', '10', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('75', 'addGoodsCategory', '添加商品分类', 'GoodsCategory', '商品分类管理', '6', '1', '10', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('76', 'editGoodsCategory', '编辑商品分类', 'GoodsCategory', '商品分类管理', '6', '1', '10', '0', '0');
+INSERT INTO `hui_role_node` VALUES ('77', '', '', 'Download', '资源下载', '2', '1', '10', '1', '1');
+INSERT INTO `hui_role_node` VALUES ('78', 'index', '资源列表', 'Download', '资源下载', '5', '1', '10', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('79', 'addDownload', '添加资源', 'Download', '资源下载', '5', '1', '10', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('80', 'editDownload', '编辑资源', 'Download', '资源下载', '0', '1', '10', '0', '0');
+INSERT INTO `hui_role_node` VALUES ('81', 'logDatabase', '数据操作日志', 'Database', '数据库管理', '8', '1', '1', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('82', '', '', 'Payment', '支付设置', '10', '1', '10', '1', '1');
+INSERT INTO `hui_role_node` VALUES ('83', 'index', '支付列表', 'Payment', '支付设置', '10', '1', '10', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('85', 'editPayment', '编辑支付接口', 'Payment', '支付设置', '10', '1', '10', '0', '0');
+INSERT INTO `hui_role_node` VALUES ('86', '', '', 'Comment', '商品评论', '6', '1', '10', '1', '1');
+INSERT INTO `hui_role_node` VALUES ('87', 'index', '评论列表', 'Comment', '商品评论', '6', '1', '10', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('88', 'Set', '评论设置', 'Comment', '商品评论', '6', '1', '1', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('89', '', '', 'Brand', '品牌管理', '6', '1', '10', '1', '1');
+INSERT INTO `hui_role_node` VALUES ('90', 'index', '品牌列表', 'Brand', '品牌管理', '6', '1', '10', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('91', 'addBrand', '添加品牌', 'Brand', '品牌管理', '6', '1', '10', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('92', 'editBrand', '编辑品牌', 'Brand', '品牌管理', '6', '1', '10', '0', '0');
+INSERT INTO `hui_role_node` VALUES ('93', '', '', 'Setting', '核心设置', '9', '1', '10', '1', '1');
+INSERT INTO `hui_role_node` VALUES ('94', 'index', '站点设置', 'Setting', '核心设置', '9', '1', '10', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('95', 'Case', '缓存设置', 'Setting', '核心设置', '9', '1', '10', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('96', 'Security', '安全设置', 'Setting', '核心设置', '9', '1', '10', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('97', '', '', 'Customer', '在线客服', '2', '1', '10', '1', '1');
+INSERT INTO `hui_role_node` VALUES ('98', 'index', '客服列表', 'Customer', '在线客服', '2', '1', '10', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('99', 'addCustomer', '添加客服', 'Customer', '在线客服', '2', '1', '10', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('100', 'editCustomer', '编辑客服', 'Customer', '在线客服', '2', '1', '10', '0', '0');
+INSERT INTO `hui_role_node` VALUES ('101', '', '', 'Oauth', '登陆接口', '2', '1', '10', '1', '1');
+INSERT INTO `hui_role_node` VALUES ('102', 'index', '接口列表', 'Oauth', '登陆接口', '2', '1', '10', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('103', '', '', 'Nav', '导航管理', '7', '1', '10', '1', '1');
+INSERT INTO `hui_role_node` VALUES ('104', 'index', '导航设置', 'Nav', '导航管理', '7', '1', '10', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('105', 'addNav', '添加导航', 'Nav', '导航管理', '7', '1', '10', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('106', 'editNav', '编辑导航', 'Nav', '导航管理', '7', '1', '10', '0', '0');
