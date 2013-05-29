@@ -1,6 +1,6 @@
 <?php
 /**
- * 前台展厅控制器基类
+ * 前台展厅控制器
  *
  * @package Action
  * @subpackage Home
@@ -16,7 +16,6 @@ class IndexAction extends HomeAction{
      */
     public function _initialize() {
         parent::_initialize();
-        import('ORG.Util.Page');
     }
     
     public function index(){
