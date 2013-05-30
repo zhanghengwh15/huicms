@@ -26,5 +26,13 @@ class UserAction extends HomeAction{
         $this->display();
     }
     
-    
+    /**
+     * 验证码
+     * @author Terry <admin@52sum.com>
+     * @date 2013-03-23
+     */
+    public function Verify() {
+        import('ORG.Util.Image');
+        Image::buildImageVerify(4, 0, 'png', 70, 30, 'av');
+    }
 }
