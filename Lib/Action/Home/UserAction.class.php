@@ -27,6 +27,16 @@ class UserAction extends HomeAction{
     }
     
     /**
+     * 处理用户登录信息
+     * @author Terry<admin@huicms.cn>
+     * @date 2013-05-30
+     */
+    public function doRegister(){
+        $ary_post = $this->_post();
+        echo "<pre>";print_r($ary_post);exit;
+    }
+    
+    /**
      * 验证码
      * @author Terry <admin@52sum.com>
      * @date 2013-03-23
