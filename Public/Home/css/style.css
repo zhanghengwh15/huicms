@@ -394,3 +394,58 @@ padding:12px 0;
 .indexFooter p{font-family:\65b0\7d30\660e\9ad4;font-size:11px;}
 .indexFooter a{color:#525252;font-family:\65b0\7d30\660e\9ad4;font-size:11px;}
 .indexFooter div.fr span{padding:0 5px;}
+
+/*注册*/
+.reg-wrap{width:960px;margin:0 auto;position:relative}
+.reg-wrap .tit{font-size:16px;font-family: Microsoft YaHei;font-weight:300;}
+.reg-wrap .title{font-size:20px;font-family: Microsoft YaHei;font-weight:300;color:#333;margin:0 0 40px 0;border-bottom:2px solid #999;padding:0 0 10px 0;text-align:left}
+.reg-wrap .title .step-1,.reg-wrap .title .step-2,.reg-wrap .title .step-3{background:url(image/f_r_t.png) no-repeat 0 0;display:inline-block;width:50%;height:22px;vertical-align:middle}
+.reg-wrap .title .step-2{background-position:0 -26px}
+.reg-wrap .title .step-3{background-position:0 -52px}
+.reg-wrap .search-find{padding:0 0 0 100px;}
+.reg-wrap .search-find dd{padding:10px 0;}
+.reg-wrap .search-find a:link,.reg-wrap .search-find a:visited{color:#36c;}
+.reg-wrap .reg-main{display:block;_padding:20px 0 0 0;}
+.reg-wrap .reg-main:after{clear: both;content: ".";display: block;height: 0;visibility: hidden}
+.reg-main .article{padding:40px;/*border:#d7d7d7 solid 1px;*/zoom:1}
+.reg-main .article #post-tag{width:360px;}
+
+.reg-main .user-info{background:#F9FAFA;padding:10px;border:1px solid #e1e1e1;margin:-20px 0 20px 0;}
+.reg-main .user-info img{margin:0 10px 0 0;}
+
+.reg-main .article .item-step2{width:880px;margin:0 auto;position:relative;}
+.reg-main .article .item-step2 .btn-green-small{margin:0 0 0 160px;}
+.reg-main .article .item-step3{width:880px;margin:0 auto}
+.reg-main .article .item-step4{width:880px;margin:0 auto}
+.reg-main .article .item-step4 .tab-menu{margin:30px 0 0 0;}
+.boxShadow{background:#fff;box-shadow:0 0 5px #CCCCCC;-moz-box-shadow:0 0 5px #CCCCCC;-khtml-box-shadow:0 0 5px #CCCCCC;}
+
+.reg-main .article .item dd:after{visibility:hidden;display:block;font-size:0;content:" ";clear:both;height:0;}
+.reg-main .article .item dd label {display: block;float: left;font-size: 14px;padding: 5px 0 0;width: 80px}
+.reg-main .article .item dd.terms{position:relative;}
+.reg-main .article .item dd.terms .box-ver{position:absolute;left:295px;}
+.item .edit-department{padding:5px 0;display:block}
+.reg-main .article .item .form-row{float:left;position:relative;}
+.reg-main .article .item .btn-green-big{margin:10px 0 0 160px;*margin:10px 0 0 164px;}
+.reg-main .article .item .choose-user{width:255px}
+.item .user-list li{background:#F9F9F9;height:18px;line-height:18px;padding:5px 10px;margin:0 5px 10px 0;font-weight:700;color:#999}
+.item .user-list .ico-close{margin:5px 0 0}
+.item .form-row-complete{float:left}
+.item .tag_thinkbar{overflow:hidden;zoom:1}
+.reg-main .article .item .actionBtn{height:40px}
+.item .form-row .mod-at-wrap{left:1px;top:30px;width:250px;}
+.reg-main .article .item .txt-info{margin:10px 0 0;color:#666;}
+.reg-main .article .item .psd .s-txt, .reg-main .article .item .psd .s-txt-focus{float:left}
+.reg-main .article .item .form-row .s-textarea, .reg-main .article .item .form-row .s-textarea-focus{width:360px;height:120px;padding:4px 4px 0;overflow:hidden;float:left;margin:0 5px 0 0}
+.reg-main .article .item .form-row label{font-size:12px;height:16px;line-height:16px;padding:8px 0;*display:inline-block;_line-height:15px;}
+.reg-main .article .item .form-row .s-radio{margin-top:-3px;vertical-align:middle}
+.article .s-txt, .article .s-txt-focus{width:400px;margin:0 5px 0 0;vertical-align:middle;float:left;}
+.reg-main .article .text-required{margin:0 3px 0 0;}
+.reg-main .article .item dd{margin:0 0 20px 0;overflow:hidden;*zoom:1;}
+.reg-main .article .item .profession-type dd{margin:0 0 10px 120px}
+.reg-main .article .item dd .form-tt{float:left;font-size:14px;width:80px;display:block;padding:8px 10px 0 0;text-align:right}
+.reg-main .article .item dd .form-tt-complete{float:left;font-size:14px;width:300px;display:block;padding:5px 5px 0 0;text-align:right}
+.text-required {color: #f00;}
+.s-txt{font-size:12px;height:16px;line-height:16px;padding:6px 5px;margin:0 5px 0 0;border:#ccc solid 1px;border-top-color:#ccc;color:#333}
+.s-txt-focus{font-size:12px;height:16px;line-height:16px;padding:6px 5px;margin:0 5px 0 0;border:#ccc solid 1px;border-top-color:#ccc;color:#333;box-shadow:0 0 3px #ccc inset;-moz-box-shadow:0 0 3px #ccc inset;-webkit-box-shadow:0 0 3px #ccc inset}
+.s-radio{margin:0 5px 0 0;} 
