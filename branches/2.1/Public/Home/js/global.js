@@ -33,3 +33,15 @@ $.fn.smartFloat = function () {
 $(document).ready(function(){
     $("#header").smartFloat();
 });
+
+$(document).ready(function(){
+    $.metadata.setType("attr","validate");
+});
+
+$(document).ready(function(){   
+    $(".formvalidate").validate({
+        errorElement: "span",
+        errorClass: "errormsg",
+        success:"valid"
+    });   
+});
