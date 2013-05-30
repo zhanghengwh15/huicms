@@ -2,105 +2,118 @@
     <div class="reg-wrap">	
         <div class="reg-main">
             <!--注册步骤-->
-            <form model-node="normal_form" method="POST" action="" name="" id="">
-                    <div class="article boxShadow">
-                        <div class="title">注册帐号</div>
-                        <div class="register_left">
-                            <dl class="item">
-                                <dd>
-                                    <div class="form-tt"><i class="text-required">*</i>用户名：</div>
-                                    <div class="form-row" style="z-index:99">
-                                        <input class="s-txt-focus" name="user" autocomplete="off" type="text" value="" />
-                                    </div>
-                                </dd>
-                                <dd>
-                                    <div class="form-tt"><i class="text-required">*</i>邮箱：</div>
-                                    <div class="form-row" style="z-index:99">
-                                        <input class="s-txt-focus" name="email" autocomplete="off" type="text" value="" />
-                                    </div>
-                                </dd>
-                                <dd>
-                                    <div class="form-tt"><i class="text-required">*</i>登录密码：</div>
-                                    <div class="form-row psd">
-                                        <div style="overflow:hidden;*zoom:1">
-                                            <input event-node="password" name="password" type="password" value="" class="s-txt-focus"/>
-                                        </div>
-                                    </div>
-                                </dd>
-                                <dd>
-                                    <div class="form-tt"><i class="text-required">*</i>确认密码：</div>
-                                    <div class="form-row">
-                                        <input event-node="repassword" name="repassword" type="password" class="s-txt-focus"/>
-                                    </div>
-                                </dd>
-<!--                                <dd>
-                                    <div class="form-tt"><i class="text-required">*</i>昵称：</div>
-                                    <div class="form-row">
-                                        <div style="overflow:hidden;*zoom:1">
-                                            <input name="uname" autocomplete="off" type="text" value="" class="s-txt-focus"/>
-                                        </div>
-                                    </div>
-                                </dd>-->
-                                <dd>
-                                    <div class="form-tt"><i class="text-required">*</i>性别：</div>
-                                    <div class="form-row">
-                                        <label><input name="sex" type="radio" class="s-radio" value="1" checked="checked"/>男</label>
-                                        <label><input event-node="radio" type="radio" name="sex" value="2" class="s-radio"  />女</label>
-                                        <label><input name="sex" type="radio" class="s-radio" value="0" checked="checked"/>保密</label>
-                                    </div>
-                                </dd>
-                                <dd>
-                                    <div class="form-tt"><i class="text-required">*</i>验证码：</div>
-                                    <div class="form-row">
-                                        <div style="padding:3px 0 0 0;*height:30px;overflow:hidden;*zoom:1;">
-                                            <input name="verify" type="text" class="s-txt" style="width:70px" id="verCode"/>
-                                            <img src="{:U('User/Verify')}" id="verifyimg" class="alM" style="cursor: pointer;"/>
-                                        </div>
-                                    </div>
-                                </dd>
-                                <dd class="mt15">
-                                    <div class="form-tt"></div>
-                                    <div class="form-row actionBtn">
-                                        <a class="btn-register" href="javascript:;">立即注册</a>
-                                    </div>
-                                </dd>
-                                
-                            </dl>
-                        </div>
-                        <div class="register_right">
-                            <div class="rst_login">
-                                <span>已经有帐号？请直接登录</span>
-                                <a href="/" class="btn-register">登录</a>
-                            </div>
-                            <notempty name="oauth">
-                                <div class="other_login">
-                                    <span>您也可以用以下方式登录：</span>
-                                    <volist name="oauth" id="oh">
-                                        <a href='{:U("Home/Oauth/OtherLogin","t=$oh[type]")}' class="o_icon" title="{$oh.name}">
-                                            <img src="__PUBLIC__/Home/images/Connect_logo_{$oh[type]}.png">
-                                        </a>
-                                    </volist>
+            <form method="POST" action="{:U('User/doRegister')}" name="" id="" class="formvalidate">
+                <div class="article boxShadow">
+                    <div class="title">注册帐号</div>
+                    <div class="register_left">
+                        <dl class="item">
+                            <dd>
+                                <div class="form-tt"><i class="text-required">*</i>用户名：</div>
+                                <div class="form-row" style="z-index:99">
+                                    <input class="s-txt-focus tips" name="user" autocomplete="off" type="text" value="" title="3-20位字符，可由中文、英文、数字及“_”、“-”组成" validate="{ required:true,maxlength:30,messages:{required:'用户名不能为空'}}"/>
                                 </div>
-                            </notempty>
-                            
-                        </div>
+                            </dd>
+                            <dd>
+                                <div class="form-tt"><i class="text-required">*</i>邮箱：</div>
+                                <div class="form-row" style="z-index:99">
+                                    <input class="s-txt-focus tips" name="email" autocomplete="off" type="text" value="" title="请输入常用的邮箱，将用来找回密码、订单通知等"/>
+                                </div>
+                            </dd>
+                            <dd>
+                                <div class="form-tt"><i class="text-required">*</i>昵称：</div>
+                                <div class="form-row">
+                                    <div style="overflow:hidden;*zoom:1">
+                                        <input name="uname" autocomplete="off" type="text" value="" class="s-txt-focus tips" title="3-20位字符，可由中文、英文、数字及“_”、“-”组成"/>
+                                    </div>
+                                </div>
+                            </dd>
+                            <dd>
+                                <div class="form-tt"><i class="text-required">*</i>登录密码：</div>
+                                <div class="form-row psd">
+                                    <div style="overflow:hidden;*zoom:1">
+                                        <input name="password" type="password" value="" class="s-txt-focus tips" title="6-16位字符，可由英文、数字及标点符号组成"/>
+                                    </div>
+                                </div>
+                            </dd>
+                            <dd>
+                                <div class="form-tt"><i class="text-required">*</i>确认密码：</div>
+                                <div class="form-row">
+                                    <input name="repassword" type="password" class="s-txt-focus tips" title="请再次输入您的密码"/>
+                                </div>
+                            </dd>
+                            <dd>
+                                <div class="form-tt"><i class="text-required">*</i>性别：</div>
+                                <div class="form-row">
+                                    <label><input name="sex" type="radio" class="s-radio" value="1" checked="checked"/>男</label>
+                                    <label><input event-node="radio" type="radio" name="sex" value="2" class="s-radio"  />女</label>
+                                    <label><input name="sex" type="radio" class="s-radio" value="0" checked="checked"/>保密</label>
+                                </div>
+                            </dd>
+                            <dd>
+                                <div class="form-tt"><i class="text-required">*</i>验证码：</div>
+                                <div class="form-row">
+                                    <div style="padding:3px 0 0 0;*height:30px;overflow:hidden;*zoom:1;">
+                                        <input name="verify" type="text" class="s-txt tips" style="width:70px" id="verCode" title="请输入验证码，不区分大小写"/>
+                                        <img src="{:U('User/Verify')}" id="verifyimg" class="alM" style="cursor: pointer;"/>
+                                    </div>
+                                </div>
+                            </dd>
+                            <dd class="mt15">
+                                <div class="form-tt"></div>
+                                <div class="form-row actionBtn">
+                                    <input type="submit" class="btn-register" value="立即注册" />
+                                    <!--<a class="btn-register" href="javascript:;">立即注册</a>-->
+                                </div>
+                            </dd>
+
+                        </dl>
                     </div>
-                </form>
+                    <div class="register_right">
+                        <div class="rst_login">
+                            <span>已经有帐号？请直接登录</span>
+                            <a href="/" class="btn-register">登录</a>
+                        </div>
+                        <notempty name="oauth">
+                            <div class="other_login">
+                                <span>您也可以用以下方式登录：</span>
+                                <volist name="oauth" id="oh">
+                                    <a href='{:U("Home/Oauth/OtherLogin","t=$oh[type]")}' class="o_icon" title="{$oh.name}">
+                                        <img src="__PUBLIC__/Home/images/Connect_logo_{$oh[type]}.png">
+                                    </a>
+                                </volist>
+                            </div>
+                        </notempty>
+
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>
 <script>
-$(document).ready(function(){
-    var timer;
-    $(".alM").click(function(){
-        clearTimeout(timer);
-        $('#verifyimg').attr('src','{:U("User/verify")}'+'?r='+Math.random());
-    });
+    $(document).ready(function(){
+        var timer;
+        $(".alM").click(function(){
+            clearTimeout(timer);
+            $('#verifyimg').attr('src','{:U("User/verify")}'+'?r='+Math.random());
+        });
     
-    
-});    
-function fleshVerify(){
-    var time = new Date().getTime();
-    $("#verifyimg").attr('src',"{:U('User/verify')}?r="+time);
-}    
+        //注册表单提示
+        $('.tips').poshytip({
+            className: 'tip-yellowsimple',
+            showOn: 'focus',
+            alignTo: 'target',
+            alignX: 'center',
+            alignY: 'top',
+            offsetX: 0,
+            offsetY: 5,
+            allowTipHover: false
+        });
+
+
+    });    
+    function fleshVerify(){
+        var time = new Date().getTime();
+        $("#verifyimg").attr('src',"{:U('User/verify')}?r="+time);
+    }    
 </script>
