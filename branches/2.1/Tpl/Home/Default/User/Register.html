@@ -33,14 +33,14 @@
                                         <input event-node="repassword" name="repassword" type="password" class="s-txt-focus"/>
                                     </div>
                                 </dd>
-                                <dd>
+<!--                                <dd>
                                     <div class="form-tt"><i class="text-required">*</i>昵称：</div>
                                     <div class="form-row">
                                         <div style="overflow:hidden;*zoom:1">
                                             <input name="uname" autocomplete="off" type="text" value="" class="s-txt-focus"/>
                                         </div>
                                     </div>
-                                </dd>
+                                </dd>-->
                                 <dd>
                                     <div class="form-tt"><i class="text-required">*</i>性别：</div>
                                     <div class="form-row">
@@ -54,8 +54,7 @@
                                     <div class="form-row">
                                         <div style="padding:3px 0 0 0;*height:30px;overflow:hidden;*zoom:1;">
                                             <input name="verify" type="text" class="s-txt" style="width:70px" id="verCode"/>
-                                            <img src="" id="verifyimg" class="alM" onclick="change_verify()"/>
-                                            <a href="###" onclick="change_verify()" alt="换一张">看不清楚，换一个</a>
+                                            <img src="{:U('User/Verify')}" id="verifyimg" class="alM" style="cursor: pointer;"/>
                                         </div>
                                     </div>
                                 </dd>
@@ -65,6 +64,7 @@
                                         <a class="btn-register" href="javascript:;">立即注册</a>
                                     </div>
                                 </dd>
+                                
                             </dl>
                         </div>
                         <div class="register_right">
@@ -89,3 +89,18 @@
         </div>
     </div>
 </div>
+<script>
+$(document).ready(function(){
+    var timer;
+    $(".alM").click(function(){
+        clearTimeout(timer);
+        $('#verifyimg').attr('src','{:U("User/verify")}'+'?r='+Math.random());
+    });
+    
+    
+});    
+function fleshVerify(){
+    var time = new Date().getTime();
+    $("#verifyimg").attr('src',"{:U('User/verify')}?r="+time);
+}    
+</script>
