@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50516
 File Encoding         : 65001
 
-Date: 2013-05-28 17:00:40
+Date: 2013-05-31 00:15:08
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -43,7 +43,7 @@ CREATE TABLE `hui_admin` (
 -- ----------------------------
 -- Records of hui_admin
 -- ----------------------------
-INSERT INTO `hui_admin` VALUES ('1', 'admin', '21232f297a57a5a743894a0e4a801fc3', '1', '127.0.0.1', 'upload/photo/515321a73e88d.jpg', '王辉', '0', '13817918575', 'shuaige@52sum.com', '466209365', '', '215', '1', '2013-05-23 14:51:31', '0000-00-00 00:00:00', '2013-05-28 10:23:34');
+INSERT INTO `hui_admin` VALUES ('1', 'admin', '21232f297a57a5a743894a0e4a801fc3', '1', '127.0.0.1', 'upload/photo/515321a73e88d.jpg', '王辉', '0', '13817918575', 'shuaige@52sum.com', '466209365', '', '217', '1', '2013-05-29 17:28:25', '0000-00-00 00:00:00', '2013-05-28 10:23:34');
 
 -- ----------------------------
 -- Table structure for `hui_admin_log`
@@ -56,7 +56,7 @@ CREATE TABLE `hui_admin_log` (
   `log_create` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '登陆时间',
   `log_ip` varchar(15) NOT NULL COMMENT '登陆IP',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=245 DEFAULT CHARSET=utf8 COMMENT='管理员日志';
+) ENGINE=InnoDB AUTO_INCREMENT=247 DEFAULT CHARSET=utf8 COMMENT='管理员日志';
 
 -- ----------------------------
 -- Records of hui_admin_log
@@ -261,6 +261,8 @@ INSERT INTO `hui_admin_log` VALUES ('241', '1', 'admin', '2013-05-21 11:04:35', 
 INSERT INTO `hui_admin_log` VALUES ('242', '1', 'admin', '2013-05-21 14:37:56', '127.0.0.1');
 INSERT INTO `hui_admin_log` VALUES ('243', '1', 'admin', '2013-05-23 00:00:20', '127.0.0.1');
 INSERT INTO `hui_admin_log` VALUES ('244', '1', 'admin', '2013-05-23 14:51:31', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('245', '1', 'admin', '2013-05-29 09:16:04', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('246', '1', 'admin', '2013-05-29 17:28:25', '127.0.0.1');
 
 -- ----------------------------
 -- Table structure for `hui_config`
@@ -373,17 +375,18 @@ CREATE TABLE `hui_nav` (
   `url` text COMMENT '菜单URL',
   `order` int(11) NOT NULL DEFAULT '10' COMMENT '排序',
   `type` varchar(25) NOT NULL DEFAULT 'main' COMMENT '导航类型:main.主导航,bottom.底部导航',
-  `target` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否新窗口打开:0.否,1是',
+  `target` varchar(15) NOT NULL DEFAULT '_blank' COMMENT '打开方式',
   `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否显示',
   `create_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '创建时间',
   `update_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='前台菜单';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='前台菜单';
 
 -- ----------------------------
 -- Records of hui_nav
 -- ----------------------------
 INSERT INTO `hui_nav` VALUES ('1', '首页', 'index', 'http://www.baidu.com', '10', 'main', '1', '1', '2013-05-19 00:00:00', '2013-05-19 00:00:00');
+INSERT INTO `hui_nav` VALUES ('2', '留言', 'guestbook', '/Guestbook', '10', 'main', '0', '1', '2013-05-29 17:29:33', '0000-00-00 00:00:00');
 
 -- ----------------------------
 -- Table structure for `hui_oauth`
