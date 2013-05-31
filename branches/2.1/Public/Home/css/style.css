@@ -510,6 +510,8 @@ input:focus{border-color: rgba(82, 168, 236, 0.8);outline: 0;-webkit-box-shadow:
 	height:9px;
 	background:url('../images/tip-yellowsimple_arrows.gif') no-repeat -27px 0;
 }
-
+#login_msg{float: right;position: absolute;width: 186px;text-align: right;}
+.loginError{color: red;}
+.loginSucc{color: green;}
 span.errormsg {color: red;text-indent: 20px;float: right;display: inline-block;height: 30px;line-height: 30px;background-position: 2px -1px;margin-left: -10px;background-repeat: no-repeat;}
 span.valid {background: url("../images/checked.gif") no-repeat left;float: right;width: 14px;height: 25px;overflow: hidden;padding: 0;margin: 0px 0 0 15px;display: inline-block;}
