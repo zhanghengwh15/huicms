@@ -26,9 +26,7 @@ class RoleAction extends AdminAction{
         $role = D($name);
         $ary_get['pageall'] = $this->_get('pageall', 'htmlspecialchars', 10);
         $count = $role->where()->count();
-        $obj_page = new Page($count, $ary_get['pageall']);
-        $obj_page->setConfig("header","条");
-        $obj_page->setConfig('theme','<li class="pageSelect">共%totalRow%%header%&nbsp;%nowPage%/%totalPage%页&nbsp;%first%&nbsp;%upPage%&nbsp;%prePage%&nbsp;%linkPage%&nbsp;%nextPage%&nbsp;%downPage%&nbsp;%end%</li>');
+        $obj_page = $this->_Page($count, $ary_get['pageall']);
         $page = $obj_page->newshow();
         $ary_data = $role->where()->limit($obj_page->firstRow, $obj_page->listRows)->select();
         $this->assign("data", $ary_data);

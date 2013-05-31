@@ -22,9 +22,7 @@ class MessageAction extends AdminAction{
         $message = D($name);
         $ary_get['pageall'] = $this->_get('pageall', 'htmlspecialchars', 10);
         $count = $message->where()->count();
-        $obj_page = new Page($count, $ary_get['pageall']);
-        $obj_page->setConfig("header","条");
-        $obj_page->setConfig('theme','<li class="pageSelect">共%totalRow%%header%&nbsp;%nowPage%/%totalPage%页&nbsp;%first%&nbsp;%upPage%&nbsp;%prePage%&nbsp;%linkPage%&nbsp;%nextPage%&nbsp;%downPage%&nbsp;%end%</li>');
+        $obj_page = $this->_Page($count, $ary_get['pageall']);
         $page = $obj_page->newshow();
         $ary_data = $message->where()->limit($obj_page->firstRow, $obj_page->listRows)->select();
         if(!empty($ary_data) && is_array($ary_data)){
