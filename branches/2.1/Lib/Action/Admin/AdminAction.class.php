@@ -213,4 +213,16 @@ abstract class AdminAction extends Action{
             $this->error("请选择删除的对象");
         }
     }
+    
+    /**
+     * 后台统一分页
+     * @author Terry<admin@huicms.cn>
+     * @date 2013-05-31
+     */
+    public function _Page($count, $pagesize){
+        $page = new Page($count, $pagesize);
+        $page->setConfig("header","条");
+        $page->setConfig('theme','<li class="pageSelect">共%totalRow%%header%&nbsp;%nowPage%/%totalPage%页&nbsp;%first%&nbsp;%upPage%&nbsp;%prePage%&nbsp;%linkPage%&nbsp;%nextPage%&nbsp;%downPage%&nbsp;%end%</li>');
+        return $page;
+    }
 }

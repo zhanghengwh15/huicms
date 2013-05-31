@@ -23,11 +23,7 @@ class NavAction extends AdminAction{
         
         $count = D($name)->where()->count();
         
-        $obj_page = new Pager($count, $ary_get['pageall']);
-        
-        $obj_page->setConfig("header","条");
-        
-        $obj_page->setConfig('theme','<li class="pageSelect">共%totalRow%%header%&nbsp;%nowPage%/%totalPage%页&nbsp;%first%&nbsp;%upPage%&nbsp;%prePage%&nbsp;%linkPage%&nbsp;%nextPage%&nbsp;%downPage%&nbsp;%end%</li>');
+        $obj_page = $this->_Page($count, $ary_get['pageall']);
         
         $page = $obj_page->newshow();
         

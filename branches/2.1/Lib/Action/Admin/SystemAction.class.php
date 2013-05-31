@@ -27,9 +27,7 @@ class SystemAction extends AdminAction{
         $admin_access = D('Config')->getCfgByModule('ADMIN_ACCESS');
         $admin = M("admin");
         $count = $admin->join( C("DB_PREFIX")."role ON ".C("DB_PREFIX")."admin.role_id=".C("DB_PREFIX")."role.id")->where()->count();
-        $obj_page = new Page($count, $ary_get['pageall']);
-        $obj_page->setConfig("header","条");
-        $obj_page->setConfig('theme','<li class="pageSelect">共%totalRow%%header%&nbsp;%nowPage%/%totalPage%页&nbsp;%first%&nbsp;%upPage%&nbsp;%prePage%&nbsp;%linkPage%&nbsp;%nextPage%&nbsp;%downPage%&nbsp;%end%</li>');
+        $obj_page = $this->_Page($count, $ary_get['pageall']);
         $page = $obj_page->newshow();
         $ary_data = $admin->join( C("DB_PREFIX")."role ON ".C("DB_PREFIX")."admin.role_id=".C("DB_PREFIX")."role.id")->where()->limit($obj_page->firstRow, $obj_page->listRows)->select();
         $this->assign("data",$ary_data);
@@ -330,9 +328,7 @@ class SystemAction extends AdminAction{
         import('ORG.Net.IpLocation');// 导入IpLocation类
         $Ip = new IpLocation(); // 实例化类
         $count = $adminlog->where()->count();
-        $obj_page = new Page($count, $ary_get['pageall']);
-        $obj_page->setConfig("header","条");
-        $obj_page->setConfig('theme','<li class="pageSelect">共%totalRow%%header%&nbsp;%nowPage%/%totalPage%页&nbsp;%first%&nbsp;%upPage%&nbsp;%prePage%&nbsp;%linkPage%&nbsp;%nextPage%&nbsp;%downPage%&nbsp;%end%</li>');
+        $obj_page = $this->_Page($count, $ary_get['pageall']);
         $page = $obj_page->newshow();
         $ary_data = $adminlog->where()->limit($obj_page->firstRow, $obj_page->listRows)->order('log_create desc')->select();
         if(!empty($ary_data) && is_array($ary_data)){
