@@ -17,22 +17,21 @@
                     <span class="popup-arrow" style="display: none;"><i></i></span>
                     <div class="popup-layer" style="display: none;">
                         <div class="popup">
-                            <form class="popup-signin" name="loginform" action="/" method="post">
-                                <h4>用户名：</h4>
-                                <input class="ipt" type="text" name="log" value="" size="20">
+                            <form class="popup-signin" name="loginform" id="loginform" action="#" method="post">
+                                <h4 class="m_name">用户名：</h4>
+                                <input class="ipt" type="text" name="user" id="user" value="" size="20">
                                 <h4>密码：</h4>
-                                <input class="ipt" type="password" name="pwd" value="" size="20">
+                                <input class="ipt" type="password" name="passwd" id="passwd" value="" size="20">
                                 <input class="btn btn-primary" type="submit" name="submit" value="立即登录">
                                 <p>
                                     <a class="btn btn-mini" href='{:U("User/Register")}'>注册</a>
                                     <a class="btn btn-mini" href="/">找回密码</a>
                                 </p>
-                                <input type="hidden" name="redirect_to" value="/">
                             </form>
                         </div>
                     </div>
                 <else />
-                    <img src="{$Think.session.userinfo.figureurl}" title="{$Think.session.userinfo.nickname}" width="28" height="28" /><a href="{:U('Home/Oauth/OtherLoginOut')}" style="position: relative;top: -10px;margin-left: 5px;color: #fff;height: 28px;line-height: 28px;vertical-align: middle;">退出</a>
+                    <img src="{$Think.session.userinfo.figureurl|default='__PUBLIC__/Home/images/photo.png'}" title="{$Think.session.userinfo.nickname}" width="28" height="28" /><a href="{:U('Home/Oauth/OtherLoginOut')}" style="position: relative;top: -10px;margin-left: 5px;color: #fff;height: 28px;line-height: 28px;vertical-align: middle;">退出</a>
                 </if>
                 
             </li>
@@ -68,5 +67,48 @@
         $(".popup-arrow").show();
         $(".popup-layer").show();
     });    
+    $(document).ready(function(){
+        $("#loginform").submit(function(){
+            login();
+            return false;
+        });
+    });
     
+    function login(){
+        var user = $("#user").val();
+        var passwd = $("#passwd").val();
+        if(user==""){
+            $('<span id="login_msg" />').addClass("loginError").html("用户名不能为空").appendTo('.m_name').fadeOut(2000);
+            $("#user").focus();
+            return false;
+        }
+        if(passwd==""){
+            $('<span id="login_msg" />').addClass("loginError").html("密码不能为空").appendTo('.m_name').fadeOut(2000);
+            $("#passwd").focus();
+            return false;
+        }
+        var data = $("#loginform").serialize();
+        $.ajax({
+            url:"{:U('User/doLogin')}",
+            cache:false,
+            dataType:'json',
+            type:'POST',
+            data:data,
+            error:function(){
+                $('<span id="login_msg" />').addClass("loginError").html("AJAX请求发生错误").appendTo('.login').fadeOut(3000); 
+            },
+            success:function(msgObj){
+                if(msgObj.status == '1'){
+                    $('<span id="login_msg" />').addClass("loginSucc").html("登录成功").appendTo('.m_name').fadeOut(2000);
+                    setTimeout(function(){
+                                window.location.href="/";
+                            },1500);
+                    return false;
+                }else{
+                    $('<span id="login_msg" />').addClass("loginError").html(msgObj.info).appendTo('.m_name').fadeOut(3000); 
+                    return false;
+                }
+            }
+        });
+    }
 </script>

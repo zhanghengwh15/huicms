@@ -16,7 +16,7 @@
                             <dd>
                                 <div class="form-tt"><i class="text-required">*</i>邮箱：</div>
                                 <div class="form-row" style="z-index:99">
-                                    <input class="s-txt-focus tips" name="m_email" autocomplete="off" type="text" value="" title="请输入常用的邮箱，将用来找回密码、订单通知等" validate='{ required:true,email:true,remote:"{:U("User/checkName","field=m_email")}",maxlength:30,messages:{required:"邮箱不能为空",email:"请填写有效的邮箱"}}'/>
+                                    <input class="s-txt-focus tips" name="m_email" autocomplete="off" type="text" value="" title="请输入常用的邮箱，将用来找回密码" validate='{ required:true,email:true,remote:"{:U("User/checkName","field=m_email")}",maxlength:30,messages:{required:"邮箱不能为空",email:"请填写有效的邮箱"}}'/>
                                 </div>
                             </dd>
                             <dd>
@@ -31,7 +31,7 @@
                                 <div class="form-tt"><i class="text-required">*</i>登录密码：</div>
                                 <div class="form-row psd">
                                     <div style="overflow:hidden;*zoom:1">
-                                        <input name="m_passwd" type="password" value="" id="m_passwd" class="s-txt-focus tips" title="6-16位字符，可由英文、数字及标点符号组成" validate='{ required:true,messages:{required:"登录密码不能为空"}}'/>
+                                        <input name="m_passwd" type="password" value="" id="m_passwd" class="s-txt-focus tips" title="6-20位字符，可由英文、数字及标点符号组成" validate='{ required:true,minlength:6,maxlength:20,messages:{required:"登录密码不能为空",minlength:"密码过短",maxlength:"登录密码过长"}}'/>
                                     </div>
                                 </div>
                             </dd>
@@ -54,7 +54,7 @@
                                 <div class="form-row">
                                     <div style="padding:3px 0 0 0;*height:30px;overflow:hidden;*zoom:1;">
                                         <input name="verify" type="text" class="s-txt tips" style="width:70px" id="verCode" title="请输入验证码，不区分大小写" validate='{ required:true,remote:"{:U("User/checkVerify")}",messages:{required:"验证码不能为空"}}'/>
-                                        <img src="{:U('User/Verify')}" id="verifyimg" class="alM" style="cursor: pointer;"/>
+                                        <img src="{:U('User/Verify')}" id="verifyimg" class="alM" style="cursor: pointer;" title="看不清楚?点击换张"/>
                                     </div>
                                 </div>
                             </dd>
@@ -107,7 +107,8 @@
             alignY: 'top',
             offsetX: 0,
             offsetY: 5,
-            allowTipHover: false
+            allowTipHover: false,
+            showTimeout: 100
         });
 
 
