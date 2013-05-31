@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50516
 File Encoding         : 65001
 
-Date: 2013-05-31 00:15:08
+Date: 2013-05-31 21:39:04
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -276,8 +276,7 @@ CREATE TABLE `hui_config` (
   `c_value_desc` varchar(100) NOT NULL DEFAULT '' COMMENT '配置值描述',
   `c_create_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP COMMENT '记录创建时间',
   `c_update_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '记录最后更新时间',
-  PRIMARY KEY (`c_id`),
-  KEY `c_key` (`c_key`) USING BTREE
+  PRIMARY KEY (`c_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='系统配置表，配置值使用序列化数组存储';
 
 -- ----------------------------
@@ -321,7 +320,10 @@ CREATE TABLE `hui_members` (
   `m_name` varchar(50) NOT NULL DEFAULT '' COMMENT '用户名',
   `m_nickname` varchar(50) DEFAULT '' COMMENT '用户昵称',
   `m_passwd` varchar(32) NOT NULL COMMENT '密码',
+  `ml_id` int(11) NOT NULL COMMENT '会员等级ID',
+  `m_balance` decimal(8,2) NOT NULL DEFAULT '0.00' COMMENT '账户余额',
   `m_sex` tinyint(1) NOT NULL DEFAULT '0' COMMENT '性别：0.保密，1.男，2.女',
+  `m_pic` varchar(200) DEFAULT NULL COMMENT '会员头像',
   `m_email` varchar(60) NOT NULL COMMENT '邮箱',
   `m_login_ip` varchar(60) DEFAULT NULL COMMENT '登陆IP',
   `m_login_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP COMMENT '登陆时间',
@@ -330,13 +332,15 @@ CREATE TABLE `hui_members` (
   `m_verify_status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '电子邮件验证标示 0未验证，1已验证',
   `m_status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否审核，0未审核，1已审核',
   `m_reg_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '注册时间',
+  `m_reg_ip` varchar(15) NOT NULL COMMENT '注册IP',
   `m_qq` int(15) DEFAULT NULL COMMENT '用户QQ',
   PRIMARY KEY (`m_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='会员表';
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='会员表';
 
 -- ----------------------------
 -- Records of hui_members
 -- ----------------------------
+INSERT INTO `hui_members` VALUES ('1', 'sje410', '快乐DE小子', '585b66ed3c06f4cadcb3084c0a621437', '0', '0.00', '1', null, 'admin@huicms.cn', '127.0.0.1', '2013-05-31 15:53:38', null, null, '0', '1', '2013-05-31 15:41:07', '127.0.0.1', null);
 
 -- ----------------------------
 -- Table structure for `hui_message`
@@ -429,8 +433,7 @@ CREATE TABLE `hui_payment` (
   `pay_author` varchar(100) NOT NULL COMMENT '作者',
   `pay_website` varchar(100) NOT NULL COMMENT '支付网址',
   `pay_version` varchar(20) NOT NULL COMMENT '版本号',
-  PRIMARY KEY (`pay_id`),
-  UNIQUE KEY `pay_code` (`pay_code`) USING BTREE
+  PRIMARY KEY (`pay_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COMMENT='支付方式';
 
 -- ----------------------------
