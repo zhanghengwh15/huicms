@@ -195,7 +195,7 @@ abstract class AdminAction extends Action{
     }
     
     /**
-     * 删除友情链接
+     * 通用删除操作
      * @author Terry<admin@huicms.cn>
      * @date 2013-05-16
      */
