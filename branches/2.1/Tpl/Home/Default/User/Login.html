@@ -1,0 +1,91 @@
+<div id="page-wrap" class="wrap">
+    <div class="reg-wrap">	
+        <div class="reg-main">
+            <!--注册步骤-->
+            <form method="POST" action="{:U('User/doRegister')}" name="" id="" class="formvalidate">
+                <div class="article boxShadow">
+                    <div class="title">用户登录</div>
+                    <div class="register_left">
+                        <dl class="item">
+                            <dd>
+                                <div class="form-tt"><i class="text-required">*</i>用户名：</div>
+                                <div class="form-row" style="z-index:99">
+                                    <input class="s-txt-focus tips" name="m_name" autocomplete="off" type="text" value="" title="3-20位字符，可由中文、英文、数字及“_”、“-”组成" validate='{ required:true,username:true,remote:"{:U("User/checkName","field=m_name")}",maxlength:30,messages:{required:"用户名不能为空"}}'/>
+                                </div>
+                            </dd>
+                            <dd>
+                                <div class="form-tt"><i class="text-required">*</i>密码：</div>
+                                <div class="form-row psd">
+                                    <div style="overflow:hidden;*zoom:1">
+                                        <input name="m_passwd" type="password" value="" id="m_passwd" class="s-txt-focus tips" title="6-20位字符，可由英文、数字及标点符号组成" validate='{ required:true,minlength:6,maxlength:20,messages:{required:"登录密码不能为空",minlength:"密码过短",maxlength:"登录密码过长"}}'/>
+                                    </div>
+                                </div>
+                            </dd>
+                            <dd>
+                                <div class="form-tt"><i class="text-required">*</i>验证码：</div>
+                                <div class="form-row">
+                                    <div style="padding:3px 0 0 0;*height:30px;overflow:hidden;*zoom:1;">
+                                        <input name="verify" type="text" class="s-txt tips" style="width:70px" id="verCode" title="请输入验证码，不区分大小写" validate='{ required:true,remote:"{:U("User/checkVerify")}",messages:{required:"验证码不能为空"}}'/>
+                                        <img src="{:U('User/Verify')}" id="verifyimg" class="alM" style="cursor: pointer;" title="看不清楚?点击换张"/>
+                                    </div>
+                                </div>
+                            </dd>
+                            <dd class="mt15">
+                                <div class="form-tt"></div>
+                                <div class="form-row actionBtn">
+                                    <input type="submit" class="btn-register" value="登录" />
+                                </div>
+                            </dd>
+
+                        </dl>
+                    </div>
+                    <div class="register_right">
+                        <div class="rst_login">
+                            <span>已经有帐号？请直接登录</span>
+                            <a href='{:U("User/Register")}' class="btn-register">立即注册</a>
+                        </div>
+                        <notempty name="oauth">
+                            <div class="other_login">
+                                <span>您也可以用以下方式登录：</span>
+                                <volist name="oauth" id="oh">
+                                    <a href='{:U("Home/Oauth/OtherLogin","t=$oh[type]")}' class="o_icon" title="{$oh.name}">
+                                        <img src="__PUBLIC__/Home/images/Connect_logo_{$oh[type]}.png">
+                                    </a>
+                                </volist>
+                            </div>
+                        </notempty>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function(){
+        var timer;
+        $(".alM").click(function(){
+            clearTimeout(timer);
+            $('#verifyimg').attr('src','{:U("User/verify")}'+'?r='+Math.random());
+        });
+    
+        //注册表单提示
+        $('.tips').poshytip({
+            className: 'tip-yellowsimple',
+            showOn: 'focus',
+            alignTo: 'target',
+            alignX: 'center',
+            alignY: 'top',
+            offsetX: 0,
+            offsetY: 5,
+            allowTipHover: false,
+            showTimeout: 100
+        });
+
+
+    });    
+    function fleshVerify(){
+        var time = new Date().getTime();
+        $("#verifyimg").attr('src',"{:U('User/verify')}?r="+time);
+    }    
+</script>

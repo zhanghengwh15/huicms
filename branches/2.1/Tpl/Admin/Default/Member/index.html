@@ -30,7 +30,7 @@
                     <!--<td class="align-center">{$list.ml_id}</td>-->
                     <td class="align-center">{$list.m_nickname}</td>
                     <td class="align-center">{$list.m_email}</td>
-                    <td class="align-center"><img src="{$list.m_pic|default='__PUBLIC__/Home/images/photo.png'}" title="{$list.m_name}" width="24px" height="24px"/></td>
+                    <td class="align-center"><img src="__PUBLIC__/{$list.m_pic|default='__PUBLIC__/Home/images/photo.png'}" title="{$list.m_name}" width="24px" height="24px"/></td>
                     <td class="align-center">{$list.m_balance|sprintf='%.2f',###}</td>
                     <td class="align-center">
                         <switch name="$list.m_sex">
@@ -39,10 +39,10 @@
                             <default />保密
                         </switch>
                     </td>
-                    <td class="align-center">{$list.m_status}</td>
+                    <td class="align-center"><a href="javascript:void(0);" id="list_{$list.m_id}" class="m_status" m_status="{$list.m_status}" m_id="{$list.m_id}"><if condition="$list.m_status eq '1'">已审核<else />未审核</if></a></td>
                     <td class="align-center">
                         <div class="button-group">
-                            <a href='javascript:void(0);'  class="button danger icon pill edit doadd" m_name="{$list.m_name}" m_id="{$list.m_id}" alt="编辑" title="编辑"></a>
+                            <a href='{:U("Admin/Member/editMember","mid=$list[m_id]")}'  class="button danger icon pill edit" alt="编辑" title="编辑"></a>
                             <a href="javascript:void(0);"  data-uri='{:U("Admin/Member/doDelete","m_id=$list[m_id]")}' val="{$list[m_id]}" data-msg="确定要删除 <font color='red'>{$list.m_name}</font> 吗？" data-acttype="ajax" class="button danger icon pill remove dodel" title="删除"></a>
 
                         </div>
@@ -60,6 +60,28 @@
 </div>
 <script>
     $(document).ready(function(){
+        //审核会员
+        $(".m_status").click(function(){
+            var m_status = $(this).attr("m_status");
+            var m_id = $(this).attr("m_id");
+            var uri = $(".contentbox").attr("data-uri");
+            $.ajax({
+                url:uri,
+                cache:false,
+                dataType:'json',
+                type:'POST',
+                data:{m_id:m_id,m_status:m_status},
+                success:function(msgObj){
+                    if(msgObj.success == '1'){
+                        $("#list_"+m_id).html(msgObj.data.statusMsg);
+                        $("#list_"+m_id).attr("m_status",msgObj.data.status);
+                    }else{
+                        showMessage(msgObj.success,msgObj.msg,'',2);
+                    }
+                }
+            });
+        });
+        
         //删除会员
         $(".dodel").click(function(){
             var title = $(this).attr("data-msg");
