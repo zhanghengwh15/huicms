@@ -408,9 +408,9 @@ input:focus{border-color: rgba(82, 168, 236, 0.8);outline: 0;-webkit-box-shadow:
 .reg-wrap .search-find a:link,.reg-wrap .search-find a:visited{color:#36c;}
 .reg-wrap .reg-main{display:block;_padding:20px 0 0 0;}
 .reg-main .register_left{float: left;width: 645px;}
-.reg-main .register_right{float: left;width: 230px;height: 407px;padding-left: 3px;border-left: 1px solid #ccc;}
+.reg-main .register_right{float: left;width: 230px;height: 287px;padding-left: 3px;border-left: 1px solid #ccc;}
 .reg-wrap .reg-main:after{clear: both;content: ".";display: block;height: 0;visibility: hidden}
-.reg-main .article{padding:40px;/*border:#d7d7d7 solid 1px;*/zoom:1;height: 480px;}
+.reg-main .article{padding:40px;/*border:#d7d7d7 solid 1px;*/zoom:1;height: 360px;}
 .reg-main .article #post-tag{width:360px;}
 .btn-register{background:#414448;width:80px;height:30px;font-size:14px;color:#fff;margin-top: 8px;display:block;text-align:center;line-height:30px;border-radius:4px;-webkit-border-radius:2px;-moz-border-radius:2px;-khtml-border-radius:2px;cursor: pointer;border: none;}
 .reg-main .user-info{background:#F9FAFA;padding:10px;border:1px solid #e1e1e1;margin:-20px 0 20px 0;}
