@@ -20,7 +20,7 @@ class UserAction extends HomeAction{
     }
     
     public function Login(){
-        
+        $this->display();
     }
     
     public function Register(){
