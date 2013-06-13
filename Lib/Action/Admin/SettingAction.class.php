@@ -46,4 +46,44 @@ class SettingAction extends AdminAction{
             $this->error("数据有误");
         }
     }
+    
+    /**
+     * 验证码配置
+     * @author Terry<admin@huicms.cn>
+     * @date 2013-06-09
+     */
+    public function verCode(){
+        $this->display();
+    }
+    
+    public function doVerCode(){
+        $ary_post = $this->_post();
+        $SysSeting = D('SysConfig');
+        if(!isset($ary_post['MREGISTER']) && empty($ary_post['MREGISTER'])){
+            $ary_post['MREGISTER'] = '0';
+        }
+        if(!isset($ary_post['RELOGIN']) && empty($ary_post['RELOGIN'])){
+            $ary_post['MREGISTER'] = '0';
+        }
+        if(!isset($ary_post['BALOGIN']) && empty($ary_post['BALOGIN'])){
+            $ary_post['MREGISTER'] = '0';
+        }
+        if(!isset($ary_post['REWIDTH']) && empty($ary_post['REWIDTH'])){
+            $ary_post['REWIDTH'] = '70';
+        }
+        echo "<pre>";print_r($ary_post);exit;
+         if(
+            $SysSeting->setConfig('CODE_SET', 'MREGISTER', $ary_post['MREGISTER'], '会员注册') &&
+            $SysSeting->setConfig('CODE_SET', 'RELOGIN', $ary_post['RELOGIN'], '前台登陆') &&
+            $SysSeting->setConfig('CODE_SET', 'BALOGIN', $ary_post['BALOGIN'], '后台登陆') && 
+            $SysSeting->setConfig('CODE_SET', 'BUILDTYPE', $ary_post['BUILDTYPE'], '验证码生成类型') &&
+            $SysSeting->setConfig('CODE_SET', 'EXPANDTYPE', $ary_post['EXPANDTYPE'], '选择验证码文件类型') &&
+            $SysSeting->setConfig('CODE_SET', 'BUILDTYPE', $ary_post['BUILDTYPE'], '前台验证码图片大小')
+        ){
+            $this->success('保存成功');
+        }else{
+            $this->error('保存失败');
+        }
+        echo "<pre>";print_r($ary_post);exit;
+    }
 }
