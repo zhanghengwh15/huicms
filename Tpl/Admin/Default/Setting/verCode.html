@@ -1,0 +1,164 @@
+<div class="rounded table" style="width: 98%;border: 0px;" >
+
+<!-- start -->
+<div class="nav">
+	<ul class="cc">
+		<li><a href="{:U('Admin/Setting/index')}">站点信息</a></li>
+		<li><a href="{:U('Admin/Setting/Global')}">全局参数</a></li>
+        <li class="current"><a href="{:U('Admin/Setting/verCode')}">验证码配置</a></li>
+	</ul>
+</div>
+<form action="{:U('Admin/Setting/doVerCode')}" method="post" class="formvalidate">
+        <table class="list" cellpadding="0" cellspacing="1" border="0">
+            <tbody>
+                <tr>
+                    <td class="name" width="200">
+                        <label class="validation">
+                            <span class="spanMsg">*</span>开启系统验证码：
+                        </label>
+                    </td>  
+                    <td class="rowform select_type">
+                        <ul>
+
+                            <li>
+                                <label>
+                                    <input type="checkbox" checked="checked" value="1" name="MREGISTER" />
+                                    <span>会员注册</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="1" name="RELOGIN" />
+                                    <span>前台登陆</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="1" name="BALOGIN" />
+                                    <span>后台登陆</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="field">
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name">
+                        <label class="validation"><span class="spanMsg">*</span>验证码生成类型：</label>
+                    </td>
+                    <td class="rowform">
+                        <ul>
+
+                            <li>
+                                <label>
+                                    <input type="radio" checked="checked" value="0" name="BUILDTYPE">
+                                    <span>数字</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" value="0" name="BUILDTYPE">
+                                    <span>英文</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" value="0" name="BUILDTYPE">
+                                    <span>英文+数字</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="field"></td>
+                </tr>
+                <tr>
+                    <td class="name">
+                        <label class="validation"><span class="spanMsg">*</span>选择验证码文件类型：</label>
+                    </td>
+                    <td class="rowform">
+                        <ul>
+
+                            <li>
+                                <label>
+                                    <input type="radio" checked="checked" value="jpg" name="EXPANDTYPE">
+                                    <span>jpg</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" value="png" name="EXPANDTYPE">
+                                    <span>png</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" value="gif" name="EXPANDTYPE">
+                                    <span>gif</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="field">
+                        
+                    </td>
+                </tr>
+                <tr id="Reception">
+                    <td class="name" width="200">
+                        <label class="validation"><span class="spanMsg">*</span>前台验证码图片大小：</label>
+                    </td>
+                    <td>
+                        宽:<input type="text" name="REWIDTH" value="10" class="input rounded" size="10">
+                        高:<input type="text" name="REHEIGHT" value="10" class="input rounded" size="10">  
+                    </td>
+                    <td class="field"></td>
+                </tr>
+                <tr id="Backstage">
+                    <td class="name" width="200">
+                        <label class="validation"><span class="spanMsg">*</span>后台验证码图片大小：</label>
+                    </td>
+                    <td>
+                        宽:<input type="text" name="BAWIDTH" value="10" class="input rounded" size="10">
+                        高:<input type="text" name="BAHEIGHT" value="10" class="input rounded" size="10">  
+                    </td>
+                    <td class="field"></td>
+                </tr>
+                <tr>
+                    <td class="name">
+                        <label class="validation"><span class="spanMsg">*</span>前台验证码字数：</label>
+                    </td>
+                    <td>
+                        <input type="text" name="RECODENUMS" value="6" class="input rounded" size="10">  
+                    </td>
+                    <td class="field">
+                        <img title="提示：字符数不要大于6位" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16">				
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name">
+                        <label class="validation"><span class="spanMsg">*</span>后台验证码字数：</label>
+                    </td>
+                    <td>
+                        <input type="text" name="BACODENUMS" value="6" class="input rounded" size="10">  
+                    </td>
+                    <td class="field">
+                        <img title="提示：字符数不要大于6位" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16">				
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table top_line">
+            <tbody>
+                <tr>
+                    <td align="left" height="60" colspan="2">
+                        <input id="submit" class="submit" type="submit" value="提交">
+                        <input type="reset" id="reset" class="submit reset" value="重置">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+<!-- end -->
+
+</div>

@@ -1,0 +1,197 @@
+<script type="text/javascript">
+    window.UEDITOR_HOME_URL = "__PUBLIC__/Lib/ueditor/";
+</script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/Lib/ueditor/editor_all.js"></script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/Lib/ueditor/editor_config.js"></script>
+<div class="rounded table" style="width: 98%;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" class="box_top">
+        <thead class="thead">
+            <tr class="space">
+                <th colspan="10">编辑会员</th>
+            </tr>
+        </thead>
+    </table>
+    <form action="{:U('Admin/Member/doSaveMember')}" method="post" id="doEditMember" class="formvalidate">
+        <table class="list" cellpadding="0" cellspacing="1" border="0">
+            <tbody>
+                <tr class="even">
+                    <td class="name">
+                        <label class="validation"><span class="spanMsg">*</span>用户名:</label>
+                    </td>
+                    <td>
+                        <input name="m_name" type="text" class="input rounded" value="{$data.m_name}" size="30" maxlength="50" required validate="{ required:true,maxlength:30}" /> 
+                    </td>
+                    <td class="field"></td>
+                </tr>
+                <tr class="even">
+                    <td class="name" width="150">
+                        <label class="validation">
+                            密码：
+                        </label>
+
+                    </td>
+                    <td>
+                        <input id="m_passwd" name="m_passwd" type="password" class="input rounded" value="" size="30" maxlength="50" validate="{ rangelength:[6,20]}" /> 
+                    </td>
+                    <td class="field">
+                        <img title="6 - 20个字符组成，只能使用数字、字母和下划线" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16" style="line-height: 16px;">
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td class="name">
+                        <label class="validation">
+                            确认密码：
+                        </label>
+                    </td>
+                    <td>
+                        <input type="password" class="input rounded" name="confirm_password" size="30" value=""  validate="{ rangelength:[6,20],equalTo:'#m_passwd'}">
+
+                    </td>
+                    <td class="field">
+                        <img title="6 - 20个字符组成，只能使用数字、字母和下划线" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16">
+                    </td>
+                </tr>
+                <tr class="even">
+                    <td class="name" width="150">
+                        <label class="validation">
+                            昵称：
+                        </label>
+                    </td>
+                    <td>
+                        <input name="m_nickname" type="text" class="input rounded" value="{$data.m_nickname}" size="30" maxlength="50" validate="{ username:true}" /> 
+                    </td>
+                    <td class="field">
+                        <img title="5 - 50个字符组成，只能使用数字、字母和下划线" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16">
+                    </td>
+                </tr>
+                <tr class="even">
+                    <td class="name" width="150">
+                        <label class="validation">
+                            <span class="spanMsg">*</span>性别：
+                        </label>
+                    </td>  
+                    <td class="rowform">
+                        <ul>
+
+                            <li>
+                                <label>
+                                    <input type="radio" <if condition="$data.m_sex eq '1'">checked="checked"</if> value="1" name="m_sex">男</label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" <if condition="$data.m_sex eq '2'">checked="checked"</if> value="2" name="m_sex">女</label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio"  <if condition="$data.m_sex eq '0'">checked="checked"</if> value="0" name="m_sex">保密</label>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="field">
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name">
+                        <label class="validation">
+                            邮箱：
+                        </label>
+                    </td> 
+                    <td>
+                        <input name="m_email" type="text" class="input rounded" value="{$data.m_email}" size="30" maxlength="50" validate="{ email:true}" /> 
+                    </td>
+                    <td class="field"></td>
+                </tr>
+                <tr class="even">
+                    <td class="name">
+                        <label class="validation">
+                            头像：
+                        </label>
+                    </td> 
+                    <td>
+                        <input name="m_pic" type="text" class="input rounded photo" value="{$data.m_pic}" id="m_pic"   size="30" style="float: left;"/> 
+                        <a href="javascript:upImage('m_pic');" id="button1" value="" class="type-file-button"></a>
+                    </td>
+                    <td class="field">
+                        <if condition="$data.m_pic neq ''">
+                            <img src="__PUBLIC__/{$data.m_pic}" title="{$data.m_name}" width="40" height="40" alt="{$data.m_name}">
+                        <else />
+                            <img src="__PUBLIC__/Home/images/photo.png" title="默认头像" width="40" height="40" alt="默认头像">
+                        </if>
+                    </td>
+                </tr>
+                <tr class="even">
+                    <td class="name">
+                        <label class="validation">
+                            QQ：
+                        </label>
+                    </td> 
+                    <td>
+                        <input name="m_qq" type="text" class="input rounded" value="{$data.m_qq}" size="30" /> 
+                    </td>
+                    <td class="field">
+
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td class="name" width="150">
+                        <label class="validation">
+                            <span class="spanMsg">*</span>状态：
+                        </label>
+                    </td> 
+                    <td class="rowform">
+                        <ul>
+
+                            <li>
+                                <label>
+                                    <input type="radio" <if condition="$data.m_status eq '0'">checked="checked"</if> value="0" name="m_status">未审核</label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" <if condition="$data.m_status eq '1'">checked="checked"</if> value="1" name="m_status">已审核</label>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="field">
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table top_line">
+            <tbody>
+                <tr>
+                    <td align="center" height="60" colspan="2">
+                        <input type="hidden" value="{$data.m_id}" name="m_id" />
+                        <input id="submit" class="btn" type="submit" value="提交">
+                        <input type="reset" id="reset" class="btn reset" value="重置">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+
+<script>
+    //Ueditor上传 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    var dom;
+    var editor = new UE.ui.Editor({
+        imageRealPath:"images"
+    });
+    editor.render("myEditor");
+    var dialog_img;
+    editor.ready(function(){
+        editor.hide();
+        dialog_img = editor.getDialog("insertimage");
+        editor.addListener('beforeInsertImage',function(t, arg){
+            $("#"+dom).val(arg[0]['src']);
+        });
+        editor.addListener('afterUpfile',function(t, arg){
+            $("#"+dom).val(arg[0]['url']);
+        });
+    });
+    function upImage(pid) {
+        dom = pid;
+        dialog_img.open();
+    }
+</script>
