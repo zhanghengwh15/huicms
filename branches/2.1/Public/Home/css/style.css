@@ -22,6 +22,8 @@ a {
 
 /* 第三方登陆 */
 .login{width: auto;position: relative;top: 2px;height: 30px;line-height: 30px;float: right;margin-left: 3px;}
+.login a img{opacity: .6;}
+.login a:hover img{opacity: 1;}
 a.login_icon {height: 30px;line-height: 30px;text-align: center;vertical-align: middle;margin:0 3px;}
 
 /* nav */
