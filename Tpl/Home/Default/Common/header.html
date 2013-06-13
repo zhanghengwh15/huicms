@@ -40,8 +40,8 @@
             <div class="login">
                 <volist name="oauth" id="oh">
                     <a href='{:U("Home/Oauth/OtherLogin","t=$oh[type]")}' class="login_icon" title="{$oh.name}">
-                    <img src="__PUBLIC__/Home/images/icon_{$oh.type}.png"/>
-                </a>
+                        <img src="__PUBLIC__/Home/images/icon_{$oh.type}.png"/>
+                    </a>
                 </volist>
             </div>
         </notempty>
