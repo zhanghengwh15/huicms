@@ -22,19 +22,19 @@
 
                             <li>
                                 <label>
-                                    <input type="checkbox" checked="checked" value="1" name="MREGISTER" />
+                                    <input type="checkbox" <if condition="$config.MREGISTER eq '1'">checked="checked"</if> value="1" name="MREGISTER" />
                                     <span>会员注册</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" value="1" name="RELOGIN" />
+                                    <input type="checkbox" <if condition="$config.RELOGIN eq '1'">checked="checked"</if> value="1" name="RELOGIN" />
                                     <span>前台登陆</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" value="1" name="BALOGIN" />
+                                    <input type="checkbox" <if condition="$config.BALOGIN eq '1'">checked="checked"</if> value="1" name="BALOGIN" />
                                     <span>后台登陆</span>
                                 </label>
                             </li>
@@ -53,20 +53,27 @@
 
                             <li>
                                 <label>
-                                    <input type="radio" checked="checked" value="0" name="BUILDTYPE">
+                                    <input type="radio" checked="checked" <if condition="$config.BUILDTYPE eq '1'">checked="checked"</if> value="1" name="BUILDTYPE">
                                     <span>数字</span>
                                 </label>
                             </li>
+                            
                             <li>
                                 <label>
-                                    <input type="radio" value="0" name="BUILDTYPE">
-                                    <span>英文</span>
+                                    <input type="radio" <if condition="$config.BUILDTYPE eq '2'">checked="checked"</if> value="2" name="BUILDTYPE">
+                                    <span>字母</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio" value="0" name="BUILDTYPE">
-                                    <span>英文+数字</span>
+                                    <input type="radio" <if condition="$config.BUILDTYPE eq '4'">checked="checked"</if> value="4" name="BUILDTYPE">
+                                    <span>中文</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" <if condition="$config.BUILDTYPE eq '5'">checked="checked"</if> value="5" name="BUILDTYPE">
+                                    <span>数字+字母</span>
                                 </label>
                             </li>
                         </ul>
@@ -79,22 +86,15 @@
                     </td>
                     <td class="rowform">
                         <ul>
-
                             <li>
                                 <label>
-                                    <input type="radio" checked="checked" value="jpg" name="EXPANDTYPE">
-                                    <span>jpg</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="radio" value="png" name="EXPANDTYPE">
+                                    <input type="radio" <if condition="$config.EXPANDTYPE eq 'png'">checked="checked"</if> value="png" name="EXPANDTYPE">
                                     <span>png</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio" value="gif" name="EXPANDTYPE">
+                                    <input type="radio" <if condition="$config.EXPANDTYPE eq 'gif'">checked="checked"</if> value="gif" name="EXPANDTYPE">
                                     <span>gif</span>
                                 </label>
                             </li>
@@ -109,8 +109,8 @@
                         <label class="validation"><span class="spanMsg">*</span>前台验证码图片大小：</label>
                     </td>
                     <td>
-                        宽:<input type="text" name="REWIDTH" value="10" class="input rounded" size="10">
-                        高:<input type="text" name="REHEIGHT" value="10" class="input rounded" size="10">  
+                        宽:<input type="text" name="REWIDTH" value="{$config.RECODESIZE.width}" class="input rounded" size="10">
+                        高:<input type="text" name="REHEIGHT" value="{$config.RECODESIZE.height}" class="input rounded" size="10">  
                     </td>
                     <td class="field"></td>
                 </tr>
@@ -119,8 +119,8 @@
                         <label class="validation"><span class="spanMsg">*</span>后台验证码图片大小：</label>
                     </td>
                     <td>
-                        宽:<input type="text" name="BAWIDTH" value="10" class="input rounded" size="10">
-                        高:<input type="text" name="BAHEIGHT" value="10" class="input rounded" size="10">  
+                        宽:<input type="text" name="BAWIDTH" value="{$config.BACODESIZE.width}" class="input rounded" size="10">
+                        高:<input type="text" name="BAHEIGHT" value="{$config.BACODESIZE.height}" class="input rounded" size="10">  
                     </td>
                     <td class="field"></td>
                 </tr>
@@ -129,7 +129,7 @@
                         <label class="validation"><span class="spanMsg">*</span>前台验证码字数：</label>
                     </td>
                     <td>
-                        <input type="text" name="RECODENUMS" value="6" class="input rounded" size="10">  
+                        <input type="text" name="RECODENUMS" value="{$config.RECODENUMS}" class="input rounded" size="10">  
                     </td>
                     <td class="field">
                         <img title="提示：字符数不要大于6位" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16">				
@@ -140,7 +140,7 @@
                         <label class="validation"><span class="spanMsg">*</span>后台验证码字数：</label>
                     </td>
                     <td>
-                        <input type="text" name="BACODENUMS" value="6" class="input rounded" size="10">  
+                        <input type="text" name="BACODENUMS" value="{$config.BACODENUMS}" class="input rounded" size="10">  
                     </td>
                     <td class="field">
                         <img title="提示：字符数不要大于6位" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16">				
