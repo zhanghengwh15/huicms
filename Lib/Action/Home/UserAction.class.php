@@ -20,10 +20,14 @@ class UserAction extends HomeAction{
     }
     
     public function Login(){
+        $code = D('Config')->getCfgByModule('CODE_SET');
+        $this->assign("code",$code);
         $this->display();
     }
     
     public function Register(){
+        $code = D('Config')->getCfgByModule('CODE_SET');
+        $this->assign("code",$code);
         $this->display();
     }
     
@@ -66,8 +70,34 @@ class UserAction extends HomeAction{
      * @date 2013-03-23
      */
     public function Verify() {
+        
         import('ORG.Util.Image');
-        Image::buildImageVerify(4, 0, 'png', 70, 30, 'av');
+        $ary_data = D('Config')->getCfgByModule('CODE_SET');
+        if(!empty($ary_data) && is_array($ary_data)){
+            $ary_data['RECODESIZE'] = json_decode($ary_data['RECODESIZE'],true);
+            $ary_data['BACODESIZE'] = json_decode($ary_data['BACODESIZE'],true);
+        }
+//        echo "<pre>";print_r($ary_data);exit;
+        if(!empty($ary_data['BUILDTYPE']) && $ary_data['BUILDTYPE'] == '4'){
+            Image::GBVerify(
+                $ary_data['RECODENUMS'], 
+                $ary_data['EXPANDTYPE'], 
+                $ary_data['RECODESIZE']['width'], 
+                $ary_data['RECODESIZE']['height'], 
+                'simhei.ttf',
+                'av'
+            );
+        }else{
+            Image::buildImageVerify(
+                $ary_data['RECODENUMS'], 
+                $ary_data['BUILDTYPE'], 
+                $ary_data['EXPANDTYPE'], 
+                $ary_data['RECODESIZE']['width'], 
+                $ary_data['RECODESIZE']['height'], 
+                'av'
+            );
+        }
+        
     }
     
     public function checkName(){

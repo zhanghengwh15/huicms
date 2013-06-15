@@ -24,6 +24,8 @@ class UserAction extends Action{
      * @date 2013-03-21
      */
     public function pageLogin() {
+        $code = D('Config')->getCfgByModule('CODE_SET');
+        $this->assign("code",$code);
         $this->display("Login");
     }
     
@@ -34,7 +36,31 @@ class UserAction extends Action{
      */
     public function verify() {
         import('ORG.Util.Image');
-        Image::buildImageVerify(6, 1, 'png', 100, 38, 'code');
+        $ary_data = D('Config')->getCfgByModule('CODE_SET');
+        if(!empty($ary_data) && is_array($ary_data)){
+            $ary_data['RECODESIZE'] = json_decode($ary_data['RECODESIZE'],true);
+            $ary_data['BACODESIZE'] = json_decode($ary_data['BACODESIZE'],true);
+        }
+        if(!empty($ary_data['BUILDTYPE']) && $ary_data['BUILDTYPE'] == '4'){
+            Image::GBVerify(
+                $ary_data['BACODENUMS'], 
+                $ary_data['EXPANDTYPE'], 
+                $ary_data['BACODESIZE']['width'], 
+                $ary_data['BACODESIZE']['height'], 
+                'simhei.ttf',
+                'code'
+            );
+        }else{
+            Image::buildImageVerify(
+                $ary_data['BACODENUMS'], 
+                $ary_data['BUILDTYPE'], 
+                $ary_data['EXPANDTYPE'], 
+                $ary_data['BACODESIZE']['width'], 
+                $ary_data['BACODESIZE']['height'], 
+                'code'
+            );
+        }
+//        Image::buildImageVerify(6, 1, 'png', 100, 38, 'code');
     }
     
     /**
@@ -61,12 +87,16 @@ class UserAction extends Action{
      */
     public function doLogin(){
         $ary_post = $this->_post();
+        $code= D('Config')->getCfgByModule('CODE_SET');
         if (empty($ary_post['username'])) {
             $this->error(L('PlEASE_USERNAME'));
         } else if (empty($ary_post['passwd'])) {
             $this->error(L('PlEASE_PASSWD'));
-        } else if (empty($ary_post['code']) || trim($ary_post['code']) == "验证码") {
-            $this->error(L('PlEASE_CODE'));
+        } 
+        if(!empty($code['BALOGIN']) && $code['BALOGIN'] == '1'){
+            if(empty($ary_post['code']) || trim($ary_post['code']) == "验证码"){
+                $this->error(L('PlEASE_CODE'));
+            }
         }
         //生成认证条件
         $map = array();
@@ -74,8 +104,10 @@ class UserAction extends Action{
         $map['u_name'] = $ary_post['username'];
         $map["u_status"] = array('gt' , 0);
         $verify = session("code");
-        if ($verify != md5($ary_post['code'])) {
-            $this->error(L('CODE_ERROR'));
+        if(!empty($code['BALOGIN']) && $code['BALOGIN'] == '1'){
+            if ($verify != md5($ary_post['code'])) {
+                $this->error(L('CODE_ERROR'));
+            }
         }
         $admin_access = D('Config')->getCfgByModule('ADMIN_ACCESS');
         $exitTime = $admin_access['EXPIRED_TIME'];

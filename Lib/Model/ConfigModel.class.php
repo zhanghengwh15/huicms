@@ -59,7 +59,7 @@ class ConfigModel extends Model{
             if(empty($desc)){
                 unset($data['sc_value_desc']);
             }
-            $this->data($data)->add();
+//            $this->data($data)->add();
 //            echo "<pre>";print_r($this->getLastSql());exit;
     		return $this->data($data)->add();
     	}
