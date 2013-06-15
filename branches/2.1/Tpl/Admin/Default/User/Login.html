@@ -27,11 +27,13 @@
                                     <label for="password" class="youpasswd" data-icon="p">{$Think.lang.PASSWORD}</label>
                                     <input id="password" name="passwd" required="required" type="password" value="" placeholder="请输入密码" /> 
                                 </p>
-<p> 
+                                <if condition="$code.BALOGIN eq '1'">
+                                <p> 
                                     <label for="password" class="youpasswd" data-icon="p">{$Think.lang.CODE}</label><br/>
                                     <input id="code" name="code" required="required" type="type" value="" placeholder="请输入验证码" autocomplete="off" style="width: 67%;"/> 
                                     <img id="verify" src="{:U('Admin/User/verify')}" class="changeVerify" style="cursor: pointer;position: relative;top: 3px;float: right" title="{$Think.lang.CLICKUPDATECODE}" />
                                 </p>
+                                </if>
 <!--                                <p class="keeplogin"> 
 									<input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" /> 
 									<label for="loginkeeping">记住登录状态</label>
