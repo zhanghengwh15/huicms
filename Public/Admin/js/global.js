@@ -421,3 +421,68 @@ function showMessage(status,msg,url,time){
     }
     return false;
 }
+
+//后台列表分类展开
+$(document).ready(function(){
+    $("img[data-type='show']").live('click',function(){
+        var status = $(this).attr("data-status");
+        if(status == 'open'){
+            var tr = $(this).parent('td').parent('tr');
+			var id = $(this).attr('data-id');
+            var uri = "/Admin/ArticleCategory/doCategoryUnfold";
+//            alert(uri);return false;
+			var obj = $(this);
+			$(this).attr('data-status','none');
+            $.ajax({
+                url:uri,
+                cache:false,
+                dataType:'json',
+                type:'POST',
+                data:{pid:id},
+                success:function(msgObj){
+                    var str='';
+//                    alert(msgObj.length);return false;
+                    for(var i = 0; i < msgObj.length; i++){
+                        str += "<tr class='"+tr.attr('class')+" row_"+id+"' id=list_"+msgObj[i].id+">";
+                            str += '<td class="align-center">';
+                                str += '<input type="checkbox" data-xid="checkSon_x" class="checkSon" name="checkall" value="'+msgObj[i].id+'">';
+                            str += '</td>';
+                            str += '<td class="align-center">';
+                                str += '<div class="button-group">';
+                                    str += '<a title="编辑" alt="编辑" class="button danger icon pill edit" href="/Admin/ArticleCategory/editArticleCategory/id/1.html"></a>';
+                                    str += '<a title="删除" class="button danger icon pill remove doDel" data-acttype="ajax" data-msg="确定要删除“<font color=\'red\'>'+msgObj[i].title+'</font>”吗？" val="'+msgObj[i].id+'" data-uri="/Admin/ArticleCategory/doDelete/id/'+msgObj[i].id+'.html" href="javascript:void(0);"></a>';
+                                str += '</div>';
+                            str += '</td>';
+                            str += '<td class="align-center">'+msgObj[i].title+'</td>';
+                            str += '<td class="align-center">'+msgObj[i].alias+'</td>';
+                            str += '<td class="align-center">'+msgObj[i].description+'</td>';
+                            str += '<td class="align-center">'+msgObj[i].order+'</td>';
+                            str += '<td class="align-center">';
+                            if(msgObj[i].status == '1'){
+                                str += '<img title="启用" alt="启用" src="/Public/Admin/images/icons/icon_1.png" data-value="1" data-field="status" style="cursor: pointer;" data-id="'+msgObj[i].id+'" class="pointer">';
+                            }else{
+                                str += '<img title="停用" alt="停用" src="/Public/Admin/images/icons/icon_0.png" data-value="0" data-field="status" style="cursor: pointer;" data-id="'+msgObj[i].id+'" class="pointer">';
+                            }
+                            str += '</td>';
+                            str += '<td class="align-center">'+msgObj[i].create_time+'</td>';
+                            str += '<td class="align-center">'+msgObj[i].update_time+'</td>';
+                        str += '</tr>';
+                    }
+                    tr.after(str);
+                    obj.attr('data-status','close');
+					obj.attr('src',obj.attr('src').replace("tr_unfold","tr_shrink"));
+					$("img[data-type='show']").unbind('click');
+                    $('.doDel').unbind('click');
+                }
+            });
+        }
+        if(status == 'close'){
+			$(".row_"+$(this).attr('data-id')).remove();
+			$(this).attr('src',$(this).attr('src').replace("tr_shrink","tr_unfold"));
+			$(this).attr('data-status','open');
+		}
+    });
+    
+    
+    
+});
