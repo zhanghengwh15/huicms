@@ -129,7 +129,7 @@
                         <label class="validation"><span class="spanMsg">*</span>前台验证码字数：</label>
                     </td>
                     <td>
-                        <input type="text" name="RECODENUMS" value="{$config.RECODENUMS}" class="input rounded" size="10">  
+                        <input type="text" name="RECODENUMS" value="{$config.RECODENUMS}" class="input rounded" size="10" validate='{ required:true,messages:{required:"前台验证码字数不能为空"}}'>  
                     </td>
                     <td class="field">
                         <img title="提示：字符数不要大于6位" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16">				
@@ -140,7 +140,7 @@
                         <label class="validation"><span class="spanMsg">*</span>后台验证码字数：</label>
                     </td>
                     <td>
-                        <input type="text" name="BACODENUMS" value="{$config.BACODENUMS}" class="input rounded" size="10">  
+                        <input type="text" name="BACODENUMS" value="{$config.BACODENUMS}" class="input rounded" size="10" validate='{ required:true,messages:{required:"后台验证码字数不能为空"}}'>  
                     </td>
                     <td class="field">
                         <img title="提示：字符数不要大于6位" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16">				
