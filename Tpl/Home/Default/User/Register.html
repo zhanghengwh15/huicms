@@ -54,7 +54,7 @@
                                     <div class="form-tt"><i class="text-required">*</i>验证码：</div>
                                     <div class="form-row">
                                         <div style="padding:3px 0 0 0;*height:30px;overflow:hidden;*zoom:1;">
-                                            <input name="verify" type="text" class="s-txt tips" style="width:70px" id="verCode" title="请输入验证码，不区分大小写" validate='{ required:true,remote:"{:U("User/checkVerify")}",messages:{required:"验证码不能为空"}}'/>
+                                            <input name="verify" type="text" class="s-txt tips" style="width:70px" id="verCode" title="请输入验证码，区分大小写" validate='{ required:true,remote:"{:U("User/checkVerify")}",messages:{required:"验证码不能为空"}}'/>
                                             <img src="{:U('User/Verify')}" id="verifyimg" class="alM" style="cursor: pointer;" title="看不清楚?点击换张"/>
                                         </div>
                                     </div>
@@ -64,7 +64,6 @@
                                 <div class="form-tt"></div>
                                 <div class="form-row actionBtn">
                                     <input type="submit" class="btn-register" value="立即注册" />
-                                    <!--<a class="btn-register" href="javascript:;">立即注册</a>-->
                                 </div>
                             </dd>
 
