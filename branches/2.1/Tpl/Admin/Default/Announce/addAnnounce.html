@@ -1,0 +1,122 @@
+<script type="text/javascript">
+    window.UEDITOR_HOME_URL = "__PUBLIC__/Lib/ueditor/";
+</script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/Lib/ueditor/editor_all.js"></script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/Lib/ueditor/editor_config.js"></script>
+<div class="rounded table" style="width: 98%;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" class="box_top">
+        <thead class="thead">
+            <tr class="space">
+                <th colspan="10">添加公告</th>
+            </tr>
+        </thead>
+    </table>
+    <form action="{:U('Admin/Announce/doSaveAnnounce')}" method="post" id="doEditAdmin" class="formvalidate">
+        <table class="list" cellpadding="0" cellspacing="1" border="0">
+            <tbody>
+                <tr class="even">
+                    <td class="name">
+                        <label class="validation"><span class="spanMsg">*</span>公告标题:</label>
+                    </td>
+                    <td>
+                        <input name="title" type="text" class="input rounded" value="" size="50" maxlength="50" validate="{ required:true,messages:{required:'公告标题不能为空'}}" /> 
+                    </td>
+                    <td class="field">
+                        <img title="这里输入管理员登陆时需要的账号" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16" style="line-height: 16px;">
+                    </td>
+                </tr>
+                
+                
+                <tr class="even">
+                    <td class="name">
+                        <label class="validation">
+                            公告内容：
+                        </label>
+                    </td>
+                    <td colspan="2">
+                        <script id="editor" name="content" type="text/plain"></script>
+                    </td>
+                </tr>
+                <tr class="even">
+                    <td class="name" width="300">
+                        <label class="validation">
+                            <span class="spanMsg">*</span>起始日期：
+                        </label>
+
+                    </td>
+                    <td>
+                        <input id="starttime" name="starttime" type="text" class="input rounded datetime" data-date-format="yyyy-mm-dd hh:ii:ss" value="<php>echo date('Y-m-d H:i:s');</php>" size="50" maxlength="50" validate="{ required:true}" /> 
+                    </td>
+                    <td class="field">
+                        
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td class="name">
+                        <label class="validation">
+                            <span class="spanMsg">*</span>截止日期：
+                        </label>
+                    </td>
+                    <td>
+                        <input type="text" class="input rounded datetime" name="endtime" size="50" value="" data-date-format="yyyy-mm-dd hh:ii:ss"  validate="{ required:true}">
+
+                    </td>
+                    <td class="field">
+                        
+                    </td>
+                </tr>
+                <tr class="even">
+                    <td class="name">
+                        <label class="validation">
+                            排序：
+                        </label>
+                    </td> 
+                    <td>
+                        <input name="order" type="text" class="input rounded" value="" size="30" /> 
+                    </td>
+                    <td class="field">
+
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td class="name" width="150">
+                        <label class="validation">
+                            <span class="spanMsg">*</span>状态：
+                        </label>
+                    </td> 
+                    <td class="rowform">
+                        <ul>
+
+                            <li>
+                                <label>
+                                    <input type="radio" checked="checked" value="1" name="status">启用</label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" value="0" name="status">停用</label>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="field">
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table top_line">
+            <tbody>
+                <tr>
+                    <td align="center" height="60" colspan="2">
+                        <input id="submit" class="btn" type="submit" value="提交">
+                            <input type="reset" id="reset" class="btn reset" value="重置">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+
+<script>
+    //Ueditor上传 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    UE.getEditor('editor');
+</script>
