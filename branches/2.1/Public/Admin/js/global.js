@@ -486,3 +486,13 @@ $(document).ready(function(){
     
     
 });
+$(document).ready(function(){
+    $('.datetime').datetimepicker({
+        format: 'yyyy-mm-dd hh:ii:ss',
+        todayBtn: true,
+        autoclose: true,
+        pickerPosition: "bottom-left"
+    });
+
+
+});
