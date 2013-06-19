@@ -8,6 +8,12 @@
 // +----------------------------------------------------------------------
 // | Author: Terry <admin@52sum.com>
 // +----------------------------------------------------------------------
+/**
+ * 后台文章分类模块操作ACTION
+ * @author Terry<admin@52sum.com>
+ * @date 2013-06-18
+ * 
+ */
 class ArticleCategoryAction extends AdminAction{
     
     private $name;
@@ -108,4 +114,6 @@ class ArticleCategoryAction extends AdminAction{
             $this->error("请选择删除的对象");
         }
     }
+    
+    
 }
