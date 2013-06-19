@@ -21,7 +21,8 @@ return array(
     'LAYOUT_NAME' => 'layout',
     'DATA_CACHE_SUBDIR'=>true,
     'URL_ROUTER_ON'   => true, //开启路由
-    'URL_HTML_SUFFIX'		=>'.html',		//伪静态后缀
+    'URL_HTML_SUFFIX'		=>'',		//伪静态后缀
+    //'URL_HTML_SUFFIX'		=>'.html',		//伪静态后缀
     'URL_ROUTE_RULES' => array( //定义路由规则
         'register'        => 'g=Home&m=User&a=Register',
         'login'        => 'g=Home&m=User&a=Login',
