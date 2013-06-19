@@ -517,3 +517,7 @@ input:focus{border-color: rgba(82, 168, 236, 0.8);outline: 0;-webkit-box-shadow:
 .loginSucc{color: green;}
 span.errormsg {color: red;text-indent: 20px;float: right;display: inline-block;height: 30px;line-height: 30px;background-position: 2px -1px;margin-left: -10px;background-repeat: no-repeat;}
 span.valid {background: url("../images/checked.gif") no-repeat left;float: right;width: 14px;height: 25px;overflow: hidden;padding: 0;margin: 0px 0 0 15px;display: inline-block;}
+/* scrollDiv */
+.scrollDiv{height:25px;/* 必要元素 */line-height:25px;overflow:hidden;/* 必要元素 */float: left;width: 400px;position: relative;top: -22px;left: 132px;}
+.scrollDiv li{height:25px;padding-left:10px;}
+.scrollDiv li a{color: #666;}
