@@ -1,0 +1,140 @@
+<div class="rounded table" style="width: 98%;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" class="box_top">
+        <thead class="thead">
+            <tr class="space">
+                <th colspan="10">公告列表</th>
+            </tr>
+        </thead>
+    </table>
+    <div class="contentbox" data-uri='{:U("Admin/Announce/doEditStatus")}'>
+        <table width="100%" class="list td_align">
+            <thead>
+                <tr class="thead">
+                    <th class="align-center"><input name="id" type="checkbox" class="checkAll" id="checkboxall"  data-checklist="checkSon_x" data-direction="x"/></th>
+                    <th class="align-center">操作</th>
+                    <th class="align-center">标题</th>
+                    <th class="align-center">起始日期</th>
+                    <th class="align-center">截止日期</th>
+                    <th class="align-center">排序</th>
+                    <th class="align-center">是否显示</th>
+                    <th class="align-center">创建时间</th>
+                    <th class="align-center">更新时间</th>
+                </tr>
+            </thead>
+            <tbody>
+            <volist name="data" id="vo">
+                <tr id="list_{$vo.id}">
+                    <td class="align-center">
+                        <input type="checkbox" value="{$vo.id}" name="checkall" class="checkSon" data-xid="checkSon_x"/>
+                        <if condition="$vo.count eq '1'">
+                            <img src="__PUBLIC__/Admin/images/tr_unfold.gif" data-id="{$vo.id}" data-status="open" data-type="show" style="padding-top: 4px;position: absolute;cursor: pointer;">
+                        </if>
+                    </td>
+                    <td class="align-center">
+                        <div class="button-group">
+                            <a href='{:U("Admin/Announce/editAnnounce?id=$vo[id]")}'  class="button danger icon pill edit" alt="编辑" title="编辑"></a>
+                            <a href="javascript:void(0);"  data-uri='{:U("Admin/Announce/doDelete","id=$vo[id]")}' val="{$vo[id]}" data-msg="确定要删除“<font color='red'>{$vo.title}</font>”吗？" data-acttype="ajax" class="button danger icon pill remove doDel" title="删除"></a>
+                        </div>
+                    </td>
+                    <td class="align-center">
+                        {$vo.title}
+                    </td>
+                    <td class="align-center">{$vo.starttime}</td>
+                    <td class="align-center">{$vo.endtime}</td>
+                    <td class="align-center">{$vo.order}</td>
+                    <td class="align-center">
+                        <img class="pointer" data-id="{$vo[id]}" style="cursor: pointer;" data-field="status" data-value="{$vo.status}"
+                        <if condition="$vo.status eq '1'">
+                            src="__PUBLIC__/Admin/images/icons/icon_1.png" alt="启用" title="启用"
+                            <else />
+                            src="__PUBLIC__/Admin/images/icons/icon_0.png" alt="停用" title="停用"
+                        </if> 
+                        />
+                    </td>
+                    <td class="align-center">{$vo.create_time}</td>
+                    <td class="align-center">{$vo.update_time}</td>
+                </tr>
+            </volist>
+            <empty name="data">
+                <tr><td colspan="9" class="left align-center">暂时没有数据!</td></tr>
+            </empty>
+            </tbody>
+        </table>
+        <div class="pagination">
+            <ul>
+            {$page}
+            <select name="pageall" onChange="window.location.href=this.value">
+                <option value='{:U("Admin/Announce/index","pageall=1")}' <if condition="$filter.pageall eq '1'">selected="selected"</if>>1条/页</option>
+                <option value='{:U("Admin/Announce/index","pageall=5")}' <if condition="$filter.pageall eq '5'">selected="selected"</if>>5条/页</option>
+                <option value='{:U("Admin/Announce/index","pageall=10")}'<if condition="$filter.pageall eq '10'">selected="selected"</if>>10条/页</option>
+                <option value='{:U("Admin/Announce/index","pageall=20")}'<if condition="$filter.pageall eq '20'">selected="selected"</if>>20条/页</option>
+                <option value='{:U("Admin/Announce/index","pageall=50")}'<if condition="$filter.pageall eq '50'">selected="selected"</if>>50条/页</option>
+                <option value='{:U("Admin/Announce/index","pageall=80")}'<if condition="$filter.pageall eq '80'">selected="selected"</if>>80条/页</option>
+                <option value='{:U("Admin/Announce/index","pageall=100")}'<if condition="$filter.pageall eq '100'">selected="selected"</if>>100条/页</option>
+                <option value='{:U("Admin/Announce/index","pageall=500")}'<if condition="$filter.pageall eq '500'">selected="selected"</if>>500条/页</option>
+            </select>
+        </ul>
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+
+</div>
+<script>
+    $(document).ready(function(){
+        $(".doDel").live('click',function(){
+            var title = $(this).attr("data-msg");
+            var uri = $(this).attr("data-uri");
+            $.dialog.confirm(title, function () {
+                $.ajax({
+                    url:uri,
+                    cache:false,
+                    dataType:'json',
+                    type:'GET',
+                    data:{},
+                    success:function(msgObj){
+                        showMessage(msgObj.status,msgObj.info,"{:U('Admin/Announce/index')}");
+                        return false;
+                    }
+                });
+            }, function () {
+            });
+        });
+        
+        //切换
+        $('.pointer').live('click', function() {
+            var url = $(".contentbox").attr("data-uri");
+            var img    = this,
+            s_val  = ($(img).attr('data-value'))== 0 ? 1 : 0,
+            s_name = $(img).attr('data-field'),
+            s_id   = $(img).attr('data-id'),
+            s_src  = $(img).attr('src');
+            s_msg = ($(img).attr('data-value'))== 0 ? '启用' : '停用';
+            $.ajax({
+                url:url,
+                cache:false,
+                dataType:"json",
+                data: {id:s_id, field:s_name, val:s_val},
+                type:"POST",
+                beforeSend:function(){
+                    $("#J_ajax_loading").stop().removeClass('ajax_error').addClass('ajax_loading').html("提交请求中，请稍候...").show();
+                },
+                error:function(){
+                    $("#J_ajax_loading").addClass('ajax_error').html("AJAX请求发生错误！").show().fadeOut(5000);
+                },
+                success:function(msgObj){
+                    $("#J_ajax_loading").hide();
+                    if(msgObj.status == '1'){
+                        $("#J_ajax_loading").removeClass('ajax_error').addClass('ajax_success').html(msgObj.info).show().fadeOut(5000);
+                        if(s_src.indexOf('0')>-1) {
+                                $(img).attr({'src':s_src.replace('0','1'),'data-value':s_val,'title':s_msg,'alt':s_msg});
+                        } else {
+                                $(img).attr({'src':s_src.replace('1','0'),'data-value':s_val,'title':s_msg,'alt':s_msg});
+                        }
+                    }else{
+                        $("#J_ajax_loading").removeClass('ajax_success').addClass('ajax_error').html(msgObj.info).show().fadeOut(5000);
+                    }
+                }
+            });
+        });
+    });
+</script>
