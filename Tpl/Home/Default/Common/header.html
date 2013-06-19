@@ -55,9 +55,16 @@
 <div class="focus">
 	<div class="central">
 		<div class="toptip">
-            <strong>最新消息：</strong>网站正在开发中...
+            <strong>最新消息：</strong>
         </div>
 	</div>
+    <div id="s1" class="scrollDiv">
+        <ul>
+            <volist name="announce" id="ace">
+                <li><a href='{:U("Annouuce/View","id=$ace[id]")}'>{$ace.title}</a></li>
+            </volist>
+        </ul>
+    </div>
     <div style="float: right;position: relative;top: -20px;left: -165px;">
         <wb:follow-button uid="1884369172" type="red_2" width="136" height="24" ></wb:follow-button>
        
@@ -66,6 +73,18 @@
         <iframe src="http://follow.v.t.qq.com/index.php?c=follow&a=quick&name=php200&style=5&t=1369761250151&f=1" frameborder="0" scrolling="auto" width="178" height="24" marginwidth="0" marginheight="0" allowtransparency="true"></iframe>
     </div>
 </div>
+<script type="text/javascript">
+	function AutoScroll(obj){
+		$(obj).find("ul:first").animate({
+			marginTop:"-25px"
+		},500,function(){
+			$(this).css({marginTop:"0px"}).find("li:first").appendTo(this);
+		});
+	}
+	$(document).ready(function(){
+		setInterval('AutoScroll("#s1")',3000);
+	});
+</script>
 <script>
     $(".btn-headermenu").click(function(){
         $(".popup-arrow").show();
