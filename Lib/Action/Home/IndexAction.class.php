@@ -30,5 +30,4 @@ class IndexAction extends HomeAction{
         $this->display();
     }
     
-    
 }

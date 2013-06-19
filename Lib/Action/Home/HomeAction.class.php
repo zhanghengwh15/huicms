@@ -20,10 +20,12 @@ abstract class HomeAction extends Action{
         $this->_nav();
         $this->_oauth();        //获取登录授权
         $this->_links();
+        $this->_announce();
         if(!C('site_status')){
             header('Content-Type:text/html; charset=utf-8');
             exit(C('site_close'));
         }
+        
         import('ORG.Util.Page');
     }
     
@@ -71,5 +73,15 @@ abstract class HomeAction extends Action{
     public function _links(){
         $links = D("Links")->where(array('type'=>'0','status'=>'1'))->order('`order` desc')->select();
         $this->assign("links",$links);
+    }
+    
+    public function _announce(){
+        $where = array();
+        $where['status'] = '1';
+        $where['starttime'] = array('lt',  date("Y-m-d H:i:s"));
+        $where['endtime'] = array('gt',  date("Y-m-d H:i:s"));
+        $announce = D("Announce")->where($where)->order('`order` DESC')->select();
+        //echo "<pre>";print_r(D("Announce")->getLastSql());exit;
+        $this->assign("announce",$announce);
     }
 }
