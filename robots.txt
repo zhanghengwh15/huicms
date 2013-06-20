@@ -1,4 +1,5 @@
 User-agent: *
+Disallow: /Conf/
 Disallow: /Public/
 Disallow: /Lib/
 Disallow: /Thinkphp/
