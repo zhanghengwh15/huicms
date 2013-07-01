@@ -15,6 +15,6 @@ class GuestbookAction extends HomeAction{
     }
     
     public function index(){
-        phpinfo();
+        $this->display();
     }
 }
