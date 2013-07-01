@@ -391,12 +391,6 @@ input:focus{border-color: rgba(82, 168, 236, 0.8);outline: 0;-webkit-box-shadow:
 	color:#666;
 	line-height:25px;
 }
-.wrap{width:980px;margin:0 auto;text-align: center;}
-.clearfix {display: block;zoom: 1;}
-.indexFooter{border-top:1px solid #d9d9d9;color:#525252;line-height:1.6;padding:10px 0;}
-.indexFooter p{font-family:\65b0\7d30\660e\9ad4;font-size:11px;}
-.indexFooter a{color:#525252;font-family:\65b0\7d30\660e\9ad4;font-size:11px;}
-.indexFooter div.fr span{padding:0 5px;}
 
 /*注册*/
 .reg-wrap{width:960px;margin:0 auto;position:relative}
@@ -521,3 +515,8 @@ span.valid {background: url("../images/checked.gif") no-repeat left;float: right
 .scrollDiv{height:25px;/* 必要元素 */line-height:25px;overflow:hidden;/* 必要元素 */float: left;width: 400px;position: relative;top: -22px;left: 132px;}
 .scrollDiv li{height:25px;padding-left:10px;}
 .scrollDiv li a{color: #666;}
+
+/*页脚区域*/
+.footer{height:52px;line-height:52px;background:#252525;text-align:center;color:#969595;}
+.footer .copyright{position:relative;font-family:Verdana;}
+.footer .copyright #bdshare{position:absolute;line-height:normal;top:13px;right:0;}
