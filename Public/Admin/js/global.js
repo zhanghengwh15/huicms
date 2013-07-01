@@ -291,19 +291,21 @@ function openItem(menu){
         html = $('#sort_menu>li>dl>dd>ol>li').first().html();
         var first_obj = $('#sort_menu>li>dl>dd>ol>li:eq(1)').find('a').attr("name");
         first_obj = $('#sort_menu>li>dl>dd>ol>li').first().children('a');
-        $(first_obj).addClass('selected');	
+        $(first_obj).addClass('selected');
+        $.cookie('nav_id',null);	
         $.cookie('nav_id',op);
     }else{
+        $.cookie('module',null);
         $.cookie('module',module);
+        $.cookie('action',null);	
         $.cookie('action',action);
+        $.cookie('id',null);
         $.cookie('id',id);
+        $.cookie('nav_id',null);
         $.cookie('nav_id',op);
         $("#item_"+op).addClass('selected');//使用name，不使用ID，因为ID有重复的
         $("a[name='item_"+op+"']").addClass('selected');
     }
-    
-    //    window.location.reload();return false;
-    //    alert(action);return false;
     var url = '/Admin/'+module+'/'+action;
     if (typeof(module)!='undefined'){
         window.location.href=url;
@@ -493,6 +495,4 @@ $(document).ready(function(){
         autoclose: true,
         pickerPosition: "bottom-left"
     });
-
-
 });
