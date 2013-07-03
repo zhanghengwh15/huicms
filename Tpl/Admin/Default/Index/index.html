@@ -10,8 +10,14 @@
         <div class="page_table">
             <table width="100%" border="0" cellspacing="0" cellpadding="0">
                 <tr>
+                    <td width="120" class="left">HuiCMS版本: </td>
+                    <td width="250" class="right"><php>echo C('VERSION');</php></td>
                     <td width="120" class="left">操作系统: </td>
-                    <td width="250" class="right"><php>echo PHP_OS;</php></td>
+                    <td width="right" class="right"><php>echo PHP_OS;</php></td>
+                </tr>
+                <tr>
+                    <td class="left">PHP版本: </td>
+                    <td width="250" class="right"><php>echo PHP_VERSION;</php></td>
                     <td width="120" class="left">服务器地址: </td>
                     <td class="right"><php>echo $_SERVER['SERVER_ADDR'].":".$_SERVER['SERVER_PORT'];</php></td>
                 </tr>
@@ -46,8 +52,8 @@
                 <tr>
                     <td class="left">服务器语言: </td>
                     <td><php>echo getenv("HTTP_ACCEPT_LANGUAGE");</php></td>
-                    <td class="left">PHP版本: </td>
-                    <td><php>echo PHP_VERSION;</php></td>
+                    <td class="left">POST提交限制: </td>
+                    <td><php> echo get_cfg_var("post_max_size") ; </php></td>
                 </tr>
                 <tr>
                     <td class="left">图像处理支持: </td>
@@ -77,12 +83,12 @@
                 <td class="left">上传大小限制: </td>
                 <td><php> echo get_cfg_var("upload_max_filesize")?get_cfg_var("upload_max_filesize"):"不允许上传文件" ; </php></td>
                 </tr>
-                <tr>
+<!--                <tr>
                     <td class="left">POST提交限制: </td>
                     <td><php> echo get_cfg_var("post_max_size") ; </php></td>
                 <td class="left">脚本超时时间: </td>
                 <td><php> echo get_cfg_var("max_execution_time") ; </php> s</td>
-                </tr>
+                </tr>-->
                 <tr>
                     <td class="left">被屏蔽的函数: </td>
                     <td colspan="3"><php> echo get_cfg_var("disable_functions")?get_cfg_var("disable_functions"):"无" ; </php></td>
