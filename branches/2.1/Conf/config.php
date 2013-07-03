@@ -31,6 +31,7 @@ return array(
     'LANG_LIST' => 'zh-cn',                 // 允许切换的语言列表 用逗号分隔
     'DEFAULT_LANG'          =>'zh-cn',      //默认使用的语言包
     'DEFAULT_THEME'         =>'Default',    //默认模板
+    'VERSION'   => file_get_contents(HCMS_PATH.'version.txt'),
     'DATA_PATH_LEVEL'=>2
 );
 ?>
