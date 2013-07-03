@@ -21,7 +21,16 @@ class ArticleAction extends AdminAction{
      * @date 2013-07-02
      */
     public function index(){
-        
+        $action = D($this->_name);
+        $ary_get['pageall'] = $this->_get('pageall', 'htmlspecialchars', 10);
+        $where = array();
+        $count = $action->where()->count();
+        $obj_page = $this->_Page($count, $ary_get['pageall']);
+        $page = $obj_page->newshow();
+        $ary_data = $action->where($where)->limit($obj_page->firstRow, $obj_page->listRows)->order('`order` DESC')->select();
+        $this->assign("data",$ary_data);
+        //echo "<pre>";print_r($ary_data);exit;
+        $this->assign("page",$page);
         $this->display();
         
     }
