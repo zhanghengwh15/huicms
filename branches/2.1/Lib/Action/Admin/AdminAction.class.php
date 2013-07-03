@@ -58,44 +58,10 @@ abstract class AdminAction extends Action{
                           ->join(C('DB_PREFIX').'role_node ON '.C('DB_PREFIX').'role_nav.id = '.C('DB_PREFIX').'role_node.`nav_id`')
                           ->where(C('DB_PREFIX').'role_nav.id =  "'.  $navid.'" AND '.C('DB_PREFIX').'role_node.`action` =  "'.$action.'" AND '.C('DB_PREFIX').'role_node.`module` =  "'.$module.'"')
                           ->find();
-//        echo M('RoleNav')->getLastSql();exit;
-//        echo "<pre>";print_r($navid);exit;
         if(!empty($rolenav) && is_array($rolenav)){
             cookie("menuid",$rolenav['id']);
         }
         $rolenav['url']    = MODULE_NAME;
-//        if(!empty($ary_get['_URL_'][1]) && isset($ary_get['_URL_'][1])){
-//            
-//            $module = $ary_get['_URL_'][1];
-//            $action = $ary_get['_URL_'][2];
-//            $navid = cookie('nav_id');
-//            if(empty($navid)){
-//                $data = M('RoleNav')->where(array('name'=>'控制台'))->find();
-//                cookie('nav_id',$data['id']);
-//                cookie('module',$module);
-//                cookie('action',$action);
-//                $navid = $data['id'];
-//            }
-//        }else{
-//            $modules = cookie('module');
-//            $actions = cookie('action');
-////            echo $modules;
-//            if(!empty($modules) && !empty($actions)){
-//                $module = cookie('module');
-//                $action = cookie('action');
-//                $navid = cookie('nav_id');
-//            }else{
-//                $data = M('RoleNav')->where(array('name'=>'控制台'))->find();
-//                $module = "Index";
-//                $action = "index";
-//                $navid = $data['id'];
-//            }
-//        }
-//        $bm = M('RoleNav')->field(C('DB_PREFIX').'role_nav.name,'.C('DB_PREFIX').'role_node.*')
-//                          ->join(C('DB_PREFIX').'role_node ON '.C('DB_PREFIX').'role_nav.id = '.C('DB_PREFIX').'role_node.`nav_id`')
-//                          ->where(C('DB_PREFIX').'role_nav.id =  "'.  $navid.'" AND '.C('DB_PREFIX').'role_node.`action` =  "'.$action.'" AND '.C('DB_PREFIX').'role_node.`module` =  "'.$module.'"')
-//                          ->find();
-//        $bm['url']    = MODULE_NAME;
         $this->assign ('breadcrumbs',$rolenav);
         import('ORG.Util.Session');
         $this->assign("uid",session("admin"));
