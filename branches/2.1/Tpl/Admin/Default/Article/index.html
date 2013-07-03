@@ -1,14 +1,142 @@
-<!--
-To change this template, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
-<html>
-    <head>
-        <title></title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
-</html>
+<div class="rounded table" style="width: 98%;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" class="box_top">
+        <thead class="thead">
+            <tr class="space">
+                <th colspan="10">文章信息管理</th>
+            </tr>
+        </thead>
+    </table>
+    <div class="contentbox" data-uri='{:U("Admin/ArticleCategory/doEditStatus")}'>
+        <table width="100%" class="list td_align">
+            <thead>
+                <tr class="thead">
+                    <th class="align-center" width="5%"><input name="id" type="checkbox" class="checkAll" id="checkboxall"  data-checklist="checkSon_x" data-direction="x"/></th>
+                    
+                    <th class="align-center"  width="5%">ID</th>
+                    <th class="align-center"  width="25%">信息标题</th>
+                    <th class="align-center"  width="15%">更新时间</th>
+                    <th class="align-center"  width="12%">所属栏目</th>
+                    <th class="align-center"  width="10%">点击</th>
+                    <th class="align-center"  width="10%">发布人</th>
+                    <th class="align-center"  width="18%">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+            <volist name="data" id="vo">
+                <tr id="list_{$vo.id}">
+                    <td class="align-center" width="5%">
+                        <input type="checkbox" value="{$vo.id}" name="checkall" class="checkSon" data-xid="checkSon_x"/>
+                    </td>
+                    
+                    <td class="align-center" width="5%">
+                        {$vo.id}
+                    </td>
+                    <td class="align-center" width="25%">{$vo.title}</td>
+                    <td class="align-center" width="15%">{$vo.update_time}</td>
+                    <td class="align-center" width="12%">{$vo.cid}</td>
+                    <td class="align-center" width="10%">
+                        {$vo.hits}
+                    </td>
+                    <td class="align-center" width="10%">{$vo.author}</td>
+                    <td class="align-center" width="18%">
+                        <span id="check{$vo.id}">
+                        [
+                        <a href="javascript:;" onclick="CheckInfo({$vo.id},'已审')" title="点击进行审核与未审操作">已审</a>
+                        ]
+                      </span>
+                      <span>
+                        [
+                        <a href='{:U("Admin/Article/editArtion","id=$vo[id]")}'>修改</a>
+                        ]
+                      </span>
+                      <span>
+                        [
+                        <a href="javascript:;" onclick="ClearInfo({$vo.id})">删除</a>
+                        ]
+                      </span>
+                    </td>
+                </tr>
+            </volist>
+            <empty name="data">
+                <tr><td colspan="9" class="left align-center">暂时没有数据!</td></tr>
+            </empty>
+            </tbody>
+        </table>
+        <div class="pagination">
+            <ul>
+            {$page}
+            <select name="pageall" onChange="window.location.href=this.value">
+                <option value='{:U("Admin/ArticleCategory/index","pageall=1")}' <if condition="$filter.pageall eq '1'">selected="selected"</if>>1条/页</option>
+                <option value='{:U("Admin/ArticleCategory/index","pageall=5")}' <if condition="$filter.pageall eq '5'">selected="selected"</if>>5条/页</option>
+                <option value='{:U("Admin/ArticleCategory/index","pageall=10")}'<if condition="$filter.pageall eq '10'">selected="selected"</if>>10条/页</option>
+                <option value='{:U("Admin/ArticleCategory/index","pageall=20")}'<if condition="$filter.pageall eq '20'">selected="selected"</if>>20条/页</option>
+                <option value='{:U("Admin/ArticleCategory/index","pageall=50")}'<if condition="$filter.pageall eq '50'">selected="selected"</if>>50条/页</option>
+                <option value='{:U("Admin/ArticleCategory/index","pageall=80")}'<if condition="$filter.pageall eq '80'">selected="selected"</if>>80条/页</option>
+                <option value='{:U("Admin/ArticleCategory/index","pageall=100")}'<if condition="$filter.pageall eq '100'">selected="selected"</if>>100条/页</option>
+                <option value='{:U("Admin/ArticleCategory/index","pageall=500")}'<if condition="$filter.pageall eq '500'">selected="selected"</if>>500条/页</option>
+            </select>
+        </ul>
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+
+</div>
+<script>
+    $(document).ready(function(){
+        $(".doDel").live('click',function(){
+            var title = $(this).attr("data-msg");
+            var uri = $(this).attr("data-uri");
+            $.dialog.confirm(title, function () {
+                $.ajax({
+                    url:uri,
+                    cache:false,
+                    dataType:'json',
+                    type:'GET',
+                    data:{},
+                    success:function(msgObj){
+                        showMessage(msgObj.status,msgObj.info,"{:U('Admin/ArticleCategory/index')}");
+                        return false;
+                    }
+                });
+            }, function () {
+            });
+        });
+        
+        //切换
+        $('.pointer').live('click', function() {
+            var url = $(".contentbox").attr("data-uri");
+            var img    = this,
+            s_val  = ($(img).attr('data-value'))== 0 ? 1 : 0,
+            s_name = $(img).attr('data-field'),
+            s_id   = $(img).attr('data-id'),
+            s_src  = $(img).attr('src');
+            s_msg = ($(img).attr('data-value'))== 0 ? '启用' : '停用';
+            $.ajax({
+                url:url,
+                cache:false,
+                dataType:"json",
+                data: {id:s_id, field:s_name, val:s_val},
+                type:"POST",
+                beforeSend:function(){
+                    $("#J_ajax_loading").stop().removeClass('ajax_error').addClass('ajax_loading').html("提交请求中，请稍候...").show();
+                },
+                error:function(){
+                    $("#J_ajax_loading").addClass('ajax_error').html("AJAX请求发生错误！").show().fadeOut(5000);
+                },
+                success:function(msgObj){
+                    $("#J_ajax_loading").hide();
+                    if(msgObj.status == '1'){
+                        $("#J_ajax_loading").removeClass('ajax_error').addClass('ajax_success').html(msgObj.info).show().fadeOut(5000);
+                        if(s_src.indexOf('0')>-1) {
+                                $(img).attr({'src':s_src.replace('0','1'),'data-value':s_val,'title':s_msg,'alt':s_msg});
+                        } else {
+                                $(img).attr({'src':s_src.replace('1','0'),'data-value':s_val,'title':s_msg,'alt':s_msg});
+                        }
+                    }else{
+                        $("#J_ajax_loading").removeClass('ajax_success').addClass('ajax_error').html(msgObj.info).show().fadeOut(5000);
+                    }
+                }
+            });
+        });
+    });
+</script>
