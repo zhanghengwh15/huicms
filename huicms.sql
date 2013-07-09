@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50516
 File Encoding         : 65001
 
-Date: 2013-07-02 20:48:55
+Date: 2013-07-10 01:32:30
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -272,6 +272,27 @@ INSERT INTO `hui_admin_log` VALUES ('252', '1', 'admin', '2013-06-29 15:48:03', 
 INSERT INTO `hui_admin_log` VALUES ('253', '1', 'admin', '2013-07-01 11:06:13', '127.0.0.1');
 
 -- ----------------------------
+-- Table structure for `hui_announce`
+-- ----------------------------
+DROP TABLE IF EXISTS `hui_announce`;
+CREATE TABLE `hui_announce` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '编号ID',
+  `title` varchar(50) NOT NULL DEFAULT '' COMMENT '公告标题',
+  `content` text NOT NULL COMMENT '公告内容',
+  `starttime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '开始时间',
+  `endtime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '结束时间',
+  `order` int(5) NOT NULL DEFAULT '1' COMMENT '排序',
+  `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否启用：0.否，1.是',
+  `create_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '创建时间',
+  `update_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='公告表';
+
+-- ----------------------------
+-- Records of hui_announce
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for `hui_article`
 -- ----------------------------
 DROP TABLE IF EXISTS `hui_article`;
@@ -293,7 +314,7 @@ CREATE TABLE `hui_article` (
   `create_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '创建时间',
   `update_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='文章表';
 
 -- ----------------------------
 -- Records of hui_article
