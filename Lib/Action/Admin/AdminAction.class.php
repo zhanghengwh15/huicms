@@ -129,32 +129,37 @@ abstract class AdminAction extends Action{
      * @date 2013-04-03
      */
     public function getMenus($menuid){
-        $id = intval($menuid);
-        $menus = array();
-        $where = array();
-        $where['status'] = '1';
-        $where['nav_id'] = $menuid;
-        $where['is_show'] = '1';
-        $where['auth_type'] = 0;
-        $no_modules = explode(',', strtoupper(C('NOT_AUTH_MODULE')));
-        $access_list = $_SESSION['_ACCESS_LIST'];
-        $node_list = D("RoleNode")->where($where)->field('id,action,action_name,module,module_name,nav_id')->order(array('sort'=>'ASC'))->select();
-        if(!empty($node_list) && is_array($node_list)){
-            foreach ($node_list as $key => $node) {
-                $menus[$node['module']]['nodes'][] = array_unique($node);
-                $menus[$node['module']]['name'] = $node['module_name'];
-                if ((isset($access_list[strtoupper($node['module'])]['MODULE']) 
-                    || isset($access_list[strtoupper($node['module'])][strtoupper($node['action'])])) 
-                    || $_SESSION['administrator'] || in_array(strtoupper($node['module']), $no_modules)) 
-                {
-                    if(!in_array($node['id'], $menus[$node['module']]['nodes'][$key])){
-                        $menus[$node['module']]['nodes'][] = array_unique($node);
-                    }
+        if(session(C("ADMIN_AUTH_KEY"))){
+            $id = intval($menuid);
+            $menus = array();
+            $where = array();
+            $where['status'] = '1';
+            $where['nav_id'] = $menuid;
+            $where['is_show'] = '1';
+            $where['auth_type'] = 0;
+            $no_modules = explode(',', strtoupper(C('NOT_AUTH_MODULE')));
+            $access_list = $_SESSION['_ACCESS_LIST'];
+            $node_list = D("RoleNode")->where($where)->field('id,action,action_name,module,module_name,nav_id')->order(array('sort'=>'ASC'))->select();
+            //echo "<pre>";print_r($node_list);exit;
+            if(!empty($node_list) && is_array($node_list)){
+                foreach ($node_list as $key => $node) {
+                    $menus[$node['module']]['nodes'][] = array_unique($node);
                     $menus[$node['module']]['name'] = $node['module_name'];
+                    if ((isset($access_list[strtoupper($node['module'])]['MODULE']) 
+                        || isset($access_list[strtoupper($node['module'])][strtoupper($node['action'])])) 
+                        || $_SESSION['administrator'] || in_array(strtoupper($node['module']), $no_modules)) 
+                    {
+                        if(!in_array($node['id'], $menus[$node['module']]['nodes'][$key])){
+                            $menus[$node['module']]['nodes'][] = array_unique($node);
+                        }
+                        $menus[$node['module']]['name'] = $node['module_name'];
+                    }
                 }
             }
+            $_SESSION['menu_' . $id . '_' . $_SESSION[C('USER_AUTH_KEY')]] = $menus;
+        }else{
+            
         }
-        $_SESSION['menu_' . $id . '_' . $_SESSION[C('USER_AUTH_KEY')]] = $menus;
         $this->menus = $menus;
         $this->assign("menus",$menus);
         return $menus;
