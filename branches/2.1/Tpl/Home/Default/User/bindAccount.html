@@ -1,0 +1,180 @@
+<div class="reg-wrap">
+    <div class="pcenter_invitebox">
+        <div class="pinvite_apho">
+            <p class="fl fpho">
+                <a href="javascript:void(0)">
+                    <img src="http://qzapp.qlogo.cn/qzapp/100421540/8E60D0D2E7B4B0A77ED9357F1D40DF75/50" width="50" height="50">
+                </a>
+            </p>
+            <p class="userinvite">☂神僮ぉ尛釨ぁ²º¹³: 你好，欢迎来到没得比。绑定帐号或注册后体验更多精彩</p>
+        </div>
+    </div>
+    <div class="pcenter_invitecon">
+        <div class="padt5">
+            <ul class="info_pernav">
+                <li id="bindaccounttab1" class="info_pernav_cur">已有没得比社区账号</li>
+                <li id="bindaccounttab2">注册没得比社区账号</li>
+            </ul>
+        </div>
+        <script language="javascript">
+            $(document).ready(function() {
+                $("#bindaccounttab1").click(function() {
+                    $(this).parent().find("li").removeClass('info_pernav_cur');
+                    $(this).addClass('info_pernav_cur');
+                    $("#bindaccount2").hide();
+                    $("#bindaccount1").show();
+                });
+                $("#bindaccounttab2").click(function() {
+                    $(this).parent().find("li").removeClass('info_pernav_cur');
+                    $(this).addClass('info_pernav_cur');
+                    $("#bindaccount1").hide();
+                    $("#bindaccount2").show();
+                });
+                $("#bindaccout").click(function() {
+                    $("#bindform").ajaxSubmit({
+                        success: function(data) {
+                            if (data.status == 1) {
+                                $.dialog.tips(data.info, 2);
+                                setTimeout(function() {
+                                    window.location.href = data.data;
+                                }, 1000);
+                            } else {
+                                $.dialog.tips(data.info, 2);
+                            }
+                        },
+                        dataType: 'json'
+                    });
+                });
+                $("#regbind").click(function() {
+                    $("#myform").ajaxSubmit({
+                        success: function(data) {
+                            if (data.status == 1) {
+                                $.dialog.tips(data.info, 2);
+                                setTimeout(function() {
+                                    window.location.href = data.data;
+                                }, 1000);
+                            } else {
+                                $.dialog.tips(data.info, 2);
+                            }
+                        },
+                        dataType: 'json'
+                    });
+                });
+                $("input").focus(function() {
+                    $(this).parents("tr").find(".font12gray").show();
+                });
+            });
+        </script>
+        <div id="bindaccount1">
+            <form action="/User-dobindAccount.html" method="post" id="bindform">
+                <table width="98%" border="0" cellspacing="0" cellpadding="0" class="register_table">
+                    <tbody>
+                        <tr>
+                            <td align="right" class="register_txta">&nbsp;</td>
+                            <td colspan="2">
+                                <span class="font12gray">如果你已经注册了没得比帐号，登录后系统会帮您绑定QQ和您的帐号，以后可以使用QQ登陆meidebi.com了。</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="15%" align="right" class="register_txta">用户名：<br></td>
+                            <td width="38%"><input name="username" type="text" class="register_input"></td>
+                            <td width="47%" rowspan="3">
+                                <img src="http://img.meidebi.com/mdbcss/tmppublic/images/ui/qqtomdb.gif" width="320" height="119">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right" class="register_txta">密码：<br></td>
+                            <td>
+                                <input name="password" type="password" class="register_input">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">&nbsp;</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td align="right">&nbsp;</td>
+                            <td>
+                                <p>
+                                    <a class="btn_buy fl btn-register" href="javascript:void(0)" id="bindaccout">登录并绑定账号</a>
+                                    <a class="forgot_password fl" href="/User-getpwd.html" style="line-height:42px;padding-left:5px;">忘记密码？</a>
+                                </p>
+                            </td>
+                            <td width="47%"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+        <div id="bindaccount2" style="display:none">
+            <form id="myform" action="/User-doregqqbind.html" method="post">
+                <table width="98%" border="0" cellspacing="0" cellpadding="0" class="register_table">
+                    <tbody>
+                        <tr>
+                            <td width="15%" align="right" class="register_txta">用户名：<br></td>
+                            <td width="29%">
+                                <input name="username" type="text" class="register_input" validate="required:true,en_num:true,remote: '/User-checkusername.html' , minlength:5, maxlength:20">
+                            </td>
+                            <td width="56%">
+                                <span class="font12gray hide">6-20个字符，</span>
+                                <b class="red">提交后不能再修改，要想好哟~~~</b>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="15%" align="right" class="register_txta">电子邮箱：<br></td>
+                            <td width="29%">
+                                <input name="email" type="text" class="register_input" validate="required:true,email:true,remote: '/User-checkEmail.html' ">
+                            </td>
+                            <td>
+                                <span class="font12gray hide">请填写正确的常用邮箱，以便找回密码。<br>比如：example@example.com </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="15%" align="right" class="register_txta">昵称：<br></td>
+                            <td width="29%">
+                                <input name="nickname" type="text" class="register_input" value="☂神僮ぉ尛釨ぁ²º¹³">
+                            </td>
+                            <td>
+                                <span class="font12gray hide">你喜欢别人叫的名字啦～～</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right" class="register_txta">密码：<br></td>
+                            <td>
+                                <input name="password" id="password" type="password" class="register_input" validate="required:true, minlength:6, maxlength:20">
+                            </td>
+                            <td>
+                                <span class="font12gray hide">6-20个字母、数字或者符号</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right" class="register_txta">确认密码：<br></td>
+                            <td>
+                                <input name="repassword" type="password" class="register_input" validate="required:true,equalTo: '#password', minlength:6, maxlength:20"></td>
+                            <td>
+                                <span class="font12gray hide"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">&nbsp;</td>
+                            <td colspan="2">
+                                <input type="checkbox" name="agree" id="checkbox" class="marr5" value="1" checked="checked">
+                                <span>
+                                    <a class="txt_change" href="http://www.meidebi.com/article-6.html" target="_blank">接受服务条例</a>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">&nbsp;</td>
+                            <td>
+                                <p>
+                                    <a class="btn_register" href="javascript:void(0)" id="regbind">立即注册</a>
+                                </p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div><!---->
+    </div>
+</div>

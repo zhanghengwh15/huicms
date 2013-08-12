@@ -1,12 +1,13 @@
 @charset "utf-8";
 /* CSS Document */
 
-html, body {
-	background-image: url(../images/top_bg.jpg);
+html {
+/*	background-image: url(../images/top_bg.jpg);
 	background-repeat: repeat-x;
-	background-position: left 51px;
+	background-position: left 51px;*/
 	font-family: "微软雅黑"
 }
+body { color:#333;background: url(../images/bg_body.jpg);} 
 a {
 	color:#036;
 }
@@ -190,7 +191,7 @@ padding:12px 0;
 	border-color: #95C8F1;
 	box-shadow: 0 0 4px #95C8F1;
 }
-input:focus{border-color: rgba(82, 168, 236, 0.8);outline: 0;-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);-moz-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);}
+//input:focus{border-color: rgba(82, 168, 236, 0.8);outline: 0;-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 1px rgba(82, 168, 236, 0.6);-moz-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 1px rgba(82, 168, 236, 0.6);box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 1px rgba(82, 168, 236, 0.6);}
 
 /* search-form */
 .search-form{float:right;}
@@ -408,7 +409,7 @@ input:focus{border-color: rgba(82, 168, 236, 0.8);outline: 0;-webkit-box-shadow:
 .reg-wrap .reg-main:after{clear: both;content: ".";display: block;height: 0;visibility: hidden}
 .reg-main .article{padding:40px;/*border:#d7d7d7 solid 1px;*/zoom:1;height: 360px;}
 .reg-main .article #post-tag{width:360px;}
-.btn-register{background:#414448;width:80px;height:30px;font-size:14px;color:#fff;margin-top: 8px;display:block;text-align:center;line-height:30px;border-radius:4px;-webkit-border-radius:2px;-moz-border-radius:2px;-khtml-border-radius:2px;cursor: pointer;border: none;}
+.btn-register{background:#414448;width:80px;height:30px;font-size:14px;color:#fff;padding: 0px 10px;margin-top: 8px;display:block;text-align:center;line-height:30px;border-radius:4px;-webkit-border-radius:2px;-moz-border-radius:2px;-khtml-border-radius:2px;cursor: pointer;border: none;}
 .reg-main .user-info{background:#F9FAFA;padding:10px;border:1px solid #e1e1e1;margin:-20px 0 20px 0;}
 .reg-main .user-info img{margin:0 10px 0 0;}
 
@@ -515,6 +516,30 @@ span.valid {background: url("../images/checked.gif") no-repeat left;float: right
 .scrollDiv{height:25px;/* 必要元素 */line-height:25px;overflow:hidden;/* 必要元素 */float: left;width: 400px;position: relative;top: -22px;left: 132px;}
 .scrollDiv li{height:25px;padding-left:10px;}
 .scrollDiv li a{color: #666;}
+
+/*绑定账号*/
+.user40{ margin:40px 0px 10px 0px; background:#FFF;box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2); width:920px; padding:30px; _height:500px;  min-height:500px;border:1px solid #e4e3e3;}
+.steptxt30{font-family: '微软雅黑'; font-size:30px; color:#4397eb;}
+.fpassword_tips{ background:#ffffcc;  line-height:30px; border:1px solid #f1c161; padding:0 5px;}
+.pcenter_invitebox{ background:#fff; height:50px; margin-top:10px;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); padding:20px; }
+.userinvite{ width:520px; float:left; font-size:14px; line-height:26px;}
+.pinvite_ahpo{ width:580px; float:left;}
+.fl{ float:left;display: inline;}
+.fpho{ width:50px; height:50px; margin-right:5px;}
+.pcenter_invitecon{ height:480px; background:#fff; margin-top:10px;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); padding:10px;}
+.padt5{ padding-top:5px;}
+.info_pernav{ height:27px;  border-bottom:2px solid #4498ed;}
+.info_pernav li{ float:left;padding:0px 20px; font-size:14px; margin-right:5px;line-height:27px;  background:url(../images/ui/bg_pernav_nolink.gif) repeat-x 0px 0px; border-left:1px solid #CCC;border-right:1px solid #CCC; height:26px; color:#333; cursor:pointer; overflow:hidden; display: inline;}
+.info_pernav li>a{color: #333}
+.info_pernav .info_pernav_cur{ background:#4498ed; color:#FFF;height:27px;overflow:hidden;}
+.info_pernav .info_pernav_cur:hover{ color:#fff;}
+.info_pernav li:hover{ color:#4498ed;}
+.register_table{ margin-top:20px; margin-left:10px;}
+.register_table tr td{ padding:6px 6px 6px 0px;}
+.font12gray{ color:#999;}
+.register_table tr td{ padding:6px 6px 6px 0px;}
+.register_txta{ height:40px; line-height:40px; font-size:14px;  }
+.register_input{ width:250px; height:26px; line-height:30px;padding:2px;}
 
 /*页脚区域*/
 .footer{height:52px;line-height:52px;background:#252525;text-align:center;color:#969595;}
