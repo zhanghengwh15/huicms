@@ -159,4 +159,30 @@ class UserAction extends HomeAction{
             $this->error("请输入用户名及密码");
         }
     }
+    
+    /**
+     * 授权成功，用户没用绑定账号
+     * @author Terry<wanghui@guanyisoft.com>
+     * @date 2013-08-10
+     */
+    public function bindAccount(){
+        
+        $this->display();
+        
+        
+        
+        
+    }
+    
+    /**
+     * 忘记密码
+     * @author Terry<admin@huicms.cn>
+     * @date 2013-08-11
+     */
+    public function getPassword(){
+        
+        
+        $this->display();
+        
+    }
 }

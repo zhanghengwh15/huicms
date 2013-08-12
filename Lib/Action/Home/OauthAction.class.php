@@ -37,7 +37,7 @@ class OauthAction extends HomeAction{
     }
     
     public function OtherCallbackLogin(){
-        
+        layout(false);
         $ary_get = $this->_get();
         $type = ucwords($ary_get['t']);
         if($ary_get['state'] == $_SESSION['state']){
@@ -49,10 +49,7 @@ class OauthAction extends HomeAction{
             $config = M("Oauth")->where(array('code'=>$type,'status'=>'1'))->find();
             $ary_config = json_decode($config['config'],true);
             $$ary_get['t'] = new $type($ary_config['app_key'],$ary_config['app_secret']);
-            //$$ary_get['t'] = new $type('100421540','6962200fa1201fb8568ac4ffa4c63fbc');
-            
             $accessToken = $$ary_get['t']->getAccessToken($ary_data);
-//            echo "<pre>";print_r($ary_config);exit;
             if(!empty($accessToken) && is_array($accessToken)){
                 session("userinfo",$accessToken);
                 $this->success("登录成功",U('Home/Index/index'),3);
