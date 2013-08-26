@@ -6,11 +6,11 @@
 // +----------------------------------------------------------------------
 // | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
 // +----------------------------------------------------------------------
-// | Author: Terry <admin@52sum.com>
+// | Author: Terry <admin@huicms.cn>
 // +----------------------------------------------------------------------
 /**
  * 后台公告模块操作ACTION
- * @author Terry<admin@52sum.com>
+ * @author Terry<admin@huicms.cn>
  * @date 2013-06-18
  * 
  */
@@ -45,7 +45,7 @@ class AnnounceAction extends AdminAction{
     
     /**
      * 更改公告状态
-     * @author Terry<admin@52sum.com>
+     * @author Terry<admin@huicms.cn>
      * @date 2013-06-15
      */
     public function doEditStatus(){

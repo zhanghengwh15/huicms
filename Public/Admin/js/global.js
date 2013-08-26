@@ -143,7 +143,7 @@ $(function(){
 /**
  * 全选与取消全选
  * 将全选的checkbox的class设为checkAll.列表中的checkbox的class设为checkSon
- * @author Terry<admin@52sum.com>
+ * @author Terry<admin@huicms.cn>
  * @date 2013-03-28
  */
 $(document).ready(function(){
@@ -317,7 +317,7 @@ function openItem(menu){
 
 /**
  * 定义提示信息
- * @author Terry<admin@52sum.com>
+ * @author Terry<admin@huicms.cn>
  * @date 2013-04-16
  */
 function showMsg(flag,msg,content,send){

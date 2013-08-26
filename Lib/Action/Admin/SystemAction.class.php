@@ -1,7 +1,7 @@
 <?php
 /**
  * 管理员操作类
- * @author Terry<admin@52sum.com>
+ * @author Terry<admin@huicms.cn>
  * @date 2013-3-26
  * 
  */
@@ -9,7 +9,7 @@ class SystemAction extends AdminAction{
     
     /**
      * 控制器初始化
-     * @author Terry <admin@52sum.com>
+     * @author Terry <admin@huicms.cn>
      * @date 2013-03-27
      */
     public function _initialize() {
@@ -18,7 +18,7 @@ class SystemAction extends AdminAction{
     
     /**
      * 默认控制器
-     * @author Terry <admin@52sum.com>
+     * @author Terry <admin@huicms.cn>
      * @date 2013-03-27
      */
     public function index() {
@@ -65,7 +65,7 @@ class SystemAction extends AdminAction{
     
     /**
      * 修改管理员登录密码
-     * @author Terry <admin@52sum.com>
+     * @author Terry <admin@huicms.cn>
      * @date 2013-3-26
      */
     public function pageEditAdminPasswd(){
@@ -79,7 +79,7 @@ class SystemAction extends AdminAction{
 
     /**
      * 处理修改密码
-     * @author Terry<admin@52sum.com>
+     * @author Terry<admin@huicms.cn>
      * @date 2013-3-26
      * 
      */
@@ -114,7 +114,7 @@ class SystemAction extends AdminAction{
     
     /**
      * 修改管理员信息
-     * @author Terry<admin@52sum.com>
+     * @author Terry<admin@huicms.cn>
      * @date 2013-3-26
      * 
      */
@@ -137,7 +137,7 @@ class SystemAction extends AdminAction{
     
     /**
      * 处理修改管理员资料
-     * @author Terry<admin@52sum.com>
+     * @author Terry<admin@huicms.cn>
      * @date 2013-3-27
      * 
      */
@@ -182,7 +182,7 @@ class SystemAction extends AdminAction{
     
     /**
      * 添加管理员信息
-     * @author Terry<admin@52sum.com>
+     * @author Terry<admin@huicms.cn>
      * @date 2013-3-29
      */
     public function pageAddAdmin(){
@@ -196,7 +196,7 @@ class SystemAction extends AdminAction{
 
     /**
      * 保存管理员信息
-     * @author Terry<admin@52sum.com>
+     * @author Terry<admin@huicms.cn>
      * @date 2013-3-29
      */
     public function doSaveAdmin(){
@@ -234,7 +234,7 @@ class SystemAction extends AdminAction{
     
     /**
      * 校验管理员唯一性
-     * @author Terry<admin@52sum.com>
+     * @author Terry<admin@huicms.cn>
      * @date 2013-3-29
      */
     public function checkName(){
@@ -268,7 +268,7 @@ class SystemAction extends AdminAction{
     
     /**
      * 删除管理员
-     * @author Terry<admin@52sum.com>
+     * @author Terry<admin@huicms.cn>
      * @date 2013-3-29
      */
     public function doDelete(){
@@ -288,7 +288,7 @@ class SystemAction extends AdminAction{
     
     /**
      * 更改管理员状态
-     * @author Terry<admin@52sum.com>
+     * @author Terry<admin@huicms.cn>
      * @date 2013-3-29
      */
     public function doEditStatus(){
@@ -318,7 +318,7 @@ class SystemAction extends AdminAction{
     
     /**
      * 管理员登陆日志
-     * @author Terry<admin@52sum.com>
+     * @author Terry<admin@huicms.cn>
      * @date 2013-3-29
      */
     public function pageLogList(){

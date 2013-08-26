@@ -12,7 +12,7 @@ abstract class HomeAction extends Action{
     
     /**
      * 基类初始化操作
-     * @author Terry <admin@52sum.com>
+     * @author Terry <admin@huicms.cn>
      * @date 2012-04-15
      */
     public function _initialize() {

@@ -11,7 +11,7 @@ class UserAction extends Action{
     
     /**
      * 后台登录默认控制器，需要重定向到登录页
-     * @author Terry<admin@52sum.com>
+     * @author Terry<admin@huicms.cn>
      * @date 2013-03-21
      */
     public function index() {
@@ -20,7 +20,7 @@ class UserAction extends Action{
     
     /**
      * 后台登录页面
-     * @author Terry<admin@52sum.com>
+     * @author Terry<admin@huicms.cn>
      * @date 2013-03-21
      */
     public function pageLogin() {
@@ -31,7 +31,7 @@ class UserAction extends Action{
     
     /**
      * 验证码
-     * @author Terry <admin@52sum.com>
+     * @author Terry <admin@huicms.cn>
      * @date 2013-03-23
      */
     public function verify() {
@@ -82,7 +82,7 @@ class UserAction extends Action{
     
     /**
      * 用户登陆操作
-     * @author Terry <admin@52sum.com>
+     * @author Terry <admin@huicms.cn>
      * @date 2013-3-23
      */
     public function doLogin(){
