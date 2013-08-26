@@ -1,14 +1,14 @@
 <?php
 /**
  * 后台管理节点操作ACTION
- * @author Terry<admin@52sum.com>
+ * @author Terry<admin@huicms.cn>
  * @date 2013-4-1
  * 
  */
 class RoleNodeAction extends AdminAction{
     /**
      * 控制器初始化
-     * @author Terry <admin@52sum.com>
+     * @author Terry <admin@huicms.cn>
      * @date 2013-04-01
      */
     public function _initialize() {
@@ -17,7 +17,7 @@ class RoleNodeAction extends AdminAction{
     
     /**
      * 节点列表
-     * @author Terry <admin@52sum.com>
+     * @author Terry <admin@huicms.cn>
      * @date 2013-04-01
      */
     public function pageList(){
@@ -35,7 +35,7 @@ class RoleNodeAction extends AdminAction{
 
     /**
      * 默认控制器
-     * @author Terry <admin@52sum.com>
+     * @author Terry <admin@huicms.cn>
      * @date 2013-04-01
      */
     public function index() {
@@ -56,7 +56,7 @@ class RoleNodeAction extends AdminAction{
     
     /**
      * 添加节点
-     * @author Terry<admin@52sum.com>
+     * @author Terry<admin@huicms.cn>
      * @date 2013-04-01
      */
     public function addRoleNode(){
@@ -68,7 +68,7 @@ class RoleNodeAction extends AdminAction{
     
     /**
      * 处理节点
-     * @author Terry<admin@52sum.com>
+     * @author Terry<admin@huicms.cn>
      * @date 2013-04-01
      */
     public function saveRoleNode(){
@@ -103,7 +103,7 @@ class RoleNodeAction extends AdminAction{
     
     /**
      * 编辑节点
-     * @author Terry <admin@52sum.com>
+     * @author Terry <admin@huicms.cn>
      * @date 2013-04-01
      */
     public function editRoleNode() {
@@ -119,7 +119,7 @@ class RoleNodeAction extends AdminAction{
     
     /**
      * 处理编辑节点
-     * @author Terry <admin@52sum.com>
+     * @author Terry <admin@huicms.cn>
      * @date 2013-04-01
      */
     public function doEdit() {
@@ -164,7 +164,7 @@ class RoleNodeAction extends AdminAction{
     
     /**
      * 更改菜单状态
-     * @author Terry<admin@52sum.com>
+     * @author Terry<admin@huicms.cn>
      * @date 2013-04-01
      */
     public function doEditStatus(){

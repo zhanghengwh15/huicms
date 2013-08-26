@@ -114,7 +114,7 @@ abstract class AdminAction extends Action{
     
     /**
      * 获取顶部导航信息
-     * @author Terry<admin@52sum.com>
+     * @author Terry<admin@huicms.cn>
      * @date 2013-04-03
      */
     public function getTop(){
@@ -125,7 +125,7 @@ abstract class AdminAction extends Action{
     
     /**
      * 获取左侧菜单信息
-     * @author Terry<admin@52sum.com>
+     * @author Terry<admin@huicms.cn>
      * @date 2013-04-03
      */
     public function getMenus($menuid){

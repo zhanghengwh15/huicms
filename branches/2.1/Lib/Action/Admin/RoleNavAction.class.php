@@ -1,14 +1,14 @@
 <?php
 /**
  * 后台管理菜单操作ACTION
- * @author Terry<admin@52sum.com>
+ * @author Terry<admin@huicms.cn>
  * @date 2013-3-29
  * 
  */
 class RoleNavAction extends AdminAction{
     /**
      * 控制器初始化
-     * @author Terry <admin@52sum.com>
+     * @author Terry <admin@huicms.cn>
      * @date 2013-03-29
      */
     public function _initialize() {
@@ -17,7 +17,7 @@ class RoleNavAction extends AdminAction{
     
     /**
      * 默认控制器
-     * @author Terry <admin@52sum.com>
+     * @author Terry <admin@huicms.cn>
      * @date 2013-03-27
      */
     public function index() {
@@ -59,7 +59,7 @@ class RoleNavAction extends AdminAction{
     
     /**
      * 添加菜单
-     * @author Terry<admin@52sum.com>
+     * @author Terry<admin@huicms.cn>
      * @date 2013-3-29
      */
     public function addRoleNav(){
@@ -68,7 +68,7 @@ class RoleNavAction extends AdminAction{
     
     /**
      * 保存菜单
-     * @author Terry<admin@52sum.com>
+     * @author Terry<admin@huicms.cn>
      * @date 2013-3-29
      */
     public function saveRoleNav(){
@@ -100,7 +100,7 @@ class RoleNavAction extends AdminAction{
     
     /**
      * 校验菜单唯一性
-     * @author Terry<admin@52sum.com>
+     * @author Terry<admin@huicms.cn>
      * @date 2013-3-29
      */
     public function checkName(){
@@ -132,7 +132,7 @@ class RoleNavAction extends AdminAction{
     
     /**
      * 删除菜单
-     * @author Terry<admin@52sum.com>
+     * @author Terry<admin@huicms.cn>
      * @date 2013-3-29
      */
     public function doDelete(){
@@ -152,7 +152,7 @@ class RoleNavAction extends AdminAction{
     
     /**
      * 修改菜单
-     * @author Terry<admin@52sum.com>
+     * @author Terry<admin@huicms.cn>
      * @date 2013-3-26
      * 
      */
@@ -173,7 +173,7 @@ class RoleNavAction extends AdminAction{
     
     /**
      * 更改菜单状态
-     * @author Terry<admin@52sum.com>
+     * @author Terry<admin@huicms.cn>
      * @date 2013-3-29
      */
     public function doEditStatus(){

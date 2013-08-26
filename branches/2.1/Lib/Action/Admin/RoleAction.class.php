@@ -1,14 +1,14 @@
 <?php
 /**
  * 后台角色操作ACTION
- * @author Terry<admin@52sum.com>
+ * @author Terry<admin@huicms.cn>
  * @date 2013-04-01
  * 
  */
 class RoleAction extends AdminAction{
     /**
      * 控制器初始化
-     * @author Terry <admin@52sum.com>
+     * @author Terry <admin@huicms.cn>
      * @date 2013-04-01
      */
     public function _initialize() {
@@ -17,7 +17,7 @@ class RoleAction extends AdminAction{
     
     /**
      * 默认控制器
-     * @author Terry <admin@52sum.com>
+     * @author Terry <admin@huicms.cn>
      * @date 2013-04-01
      */
     public function index() {
@@ -58,7 +58,7 @@ class RoleAction extends AdminAction{
     
     /**
      * 添加角色
-     * @author Terry <admin@52sum.com>
+     * @author Terry <admin@huicms.cn>
      * @date 2013-04-01
      */
     public function addRole() {
@@ -79,7 +79,7 @@ class RoleAction extends AdminAction{
     
     /**
      * 处理添加角色
-     * @author Terry <admin@52sum.com>
+     * @author Terry <admin@huicms.cn>
      * @date 2013-04-01
      */
     public function doAdd() {
@@ -178,7 +178,7 @@ class RoleAction extends AdminAction{
     
     /**
      * 处理编辑角色
-     * @author Terry <admin@52sum.com>
+     * @author Terry <admin@huicms.cn>
      * @date 2013-04-01
      */
     public function doEdit(){
@@ -225,7 +225,7 @@ class RoleAction extends AdminAction{
     
     /**
      * 判断用户组名称是否存在
-     * @author Terry <admin@52sum.com>
+     * @author Terry <admin@huicms.cn>
      * @date 2013-04-01
      * @return string 存在在返回字符串 否则返回FALSE
      */
@@ -243,7 +243,7 @@ class RoleAction extends AdminAction{
     
     /**
      * 校验角色编辑时，角色名称是否存在
-     * @author Terry <admin@52sum.com>
+     * @author Terry <admin@huicms.cn>
      * @date 2013-04-01
      */
     public function checkEditName(){
@@ -262,7 +262,7 @@ class RoleAction extends AdminAction{
     
     /**
      * 角色启用/停用
-     * @author Terry <admin@52sum.com>
+     * @author Terry <admin@huicms.cn>
      * @date 2013-04-01
      */
     public function doEditStatus(){

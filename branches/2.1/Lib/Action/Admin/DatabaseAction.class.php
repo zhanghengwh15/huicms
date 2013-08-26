@@ -2,7 +2,7 @@
 
 /**
  * 后台数据模块操作ACTION
- * @author Terry<admin@52sum.com>
+ * @author Terry<admin@huicms.cn>
  * @date 2013-04-18
  * 
  */
@@ -10,7 +10,7 @@ class DatabaseAction extends AdminAction {
 
     /**
      * 控制器初始化
-     * @author Terry <admin@52sum.com>
+     * @author Terry <admin@huicms.cn>
      * @date 2013-04-18
      */
     public function _initialize() {
@@ -19,7 +19,7 @@ class DatabaseAction extends AdminAction {
 
     /**
      * 默认控制器
-     * @author Terry <admin@52sum.com>
+     * @author Terry <admin@huicms.cn>
      * @date 2013-04-18
      */
     public function backup() {
@@ -35,7 +35,7 @@ class DatabaseAction extends AdminAction {
 
     /**
      * 保存数据
-     * @author Terry <admin@52sum.com>
+     * @author Terry <admin@huicms.cn>
      * @date 2013-04-18
      */
     public function doSaveBackup(){
@@ -61,7 +61,7 @@ class DatabaseAction extends AdminAction {
      * 将G M K转换为字节
      *
      * @param string $val
-     * @author Terry<admin@52sum.com>
+     * @author Terry<admin@huicms.cn>
      * @date 2013-04-18
      * @return int
      */
@@ -81,7 +81,7 @@ class DatabaseAction extends AdminAction {
 
     /**
      * 生成备份文件夹名称
-     * @author Terry<admin@52sum.com>
+     * @author Terry<admin@huicms.cn>
      * @date 2013-04-18
      */
     private function _make_backup_name() {

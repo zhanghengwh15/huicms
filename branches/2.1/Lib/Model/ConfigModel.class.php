@@ -3,14 +3,14 @@
  * 系统配置模型
  * @package Model
  * @version 1.0
- * @author Terry <admin@52sum.com>
+ * @author Terry <admin@huicms.cn>
  * @date 2013-3-25
  */
 class ConfigModel extends Model{
 
     /**
      * 从系统配置表中取出模块相关配置
-     * @author Terry <admin@52sum.com>
+     * @author Terry <admin@huicms.cn>
      * @date 2013-3-25
      * @return array
      */

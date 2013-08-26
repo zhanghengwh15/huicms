@@ -1,14 +1,14 @@
 <?php
 /**
  * 后台留言操作ACTION
- * @author Terry<admin@52sum.com>
+ * @author Terry<admin@huicms.cn>
  * @date 2013-04-16
  */
 class MessageAction extends AdminAction{
     
     /**
      * 控制器初始化
-     * @author Terry <admin@52sum.com>
+     * @author Terry <admin@huicms.cn>
      * @date 2013-04-01
      */
     public function _initialize() {
@@ -38,7 +38,7 @@ class MessageAction extends AdminAction{
     
     /**
      * 更新留言审核状态
-     * @author Terry<admin@52sum.com>
+     * @author Terry<admin@huicms.cn>
      * @date 2013-04-16
      */
     public function doEditAudit(){
@@ -47,7 +47,7 @@ class MessageAction extends AdminAction{
     
     /**
      * 删除留言
-     * @author Terry<admin@52sum.com>
+     * @author Terry<admin@huicms.cn>
      * @date 2013-04-16
      */
     public function doDelete(){

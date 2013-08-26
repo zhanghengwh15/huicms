@@ -66,7 +66,7 @@ class UserAction extends HomeAction{
     
     /**
      * 验证码
-     * @author Terry <admin@52sum.com>
+     * @author Terry <admin@huicms.cn>
      * @date 2013-03-23
      */
     public function Verify() {

@@ -1,14 +1,14 @@
 <?php
 /**
  * 后台友情链接模块操作ACTION
- * @author Terry<admin@52sum.com>
+ * @author Terry<admin@huicms.cn>
  * @date 2013-04-14
  * 
  */
 class LinksAction extends AdminAction{
     /**
      * 控制器初始化
-     * @author Terry <admin@52sum.com>
+     * @author Terry <admin@huicms.cn>
      * @date 2013-04-14
      */
     public function _initialize() {
@@ -17,7 +17,7 @@ class LinksAction extends AdminAction{
     
     /**
      * 默认控制器
-     * @author Terry <admin@52sum.com>
+     * @author Terry <admin@huicms.cn>
      * @date 2013-04-14
      */
     public function index() {
@@ -70,7 +70,7 @@ class LinksAction extends AdminAction{
     
     /**
      * 添加友情链接
-     * @author Terry <admin@52sum.com>
+     * @author Terry <admin@huicms.cn>
      * @date 2013-04-14
      */
     public function addLinks(){

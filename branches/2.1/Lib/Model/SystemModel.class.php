@@ -3,7 +3,7 @@
  * 管理员模型
  * @package Model
  *
- * @author Terry <admin@52sum.com>
+ * @author Terry <admin@huicms.cn>
  * @date 2013-3-26
  */
 class SystemModel extends Model{
@@ -16,7 +16,7 @@ class SystemModel extends Model{
     
     /**
      * 更新管理员信息
-     * @author Terry <admin@52sum.com>
+     * @author Terry <admin@huicms.cn>
      * @date 2013-3-26
      * @param array $ary_result 更新数据
      * @param array $ary_where 对应更新条件
@@ -37,7 +37,7 @@ class SystemModel extends Model{
     
     /**
      * 获取管理员信息
-     * @author Terry <admin@52sum.com>
+     * @author Terry <admin@huicms.cn>
      * @date 2013-3-26
      * @param int $uid 管理员ID
      * @return array $ary_result
@@ -55,7 +55,7 @@ class SystemModel extends Model{
     
     /**
      * 更新管理员信息
-     * @author Terry <admin@52sum.com>
+     * @author Terry <admin@huicms.cn>
      * @date 2013-3-27
      * @param array $param 
      * @return boolean 成功true 失败返回false 
