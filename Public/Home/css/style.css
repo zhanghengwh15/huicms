@@ -437,9 +437,9 @@ padding:12px 0;
 .reg-main .article .item .form-row .s-radio{margin-top:-3px;vertical-align:middle}
 .article .s-txt, .article .s-txt-focus{width:300px;margin:0 5px 0 0;vertical-align:middle;float:left;-webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px;}
 .reg-main .article .text-required{margin:0 3px 0 0;}
-.reg-main .article .item dd{margin:0 0 20px 0;overflow:hidden;*zoom:1;}
+.reg-main .article .item dd{margin:0 0 10px 0;overflow:hidden;*zoom:1;height: 40px;line-height: 30px;}
 .reg-main .article .item .profession-type dd{margin:0 0 10px 120px}
-.reg-main .article .item dd .form-tt{float:left;font-size:14px;width:80px;display:block;padding:8px 10px 0 0;text-align:right}
+.reg-main .article .item dd .form-tt{float:left;font-size:14px;width:85px;display:block;text-align:right;height: 30px;line-height: 30px;}
 .reg-main .article .item dd .form-tt-complete{float:left;font-size:14px;width:300px;display:block;padding:5px 5px 0 0;text-align:right}
 .text-required {color: #f00;}
 .s-txt{font-size:12px;height:16px;line-height:16px;padding:6px 5px;margin:0 5px 0 0;border:#ccc solid 1px;border-top-color:#ccc;color:#333}

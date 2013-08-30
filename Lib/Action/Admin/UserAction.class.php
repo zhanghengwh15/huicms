@@ -24,8 +24,14 @@ class UserAction extends Action{
      * @date 2013-03-21
      */
     public function pageLogin() {
+        $url = U("Admin/Index/index");
+        if(isset($_GET["doUrl"]) && "" != $_GET["doUrl"]){
+            $url = urldecode($_GET["doUrl"]);
+        }
+//        echo "<pre>";print_r($url);exit;
         $code = D('Config')->getCfgByModule('CODE_SET');
         $this->assign("code",$code);
+        $this->assign("callback_url",$url);
         $this->display("Login");
     }
     
