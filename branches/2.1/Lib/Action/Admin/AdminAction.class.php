@@ -107,9 +107,20 @@ abstract class AdminAction extends Action{
      */
     public function doCheckLogin(){
         //todo 此处要做登录判断
-        if (!isset($_SESSION[C('USER_AUTH_KEY')])) {
-            $this->error(L('NO_LOGIN'), U('Admin/User/pageLogin'));
+        if (!session(C('USER_AUTH_KEY'))) {
+			$int_port = "";
+			if($_SERVER["SERVER_PORT"] != 80){
+				$int_port = ':' . $_SERVER["SERVER_PORT"];
+			}
+			$string_request_uri = "http://" . $_SERVER["SERVER_NAME"] . $int_port . $_SERVER['REQUEST_URI'];
+			$this->error(L('NO_LOGIN'), U('Admin/User/pageLogin') . '?doUrl=' . urlencode($string_request_uri));
+        } else {
+            $this->admin = session(C('USER_AUTH_KEY'));
         }
+//        //todo 此处要做登录判断
+//        if (!isset($_SESSION[C('USER_AUTH_KEY')])) {
+//            $this->error(L('NO_LOGIN'), U('Admin/User/pageLogin'));
+//        }
     }    
     
     /**

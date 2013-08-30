@@ -140,6 +140,16 @@ class UserAction extends HomeAction{
     
     public function doLogin(){
         $ary_post = $this->_post();
+        $code = D('Config')->getCfgByModule('CODE_SET');
+        $this->assign("code",$code);
+        if(isset($ary_post['verify'])){
+            if(empty($ary_post['verify'])){
+                $this->error("验证码不能为空");
+            }
+            if($_SESSION['av'] != md5($ary_post['verify'])){
+                $this->error("验证码不正确，请重新输入");
+            }
+        }
         if(!empty($ary_post) && is_array($ary_post)){
             $ary_result = D($this->name)->where(array('m_name'=>$ary_post['user'],'m_passwd'=>md5($ary_post['passwd'])))->find();
             if(!empty($ary_result) && is_array($ary_result)){
@@ -151,7 +161,11 @@ class UserAction extends HomeAction{
                 $ary_result['nickname'] = $ary_result['m_name'];
                 $ary_result['figureurl'] = $ary_result['m_pic'];
                 session("userinfo",$ary_result);
-                $this->success("登录成功");
+                if($this->isAjax()){
+                    $this->success("登录成功");
+                }else{
+                    $this->success("登录成功","/",3);
+                }
             }else{
                 $this->error("用户名不存在或者密码错误");
             }

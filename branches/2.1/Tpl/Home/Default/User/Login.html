@@ -2,7 +2,7 @@
     <div class="reg-wrap">	
         <div class="reg-main">
             <!--注册步骤-->
-            <form method="POST" action="{:U('User/doRegister')}" name="" id="" class="formvalidate">
+            <form method="POST" action="{:U('User/doLogin')}" name="" id="" class="formvalidate">
                 <div class="article boxShadow">
                     <div class="title">用户登录</div>
                     <div class="register_left">
@@ -10,14 +10,14 @@
                             <dd>
                                 <div class="form-tt"><i class="text-required">*</i>用户名：</div>
                                 <div class="form-row" style="z-index:99">
-                                    <input class="s-txt-focus tips" name="m_name" autocomplete="off" type="text" value="" title="3-20位字符，可由中文、英文、数字及“_”、“-”组成" validate='{ required:true,username:true,remote:"{:U("User/checkName","field=m_name")}",maxlength:30,messages:{required:"用户名不能为空"}}'/>
+                                    <input class="s-txt-focus tips" name="user" autocomplete="off" type="text" value="" title="3-20位字符，可由中文、英文、数字及“_”、“-”组成" validate='{ required:true,username:true,maxlength:30,messages:{required:"用户名不能为空"}}'/>
                                 </div>
                             </dd>
                             <dd>
                                 <div class="form-tt"><i class="text-required">*</i>密码：</div>
                                 <div class="form-row psd">
                                     <div style="overflow:hidden;*zoom:1">
-                                        <input name="m_passwd" type="password" value="" id="m_passwd" class="s-txt-focus tips" title="6-20位字符，可由英文、数字及标点符号组成" validate='{ required:true,minlength:6,maxlength:20,messages:{required:"登录密码不能为空",minlength:"密码过短",maxlength:"登录密码过长"}}'/>
+                                        <input name="passwd" type="password" value="" id="m_passwd" class="s-txt-focus tips" title="6-20位字符，可由英文、数字及标点符号组成" validate='{ required:true,minlength:6,maxlength:20,messages:{required:"登录密码不能为空",minlength:"密码过短",maxlength:"登录密码过长"}}'/>
                                     </div>
                                 </div>
                             </dd>
@@ -32,6 +32,15 @@
                                 </div>
                             </dd>
                             </if>
+                            <dd style="height: 30px;">
+                                <div class="form-tt">&nbsp;</div>
+                                <div class="form-row psd">
+                                    <div style="overflow:hidden;*zoom:1">
+                                        <input type="checkbox" title="两周内自动登录" name="autologin" id="autologin" value="1" style="float: left;height: 30px;line-height: 30px;"/>
+                                        <label for="autologin" title="为了您的信息安全，请不要在网吧或公用电脑上使用此功能！" style="width: 200px;padding: 0px;height: 30px;line-height: 26px;margin-left: 7px;">两周内自动登录</label>
+                                    </div>
+                                </div>
+                            </dd>
                             <dd class="mt15">
                                 <div class="form-tt"></div>
                                 <div class="form-row actionBtn">
