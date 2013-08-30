@@ -115,5 +115,14 @@ class ArticleCategoryAction extends AdminAction{
         }
     }
     
-    
+    /**
+     * 添加文章分类
+     * @author Terry<admin@huicms.cn>
+     * @date 2013-08-30
+     */
+    public function addArticleCategory(){
+        
+        
+        
+    }
 }
