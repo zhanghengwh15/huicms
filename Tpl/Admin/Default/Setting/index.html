@@ -7,13 +7,13 @@
 
     <!-- start -->
     <div class="nav">
-        <ul class="cc">
-            <li class="current"><a href="{:U('Admin/Setting/index')}">站点信息</a></li>
-            <li><a href="{:U('Admin/Setting/Global')}">全局参数</a></li>
-            <li><a href="{:U('Admin/Setting/verCode')}">验证码配置</a></li>
+        <ul class="cc tab" name='conf_menu'>
+            <li class="current"><a href="javascript:select_tab('web_conf');">站点信息</a></li>
+            <li><a href="javascript:select_tab('vercode_conf');">验证码配置</a></li>
+            <li><a href="javascript:select_tab('mail_conf');">邮箱设置</a></li>
         </ul>
     </div>
-    <form action="{:U('Admin/Setting/doSaveWebsite')}" method="post" class="formvalidate">
+    <form action="{:U('Admin/Setting/doSaveWebsite')}" method="post" class="formvalidate" name='web_conf'>
         <table class="list" cellpadding="0" cellspacing="1" border="0">
             <tbody>
 
@@ -22,7 +22,7 @@
                         <label class="validation"><span class="spanMsg">*</span>网站名称：</label>
                     </td>
                     <td>
-                        <input type="text" class="input rounded" name="site_name" size="50" value="{$config.site_name}" style="width:300px;" required validate="{ required:true,maxlength:30}">
+                        <input type="text" class="input rounded" name="site_name" size="50" value="{$webConf.site_name}" style="width:300px;" required validate="{ required:true,maxlength:30}">
                     </td>
                     <td class="field"></td>
                 </tr>
@@ -31,7 +31,7 @@
                         <label class="validation"><span class="spanMsg">*</span>Title：</label>
                     </td>
                     <td>
-                        <input type="text" class="input rounded" name="site_title" size="50" value="{$config.site_title}" style="width:300px;" required validate="{ required:true,maxlength:30}">
+                        <input type="text" class="input rounded" name="site_title" size="50" value="{$webConf.site_title}" style="width:300px;" required validate="{ required:true,maxlength:30}">
                     </td>
                     <td class="field"></td>
                 </tr>
@@ -40,7 +40,7 @@
                         <label class="validation"><span class="spanMsg">*</span>Keywords：</label>
                     </td>
                     <td>
-                        <input type="text" class="input rounded" name="site_keyword" size="50" value="{$config.site_keyword}" style="width:300px;" required validate="{ required:true,maxlength:30}">
+                        <input type="text" class="input rounded" name="site_keyword" size="50" value="{$webConf.site_keyword}" style="width:300px;" required validate="{ required:true,maxlength:30}">
                     </td>
                     <td class="field">
                         <img title="用逗号隔开，主要用于网站首页及一些插件页缺省关键字。" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16">
@@ -51,7 +51,7 @@
                         <label class="validation"><span class="spanMsg">*</span>Description：</label>
                     </td>
                     <td>
-                        <textarea name="site_description" class="rounded" style="width:300px; height:60px; padding:5px;">{$config.site_description}</textarea> 
+                        <textarea name="site_description" class="rounded" style="width:300px; height:60px; padding:5px;">{$webConf.site_description}</textarea> 
                     </td>
                     <td class="field"></td>
                 </tr>
@@ -60,7 +60,7 @@
                         <label class="validation"><span class="spanMsg">*</span>ICP备案号：</label>
                     </td>
                     <td>
-                        <input type="text" class="input rounded" name="site_icp" size="50" value="{$config.site_icp}" style="width:300px;" required validate="{ required:true,maxlength:30}">
+                        <input type="text" class="input rounded" name="site_icp" size="50" value="{$webConf.site_icp}" style="width:300px;" required validate="{ required:true,maxlength:30}">
                     </td>
                     <td class="field"></td>
                 </tr>
@@ -69,7 +69,7 @@
                         <label class="validation">统计代码：</label>
                     </td>
                     <td>
-                        <textarea name="site_code" class="rounded" style="width:300px; height:60px; padding:5px;">{$config.site_code}</textarea> 
+                        <textarea name="site_code" class="rounded" style="width:300px; height:60px; padding:5px;">{$webConf.site_code}</textarea> 
                     </td>
                     <td class="field">
                         <img title="描述。" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16">
@@ -86,11 +86,11 @@
 
                             <li>
                                 <label>
-                                    <input type="radio" value="1" <if condition="$config.site_status eq '1'">checked="checked"</if> name="site_status">开启</label>
+                                    <input type="radio" value="1" <if condition="$webConf.site_status eq '1'">checked="checked"</if> name="site_status">开启</label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  value="0" <if condition="$config.site_status eq '0'">checked="checked"</if> name="site_status">关闭</label>
+                                    <input type="radio"  value="0" <if condition="$webConf.site_status eq '0'">checked="checked"</if> name="site_status">关闭</label>
                             </li>
                         </ul>
                     </td>
@@ -98,12 +98,12 @@
                         <img title="当链接状态为停用时,将不再前台显示" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16">				
                     </td>
                 </tr>
-                <tr id="closeHelp" <if condition="$config.site_status eq '1'">style="display: none;</if>">
+                <tr id="closeHelp" <if condition="$webConf.site_status eq '1'">style="display: none;</if>">
                     <td class="name">
                         <label class="validation"><span class="spanMsg">*</span>关闭说明：</label>
                     </td>
                     <td>
-                        <textarea name="site_close" class="rounded" style="width:300px; height:60px; padding:5px;">{$config.site_close}</textarea> 
+                        <textarea name="site_close" class="rounded" style="width:300px; height:60px; padding:5px;">{$webConf.site_close}</textarea> 
                     </td>
                     <td class="field"></td>
                 </tr>
@@ -121,10 +121,261 @@
         </table>
     </form>
     <!-- end -->
+    <form action="{:U('Admin/Setting/doVerCode')}" method="post" class="formvalidate" name='vercode_conf'>
+        <table class="list" cellpadding="0" cellspacing="1" border="0">
+            <tbody>
+                <tr>
+                    <td class="name" width="200">
+                        <label class="validation">
+                            <span class="spanMsg">*</span>开启系统验证码：
+                        </label>
+                    </td>  
+                    <td class="rowform select_type">
+                        <ul>
 
+                            <li>
+                                <label>
+                                    <input type="checkbox" <if condition="$vercode.MREGISTER eq '1'">checked="checked"</if> value="1" name="MREGISTER" />
+                                    <span>会员注册</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" <if condition="$vercode.RELOGIN eq '1'">checked="checked"</if> value="1" name="RELOGIN" />
+                                    <span>前台登陆</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" <if condition="$vercode.BALOGIN eq '1'">checked="checked"</if> value="1" name="BALOGIN" />
+                                    <span>后台登陆</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="field">
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name">
+                        <label class="validation"><span class="spanMsg">*</span>验证码生成类型：</label>
+                    </td>
+                    <td class="rowform">
+                        <ul>
+
+                            <li>
+                                <label>
+                                    <input type="radio" checked="checked" <if condition="$vercode.BUILDTYPE eq '1'">checked="checked"</if> value="1" name="BUILDTYPE">
+                                    <span>数字</span>
+                                </label>
+                            </li>
+                            
+                            <li>
+                                <label>
+                                    <input type="radio" <if condition="$vercode.BUILDTYPE eq '2'">checked="checked"</if> value="2" name="BUILDTYPE">
+                                    <span>字母</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" <if condition="$vercode.BUILDTYPE eq '4'">checked="checked"</if> value="4" name="BUILDTYPE">
+                                    <span>中文</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" <if condition="$vercode.BUILDTYPE eq '5'">checked="checked"</if> value="5" name="BUILDTYPE">
+                                    <span>数字+字母</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="field"></td>
+                </tr>
+                <tr>
+                    <td class="name">
+                        <label class="validation"><span class="spanMsg">*</span>选择验证码文件类型：</label>
+                    </td>
+                    <td class="rowform">
+                        <ul>
+                            <li>
+                                <label>
+                                    <input type="radio" <if condition="$vercode.EXPANDTYPE eq 'png'">checked="checked"</if> value="png" name="EXPANDTYPE">
+                                    <span>png</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" <if condition="$vercode.EXPANDTYPE eq 'gif'">checked="checked"</if> value="gif" name="EXPANDTYPE">
+                                    <span>gif</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="field">
+                        
+                    </td>
+                </tr>
+                <tr id="Reception">
+                    <td class="name" width="200">
+                        <label class="validation"><span class="spanMsg">*</span>前台验证码图片大小：</label>
+                    </td>
+                    <td>
+                        宽:<input type="text" name="REWIDTH" value="{$vercode.RECODESIZE.width}" class="input rounded" size="10">
+                        高:<input type="text" name="REHEIGHT" value="{$vercode.RECODESIZE.height}" class="input rounded" size="10">  
+                    </td>
+                    <td class="field"></td>
+                </tr>
+                <tr id="Backstage">
+                    <td class="name" width="200">
+                        <label class="validation"><span class="spanMsg">*</span>后台验证码图片大小：</label>
+                    </td>
+                    <td>
+                        宽:<input type="text" name="BAWIDTH" value="{$vercode.BACODESIZE.width}" class="input rounded" size="10">
+                        高:<input type="text" name="BAHEIGHT" value="{$vercode.BACODESIZE.height}" class="input rounded" size="10">  
+                    </td>
+                    <td class="field"></td>
+                </tr>
+                <tr>
+                    <td class="name">
+                        <label class="validation"><span class="spanMsg">*</span>前台验证码字数：</label>
+                    </td>
+                    <td>
+                        <input type="text" name="RECODENUMS" value="{$vercode.RECODENUMS}" class="input rounded" size="10" validate='{ required:true,messages:{required:"前台验证码字数不能为空"}}'>  
+                    </td>
+                    <td class="field">
+                        <img title="提示：字符数不要大于6位" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16">				
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name">
+                        <label class="validation"><span class="spanMsg">*</span>后台验证码字数：</label>
+                    </td>
+                    <td>
+                        <input type="text" name="BACODENUMS" value="{$vercode.BACODENUMS}" class="input rounded" size="10" validate='{ required:true,messages:{required:"后台验证码字数不能为空"}}'>  
+                    </td>
+                    <td class="field">
+                        <img title="提示：字符数不要大于6位" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16">				
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table top_line">
+            <tbody>
+                <tr>
+                    <td align="left" height="60" colspan="2">
+                        <input id="submit" class="submit" type="submit" value="提交">
+                        <input type="reset" id="reset" class="submit reset" value="重置">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+    
+    <form action="{:U('Admin/Setting/doMailConf')}" method="post" class="formvalidate" name='mail_conf'>
+        <table class="list" cellpadding="0" cellspacing="1" border="0">
+            <tbody>
+                <tr>
+                    <td class="name">
+                        <label class="validation"><span class="spanMsg">*</span>发送Email方式：</label>
+                    </td>
+                    <td class="rowform">
+                        <ul>
+
+                            <li>
+                                <label>
+                                    <input type="radio" checked="checked" <if condition="$mailconf.email_type eq '1'">checked="checked"</if> value="1" name="email_type">
+                                    <span>第三方SMTP方式</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="field"></td>
+                </tr>
+                <tr id="Reception">
+                    <td class="name" width="200">
+                        <label class="validation"><span class="spanMsg">*</span>发送邮件的地址：</label>
+                    </td>
+                    <td>
+                        <input type="text" name="mail_address" value="{$mailconf.mail_address}" class="input rounded" size="40">
+                    </td>
+                    <td class="field">
+                        <img title="发送邮件所使用的email地址，邮件内容中的收件人信息就是显示此信息" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16">		
+                    </td>
+                </tr>
+                <tr id="Backstage">
+                    <td class="name" width="200">
+                        <label class="validation"><span class="spanMsg">*</span>SMTP地址：</label>
+                    </td>
+                    <td>
+                        <input type="text" name="smtp" value="{$mailconf.smtp}" class="input rounded" size="40">
+                    </td>
+                    <td class="field">
+                        <img title="第三方的SMTP的URL地址" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16">		
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name">
+                        <label class="validation"><span class="spanMsg">*</span>用户名：</label>
+                    </td>
+                    <td>
+                        <input type="text" name="smtp_user" value="{$mailconf.smtp_user}" class="input rounded" size="40" validate='{ required:true,messages:{required:"前台验证码字数不能为空"}}'>  
+                    </td>
+                    <td class="field">
+                        <img title="SMTP用户名" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16">				
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name">
+                        <label class="validation"><span class="spanMsg">*</span>密码：</label>
+                    </td>
+                    <td>
+                        <input type="password" name="smtp_pwd" value="{$mailconf.smtp_pwd}" class="input rounded" size="40" validate='{ required:true,messages:{required:"后台验证码字数不能为空"}}'>  
+                    </td>
+                    <td class="field">
+                        <img title="SMTP密码" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16">				
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name">
+                        <label class="validation"><span class="spanMsg">*</span>端口号：</label>
+                    </td>
+                    <td>
+                        <input type="text" name="smtp_port" value="{$mailconf.smtp_port}" class="input rounded" size="10" validate='{ required:true,messages:{required:"后台验证码字数不能为空"}}'>  
+                    </td>
+                    <td class="field">
+                        <img title="SMTP端口号(默认：25)" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16">				
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name">
+                        <label class="validation"><span class="spanMsg">*</span>测试邮件地址：</label>
+                    </td>
+                    <td>
+                        <input type="text" name="test_address" value="{$mailconf.test_address}" class="input rounded" size="40" validate='{ required:true,messages:{required:"后台验证码字数不能为空"}}'>  
+                    </td>
+                    <td class="field">
+                        <img title="用于测试邮件发送的功能【可选】" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16">				
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table top_line">
+            <tbody>
+                <tr>
+                    <td align="left" height="60" colspan="2">
+                        <input id="submit" class="btn" type="submit" value="保存邮箱设置">
+                        <input type="reset" id="reset" class="btn reset" value="测试邮件发送" onclick="testMail(this);">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
 </div>
 <script>
     $(document).ready(function(){
+        select_tab("");
         $(".rowform input[name='site_status']").click(function(){
             var val = $(this).val();
             if(val == '0'){
@@ -134,4 +385,52 @@
             }
         });
     });    
+    
+    //滑动门
+    function select_tab(indexVal){
+        //设置默认值
+        if(indexVal == '')
+        {
+                indexVal = 'web_conf';
+        }
+
+        var formObj  = $('form[name="'+indexVal+'"]');
+        var li_index = $('form').index(formObj);
+
+        //切换form
+        $('form').hide();
+        $('form:eq('+li_index+')').show();
+
+        //切换li
+        $('ul[name="conf_menu"] li').attr('class','');
+        $('ul[name="conf_menu"] li:eq('+li_index+')').attr('class','current');
+    }
+    
+    //测试邮件发送
+    function testMail(obj){
+        $('form[name="mail_conf"] input:text').each(function(){
+                $(this).trigger('change');
+        });
+
+        if($('form[name="mail_conf"] input:text.invalid-text').length > 0){
+            return;
+        }
+
+        //按钮控制
+        obj.disabled = true;
+        $(obj).val('正在测试发送请稍后...');
+
+        var ajaxUrl = "{:U('Admin/Setting/testSendMail')}";
+        var data = $('form[name="mail_conf"]').serialize();
+        $.get(ajaxUrl,data,function(msgObj){
+            obj.disabled = false;
+            $(obj).val('测试邮件发送');
+            if(msgObj.status == '1'){
+                showMessage(msgObj.status,msgObj.info,"{:U('Admin/Setting/index')}");
+            }else{
+                showMessage(msgObj.status,msgObj.info,'',3);
+            }
+        },"JSON");
+        
+    }
 </script>

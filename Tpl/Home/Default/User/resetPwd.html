@@ -1,22 +1,21 @@
 <div class="reg-wrap">
     <div class="user40">
         <div class="fpassword_con">
-            <p class="title" style="margin:0 0 20px 0;">忘记密码</p>
-            <p class="fpassword_tips">请输入您注册的用户名及邮箱地址，系统会将重置密码的链接发送到您注册用的邮箱中。</p>
-            <form action="{:U('User/getPassword')}" method="post" id="getpwd" class="formvalidate">
+            <p class="title" style="margin:0 0 20px 0;">重置密码</p>
+            <form action="{:U('User/doSetPwd')}" method="post" id="getpwd" class="formvalidate">
                 <table width="98%" cellspacing="0" cellpadding="0" border="0" class="register_table">
                     <tbody>
                         <tr>
-                            <td width="24%" align="right" class="register_txta">用户名：<br></td>
+                            <td width="24%" align="right" class="register_txta">登录密码：<br></td>
                             <td width="47%">
-                                <input type="text" class="register_input" name="username"  validate='{ required:true,messages:{required:"用户名不能为空"}}'>
+                                <input type="password" id="m_passwd" class="register_input" name="passwd"  validate='{ required:true,minlength:6,maxlength:20,messages:{required:"登录密码不能为空",minlength:"密码过短",maxlength:"登录密码过长"}}'>
                             </td>
                             <td width="29%"></td>
                         </tr>
                         <tr>
-                            <td width="24%" align="right" class="register_txta">邮箱地址：<br></td>
+                            <td width="24%" align="right" class="register_txta">确认密码：<br></td>
                             <td width="47%">
-                                <input type="text" class="register_input" name="email" validate='{ required:true,email:true,messages:{required:"邮箱地址不能为空"}}'>
+                                <input type="password" class="register_input" name="confirmpwd" validate='{ required:true,equalTo:"#m_passwd",messages:{required:"确认密码不能为空",equalTo:"两次密码输入不相同"}}'>
                             </td>
                             <td width="29%"></td>
                         </tr>
@@ -37,7 +36,8 @@
                                     <tbody>
                                         <tr>
                                             <td width="30%">
-                                                <input type="submit" class="btn-register" value="获取密码" />
+                                                <input type="hidden" name="m_id" value="{$data.m_id}" />
+                                                <input type="submit" class="btn-register" value="提交" />
                                             </td>
                                             <td width="70%">
                                                 <input type="reset" class="btn-register" value="重置" />

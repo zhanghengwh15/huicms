@@ -16,10 +16,25 @@ class SettingAction extends AdminAction{
     }
     
     public function index(){
-        $ary_data = D('Config')->getCfgByModule('WEBSITE');
-        $config = json_decode($ary_data['WEBSITE'], true);
-//        echo "<pre>";print_r($config);exit;
-        $this->assign("config",$config);
+        $data = array();
+        //站点配置信息
+        $webConf = D('Config')->getCfgByModule('WEBSITE');
+        $config = json_decode($webConf['WEBSITE'], true);
+        $data['webConf'] = $config;
+        
+        //验证码配置信息
+        $vercodeConf = D('Config')->getCfgByModule('CODE_SET');
+        if(!empty($vercodeConf) && is_array($vercodeConf)){
+            $vercodeConf['RECODESIZE'] = json_decode($vercodeConf['RECODESIZE'],true);
+            $vercodeConf['BACODESIZE'] = json_decode($vercodeConf['BACODESIZE'],true);
+        }
+        $data['vercode'] = $vercodeConf;
+        
+        //邮箱设置
+        $mailConf = D('Config')->getCfgByModule('MAILSET');
+        $ary_mailconf = json_decode($mailConf['MAILSET'], true);
+        $data['mailconf'] = $ary_mailconf;
+        $this->assign($data);
         $this->display();
         
     }
@@ -58,7 +73,6 @@ class SettingAction extends AdminAction{
             $ary_data['RECODESIZE'] = json_decode($ary_data['RECODESIZE'],true);
             $ary_data['BACODESIZE'] = json_decode($ary_data['BACODESIZE'],true);
         }
-//        echo "<pre>";print_r($ary_data);exit;
         $this->assign("config",$ary_data);
         $this->display();
     }
@@ -112,6 +126,55 @@ class SettingAction extends AdminAction{
             $this->success('保存成功');
         }else{
             $this->error('保存失败');
+        }
+    }
+    
+    /**
+     * 邮箱设置
+     * @author Terry<admin@huicms.cn>
+     * @date 2013-08-31
+     */
+    public function doMailConf(){
+        $ary_post = $this->_post();
+        if(!empty($ary_post) && is_array($ary_post)){
+            $module = "MAILSET";
+            $key = "MAILSET";
+            $value = json_encode($ary_post);
+            $desc = "站点信息配置";
+            $config = D("Config")->setConfig($module,$key,$value,$desc);
+            if(FALSE !== $config){
+                $this->success("保存成功");
+            }else{
+                $this->error("保存失败");
+            }
+        }else{
+            $this->error("数据有误");
+        }
+    }
+    
+    /**
+     * 测试邮件发送
+     * @author Terry<admin@huicms.cn>
+     * @date 2013-08-31
+     */
+    public function testSendMail(){
+        $ary_get = $this->_get();
+        $smtp = new SendMail($ary_get);
+        if($error = $smtp->getError()){
+            $this->error($error);
+        }else{
+            if(!empty($ary_get['test_address'])){
+                $title    = '邮件测试--HuiCMS内容管理系统';
+                $content  = '这是一封测试邮件';
+                if($smtp->send($ary_get['test_address'],$title,$content)){
+                    $this->success("恭喜你！测试通过");
+                }else{
+                    $this->error("测试失败，请确认您的邮箱已经开启的smtp服务并且配置信息均填写正确");
+                }
+            }else{
+                $this->error("测试邮件地址不能为空");
+            }
+            
         }
     }
 }
