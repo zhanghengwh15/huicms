@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : 本地
+Source Server         : localhost
 Source Server Version : 50516
 Source Host           : localhost:3306
 Source Database       : huicms
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50516
 File Encoding         : 65001
 
-Date: 2013-07-10 01:32:30
+Date: 2013-08-31 19:18:11
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -43,7 +43,7 @@ CREATE TABLE `hui_admin` (
 -- ----------------------------
 -- Records of hui_admin
 -- ----------------------------
-INSERT INTO `hui_admin` VALUES ('1', 'admin', '21232f297a57a5a743894a0e4a801fc3', '1', '127.0.0.1', 'upload/images/20130603/13702220067783.png', '王辉', '0', '13817918575', 'shuaige@52sum.com', '466209365', '', '224', '1', '2013-07-01 11:06:13', '0000-00-00 00:00:00', '2013-06-03 09:13:44');
+INSERT INTO `hui_admin` VALUES ('1', 'admin', '21232f297a57a5a743894a0e4a801fc3', '1', '127.0.0.1', 'upload/images/20130603/13702220067783.png', '王辉', '0', '13817918575', 'shuaige@52sum.com', '466209365', '', '235', '1', '2013-08-31 11:29:25', '0000-00-00 00:00:00', '2013-06-03 09:13:44');
 
 -- ----------------------------
 -- Table structure for `hui_admin_log`
@@ -56,7 +56,7 @@ CREATE TABLE `hui_admin_log` (
   `log_create` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '登陆时间',
   `log_ip` varchar(15) NOT NULL COMMENT '登陆IP',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=254 DEFAULT CHARSET=utf8 COMMENT='管理员日志';
+) ENGINE=InnoDB AUTO_INCREMENT=265 DEFAULT CHARSET=utf8 COMMENT='管理员日志';
 
 -- ----------------------------
 -- Records of hui_admin_log
@@ -270,6 +270,17 @@ INSERT INTO `hui_admin_log` VALUES ('250', '1', 'admin', '2013-06-26 17:47:54', 
 INSERT INTO `hui_admin_log` VALUES ('251', '1', 'admin', '2013-06-29 15:44:04', '127.0.0.1');
 INSERT INTO `hui_admin_log` VALUES ('252', '1', 'admin', '2013-06-29 15:48:03', '127.0.0.1');
 INSERT INTO `hui_admin_log` VALUES ('253', '1', 'admin', '2013-07-01 11:06:13', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('254', '1', 'admin', '2013-08-26 10:45:07', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('255', '1', 'admin', '2013-08-26 21:28:37', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('256', '1', 'admin', '2013-08-30 13:32:05', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('257', '1', 'admin', '2013-08-30 13:32:41', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('258', '1', 'admin', '2013-08-30 13:34:57', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('259', '1', 'admin', '2013-08-30 13:38:28', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('260', '1', 'admin', '2013-08-30 14:13:05', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('261', '1', 'admin', '2013-08-30 21:33:56', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('262', '1', 'admin', '2013-08-30 21:35:08', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('263', '1', 'admin', '2013-08-30 21:36:49', '127.0.0.1');
+INSERT INTO `hui_admin_log` VALUES ('264', '1', 'admin', '2013-08-31 11:29:25', '127.0.0.1');
 
 -- ----------------------------
 -- Table structure for `hui_announce`
@@ -354,7 +365,7 @@ CREATE TABLE `hui_config` (
   `c_create_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP COMMENT '记录创建时间',
   `c_update_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '记录最后更新时间',
   PRIMARY KEY (`c_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COMMENT='系统配置表，配置值使用序列化数组存储';
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COMMENT='系统配置表，配置值使用序列化数组存储';
 
 -- ----------------------------
 -- Records of hui_config
@@ -363,15 +374,16 @@ INSERT INTO `hui_config` VALUES ('1', 'ADMIN_ACCESS', 'EXPIRED_TIME', '500', '�
 INSERT INTO `hui_config` VALUES ('2', 'ADMIN_ACCESS', 'SYS_ADMIN', 'admin', '系统管理员', '2013-03-26 00:43:50', '0000-00-00 00:00:00');
 INSERT INTO `hui_config` VALUES ('3', '', '', null, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 INSERT INTO `hui_config` VALUES ('4', 'WEBSITE', 'WEBSITE', '{\"site_name\":\"HuiCMS\\u5185\\u5bb9\\u7ba1\\u7406\\u7cfb\\u7edf\",\"site_title\":\"Title\",\"site_keyword\":\"HuiCMS,\\u5f00\\u6e90cms,\\u514d\\u8d39cms,\\u5c0f\\u5de7cms,\\u7b80\\u5355cms\",\"site_description\":\"HuiCMS\\u662f\\u4e00\\u6b3e\\u57fa\\u4e8ePHP+MYSQL\\uff0c\\u91c7\\u7528THINKPHP\\u6846\\u67b6\\u7f16\\u5199\\u7684\\u4e00\\u6b3e\\u9488\\u5bf9\\u5927\\u5c0f\\u578b\\u516c\\u53f8\\u4f01\\u4e1a\\u7b49\\u901a\\u7528\\u7684cms\\u7a0b\\u5e8f\\u3002\",\"site_icp\":\"42222641276051353636\",\"site_code\":\"\",\"site_status\":\"1\",\"site_close\":\"\\u7f51\\u7ad9\\u5173\\u95ed\\u4e2d\"}', '站点信息配置', '2013-05-19 21:15:36', '2013-05-19 21:15:36');
-INSERT INTO `hui_config` VALUES ('5', 'CODE_SET', 'MREGISTER', '1', '会员注册', '2013-06-29 15:44:34', '2013-06-29 15:44:34');
-INSERT INTO `hui_config` VALUES ('6', 'CODE_SET', 'RELOGIN', '1', '前台登陆', '2013-06-29 15:44:34', '2013-06-29 15:44:34');
-INSERT INTO `hui_config` VALUES ('7', 'CODE_SET', 'BALOGIN', '1', '后台登陆', '2013-06-29 15:44:34', '2013-06-29 15:44:34');
-INSERT INTO `hui_config` VALUES ('8', 'CODE_SET', 'BUILDTYPE', '1', '验证码生成类型', '2013-06-29 15:44:34', '2013-06-29 15:44:34');
-INSERT INTO `hui_config` VALUES ('9', 'CODE_SET', 'EXPANDTYPE', 'png', '选择验证码文件类型', '2013-06-29 15:44:34', '2013-06-29 15:44:34');
-INSERT INTO `hui_config` VALUES ('10', 'CODE_SET', 'RECODESIZE', '{\"width\":\"70\",\"height\":\"30\"}', '前台验证码图片大小', '2013-06-29 15:44:34', '2013-06-29 15:44:34');
-INSERT INTO `hui_config` VALUES ('11', 'CODE_SET', 'BACODESIZE', '{\"width\":\"70\",\"height\":\"38\"}', '后台验证码图片大小', '2013-06-29 15:44:34', '2013-06-29 15:44:34');
-INSERT INTO `hui_config` VALUES ('12', 'CODE_SET', 'RECODENUMS', '4', '前台验证码字数', '2013-06-29 15:44:34', '2013-06-29 15:44:34');
-INSERT INTO `hui_config` VALUES ('13', 'CODE_SET', 'BACODENUMS', '4', '后台验证码字数', '2013-06-29 15:44:34', '2013-06-29 15:44:34');
+INSERT INTO `hui_config` VALUES ('5', 'CODE_SET', 'MREGISTER', '1', '会员注册', '2013-08-31 12:08:07', '2013-08-31 12:08:07');
+INSERT INTO `hui_config` VALUES ('6', 'CODE_SET', 'RELOGIN', '1', '前台登陆', '2013-08-31 12:08:07', '2013-08-31 12:08:07');
+INSERT INTO `hui_config` VALUES ('7', 'CODE_SET', 'BALOGIN', '1', '后台登陆', '2013-08-31 12:08:07', '2013-08-31 12:08:07');
+INSERT INTO `hui_config` VALUES ('8', 'CODE_SET', 'BUILDTYPE', '1', '验证码生成类型', '2013-08-31 12:08:07', '2013-08-31 12:08:07');
+INSERT INTO `hui_config` VALUES ('9', 'CODE_SET', 'EXPANDTYPE', 'png', '选择验证码文件类型', '2013-08-31 12:08:07', '2013-08-31 12:08:07');
+INSERT INTO `hui_config` VALUES ('10', 'CODE_SET', 'RECODESIZE', '{\"width\":\"70\",\"height\":\"30\"}', '前台验证码图片大小', '2013-08-31 12:08:07', '2013-08-31 12:08:07');
+INSERT INTO `hui_config` VALUES ('11', 'CODE_SET', 'BACODESIZE', '{\"width\":\"70\",\"height\":\"38\"}', '后台验证码图片大小', '2013-08-31 12:08:07', '2013-08-31 12:08:07');
+INSERT INTO `hui_config` VALUES ('12', 'CODE_SET', 'RECODENUMS', '4', '前台验证码字数', '2013-08-31 12:08:07', '2013-08-31 12:08:07');
+INSERT INTO `hui_config` VALUES ('13', 'CODE_SET', 'BACODENUMS', '6', '后台验证码字数', '2013-08-31 12:08:07', '2013-08-31 12:08:07');
+INSERT INTO `hui_config` VALUES ('14', 'MAILSET', 'MAILSET', '{\"email_type\":\"1\",\"mail_address\":\"wangguifang.1990@163.com\",\"smtp\":\"smtp.163.com\",\"smtp_user\":\"wangguifang.1990\",\"smtp_pwd\":\"466209365\",\"smtp_port\":\"25\",\"test_address\":\"\"}', '站点信息配置', '2013-08-31 12:29:19', '0000-00-00 00:00:00');
 
 -- ----------------------------
 -- Table structure for `hui_links`
@@ -421,12 +433,12 @@ CREATE TABLE `hui_members` (
   `m_reg_ip` varchar(15) NOT NULL COMMENT '注册IP',
   `m_qq` int(15) DEFAULT NULL COMMENT '用户QQ',
   PRIMARY KEY (`m_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='会员表';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='会员表';
 
 -- ----------------------------
 -- Records of hui_members
 -- ----------------------------
-INSERT INTO `hui_members` VALUES ('1', 'sje410', '快乐DE小子', '585b66ed3c06f4cadcb3084c0a621437', '0', '0.00', '1', null, 'admin@huicms.cn', '127.0.0.1', '2013-05-31 15:53:38', null, null, '0', '1', '2013-05-31 15:41:07', '127.0.0.1', null);
+INSERT INTO `hui_members` VALUES ('1', 'sje410', '快乐DE小子', '901beedccbfd05a7a4cf96f5fd133257', '0', '0.00', '1', null, 'admin@huicms.cn', '127.0.0.1', '2013-08-31 17:54:51', null, null, '0', '1', '2013-08-31 17:54:40', '127.0.0.1', null);
 
 -- ----------------------------
 -- Table structure for `hui_message`
@@ -453,6 +465,28 @@ CREATE TABLE `hui_message` (
 -- ----------------------------
 -- Records of hui_message
 -- ----------------------------
+
+-- ----------------------------
+-- Table structure for `hui_message_tpl`
+-- ----------------------------
+DROP TABLE IF EXISTS `hui_message_tpl`;
+CREATE TABLE `hui_message_tpl` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `type` varchar(20) NOT NULL COMMENT '通知模版类型：0.邮件模版，1.短消息模版',
+  `name` varchar(50) NOT NULL COMMENT '名称',
+  `alias` varchar(50) NOT NULL COMMENT '别名',
+  `content` text COMMENT '内容',
+  `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '状态：0.停用，1启用',
+  `is_sys` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否系统内置：0否，1是',
+  `create_time` timestamp NULL DEFAULT '0000-00-00 00:00:00' COMMENT '添加时间',
+  `update_time` timestamp NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of hui_message_tpl
+-- ----------------------------
+INSERT INTO `hui_message_tpl` VALUES ('1', 'mail', '找回密码', 'findpwd', '<p>\r\n	尊敬的{$username}:\r\n</p>\r\n<p style=\"padding-left:30px;\">\r\n	您好, 您刚才在 {$site_name} 申请了重置密码，请点击下面的链接进行重置：\r\n</p>\r\n<p style=\"padding-left:30px;\">\r\n	<a href=\"{$reset_url}\">{$reset_url}</a> \r\n</p>\r\n<p style=\"padding-left:30px;\">\r\n	此链接只能使用一次, 如果失效请重新申请. 如果以上链接无法点击，请将它拷贝到浏览器(例如IE)的地址栏中。\r\n</p>\r\n<p style=\"text-align:right;\">\r\n	{$site_name}\r\n</p>\r\n<p style=\"text-align:right;\">\r\n	{$send_time}\r\n</p>', '1', '1', '2013-08-31 16:28:04', '2013-08-31 17:00:43');
 
 -- ----------------------------
 -- Table structure for `hui_nav`
@@ -603,7 +637,7 @@ CREATE TABLE `hui_role_node` (
   `auth_type` tinyint(1) NOT NULL DEFAULT '0' COMMENT '授权模式：1:模块授权(module) 2:操作授权(action) 0:节点授权(node)',
   `is_show` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否菜单显示:0.不显示,1.显示',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=107 DEFAULT CHARSET=utf8 COMMENT='节点表';
+) ENGINE=InnoDB AUTO_INCREMENT=109 DEFAULT CHARSET=utf8 COMMENT='节点表';
 
 -- ----------------------------
 -- Records of hui_role_node
@@ -641,18 +675,18 @@ INSERT INTO `hui_role_node` VALUES ('37', 'aboutUs', '关于我们', 'Index', '�
 INSERT INTO `hui_role_node` VALUES ('38', 'index', '会员列表', 'Member', '会员管理', '4', '1', '10', '0', '1');
 INSERT INTO `hui_role_node` VALUES ('39', 'addMember', '添加会员', 'Member', '会员管理', '4', '1', '10', '0', '1');
 INSERT INTO `hui_role_node` VALUES ('40', 'editMember', '编辑会员', 'Member', '会员管理', '4', '1', '10', '0', '0');
-INSERT INTO `hui_role_node` VALUES ('42', '', '', 'MemberLevel', '会员等级管理', '4', '1', '10', '1', '1');
-INSERT INTO `hui_role_node` VALUES ('43', 'index', '会员等级列表', 'MemberLevel', '会员等级管理', '4', '1', '10', '0', '1');
-INSERT INTO `hui_role_node` VALUES ('44', 'addMemberLevel', '添加会员等级', 'MemberLevel', '会员等级管理', '4', '1', '10', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('42', '', '', 'MemberLevel', '等级管理', '4', '1', '10', '1', '1');
+INSERT INTO `hui_role_node` VALUES ('43', 'index', '等级列表', 'MemberLevel', '等级管理', '4', '1', '10', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('44', 'addMemberLevel', '添加等级', 'MemberLevel', '等级管理', '4', '1', '10', '0', '1');
 INSERT INTO `hui_role_node` VALUES ('45', '', '', 'Article', '文章管理', '5', '1', '10', '1', '1');
 INSERT INTO `hui_role_node` VALUES ('46', 'index', '文章列表', 'Article', '文章管理', '5', '1', '10', '0', '1');
 INSERT INTO `hui_role_node` VALUES ('47', 'addArticle', '添加文章', 'Article', '文章管理', '5', '1', '10', '0', '1');
 INSERT INTO `hui_role_node` VALUES ('48', 'editArticle', '编辑文章', 'Article', '文章管理', '5', '1', '10', '0', '0');
 INSERT INTO `hui_role_node` VALUES ('49', 'doDelete', '删除文章', 'Article', '文章管理', '5', '1', '10', '0', '0');
-INSERT INTO `hui_role_node` VALUES ('50', '', '', 'ArticleCategory', '文章分类管理', '5', '1', '10', '1', '1');
-INSERT INTO `hui_role_node` VALUES ('51', 'index', '文章分类列表', 'ArticleCategory', '文章分类管理', '5', '1', '10', '0', '1');
-INSERT INTO `hui_role_node` VALUES ('52', 'addArticleCategory', '添加文章分类', 'ArticleCategory', '文章分类管理', '5', '1', '10', '0', '1');
-INSERT INTO `hui_role_node` VALUES ('53', 'editArticleCategory', '编辑文章分类', 'ArticleCategory', '文章分类管理', '5', '1', '10', '0', '0');
+INSERT INTO `hui_role_node` VALUES ('50', '', '', 'ArticleCategory', '分类管理', '5', '1', '10', '1', '1');
+INSERT INTO `hui_role_node` VALUES ('51', 'index', '分类列表', 'ArticleCategory', '分类管理', '5', '1', '10', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('52', 'addArticleCategory', '添加分类', 'ArticleCategory', '分类管理', '5', '1', '10', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('53', 'editArticleCategory', '编辑分类', 'ArticleCategory', '分类管理', '5', '1', '10', '0', '0');
 INSERT INTO `hui_role_node` VALUES ('54', '', '', 'Goods', '商品管理', '6', '1', '10', '1', '1');
 INSERT INTO `hui_role_node` VALUES ('55', 'index', '商品列表', 'Goods', '商品管理', '6', '1', '10', '0', '1');
 INSERT INTO `hui_role_node` VALUES ('56', 'addGoods', '添加商品', 'Goods', '商品管理', '6', '1', '10', '0', '1');
@@ -676,10 +710,10 @@ INSERT INTO `hui_role_node` VALUES ('73', '', '', 'GoodsCategory', '商品分类
 INSERT INTO `hui_role_node` VALUES ('74', 'index', '商品分类列表', 'GoodsCategory', '商品分类管理', '6', '1', '10', '0', '1');
 INSERT INTO `hui_role_node` VALUES ('75', 'addGoodsCategory', '添加商品分类', 'GoodsCategory', '商品分类管理', '6', '1', '10', '0', '1');
 INSERT INTO `hui_role_node` VALUES ('76', 'editGoodsCategory', '编辑商品分类', 'GoodsCategory', '商品分类管理', '6', '1', '10', '0', '0');
-INSERT INTO `hui_role_node` VALUES ('77', '', '', 'Download', '资源下载', '2', '1', '10', '1', '1');
-INSERT INTO `hui_role_node` VALUES ('78', 'index', '资源列表', 'Download', '资源下载', '5', '1', '10', '0', '1');
-INSERT INTO `hui_role_node` VALUES ('79', 'addDownload', '添加资源', 'Download', '资源下载', '5', '1', '10', '0', '1');
-INSERT INTO `hui_role_node` VALUES ('80', 'editDownload', '编辑资源', 'Download', '资源下载', '0', '1', '10', '0', '0');
+INSERT INTO `hui_role_node` VALUES ('77', '', '', 'Download', '资源下载', '5', '0', '10', '1', '0');
+INSERT INTO `hui_role_node` VALUES ('78', 'index', '资源列表', 'Download', '资源下载', '5', '0', '10', '0', '0');
+INSERT INTO `hui_role_node` VALUES ('79', 'addDownload', '添加资源', 'Download', '资源下载', '5', '0', '10', '0', '0');
+INSERT INTO `hui_role_node` VALUES ('80', 'editDownload', '编辑资源', 'Download', '资源下载', '5', '0', '10', '0', '0');
 INSERT INTO `hui_role_node` VALUES ('81', 'logDatabase', '数据操作日志', 'Database', '数据库管理', '8', '1', '1', '0', '1');
 INSERT INTO `hui_role_node` VALUES ('82', '', '', 'Payment', '支付设置', '10', '1', '10', '1', '1');
 INSERT INTO `hui_role_node` VALUES ('83', 'index', '支付列表', 'Payment', '支付设置', '10', '1', '10', '0', '1');
@@ -705,3 +739,5 @@ INSERT INTO `hui_role_node` VALUES ('103', '', '', 'Nav', '导航管理', '7', '
 INSERT INTO `hui_role_node` VALUES ('104', 'index', '导航设置', 'Nav', '导航管理', '7', '1', '10', '0', '1');
 INSERT INTO `hui_role_node` VALUES ('105', 'addNav', '添加导航', 'Nav', '导航管理', '7', '1', '10', '0', '1');
 INSERT INTO `hui_role_node` VALUES ('106', 'editNav', '编辑导航', 'Nav', '导航管理', '7', '1', '10', '0', '0');
+INSERT INTO `hui_role_node` VALUES ('107', 'index', '通知模版列表', 'MessageTpl', '通知设置', '9', '1', '10', '0', '1');
+INSERT INTO `hui_role_node` VALUES ('108', '', '', 'MessageTpl', '通知设置', '9', '1', '0', '1', '1');
