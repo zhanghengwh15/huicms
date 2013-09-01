@@ -383,7 +383,7 @@ INSERT INTO `hui_config` VALUES ('10', 'CODE_SET', 'RECODESIZE', '{\"width\":\"7
 INSERT INTO `hui_config` VALUES ('11', 'CODE_SET', 'BACODESIZE', '{\"width\":\"70\",\"height\":\"38\"}', '后台验证码图片大小', '2013-08-31 12:08:07', '2013-08-31 12:08:07');
 INSERT INTO `hui_config` VALUES ('12', 'CODE_SET', 'RECODENUMS', '4', '前台验证码字数', '2013-08-31 12:08:07', '2013-08-31 12:08:07');
 INSERT INTO `hui_config` VALUES ('13', 'CODE_SET', 'BACODENUMS', '6', '后台验证码字数', '2013-08-31 12:08:07', '2013-08-31 12:08:07');
-INSERT INTO `hui_config` VALUES ('14', 'MAILSET', 'MAILSET', '{\"email_type\":\"1\",\"mail_address\":\"wangguifang.1990@163.com\",\"smtp\":\"smtp.163.com\",\"smtp_user\":\"wangguifang.1990\",\"smtp_pwd\":\"466209365\",\"smtp_port\":\"25\",\"test_address\":\"\"}', '站点信息配置', '2013-08-31 12:29:19', '0000-00-00 00:00:00');
+INSERT INTO `hui_config` VALUES ('14', 'MAILSET', 'MAILSET', '{\"email_type\":\"1\",\"mail_address\":\"wangguifang.1990@163.com\",\"smtp\":\"smtp.163.com\",\"smtp_user\":\"wangguifang.1990\",\"smtp_pwd\":\"wangguifang\",\"smtp_port\":\"25\",\"test_address\":\"\"}', '站点信息配置', '2013-08-31 12:29:19', '0000-00-00 00:00:00');
 
 -- ----------------------------
 -- Table structure for `hui_links`
