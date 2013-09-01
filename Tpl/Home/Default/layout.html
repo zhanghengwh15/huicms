@@ -50,9 +50,43 @@
     </head>
 
     <body>
+        <div id="floatTools" class="lanrenzhijia-cs">
+            <div class="floatL"> <a style="display: block" id="aFloatTools_Show" class="btnOpen" title="查看在线客服" onClick="javascript:$('#divFloatToolsView').animate({width: 'show', opacity: 'show'}, 'normal',function(){ $('#divFloatToolsView').show();kf_setCookie('RightFloatShown', 0, '', '/', 'www.lanrenzhijia.com'); });$('#aFloatTools_Show').attr('style','display:none');$('#aFloatTools_Hide').attr('style','display:block');" href="javascript:void(0);"> 展开</a> <a style="display: none" id="aFloatTools_Hide" class="btnCtn" title="关闭在线客服" onClick="javascript:$('#divFloatToolsView').animate({width: 'hide', opacity: 'hide'}, 'normal',function(){ $('#divFloatToolsView').hide();kf_setCookie('RightFloatShown', 1, '', '/', 'www.lanrenzhijia.com'); });$('#aFloatTools_Show').attr('style','display:block');$('#aFloatTools_Hide').attr('style','display:none');" href="javascript:void(0);"> 收缩</a> </div>
+            <div id="divFloatToolsView" class="floatR" style="display: none">
+                <div class="cn">
+                    <h3 class="titZx">技术人员</h3>
+                    <ul>
+                        <li>
+                            <span>客服1</span>
+                            <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=466209365&site=qq&menu=yes"> 
+                                <img border="0" src="http://wpa.qq.com/pa?p=2:466209365:51" alt="HuiCMS" title="HuiCMS" />
+                            </a> 
+                        </li>
+                    </ul>
+                    <h3>页面订制</h3>
+                    <ul>
+                        <li>
+                            <span>订 制</span>
+                            <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=466209365&site=qq&menu=yes"> 
+                                <img border="0" src="http://wpa.qq.com/pa?p=2:466209365:51" alt="HuiCMS" title="HuiCMS" />
+                            </a>
+                        </li>
+                    </ul>
+                    <h3>售后服务</h3>
+                    <ul>
+                        <li>
+                            <span>售 后</span>
+                            <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=466209365&site=qq&menu=yes">
+                                <img border="0" src="http://wpa.qq.com/pa?p=2:466209365:51" alt="HuiCMS" title="HuiCMS" />
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
         <a href="#top" id="toTop"></a>
-    <include file="Common:header" />
-    {__CONTENT__}
-    <include file="Common:footer" />
+        <include file="Common:header" />
+        {__CONTENT__}
+        <include file="Common:footer" />
 </body>
 </html>
