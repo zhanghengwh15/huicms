@@ -88,8 +88,15 @@
 </script>
 <script>
     $(".btn-headermenu").click(function(){
-        $(".popup-arrow").show();
-        $(".popup-layer").show();
+        var arrow = $(".popup-arrow").css("display");
+        var layer = $(".popup-layer").css("display");
+        if(arrow == 'none' && layer == 'none'){
+            $(".popup-arrow").show();
+            $(".popup-layer").show();
+        }else{
+            $(".popup-arrow").hide();
+            $(".popup-layer").hide();
+        }  
     });    
     $(document).ready(function(){
         $("#loginform").submit(function(){
