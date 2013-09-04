@@ -140,7 +140,7 @@ abstract class AdminAction extends Action{
      * @date 2013-04-03
      */
     public function getMenus($menuid){
-        if(session(C("ADMIN_AUTH_KEY"))){
+        // if(session(C("ADMIN_AUTH_KEY"))){
             $id = intval($menuid);
             $menus = array();
             $where = array();
@@ -168,9 +168,9 @@ abstract class AdminAction extends Action{
                 }
             }
             $_SESSION['menu_' . $id . '_' . $_SESSION[C('USER_AUTH_KEY')]] = $menus;
-        }else{
+        // }else{
             
-        }
+        // }
         $this->menus = $menus;
         $this->assign("menus",$menus);
         return $menus;

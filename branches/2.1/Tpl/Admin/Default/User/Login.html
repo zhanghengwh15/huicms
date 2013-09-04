@@ -94,6 +94,8 @@
                 }
                 var url = "{:U('Admin/User/doLogin')}";
                 var data = $("#lgin").serialize();
+                $("#submit").disabled = true;
+                $("#submit").val('正在登录...');
                 $.ajax({
                     url:url,
                     cache:false,
@@ -101,15 +103,19 @@
                     data:data,
                     type:"POST",
                     error:function(){
+                        $("#submit").val('登录');
                         $('<span id="resultMsg" />').addClass("ajaxerror").html("{$Think.lang.AJAXERROR}").appendTo('.login').fadeOut(3000); 
                     },
                     success:function(msgObj){
                         if(msgObj.status == '1'){
+                            $("#submit").val('登录成功');
+                            $("#submit").disabled = false;
                             $('<span id="resultMsg" />').removeClass("ajaxerror").css({"color":"#669533","background":"url('__PUBLIC__/Admin/images/loading.gif') no-repeat 1px"}).html(msgObj.info+" 正在进入系统！.......").appendTo('.login');
                             setTimeout(function(){
                                 location.href = $("#doUrl").attr("callback_url");
                             },1500);
                         }else{
+                            $("#submit").val('登录');
                             $('<span id="resultMsg" />').addClass("ajaxerror").html(msgObj.info).appendTo('.login').fadeOut(3000); 
                             fleshVerify();
                         }
