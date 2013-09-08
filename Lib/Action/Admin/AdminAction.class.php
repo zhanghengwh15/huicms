@@ -10,20 +10,22 @@
  * @date 2013-3-25
  * @copyright Copyright (C) 2012, Shanghai Huicms Co., Ltd.
  */
-abstract class AdminAction extends Action{
+abstract class AdminAction extends Action {
+
     protected $_name = '';
+
     /**
      * 顶部大栏目
      * @var array
      */
     private $tops = array();
-    
+
     /**
      * 左侧各级菜单
      * @var array
      */
     private $menus = array();
-    
+
     /**
      * 基类初始化操作
      * @author Terry<wanghui@guanyisoft.com>
@@ -34,37 +36,37 @@ abstract class AdminAction extends Action{
         $langSet = C('DEFAULT_LANG');
         //读取公共语言包
         L(include LANG_PATH . $langSet . '/Common.php');
-        
+
         // 读取当前模块语言包
-		if (is_file(LANG_PATH . $langSet . '/' . MODULE_NAME . '.php')){
-			L(include LANG_PATH . $langSet . '/' . MODULE_NAME . '.php');
+        if (is_file(LANG_PATH . $langSet . '/' . MODULE_NAME . '.php')) {
+            L(include LANG_PATH . $langSet . '/' . MODULE_NAME . '.php');
         }
         //判断用户是否登陆
         $this->doCheckLogin();
         $ary_get = $this->_get();
         $module = cookie("module");
         $action = cookie("action");
-        if(!empty($module) && !empty($action)){
+        if (!empty($module) && !empty($action)) {
             $module = cookie("module");
             $action = cookie("action");
-        }else{
+        } else {
             $module = $ary_get['_URL_'][1];
             $action = $ary_get['_URL_'][2];
         }
         $navid = cookie("nav_id");
-        $navname = D("RoleNav")->where(array('id'=>$navid))->find();
-        session("navname",$navname['name']);
-        $rolenav = M('RoleNav')->field(C('DB_PREFIX').'role_nav.name,'.C('DB_PREFIX').'role_node.*')
-                          ->join(C('DB_PREFIX').'role_node ON '.C('DB_PREFIX').'role_nav.id = '.C('DB_PREFIX').'role_node.`nav_id`')
-                          ->where(C('DB_PREFIX').'role_nav.id =  "'.  $navid.'" AND '.C('DB_PREFIX').'role_node.`action` =  "'.$action.'" AND '.C('DB_PREFIX').'role_node.`module` =  "'.$module.'"')
-                          ->find();
-        if(!empty($rolenav) && is_array($rolenav)){
-            cookie("menuid",$rolenav['id']);
+        $navname = D("RoleNav")->where(array('id' => $navid))->find();
+        session("navname", $navname['name']);
+        $rolenav = M('RoleNav')->field(C('DB_PREFIX') . 'role_nav.name,' . C('DB_PREFIX') . 'role_node.*')
+                ->join(C('DB_PREFIX') . 'role_node ON ' . C('DB_PREFIX') . 'role_nav.id = ' . C('DB_PREFIX') . 'role_node.`nav_id`')
+                ->where(C('DB_PREFIX') . 'role_nav.id =  "' . $navid . '" AND ' . C('DB_PREFIX') . 'role_node.`action` =  "' . $action . '" AND ' . C('DB_PREFIX') . 'role_node.`module` =  "' . $module . '"')
+                ->find();
+        if (!empty($rolenav) && is_array($rolenav)) {
+            cookie("menuid", $rolenav['id']);
         }
-        $rolenav['url']    = MODULE_NAME;
-        $this->assign ('breadcrumbs',$rolenav);
+        $rolenav['url'] = MODULE_NAME;
+        $this->assign('breadcrumbs', $rolenav);
         import('ORG.Util.Session');
-        $this->assign("uid",session("admin"));
+        $this->assign("uid", session("admin"));
         $admin_access = D('Config')->getCfgByModule('ADMIN_ACCESS');
         if (intval($admin_access['EXPIRED_TIME']) > 0 && Session::isExpired()) {
             unset($_SESSION[C('USER_AUTH_KEY')]);
@@ -99,21 +101,21 @@ abstract class AdminAction extends Action{
         $this->getMenus($navid);
         import('ORG.Util.Page');
     }
-    
+
     /**
      * 判断用户是否登陆
      * @author Terry<wanghui@huicms.com>
      * @date 2013-3-25
      */
-    public function doCheckLogin(){
+    public function doCheckLogin() {
         //todo 此处要做登录判断
         if (!session(C('USER_AUTH_KEY'))) {
-			$int_port = "";
-			if($_SERVER["SERVER_PORT"] != 80){
-				$int_port = ':' . $_SERVER["SERVER_PORT"];
-			}
-			$string_request_uri = "http://" . $_SERVER["SERVER_NAME"] . $int_port . $_SERVER['REQUEST_URI'];
-			$this->error(L('NO_LOGIN'), U('Admin/User/pageLogin') . '?doUrl=' . urlencode($string_request_uri));
+            $int_port = "";
+            if ($_SERVER["SERVER_PORT"] != 80) {
+                $int_port = ':' . $_SERVER["SERVER_PORT"];
+            }
+            $string_request_uri = "http://" . $_SERVER["SERVER_NAME"] . $int_port . $_SERVER['REQUEST_URI'];
+            $this->error(L('NO_LOGIN'), U('Admin/User/pageLogin') . '?doUrl=' . urlencode($string_request_uri));
         } else {
             $this->admin = session(C('USER_AUTH_KEY'));
         }
@@ -121,28 +123,28 @@ abstract class AdminAction extends Action{
 //        if (!isset($_SESSION[C('USER_AUTH_KEY')])) {
 //            $this->error(L('NO_LOGIN'), U('Admin/User/pageLogin'));
 //        }
-    }    
-    
+    }
+
     /**
      * 获取顶部导航信息
      * @author Terry<admin@huicms.cn>
      * @date 2013-04-03
      */
-    public function getTop(){
+    public function getTop() {
         $tops = D('RoleNav')->where('status=1')->field('id,name')->order("sort ASC")->select();
         $this->tops = $tops;
         $this->assign('tops', $tops);
     }
-    
+
     /**
      * 获取左侧菜单信息
      * @author Terry<admin@huicms.cn>
      * @date 2013-04-03
      */
-    public function getMenus($menuid){
-        // if(session(C("ADMIN_AUTH_KEY"))){
+    public function getMenus($menuid) {
+        $menus = array();
+        if (session(C("ADMIN_AUTH_KEY"))) {
             $id = intval($menuid);
-            $menus = array();
             $where = array();
             $where['status'] = '1';
             $where['nav_id'] = $menuid;
@@ -150,17 +152,14 @@ abstract class AdminAction extends Action{
             $where['auth_type'] = 0;
             $no_modules = explode(',', strtoupper(C('NOT_AUTH_MODULE')));
             $access_list = $_SESSION['_ACCESS_LIST'];
-            $node_list = D("RoleNode")->where($where)->field('id,action,action_name,module,module_name,nav_id')->order(array('sort'=>'ASC'))->select();
+            $node_list = D("RoleNode")->where($where)->field('id,action,action_name,module,module_name,nav_id')->order(array('sort' => 'ASC'))->select();
             //echo "<pre>";print_r($node_list);exit;
-            if(!empty($node_list) && is_array($node_list)){
+            if (!empty($node_list) && is_array($node_list)) {
                 foreach ($node_list as $key => $node) {
                     $menus[$node['module']]['nodes'][] = array_unique($node);
                     $menus[$node['module']]['name'] = $node['module_name'];
-                    if ((isset($access_list[strtoupper($node['module'])]['MODULE']) 
-                        || isset($access_list[strtoupper($node['module'])][strtoupper($node['action'])])) 
-                        || $_SESSION['administrator'] || in_array(strtoupper($node['module']), $no_modules)) 
-                    {
-                        if(!in_array($node['id'], $menus[$node['module']]['nodes'][$key])){
+                    if ((isset($access_list[strtoupper($node['module'])]['MODULE']) || isset($access_list[strtoupper($node['module'])][strtoupper($node['action'])])) || $_SESSION['administrator'] || in_array(strtoupper($node['module']), $no_modules)) {
+                        if (!in_array($node['id'], $menus[$node['module']]['nodes'][$key])) {
                             $menus[$node['module']]['nodes'][] = array_unique($node);
                         }
                         $menus[$node['module']]['name'] = $node['module_name'];
@@ -168,20 +167,85 @@ abstract class AdminAction extends Action{
                 }
             }
             $_SESSION['menu_' . $id . '_' . $_SESSION[C('USER_AUTH_KEY')]] = $menus;
-        // }else{
-            
-        // }
+        } else {
+            $menus = $this->getOrdinaryPermissions($menuid);
+        }
         $this->menus = $menus;
-        $this->assign("menus",$menus);
+        $this->assign("menus", $menus);
         return $menus;
     }
-    
+
+    /**
+     * 获取普通管理员的权限
+     * @author Terry<wanghui@guanyisoft.com>
+     * @date 2013-09-08
+     */
+    public function getOrdinaryPermissions($menuid) {
+        //取出当前用户的权限
+        $u_id = $_SESSION[C('USER_AUTH_KEY')];
+        $where = array();
+        $where[C('DB_PREFIX')."admin.u_id"] = $u_id;
+        $where[C('DB_PREFIX')."role_node.is_show"] = "1";
+        $arr_access_list = D("RoleNode")
+                           ->field(array(C('DB_PREFIX')."role_node.id,".C('DB_PREFIX')."role_node.action,".C('DB_PREFIX')."role_node.action_name,".C('DB_PREFIX')."role_node.module,".C('DB_PREFIX')."role_node.module_name,".C('DB_PREFIX')."role_node.nav_id"))
+                           ->join(" ".C('DB_PREFIX')."role_access on ".C('DB_PREFIX')."role_access.node_id=".C('DB_PREFIX')."role_node.id")
+                           ->join(" ".C('DB_PREFIX')."admin on ".C('DB_PREFIX')."role_access.role_id=".C('DB_PREFIX')."admin.role_id")
+                           ->where($where)
+                           ->select();
+        $data_menu = array();
+        if(!empty($arr_access_list) && is_array($arr_access_list)){
+            foreach($arr_access_list as $keymenu=>$valmenu){
+                if(!empty($valmenu['action'])){
+                    $data_menu[$valmenu['module']][$valmenu['action']] = $valmenu;
+                }else{
+                    $role_data = D("RoleNode")->where(array('is_show'=>'1','status'=>'1','module'=>$valmenu['module'],'action'=>array('NEQ','')))->select();
+                    if(!empty($role_data) && is_array($role_data)){
+                        foreach($role_data as $keyrl=>$valrl){
+                            $data_menu[$valmenu['module']][$valrl['action']] = $valrl;
+                        }
+                    }
+                }
+                
+            }
+        }
+        
+        $id = intval($menuid);
+        $menus = array();
+        $where = array();
+        $where['status'] = '1';
+        $where['nav_id'] = $menuid;
+        $where['is_show'] = '1';
+        $where['auth_type'] = 0;
+        $no_modules = explode(',', strtoupper(C('NOT_AUTH_MODULE')));
+        $access_list = $_SESSION['_ACCESS_LIST'];
+        $node_list = D("RoleNode")->where($where)->field('id,action,action_name,module,module_name,nav_id')->order(array('sort' => 'ASC'))->select();
+//        echo "<pre>";print_r($node_list);exit;
+        if(!empty($node_list) && is_array($node_list)){
+            foreach($node_list as $keydata=>$valdata){
+                if($data_menu[$valdata['module']][$valdata['action']]['action'] != $valdata['action']){
+                    unset($node_list[$keydata]);
+                }else{
+                    $menus[$valdata['module']]['nodes'][$valdata['action']] = array_unique($valdata);
+                    $menus[$valdata['module']]['name'] = $valdata['module_name'];
+                    if ((isset($access_list[strtoupper($valdata['module'])]['MODULE']) || isset($access_list[strtoupper($valdata['module'])][strtoupper($valdata['action'])])) || $_SESSION['administrator'] || in_array(strtoupper($valdata['module']), $no_modules)) {
+                        if (!in_array($valdata['id'], $menus[$valdata['module']]['nodes'][$key])) {
+                            $menus[$valdata['module']]['nodes'][$valdata['action']] = array_unique($valdata);
+                        }
+                        $menus[$valdata['module']]['name'] = $valdata['module_name'];
+                    }
+                }
+            }
+        }
+        return $menus;
+        
+    }
+
     /**
      * 通用删除操作
      * @author Terry<admin@huicms.cn>
      * @date 2013-05-16
      */
-    public function doDelete(){
+    public function doDelete() {
         $mod = D($this->_name);
         $pk = $mod->getPk();
         $ids = trim($this->_request($pk), ',');
@@ -195,16 +259,17 @@ abstract class AdminAction extends Action{
             $this->error("请选择删除的对象");
         }
     }
-    
+
     /**
      * 后台统一分页
      * @author Terry<admin@huicms.cn>
      * @date 2013-05-31
      */
-    public function _Page($count, $pagesize){
+    public function _Page($count, $pagesize) {
         $page = new Page($count, $pagesize);
-        $page->setConfig("header","条");
-        $page->setConfig('theme','<li class="pageSelect">共%totalRow%%header%&nbsp;%nowPage%/%totalPage%页&nbsp;%first%&nbsp;%upPage%&nbsp;%prePage%&nbsp;%linkPage%&nbsp;%nextPage%&nbsp;%downPage%&nbsp;%end%</li>');
+        $page->setConfig("header", "条");
+        $page->setConfig('theme', '<li class="pageSelect">共%totalRow%%header%&nbsp;%nowPage%/%totalPage%页&nbsp;%first%&nbsp;%upPage%&nbsp;%prePage%&nbsp;%linkPage%&nbsp;%nextPage%&nbsp;%downPage%&nbsp;%end%</li>');
         return $page;
     }
+
 }
