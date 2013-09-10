@@ -13,6 +13,7 @@
         <script src="__PUBLIC__/Lib/validate/jquery.validate.1.9.js"></script>
         <script src="__PUBLIC__/Lib/validate/jquery.metadata.js"></script>
         <script src="__PUBLIC__/Lib/validate/messages_cn.js"></script>
+        <script src="__PUBLIC__/Lib/layer/layer.js"></script>
         <script src="__PUBLIC__/Home/js/global.js"></script>
         <script src="__PUBLIC__/Home/js/jquery.cycle.all.latest.js"></script>   
         <script type="text/javascript" src="__PUBLIC__/Home/js/jquery.poshytip.min.js"></script>
@@ -76,9 +77,10 @@
                     <ul>
                         <li>
                             <span>售 后</span>
-                            <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=466209365&site=qq&menu=yes">
+                            <a target="_blank" href="http://wp.qq.com/wpa/qunwpa?idkey=d717cd0c1368bbad80f190bd5bf3e368ca0d8de4856ed057c703493aa47b19ab"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="PHP/Mysql/Jquery" title="PHP/Mysql/Jquery"></a>
+                            <!-- <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=466209365&site=qq&menu=yes">
                                 <img border="0" src="http://wpa.qq.com/pa?p=2:466209365:51" alt="HuiCMS" title="HuiCMS" />
-                            </a>
+                            </a> -->
                         </li>
                     </ul>
                 </div>
@@ -88,5 +90,62 @@
         <include file="Common:header" />
         {__CONTENT__}
         <include file="Common:footer" />
+        <script>
+            $(document).ready(function(){
+                //layer.msg('欢迎光临HuiCMS系统', 2, 7);
+                // $("#demo").click(function(){
+                    // layer.msg('成功送达', 100000, 1);
+                    // $.layer({
+                    //     type : 3,
+                    //     time : 2
+                    // });
+                    // $.layer({
+                    //     type : 2,
+                    //     closeBtn : false,
+                    //     shadeClose: true,
+                    //     time : 5,
+                    //     iframe : {
+                    //         src : 'http://www.baidu.com'
+                    //     },
+                    //     title : false,
+                    //     area : ['500px','300px'],
+                    //     success : function(){ //层加载成功后进行的回调
+                    //         layer.shift('right-bottom',1000); //浏览器右下角弹出
+                    //     },
+                    //     end : function(){ //层彻底关闭后执行的回调
+                    //         $.layer({
+                    //             type : 2,
+                    //             offset : ['100px', ''],
+                    //             iframe : {
+                    //                 src : 'http://www.huicms.cn'
+                    //             },  
+                    //             area : ['960px','500px']
+                    //         })
+                    //     }
+                    // });
+                    // $.layer({
+                    //     type: 2,
+                    //     title: ['',false],
+                    //     offset: ['100px',''],
+                    //     closeBtn: [0,false],
+                    //     bgcolor: '',
+                    //     area: ['590px', '380px'],
+                    //     border: [10 , 0.5 , '#EF8016', false],
+                    //     iframe: {src : 'http://sentsin.com/hello/year2013.html'},
+                    //     success:function(layerDom){
+                    //         layerDom.append('<div id="y2013_move" style="height:110px; width:590px; cursor:move; position:absolute; top:0; left:0; z-index:20000000;"></div><div id="y2013_close" style="position:absolute;right:0; top:0; width:40px; height:40px; cursor:pointer; z-index:20000001;"><div>');
+                    //         this.move = ['#y2013_move', true];
+                    //         layer.setMove();
+                    //         $('#y2013_close').on('click', function(){
+                    //             var index = layer.getIndex(this);
+                    //             layer.close(index);
+                    //         });
+                    //     }
+                    // });
+                    // layer.tips('许个好愿吧', '#wish', 5);
+
+                // });
+            });
+        </script>
 </body>
 </html>

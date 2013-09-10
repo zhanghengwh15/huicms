@@ -1,6 +1,7 @@
 <?php
 // 本类由系统自动生成，仅供测试用途
 class IndexAction extends AdminAction {
+
     public function index(){
         $this->display();
 //        $this->redirect(U('Admin/Index/welcomePage'));
@@ -50,5 +51,15 @@ class IndexAction extends AdminAction {
         }
         $this->assign("data",$list);
         $this->display();
+    }
+
+    public function getLeftMenu(){
+        layout(false);
+        $ary_post = $this->_post();
+        if(!empty($ary_post['nav_id']) && intval($ary_post['nav_id']) > 0){
+            $menus = $this->getMenus($ary_post['nav_id']);
+            $this->assign("menus", $menus);
+            $this->display("Common:incMenu");
+        }
     }
 }

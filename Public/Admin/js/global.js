@@ -496,3 +496,29 @@ $(document).ready(function(){
         pickerPosition: "bottom-left"
     });
 });
+
+/**
+ * 鼠标经过显示左侧菜单
+ * @author Terry<admin@huicms.cn>
+ * @date 2013-09-09
+ */
+ $(document).ready(function(){
+    $("#nav ul li").hover(function(){
+        var nav_id = $(this).attr("nav");
+        if(isNaN(nav_id)){
+            layer.msg('参数有误,请重试', 2, 3);
+        }else{
+            $.ajax({
+                url:'/Admin/Index/getLeftMenu',
+                cache:false,
+                dataType:"html",
+                type:"POST",
+                data:{"nav_id":nav_id},
+                success:function(msgObj){
+                    $("#left_menu").html(msgObj);
+                }
+            });
+        }
+    },function(){});
+
+ });

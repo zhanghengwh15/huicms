@@ -4,9 +4,8 @@
         <ul>
             <li class="adminid" title="{$Think.session.admin_name}">登陆者&nbsp;:&nbsp;<strong>{$Think.session.admin_name}</strong></li>
             <li><a href="{:U('Admin/System/pageEditAdminPasswd')}"><span>修改密码</span></a></li>
-            
-            <li><a href="{:U('Admin/User/doLogout')}" title="退出"><span>退出</span></a></li>
             <li><a href="javascript:;" class="Lockscreen" title="锁屏"><span>锁屏</span></a></li>
+            <li><a href="{:U('Admin/User/doLogout')}" title="退出"><span>退出</span></a></li>
             <li><a href="/" target="_blank" title="前台"><span>前台</span></a></li>
         </ul>
     </div>
@@ -19,7 +18,7 @@
                 </a>
             </li>-->
             <volist name="tops" id="nav">
-            <li>
+            <li nav="{$nav.id}">
                 <a <if condition="$Think.cookie.nav_id eq $nav[id]">class="link actived"<else />class="link"</if> id="nav_{$nav.id}" href="javascript:;" onClick="openItem('{$nav.id}');">
                     <span>{$nav.name}</span>
                 </a>
