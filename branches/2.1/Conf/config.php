@@ -2,20 +2,13 @@
 return array(
 	//'配置项'=>'配置值'
     'APP_STATUS' => 'debug',                //调试模式
-    'SHOW_PAGE_TRACE' => false,              // 显示页面Trace信息
+    'SHOW_PAGE_TRACE' => true,              // 显示页面Trace信息
     'URL_MODEL' => 2,                       //URL访问模式支持 0 (普通模式); 1 (PATHINFO 模式); 2 (REWRITE  模式);3 (兼容模式)
     'APP_GROUP_LIST' => 'Home,Ucenter,Admin',    //项目分组设定
     'DEFAULT_GROUP'  => 'Home',          //默认分组
     //类库
     'APP_AUTOLOAD_PATH' => '@.Common,@.Common.Apis,@.Common.Oauth,@.Common.Payment',
-     //数据库信息
-    'DB_TYPE' => 'mysql',                   // 数据库类型
-    'DB_NAME' => 'huicms', // 数据库名
-    'DB_HOST' => 'localhost',               // 服务器地址
-    'DB_USER' => 'root',                    // 用户名
-    'DB_PWD' => '123456',                   // 密码
-    'DB_PORT' => 3306,                      // 端口
-    'DB_PREFIX' => 'hui_',                   // 数据库表前缀
+    'LOAD_EXT_CONFIG' => 'db', //扩展配置
     //布局默认信息
     'LAYOUT_ON' => true,
     'LAYOUT_NAME' => 'layout',

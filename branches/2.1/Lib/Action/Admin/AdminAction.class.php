@@ -119,10 +119,6 @@ abstract class AdminAction extends Action {
         } else {
             $this->admin = session(C('USER_AUTH_KEY'));
         }
-//        //todo 此处要做登录判断
-//        if (!isset($_SESSION[C('USER_AUTH_KEY')])) {
-//            $this->error(L('NO_LOGIN'), U('Admin/User/pageLogin'));
-//        }
     }
 
     /**
@@ -153,7 +149,6 @@ abstract class AdminAction extends Action {
             $no_modules = explode(',', strtoupper(C('NOT_AUTH_MODULE')));
             $access_list = $_SESSION['_ACCESS_LIST'];
             $node_list = D("RoleNode")->where($where)->field('id,action,action_name,module,module_name,nav_id')->order(array('sort' => 'ASC'))->select();
-            //echo "<pre>";print_r($node_list);exit;
             if (!empty($node_list) && is_array($node_list)) {
                 foreach ($node_list as $key => $node) {
                     $menus[$node['module']]['nodes'][] = array_unique($node);
@@ -219,7 +214,6 @@ abstract class AdminAction extends Action {
         $no_modules = explode(',', strtoupper(C('NOT_AUTH_MODULE')));
         $access_list = $_SESSION['_ACCESS_LIST'];
         $node_list = D("RoleNode")->where($where)->field('id,action,action_name,module,module_name,nav_id')->order(array('sort' => 'ASC'))->select();
-//        echo "<pre>";print_r($node_list);exit;
         if(!empty($node_list) && is_array($node_list)){
             foreach($node_list as $keydata=>$valdata){
                 if($data_menu[$valdata['module']][$valdata['action']]['action'] != $valdata['action']){
@@ -234,10 +228,10 @@ abstract class AdminAction extends Action {
                         $menus[$valdata['module']]['name'] = $valdata['module_name'];
                     }
                 }
+                $_SESSION['menu_' . $id . '_' . $_SESSION[C('USER_AUTH_KEY')]] = $menus;
             }
         }
         return $menus;
-        
     }
 
     /**

@@ -69,9 +69,10 @@ class SystemAction extends AdminAction{
      * @date 2013-3-26
      */
     public function pageEditAdminPasswd(){
+        $ary_data = M("Admin")->where(array('u_id'=>$_SESSION[C('USER_AUTH_KEY')]))->find();
         $data = array(
-            'name'  => session("admin_name"),
-            'id'    => session("admin")
+            'name'  => $ary_data['u_name'],
+            'id'    => $ary_data['u_id']
         );
         $this->assign("data",$data);
         $this->display();
