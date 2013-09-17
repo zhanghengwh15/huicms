@@ -53,18 +53,54 @@
                     </td>
                 </tr>
                 <tr id="tables" style="display: none;">
-                    <td class="name">
-                        <label class="validation"><input type="checkbox" checked="checked" onclick="javascript:$('.J_checkitem').attr('checked', this.checked);">全选：</label>
-                    </td>
-                    <td>
-                        <volist name="tables" id="tab">
-                            <label class="fl" style="width:200px;">
-                                <input name="backup_tables[{$tab}]" type="checkbox" value="-1" checked="checked" class="J_checkitem">&nbsp;&nbsp;{$tab}
-                            </label>
-                        </volist>
-                    </td>
-                    <td class="field">
-
+                    <td colspan="3">
+                        <table width="100%" border="0" cellpadding="0" cellspacing="0" class="mgr_table">
+                            <tbody>
+                                <tr align="center" class="thead2">
+                                    <td width="5%" height="25"><input type="checkbox" name="checkall" onclick="CheckAllBtn(form)" value="check" checked="checked" class="checkAll" id="checkboxall" data-checklist="checkSon_x" data-direction="x"></td>
+                                    <td width="10%" style="text-align: left;">表名</td>
+                                    <td width="5%">记录数</td>
+                                    <td width="20%">编码</td>
+                                    <td width="15%">
+                                        数据大小[
+                                        <php>if($data_length >= 1024){</php>
+                                            {$data_length>>10}KB
+                                        <php>}else{</php>
+                                            {$data_length}B
+                                        <php>}</php>]
+                                    </td>
+                                    <td width="20%" style="text-align: left;">说明</td>
+                                    <td width="25%" class="noborder">操作</td>
+                                </tr>
+                                <volist name="tables" id="table">
+				<tr align="center">
+                                    <td height="30"><input type="checkbox" value="{$table.Name}" checked="checked" name="checkall" class="checkSon" data-xid="checkSon_x"></td>
+                                    <td style="text-align: left;">{$table.Name}</td>
+                                    <td>{$table.Rows}</td>
+                                    <td width="20%">{$table.Collation}</td>
+                                    <td>
+                                        <php>if($table['Data_length'] >= 1024){</php>
+                                            {$table['Data_length']>>10}KB
+                                        <php>}else{</php>
+                                            {$table['Data_length']}B
+                                        <php>}</php>
+                                    </td>
+                                    <td width="20%" style="text-align: left;">{$table['Comment']}</td>
+                                    <td class="action">
+                                        <span>
+                                            [<a href="/">结构</a>]
+                                        </span>
+                                        <span>
+                                            [<a href="/">修复</a>]
+                                        </span>
+                                        <span>
+                                            [<a href="/">优化</a>]
+                                        </span>
+                                    </td>
+                                </tr>
+                                </volist>
+                            </tbody>
+                        </table>
                     </td>
                 </tr>
             </tbody>

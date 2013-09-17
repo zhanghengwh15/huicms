@@ -28,7 +28,16 @@ class DatabaseAction extends AdminAction {
         $this->assign('sizelimit', $allow_max_size / 1024);
         $this->assign('backup_name', $this->_make_backup_name());
         //显示所有数据表
-        $tables = M()->db()->getTables();
+        $str_sql = "SHOW TABLE STATUS;";
+        $tables = D($this->_name)->query($str_sql);
+//        echo "<pre>";print_r($tables);exit;
+        $Data_length = '';
+        if(!empty($tables) && is_array($tables)){
+            foreach($tables as $table){
+                $Data_length += $table['Data_length'];
+            }
+        }
+        $this->assign("data_length",$Data_length);
         $this->assign('tables', $tables);
         $this->display();
     }

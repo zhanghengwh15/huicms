@@ -113,8 +113,8 @@
             <tbody>
                 <tr>
                     <td align="left" height="60" colspan="2">
-                        <input id="submit" class="submit" type="submit" value="提交">
-                        <input type="reset" id="reset" class="submit reset" value="重置">
+                        <input id="submit" class="btn" type="submit" value="提交">
+                        <input type="reset" id="reset" class="btn reset" value="重置">
                     </td>
                 </tr>
             </tbody>
@@ -265,8 +265,8 @@
             <tbody>
                 <tr>
                     <td align="left" height="60" colspan="2">
-                        <input id="submit" class="submit" type="submit" value="提交">
-                        <input type="reset" id="reset" class="submit reset" value="重置">
+                        <input id="submit" class="btn" type="submit" value="提交">
+                        <input type="reset" id="reset" class="btn reset" value="重置">
                     </td>
                 </tr>
             </tbody>
@@ -375,7 +375,7 @@
 </div>
 <script>
     $(document).ready(function(){
-        select_tab("");
+        select_tab("{$filter.form_index}");
         $(".rowform input[name='site_status']").click(function(){
             var val = $(this).val();
             if(val == '0'){
@@ -426,9 +426,11 @@
             obj.disabled = false;
             $(obj).val('测试邮件发送');
             if(msgObj.status == '1'){
-                showMessage(msgObj.status,msgObj.info,"{:U('Admin/Setting/index')}");
+                showTips(true,msgObj.info);
+//                showMessage(msgObj.status,msgObj.info,"{:U('Admin/Setting/index')}");
             }else{
-                showMessage(msgObj.status,msgObj.info,'',3);
+                showTips(false,"测试邮件发送失败");
+//                showMessage(msgObj.status,msgObj.info,'',3);
             }
         },"JSON");
         
