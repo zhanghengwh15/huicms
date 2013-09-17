@@ -17,6 +17,7 @@ class SettingAction extends AdminAction{
     
     public function index(){
         $data = array();
+        $ary_request = $this->_request();
         //站点配置信息
         $webConf = D('Config')->getCfgByModule('WEBSITE');
         $config = json_decode($webConf['WEBSITE'], true);
@@ -34,6 +35,7 @@ class SettingAction extends AdminAction{
         $mailConf = D('Config')->getCfgByModule('MAILSET');
         $ary_mailconf = json_decode($mailConf['MAILSET'], true);
         $data['mailconf'] = $ary_mailconf;
+        $this->assign("filter",$ary_request);
         $this->assign($data);
         $this->display();
         
@@ -53,7 +55,7 @@ class SettingAction extends AdminAction{
             $desc = "站点信息配置";
             $config = D("Config")->setConfig($module,$key,$value,$desc);
             if(FALSE !== $config){
-                $this->success("保存成功");
+                $this->success("保存成功",U("Admin/Setting/index",array('form_index'=>'web_conf')));
             }else{
                 $this->error("保存失败");
             }
@@ -123,7 +125,7 @@ class SettingAction extends AdminAction{
             $SysSeting->setConfig('CODE_SET', 'RECODENUMS', $ary_post['RECODENUMS'], '前台验证码字数') &&
             $SysSeting->setConfig('CODE_SET', 'BACODENUMS', $ary_post['BACODENUMS'], '后台验证码字数')
         ){
-            $this->success('保存成功');
+             $this->success("保存成功",U("Admin/Setting/index",array('form_index'=>'vercode_conf')));
         }else{
             $this->error('保存失败');
         }
@@ -143,7 +145,7 @@ class SettingAction extends AdminAction{
             $desc = "站点信息配置";
             $config = D("Config")->setConfig($module,$key,$value,$desc);
             if(FALSE !== $config){
-                $this->success("保存成功");
+                $this->success("保存成功",U("Admin/Setting/index",array('form_index'=>'mail_conf')));
             }else{
                 $this->error("保存失败");
             }

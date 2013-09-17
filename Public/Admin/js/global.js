@@ -498,6 +498,26 @@ $(document).ready(function(){
 });
 
 /**
+ * 提示信息
+ * @author Terry<admin@huicms.cn>
+ * @date 2013-09-11
+ */
+function showTips(status,msg,time){
+    if(time == ''){
+        time =  2;
+    }
+    var str_status = '';
+    if(status){
+        str_status = '1';
+        msg = "<font color='green'>"+msg+"</font>";
+    }else{
+        msg = "<font color='red'>"+msg+"</font>";
+        str_status = '3';
+    }
+    layer.msg(msg, time, str_status);
+}
+
+/**
  * 鼠标经过显示左侧菜单
  * @author Terry<admin@huicms.cn>
  * @date 2013-09-09
