@@ -43,6 +43,46 @@ class DatabaseAction extends AdminAction {
     }
 
     /**
+     * 查看表结构
+     * @author Terry<admin@huicms.cn>
+     * @date 2013-09-18
+     */
+    public function getDbStruct(){
+        $tbname = $this->_get('tbname', 'htmlspecialchars,trim', '');
+        //获取表结构
+        $str_sql = "SHOW FULL COLUMNS FROM `".$tbname."`";
+        $ary_struct = D($this->_name)->query($str_sql);
+        $this->assign("struct",$ary_struct);
+        $this->display();
+    }
+    
+    /*
+     * 修复/优化表
+     * @author Terry<admin@huicms.cn>
+     * @date 2013-09-18
+     */
+    public function doDbOperations(){
+        $tbname = $this->_post('tbname', 'htmlspecialchars,trim', '');
+        $db_action = $this->_post('action', 'htmlspecialchars,trim', '');
+        $action = !empty($db_action) ? $db_action : 'REPAIR';
+        //判断该表是否存在
+        $action_msg = $action == 'REPAIR' ? '修复' : '优化';
+        $str_sql = "SHOW FULL COLUMNS FROM `".$tbname."`";
+        $ary_table = D($this->_name)->query($str_sql);
+        if(!empty($ary_table) && is_array($ary_table)){
+            $sql = $action." TABLE `".$tbname."`";
+            $ary_result = D($this->_name)->query($sql);
+            if(FALSE !== $ary_result){
+                $this->success($action_msg ."成功");
+            }else{
+                $this->error($action_msg."失败");
+            }
+        }else{
+            $this->error("该表不存在，请重试...");
+        }
+    }
+
+    /**
      * 保存数据
      * @author Terry <admin@huicms.cn>
      * @date 2013-04-18
@@ -60,7 +100,6 @@ class DatabaseAction extends AdminAction {
                 $this->error($filename . "目录不存在");
             }
             mkdir(APP_PATH . $backup_path . $filename);
-            echo "<pre>";print_r($backup_tables);exit;
         }else{
             $this->error("备份数据有误,请重试...");
         }

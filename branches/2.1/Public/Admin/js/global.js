@@ -515,6 +515,7 @@ function showTips(status,msg,time){
         str_status = '3';
     }
     layer.msg(msg, time, str_status);
+    return false;
 }
 
 /**

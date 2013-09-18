@@ -1,0 +1,45 @@
+<div class="rounded table" style="width: 98%;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" class="box_top">
+        <thead class="thead">
+            <tr class="space">
+                <th colspan="10">表结构：pmw_infoimg</th>
+            </tr>
+        </thead>
+    </table>
+    <div class="contentbox" data-uri='{:U("Admin/RoleNav/doEditStatus")}'>
+        <table width="100%" class="list td_align">
+            <thead>
+                <tr class="thead">
+                    <th class="align-center" style="text-align: left;">字段[备注]</th>
+                    <th class="align-center">类型(长度)</th>
+                    <th class="align-center">整理</th>
+                    <th class="align-center">允许为空</th>
+                    <th class="align-center">默认值</th>
+                    <th class="align-center">额外</th>
+                </tr>
+            </thead>
+            <tbody>
+            <php>$k = '';</php>
+            <volist name="struct" id="vo">
+                <tr id="list_{$vo.Field}">
+                    <td class="align-center" style="text-align: left;">{$vo.Field}<if condition='$vo.Key eq "PRI"'><img src="__PUBLIC__/Admin/images/database_key.gif" title='主键' alt='主键'/></if>&nbsp;&nbsp;<font color="#999">[{$vo.Comment}]</font></td>
+                    <td class="align-center">{$vo.Type}</td>
+                    <td class="align-center">{$vo.Collation}</td>
+                    <td class="align-center"><if condition='$vo.Null eq "YES"'>是<else />否</if></td>
+                    <td class="align-center">{$vo.Default}</td>
+                    <td class="align-center">{$vo.Extra}</td>
+                    <php>$k++;</php>
+                </tr>
+            </volist>
+            <empty name="struct">
+                <tr><td colspan="9" class="left align-center">暂时没有数据!</td></tr>
+            </empty>
+            </tbody>
+        </table>
+        <div class="pagination" style='text-align: center;float: none;'>
+            <div class="page_info">共<span><php>echo $k;</php></span>个字段</div>
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+
+</div>
