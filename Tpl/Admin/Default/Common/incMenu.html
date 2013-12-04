@@ -14,7 +14,7 @@
                                 </if>
                                 <volist name="menu.nodes" id="me">
                                     <li nc_type='{$menu.name}'>
-                                        <a href="javascript:void(0);" <if condition="$Think.cookie.menuid eq $me[id]">class='selected'</if> onClick="openItem('{$me.nav_id},{$me.module},{$me.action},{$me.id}');" name="item_{$me.module}_{$me.action}" id="item_{$me.module}_{$me.action}">{$me.action_name}</a>
+                                        <a href="javascript:void(0);" <if condition="($me[module] eq $modulename)&&($me[action] eq $actionname)">class='selected'</if> onClick="openItem('{$me.nav_id},{$me.module},{$me.action},{$me.id}');" name="item_{$me.module}_{$me.action}" id="item_{$me.module}_{$me.action}">{$me.action_name}</a>
                                     </li>
                                 </volist>
                             </volist>

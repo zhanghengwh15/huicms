@@ -6,7 +6,7 @@
  * @subpackage Admin
  * @package Action
  * @stage 1.0
- * @author Terry<wanghui@guanyisoft.com>
+ * @author Terry<admin@huicms.cn>
  * @date 2013-3-25
  * @copyright Copyright (C) 2012, Shanghai Huicms Co., Ltd.
  */
@@ -28,11 +28,14 @@ abstract class AdminAction extends Action {
 
     /**
      * 基类初始化操作
-     * @author Terry<wanghui@guanyisoft.com>
+     * @author Terry<admin@huicms.cn>
      * @date 2013-3-25
      */
     public function _initialize() {
+        $this->assign("modulename",MODULE_NAME);
         $this->_name = $this->getActionName();
+//        echo "<pre>";print_r($this->getActionName());exit;
+        $this->assign("actionname",ACTION_NAME);
         $langSet = C('DEFAULT_LANG');
         //读取公共语言包
         L(include LANG_PATH . $langSet . '/Common.php');
@@ -44,16 +47,16 @@ abstract class AdminAction extends Action {
         //判断用户是否登陆
         $this->doCheckLogin();
         $ary_get = $this->_get();
-        $module = cookie("module");
-        $action = cookie("action");
-        if (!empty($module) && !empty($action)) {
-            $module = cookie("module");
-            $action = cookie("action");
-        } else {
-            $module = $ary_get['_URL_'][1];
-            $action = $ary_get['_URL_'][2];
+        $module = $ary_get['_URL_'][1] ? $ary_get['_URL_'][1] : "Index";
+        $action = $ary_get['_URL_'][2] ? $ary_get['_URL_'][2] : "index";
+        if(!empty($module) && !empty($action)){
+            $array_where = array();
+            $array_where['action'] = $action;
+            $array_where['module'] = $module;
+            $array_where['status'] = '1';
+            $rolenode = D("RoleNode")->where($array_where)->order('sort asc')->find();
+            $navid = $rolenode['nav_id'];
         }
-        $navid = cookie("nav_id");
         $navname = D("RoleNav")->where(array('id' => $navid))->find();
         session("navname", $navname['name']);
         $rolenav = M('RoleNav')->field(C('DB_PREFIX') . 'role_nav.name,' . C('DB_PREFIX') . 'role_node.*')
@@ -104,7 +107,7 @@ abstract class AdminAction extends Action {
 
     /**
      * 判断用户是否登陆
-     * @author Terry<wanghui@huicms.com>
+     * @author Terry<wanghui@huicms.cn>
      * @date 2013-3-25
      */
     public function doCheckLogin() {
@@ -128,6 +131,21 @@ abstract class AdminAction extends Action {
      */
     public function getTop() {
         $tops = D('RoleNav')->where('status=1')->field('id,name')->order("sort ASC")->select();
+        if(!empty($tops) && is_array($tops)){
+            foreach ($tops as &$val){
+                $where = array();
+                $where['action'] = array('NEQ','');
+                $where['nav_id'] = $val['id'];
+                $where['is_show'] = '1';
+                $where['status'] = '1';
+                $where['auth_type'] = array('NEQ','1');
+                $rolenode = D("RoleNode")->where($where)->order('sort asc')->find();
+                $val['module'] = $rolenode['module'];
+                $val['action'] = $rolenode['action'];
+                $val['rn_id'] = $rolenode['id'];
+                //echo "<pre>";print_r($val);
+            }
+        }
         $this->tops = $tops;
         $this->assign('tops', $tops);
     }
@@ -172,7 +190,7 @@ abstract class AdminAction extends Action {
 
     /**
      * 获取普通管理员的权限
-     * @author Terry<wanghui@guanyisoft.com>
+     * @author Terry<admin@huicms.cn>
      * @date 2013-09-08
      */
     public function getOrdinaryPermissions($menuid) {
