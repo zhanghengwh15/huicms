@@ -19,7 +19,7 @@
             </li>-->
             <volist name="tops" id="nav">
             <li nav="{$nav.id}">
-                <a <if condition="$nav[module] eq $modulename">class="link actived"<else />class="link"</if> id="nav_{$nav.id}" href="javascript:;" onClick="openItem('{$nav.id},{$nav.module},{$nav.action},{$nav.rn_id}');">
+                <a <if condition="$nav[id] eq $navid">class="link actived"<else />class="link"</if> id="nav_{$nav.id}" href="javascript:;" onClick="openItem('{$nav.id},{$nav.module},{$nav.action},{$nav.rn_id}');">
                     <span>{$nav.name}</span>
                 </a>
             </li>

@@ -57,6 +57,7 @@ abstract class AdminAction extends Action {
             $rolenode = D("RoleNode")->where($array_where)->order('sort asc')->find();
             $navid = $rolenode['nav_id'];
         }
+        $this->assign("navid",$navid);
         $navname = D("RoleNav")->where(array('id' => $navid))->find();
         session("navname", $navname['name']);
         $rolenav = M('RoleNav')->field(C('DB_PREFIX') . 'role_nav.name,' . C('DB_PREFIX') . 'role_node.*')
@@ -143,7 +144,7 @@ abstract class AdminAction extends Action {
                 $val['module'] = $rolenode['module'];
                 $val['action'] = $rolenode['action'];
                 $val['rn_id'] = $rolenode['id'];
-                //echo "<pre>";print_r($val);
+                $val['nav_id'] = $rolenode['nav_id'];
             }
         }
         $this->tops = $tops;
