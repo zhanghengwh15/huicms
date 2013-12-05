@@ -32,10 +32,7 @@ abstract class AdminAction extends Action {
      * @date 2013-3-25
      */
     public function _initialize() {
-        $this->assign("modulename",MODULE_NAME);
         $this->_name = $this->getActionName();
-//        echo "<pre>";print_r($this->getActionName());exit;
-        $this->assign("actionname",ACTION_NAME);
         $langSet = C('DEFAULT_LANG');
         //读取公共语言包
         L(include LANG_PATH . $langSet . '/Common.php');
@@ -55,8 +52,17 @@ abstract class AdminAction extends Action {
             $array_where['module'] = $module;
             $array_where['status'] = '1';
             $rolenode = D("RoleNode")->where($array_where)->order('sort asc')->find();
-            $navid = $rolenode['nav_id'];
+            if(!empty($rolenode) && is_array($rolenode)){
+                $navid = $rolenode['nav_id'];
+            }else{
+                $node = D("RoleNode")->where(array('module'=>$module,'status'=>'1'))->order('sort asc')->find();
+                $navid = $node['nav_id'];
+                $module = $node['module'];
+                $action = $node['action'];
+            }
         }
+        $this->assign("modulename",$module);
+        $this->assign("actionname",$action);
         $this->assign("navid",$navid);
         $navname = D("RoleNav")->where(array('id' => $navid))->find();
         session("navname", $navname['name']);
@@ -67,6 +73,7 @@ abstract class AdminAction extends Action {
         if (!empty($rolenav) && is_array($rolenav)) {
             cookie("menuid", $rolenav['id']);
         }
+//        echo "<pre>";print_r($rolenav);exit;
         $rolenav['url'] = MODULE_NAME;
         $this->assign('breadcrumbs', $rolenav);
         import('ORG.Util.Session');
