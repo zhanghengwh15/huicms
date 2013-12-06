@@ -25,6 +25,12 @@ abstract class AdminAction extends Action {
      * @var array
      */
     private $menus = array();
+    
+    /**
+     * 面包屑导航
+     * @return array
+     */
+    private $breadcrumbs = array();
 
     /**
      * 基类初始化操作
@@ -52,11 +58,13 @@ abstract class AdminAction extends Action {
             $array_where['action'] = $action;
             $array_where['module'] = $module;
             $array_where['status'] = '1';
+            $array_where['is_show'] = '1';
             $rolenode = D("RoleNode")->where($array_where)->order('sort asc')->find();
+            
             if(!empty($rolenode) && is_array($rolenode)){
                 $navid = $rolenode['nav_id'];
             }else{
-                $node = D("RoleNode")->where(array('module'=>$module,'status'=>'1'))->order('sort asc')->find();
+                $node = D("RoleNode")->where(array('module'=>$module,'action'=>array('NEQ',''),'status'=>'1'))->order('sort asc')->find();
                 $navid = $node['nav_id'];
                 $module = $node['module'];
                 $action = $node['action'];
@@ -75,8 +83,9 @@ abstract class AdminAction extends Action {
             cookie("menuid", $rolenav['id']);
         }
 //        echo "<pre>";print_r($rolenav);exit;
-        $rolenav['url'] = MODULE_NAME;
-        $this->assign('breadcrumbs', $rolenav);
+//        $rolenav['url'] = MODULE_NAME;
+//        $this->assign('breadcrumbs', $rolenav);
+        
         import('ORG.Util.Session');
         $this->assign("uid", session("admin"));
         $admin_access = D('Config')->getCfgByModule('ADMIN_ACCESS');
@@ -111,9 +120,26 @@ abstract class AdminAction extends Action {
         }
         $this->getTop();
         $this->getMenus($navid);
+        $this->_Breadcrumb($navid);
         import('ORG.Util.Page');
     }
 
+    public function _Breadcrumb($navid){
+        $module = MODULE_NAME;
+        $action = ACTION_NAME;
+        $array_where = array();
+        $array_where['action'] = $action;
+        $array_where['module'] = $module;
+        $array_where['status'] = '1';
+        $rolenav = M('RoleNav')->field(C('DB_PREFIX') . 'role_nav.name,' . C('DB_PREFIX') . 'role_node.*')
+                ->join(C('DB_PREFIX') . 'role_node ON ' . C('DB_PREFIX') . 'role_nav.id = ' . C('DB_PREFIX') . 'role_node.`nav_id`')
+                ->where(C('DB_PREFIX') . 'role_nav.id =  "' . $navid . '" AND ' . C('DB_PREFIX') . 'role_node.`action` =  "' . $action . '" AND ' . C('DB_PREFIX') . 'role_node.`module` =  "' . $module . '"')
+                ->find();
+
+        $this->assign('breadcrumbs', $rolenav);
+        $this->breadcrumbs = $rolenav;
+    }
+    
     /**
      * 判断用户是否登陆
      * @author Terry<wanghui@huicms.cn>
