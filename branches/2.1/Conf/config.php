@@ -2,7 +2,7 @@
 return array(
 	//'配置项'=>'配置值'
     'APP_STATUS' => 'debug',                //调试模式
-    'SHOW_PAGE_TRACE' => true,              // 显示页面Trace信息
+    'SHOW_PAGE_TRACE' => false,              // 显示页面Trace信息
     'URL_MODEL' => 2,                       //URL访问模式支持 0 (普通模式); 1 (PATHINFO 模式); 2 (REWRITE  模式);3 (兼容模式)
     'APP_GROUP_LIST' => 'Home,Ucenter,Admin',    //项目分组设定
     'DEFAULT_GROUP'  => 'Home',          //默认分组
