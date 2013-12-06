@@ -32,6 +32,7 @@ abstract class AdminAction extends Action {
      * @date 2013-3-25
      */
     public function _initialize() {
+        $this->doCheckLogin();
         $this->_name = $this->getActionName();
         $langSet = C('DEFAULT_LANG');
         //读取公共语言包
@@ -42,7 +43,7 @@ abstract class AdminAction extends Action {
             L(include LANG_PATH . $langSet . '/' . MODULE_NAME . '.php');
         }
         //判断用户是否登陆
-        $this->doCheckLogin();
+        
         $ary_get = $this->_get();
         $module = $ary_get['_URL_'][1] ? $ary_get['_URL_'][1] : "Index";
         $action = $ary_get['_URL_'][2] ? $ary_get['_URL_'][2] : "index";
