@@ -12,7 +12,57 @@
         </div>
     </div>
 </notempty>
-<div class="footer" <empty name="links">style="margin-top:20px;"</empty>>
+﻿<div id="bottom" <empty name="links">style="margin-top:20px;"</empty>>
+	<div class="bbox">
+        <div class="moduletable">
+            <h4>关于</h4>
+            <ul>
+                <li><a href="{:U('/about')}">关于我们</a></li>
+				<li><a href="{:U('/contact')}">联系我们</a></li>
+            </ul>
+        </div>
+        
+        <div class="moduletable">
+            <h4>业务</h4>
+            <ul>
+				<li><a href="{:U('/website')}">网站建设</a></li>
+                <li><a href="{:U('/host')}">主机租赁</a></li>
+            </ul>
+        </div>
+        
+        <div class="moduletable">
+            <h4>联系</h4>
+            <ul>
+				<li><a href="http://wpa.qq.com/msgrd?v=3&uin={$systemConfig.SITE_INFO.qq}&site={$systemConfig.SITE_INFO.name}&menu=yes" target="_blank">在线咨询</a></li>
+                <li><a href="mailto:{$systemConfig.SITE_INFO.service}">邮件咨询</a></li>
+            </ul>
+        </div>
+        
+        <div class="moduletable">
+            <h4>支持</h4>
+            <ul>
+                <li><a href="{:U('/picture')}">网站案例</a></li>
+				<li><a href="{:U('/news')}">新闻动态</a></li>
+				<li><a href="{:U('/rss')}" target="_blank" title="Rss订阅">文章订阅</a></li>
+            </ul>
+        </div>
+        
+        <div class="moduletable">
+            <h4>案例</h4>
+            <ul>
+				<volist name="picturelist" id="vo">
+				<li><a href="{$vo.url}" rel="external nofollow" target="_blank">{$vo.title}</a></li>
+				</volist>
+            </ul>
+        </div>
+        
+        <div class="moduletable">
+            <h4>扫一扫</h4>
+            <img src="__PUBLIC__/Images/Default/erweima.gif" />
+        </div>
+  </div>
+</div>
+<div class="footer">
 	<div class="copyright"> © 2013-2020 HuiCMS.CN All Rights Reserved. {$site_icp}
 		<!-- Baidu Button BEGIN -->
 	</div>

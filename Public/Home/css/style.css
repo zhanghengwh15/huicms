@@ -362,22 +362,7 @@ padding:12px 0;
 	color:#666;
 	font-size:14px;
 }
-#toTop {
-    display: none;
-    position: fixed;
-    bottom: 5px;
-    right: 5px;
-    width: 64px;
-    height: 64px;
-    background-image: url('../images/up.png');
-    background-repeat: no-repeat;
-    opacity: 0.4;
-    filter: alpha(opacity=40); /* For IE8 and earlier */
-}
-#toTop:hover {
-    opacity: 0.8;
-    filter: alpha(opacity=80); /* For IE8 and earlier */
-}
+
 #links{border:none;width:970px;margin:0 auto;margin-top:8px;border-top:0px solid #333;}
 #links h2{padding-left:8px;height:35px;border-bottom:1px solid #CCC;color:#666;font:bold 14px/35px Verdana,Geneva,sans-serif;}
 #links .link_con{padding:10px;}
@@ -538,6 +523,14 @@ span.valid {background: url("../images/checked.gif") no-repeat left;float: right
 .lanrenzhijia-cs ul li.top {border-bottom: solid #ACE5F9 1px;}
 .lanrenzhijia-cs ul li.bot {border-bottom: none;}
 
+#bottom {width:100%; height:240px; margin-top:20px; background:#2D2E2F; border-bottom:1px solid #111; color:#999;}
+#bottom a {color:#999;}
+#bottom a:hover {color:#CCC;}
+#bottom .bbox {width:960px; height:auto; margin:0 auto;}
+#bottom .bbox .moduletable {width:160px; height:auto; float:left;}
+#bottom .bbox .moduletable h4 {font-size:18px; color:#CCC; line-height:50px; margin-top:20px;}
+#bottom .bbox .moduletable ul li {line-height:30px; font-size:14px;}
+
 /*绑定账号*/
 .user40{ margin:40px 0px 10px 0px; background:#FFF;box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2); width:920px; padding:30px; _height:500px;  min-height:500px;border:1px solid #e4e3e3;}
 .steptxt30{font-family: '微软雅黑'; font-size:30px; color:#4397eb;}
@@ -561,6 +554,9 @@ span.valid {background: url("../images/checked.gif") no-repeat left;float: right
 .register_table tr td{ padding:6px 6px 6px 0px;}
 .register_txta{ height:40px; line-height:40px; font-size:14px;  }
 .register_input{ width:250px; height:26px; line-height:30px;padding:2px;}
+
+a.top {width:56px; height:55px; display:inline-block; position:fixed; _position:absolute; right:50px; bottom:8%; background:url(../images/top.jpg); display:none;}
+a.top:hover {background:url(../images/top.jpg) 56px 0;}
 
 /*页脚区域*/
 .footer{height:52px;line-height:52px;background:#252525;text-align:center;color:#969595;}
