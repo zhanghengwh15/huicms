@@ -1,21 +1,50 @@
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>{$Think.session.navname|default="管理中心"}--Huicms内容管理系统</title>
-    <link href="__PUBLIC__/Admin/css/skin_1.css" rel="stylesheet" type="text/css" id="cssfile">
-    <script type="text/javascript" src="__PUBLIC__/Lib/jquery/js/jquery-1.8.3.js"></script>
-    <!--[if IE]>
-    <script src="__PUBLIC__/Admin/js/html5.js"></script>
-    <![endif]-->
-    <link href="__PUBLIC__/Lib/artdialog/skins/default.css" rel="stylesheet" />
-    <script src="__PUBLIC__/Lib/artdialog/jquery.artDialog.min.js"></script>
-    <script src="__PUBLIC__/Lib/artdialog/artDialog.plugins.min.js"></script>
-    <script type="text/javascript" src="__PUBLIC__/Admin/js/jquery.cookie.js"></script>
-    <script src="__PUBLIC__/Lib/validate/jquery.validate.1.9.js"></script>
-    <script src="__PUBLIC__/Lib/validate/jquery.metadata.js"></script>
-    <script src="__PUBLIC__/Lib/validate/messages_cn.js"></script>
-    <script src="__PUBLIC__/Lib/layer/layer.js"></script>
-    <link href="__PUBLIC__/Lib/datepicker/css/datetimepicker.css" rel="stylesheet" type="text/css" id="cssfile">
-    <script src="__PUBLIC__/Lib/datepicker/js/bootstrap.min.js"></script>
-    <script src="__PUBLIC__/Lib/datepicker/js/bootstrap-datetimepicker.js"></script>
-    <script type="text/javascript" src="__PUBLIC__/Admin/js/global.js"></script>
-</head>
+<div class="layout-header"> <!-- Title/Logo - can use text instead of image -->
+    <div id="title"><a href="./index_files/index.htm"></a></div>
+    <div id="topnav" class="top-nav">
+        <ul>
+            <li class="adminid" title="{$Think.session.admin_name}">登陆者&nbsp;:&nbsp;<strong>{$Think.session.admin_name}</strong></li>
+            <li><a href="{:U('Admin/System/pageEditAdminPasswd')}"><span>修改密码</span></a></li>
+            <li><a href="javascript:;" class="Lockscreen" title="锁屏"><span>锁屏</span></a></li>
+            <li><a href="{:U('Admin/User/doLogout')}" title="退出"><span>退出</span></a></li>
+            <li><a href="/" target="_blank" title="前台"><span>前台</span></a></li>
+        </ul>
+    </div>
+    
+    <nav id="nav" class="main-nav">
+        <ul>
+<!--            <li>
+                <a <if condition="$Think.cookie.nav_id eq '0'">class="link actived"<else />class="link"</if> id="nav_0" href="javascript:;" onclick="openItem('0');">
+                    <span>控制台</span>
+                </a>
+            </li>-->
+            <volist name="tops" id="nav">
+            <li nav="{$nav.id}">
+                <a <if condition="$nav[id] eq $navid">class="link actived"<else />class="link"</if> id="nav_{$nav.id}" href="javascript:;" onClick="openItem('{$nav.id},{$nav.module},{$nav.action},{$nav.rn_id}');">
+                    <span>{$nav.name}</span>
+                </a>
+            </li>
+            </volist>
+        </ul>
+    </nav>
+    <div class="loca">
+        <strong>您的位置:</strong>
+        <include file="Common:incBreadcrumb" />
+    </div>
+    <div class="toolbar">
+        <ul id="skin" class="skin">
+            <li id="skin_0" class="" title="默认风格"></li>
+            <li id="skin_1" class="" title="Mac风格"></li>
+        </ul>
+        <div class="sitemap">
+            <a id="adminMap" href="javascript:void(0);" data-uri="{:U('Admin/Index/map')}" title="后台地图"><span>后台地图</span></a></div>
+        <div class="toolmenu"><span class="bar-btn"></span>
+            <ul class="bar-list" style="display: none;">
+                <li><a onclick="openItem(&#39;clear,cache,setting&#39;);" href="javascript:void(0)">更新站点缓存</a></li>
+                <li><a href="javascript:void(0);" onclick="window.location.reload();return false;" id="iframe_refresh">刷新管理中心</a></li>
+                <li><a href="JavaScript:void(0);" onclick="openItem(&#39;db,db,website&#39;);">备份恢复数据</a></li>
+                <li><a href="http://www.shopnctest.com/huli/index.php?act=updatestat&op=index" target="workspace">更新信用统计</a></li>
+                <li><a href="http://www.shopnctest.com/huli/" title="管理中心-ShopNC商城" rel="sidebar" onclick="javascript:window.external.AddFavorite(&#39;http://www.shopnctest.com/huli/&#39;, &#39;管理中心-ShopNC商城&#39;);return false;">收藏管理中心</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
