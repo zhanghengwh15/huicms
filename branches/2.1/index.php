@@ -10,9 +10,9 @@
  * @version        	Huicms企业网站管理系统 v1.0 2013-04-14 huicms.cn $
  */
 define('HCMS_PATH', dirname(__FILE__).DIRECTORY_SEPARATOR);
-//if(!file_exists(dirname(__FILE__).'/Conf/install.lock')){
-//    header('location:install/index.php');
-//    exit();
-//}
+if(!file_exists(dirname(__FILE__).'/Conf/install.lock')){
+    header("location:../install/");
+    exit;
+}
 define('APP_DEBUG',TRUE);
 require 'ThinkPHP/ThinkPHP.php';

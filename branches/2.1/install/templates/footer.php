@@ -1,0 +1,1 @@
+<div class="footer"> &copy; 2010 - 2013 <a href="http://www.huicms.cn" target="_blank">www.huicms.cn</a> そ神僮な尛孓 </div>
