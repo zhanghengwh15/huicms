@@ -40,10 +40,6 @@ CREATE TABLE `hui_admin` (
   PRIMARY KEY (`u_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='管理员';
 
--- ----------------------------
--- Records of hui_admin
--- ----------------------------
-INSERT INTO `hui_admin` VALUES ('1', 'admin', '21232f297a57a5a743894a0e4a801fc3', '1', '127.0.0.1', 'upload/images/20130603/13702220067783.png', '王辉', '0', '13817918575', 'shuaige@52sum.com', '466209365', '', '235', '1', '2013-08-31 11:29:25', '0000-00-00 00:00:00', '2013-06-03 09:13:44');
 
 -- ----------------------------
 -- Table structure for `hui_admin_log`
@@ -373,7 +369,6 @@ CREATE TABLE `hui_config` (
 INSERT INTO `hui_config` VALUES ('1', 'ADMIN_ACCESS', 'EXPIRED_TIME', '500', '登陆超时时间', '2013-05-03 10:25:45', '0000-00-00 00:00:00');
 INSERT INTO `hui_config` VALUES ('2', 'ADMIN_ACCESS', 'SYS_ADMIN', 'admin', '系统管理员', '2013-03-26 00:43:50', '0000-00-00 00:00:00');
 INSERT INTO `hui_config` VALUES ('3', '', '', null, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
-INSERT INTO `hui_config` VALUES ('4', 'WEBSITE', 'WEBSITE', '{\"site_name\":\"HuiCMS\\u5185\\u5bb9\\u7ba1\\u7406\\u7cfb\\u7edf\",\"site_title\":\"Title\",\"site_keyword\":\"HuiCMS,\\u5f00\\u6e90cms,\\u514d\\u8d39cms,\\u5c0f\\u5de7cms,\\u7b80\\u5355cms\",\"site_description\":\"HuiCMS\\u662f\\u4e00\\u6b3e\\u57fa\\u4e8ePHP+MYSQL\\uff0c\\u91c7\\u7528THINKPHP\\u6846\\u67b6\\u7f16\\u5199\\u7684\\u4e00\\u6b3e\\u9488\\u5bf9\\u5927\\u5c0f\\u578b\\u516c\\u53f8\\u4f01\\u4e1a\\u7b49\\u901a\\u7528\\u7684cms\\u7a0b\\u5e8f\\u3002\",\"site_icp\":\"42222641276051353636\",\"site_code\":\"\",\"site_status\":\"1\",\"site_close\":\"\\u7f51\\u7ad9\\u5173\\u95ed\\u4e2d\"}', '站点信息配置', '2013-05-19 21:15:36', '2013-05-19 21:15:36');
 INSERT INTO `hui_config` VALUES ('5', 'CODE_SET', 'MREGISTER', '1', '会员注册', '2013-08-31 12:08:07', '2013-08-31 12:08:07');
 INSERT INTO `hui_config` VALUES ('6', 'CODE_SET', 'RELOGIN', '1', '前台登陆', '2013-08-31 12:08:07', '2013-08-31 12:08:07');
 INSERT INTO `hui_config` VALUES ('7', 'CODE_SET', 'BALOGIN', '1', '后台登陆', '2013-08-31 12:08:07', '2013-08-31 12:08:07');
