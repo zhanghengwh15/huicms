@@ -113,8 +113,7 @@ switch ($step) {
             $dbPwd = trim($_POST['dbpw']);
             $dbPrefix = empty($_POST['dbprefix']) ? 'think_' : trim($_POST['dbprefix']);
             $email = trim($_POST['manager_email']);
-            $password = trim($_POST['manager_pwd']);
-            $verify = randCode(6);
+            $password = md5(trim($_POST['manager_pwd']));
             $config = array();
             $config['DB_HOST'] = $dbHost;
             $config['DB_NAME'] = $dbName;
@@ -186,7 +185,6 @@ switch ($step) {
                 exit;
 
             //插入管理员
-            $password = md5($verify . md5($password));
             $time = time();
             $data = array(
                 'site_name' => addslashes(trim($_POST['site_name'])), //网站名称
@@ -200,7 +198,7 @@ switch ($step) {
             $query .= "INSERT INTO `{$dbPrefix}config` VALUES ( 'WEBSITE', 'WEBSITE','{$value}','站点信息配置', $time);";
             mysql_query($query);
             $message = '成功添加管理员<br />成功写入配置文件<br>安装完成．';
-            file_put_contents(SITEDIR . "/Conf/db.php", ("<?php\treturn " . var_export($config, true) . ";?>"));
+            file_put_contents(SITEDIR . "/Conf/db.php", ("<?php\t\nreturn " . var_export($config, true) . ";\n?>"));
             $arr = array('n' => 999999, 'msg' => $message);
             die(json_encode($arr));
         }
