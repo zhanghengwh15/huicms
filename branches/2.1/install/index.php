@@ -183,20 +183,21 @@ switch ($step) {
 
             if ($i == 999999)
                 exit;
-
-            //插入管理员
-            $time = time();
-            $data = array(
-                'site_name' => addslashes(trim($_POST['site_name'])), //网站名称
-                'site_title' => addslashes(trim($_POST['site_title'])), //网站名称
-                'site_keyword' => trim($_POST['site_keyword']), //网站名称
-                'site_description' => trim($_POST['site_description']), //网站名称
-                'site_url' => trim($_POST['site_url']) //网站名称
-            );
-            $value = json_encode($data);
-            $query = "INSERT INTO `{$dbPrefix}admin` VALUES ('1', '{$email}', '{$password}', '1', '127.0.0.1', 'upload/images/20130603/13702220067783.png', '张三', '0', '13817913211', 'shuaige@52sum.com', '466209365', '', '0', '1', '{$time}', '0000-00-00 00:00:00', '{$time}')";
-            $query .= "INSERT INTO `{$dbPrefix}config` VALUES ( 'WEBSITE', 'WEBSITE','{$value}','站点信息配置', $time);";
-            mysql_query($query);
+            if (!mysql_select_db($dbName, $conn)) {
+                //插入管理员
+                $time = time();
+                $data = array(
+                    'site_name' => addslashes(trim($_POST['site_name'])), //网站名称
+                    'site_title' => addslashes(trim($_POST['site_title'])), //网站名称
+                    'site_keyword' => trim($_POST['site_keyword']), //网站名称
+                    'site_description' => trim($_POST['site_description']), //网站名称
+                    'site_url' => trim($_POST['site_url']) //网站名称
+                );
+                $value = json_encode($data);
+                $query = "INSERT INTO `{$dbPrefix}admin` VALUES ('1', '{$email}', '{$password}', '1', '127.0.0.1', 'upload/images/20130603/13702220067783.png', '张三', '0', '13817913211', 'shuaige@52sum.com', '466209365', '', '0', '1', '{$time}', '0000-00-00 00:00:00', '{$time}')";
+                $query .= "INSERT INTO `{$dbPrefix}config` VALUES ( 'WEBSITE', 'WEBSITE','{$value}','站点信息配置', $time);";
+                mysql_query($query);
+            }
             $message = '成功添加管理员<br />成功写入配置文件<br>安装完成．';
             file_put_contents(SITEDIR . "/Conf/db.php", ("<?php\t\nreturn " . var_export($config, true) . ";\n?>"));
             $arr = array('n' => 999999, 'msg' => $message);
