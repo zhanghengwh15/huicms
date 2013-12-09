@@ -82,10 +82,6 @@ abstract class AdminAction extends Action {
         if (!empty($rolenav) && is_array($rolenav)) {
             cookie("menuid", $rolenav['id']);
         }
-//        echo "<pre>";print_r($rolenav);exit;
-//        $rolenav['url'] = MODULE_NAME;
-//        $this->assign('breadcrumbs', $rolenav);
-        
         import('ORG.Util.Session');
         $this->assign("uid", session("admin"));
         $admin_access = D('Config')->getCfgByModule('ADMIN_ACCESS');
