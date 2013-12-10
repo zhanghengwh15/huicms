@@ -1,0 +1,98 @@
+<div class="rounded table" style="width: 98%;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" class="box_top">
+        <thead class="thead">
+            <tr class="space">
+                <th colspan="10">编辑分类</th>
+            </tr>
+        </thead>
+    </table>
+    <form action="{:U('Admin/ArticleCategory/doEdit')}" method="post" class="formvalidate">
+        <table class="list" cellpadding="0" cellspacing="1" border="0">
+            <tbody>               
+                <tr>
+                    <td class="name">
+                        <label class="validation"><span class="spanMsg">*</span>分类名称：</label>
+                    </td>
+                    <td>
+                        <input type="text" class="input rounded" name="title" size="40" value="{$data.title}" style="width:300px;" validate='{ required:true,maxlength:30,remote:"{:U("Admin/ArticleCategory/checkName","id=$data[id]")}",messages:{required:"分类名称不能为空",maxlength:"分类名称不能超出30字符"}}'>
+                    </td>
+                    <td class="field"></td>
+                </tr>
+                <tr>
+                    <td class="name">
+                        <label class="validation">别名：</label>
+                    </td>
+                    <td>
+                        <input type="text" name="alias" id="alias" value="{$data.alias}" class="input rounded iColorPicker" size="40" style="width:300px;">
+                    </td>
+                    <td class="field">
+                        
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td class="name">
+                        <label class="validation">
+                            <span class="spanMsg">*</span>父分类：
+                        </label>
+                    </td> 
+                    <td>
+                        {$category}
+                    </td>
+                    <td class="field"></td>
+                </tr>
+                <tr>
+                    <td class="name">
+                        <label class="validation"><span class="spanMsg">*</span>排序：</label>
+                    </td>
+                    <td>
+                        <input type="text" name="order" value="{$data.order}" class="input rounded" size="10">  
+                    </td>
+                    <td class="field">
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name" width="150">
+                        <label class="validation">
+                            <span class="spanMsg">*</span>状态：
+                        </label>
+                    </td>  
+                    <td class="rowform">
+                        <ul>
+
+                            <li>
+                                <label>
+                                    <input type="radio" <if condition="$data.status eq '1'">checked="checked"</if> value="1" name="status">启用</label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" <if condition="$data.status eq '0'">checked="checked"</if> value="0" name="status">停用</label>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr class="even">
+                    <td class="name">
+                        <label class="validation">
+                            描述：
+                        </label>
+                    </td>
+                    <td>
+                        <textarea class="text-input textarea" id="wysiwyg" name="description" rows="10" cols="75">{$data.description}</textarea>
+                    </td>
+                    <td class="field"></td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table top_line">
+            <tbody>
+                <tr>
+                    <td align="center" height="60" colspan="2">
+                        <input id="submit" class="btn" type="submit" value="提交">
+                        <input type="reset" id="reset" class="btn reset" value="重置">                        
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
