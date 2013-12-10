@@ -1,0 +1,154 @@
+<script type="text/javascript">
+    window.UEDITOR_HOME_URL = "__PUBLIC__/Lib/ueditor/";
+</script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/Lib/ueditor/editor_all.js"></script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/Lib/ueditor/editor_config.js"></script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/Admin/js/color.js"></script>
+<div class="rounded table" style="width: 98%;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" class="box_top">
+        <thead class="thead">
+            <tr class="space">
+                <th colspan="10">编辑文章</th>
+            </tr>
+        </thead>
+    </table>
+    <form action="{:U('Admin/Article/doEdit')}" method="post" class="formvalidate">
+        <table class="list" cellpadding="0" cellspacing="1" border="0">
+            <tbody>
+                <tr>
+                    <td class="name" width="150">
+                        <label class="validation">
+                            <span class="spanMsg">*</span>所属栏目：
+                        </label>
+                    </td>  
+                    <td class="rowform select_type">
+                        {$category}
+                    </td>
+                    <td class="field">
+                        <img title="" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16">				
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name">
+                        <label class="validation"><span class="spanMsg">*</span>标题：</label>
+                    </td>
+                    <td>
+                        <input type="text" class="input rounded" name="title" size="50" value="{$data.title}" style="width:300px;" required validate="{ required:true,maxlength:30}">
+                    </td>
+                    <td class="field"></td>
+                </tr>
+                <tr>
+                    <td class="name">
+                        <label class="validation">标题颜色：</label>
+                    </td>
+                    <td>
+                        <input type="text" name="colorval" id="color" value="{$data.colorval}" class="input rounded iColorPicker" size="10">
+                        <a href="javascript:void(0)" id="select_color" onclick="iColorShow('color','select_color')" class="icon_select">
+                            <img src="__PUBLIC__/Admin/images/color.png" align="absmiddle">
+                        </a>
+                    </td>
+                    <td class="field">
+                        <img title="链接名称链接颜色，只对文字链接时有效，留空将采用全局链接样式" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16">				
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name" width="150">
+                        <label class="validation">文章来源：</label>
+                    </td>
+                    <td><input type="text" class="input rounded" name="source" id="source" size="30" value="{$data.source}" style="width:300px;"></td>
+                    <td class="field"></td>
+                </tr>
+                <tr>
+                    <td class="name" width="150">
+                        <label class="validation">文章作者：</label>
+                    </td>
+                    <td><input type="text" class="input rounded" name="author" id="author" size="30" value="{$data.author}" style="width:300px;"></td>
+                    <td class="field"></td>
+                </tr>
+                <tr>
+                    <td class="name" width="150">
+                        <label class="validation">关键词：</label>
+                    </td>
+                    <td><input type="text" class="input rounded" name="keyword" id="keyword" size="30" value="{$data.keyword}" style="width:300px;"></td>
+                    <td class="field"></td>
+                </tr>
+                <tr>
+                    <td class="name" width="150">
+                        <label class="validation">摘要：</label>
+                    </td>
+                    <td><textarea class="text-input textarea" id="wysiwyg" name="description" rows="10" cols="75">{$data.description}</textarea></td>
+                    <td class="field"></td>
+                </tr>   
+                <tr>
+                    <td class="name">
+                        <label class="validation">详细内容：</label>
+                    </td>
+                    <td>
+                        <script id="editor" name="content" type="text/plain">{$data.content}</script>
+                    </td>
+                    <td class="field"><img title="详细内容。" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16">				</td>
+                </tr>
+                <tr>
+                    <td class="name">
+                        <label class="validation">点击次数：</label>
+                    </td>
+                    <td>
+                        <input type="text" name="hits" value="{$data.hits}" class="input rounded" size="25">  
+                    </td>
+                    <td class="field">
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name">
+                        <label class="validation"><span class="spanMsg">*</span>排列排序：</label>
+                    </td>
+                    <td>
+                        <input type="text" name="order" value="{$data.order}" class="input rounded" size="25">  
+                    </td>
+                    <td class="field">
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name" width="150">
+                        <label class="validation">
+                            <span class="spanMsg">*</span>审核：
+                        </label>
+                    </td>  
+                    <td class="rowform">
+                        <ul>
+
+                            <li>
+                                <label>
+                                    <input type="radio" <if condition="$data.status eq '1'">checked="checked"</if> value="1" name="status">是</label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" <if condition="$data.status eq '0'">checked="checked"</if> value="0" name="status">否</label>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="field">
+                        <img title="选择“否”则该信息暂时不显示在前台" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16">				
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table top_line">
+            <tbody>
+                <tr>
+                    <td align="center" height="60" colspan="2">
+                        <input type="hidden" name="id" value="{$data.id}">
+                        <input id="submit" class="btn" type="submit" value="提交">
+                        <input type="reset" id="reset" class="btn reset" value="重置">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+
+<script>  
+    UE.getEditor('editor');
+</script>

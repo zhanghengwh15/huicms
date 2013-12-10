@@ -72,6 +72,106 @@ class ArticleAction extends AdminAction {
         }
     }
     
+    /**
+     * 更新文章状态
+     * @author Terry<admin@huicms.cn>
+     * @date 2013-12-10
+     */
+    public function edit(){
+        $mod = D($this->_name);
+        $pk = $mod->getPk();
+        $ids = trim($this->_request($pk), ',');
+        if ($ids) {
+            $ary_data = $mod -> where(array($pk=>$ids))->find();
+            $category = $this->getSelect($ary_data['cid']);
+            $this->assign('data',$ary_data);
+            $this->assign("category",$category);
+            $this->display();
+        }else{
+            $this->error("请选择需要编辑的对象");
+        }
+    }
+    
+    public function doEdit(){
+        $mod = D($this->_name);
+        $pk = $mod->getPk();
+        $field = $mod->getDbFields();
+        $ary_request = $this->_request();
+        $id = $ary_request[$pk];
+        unset($ary_request[$pk]);
+        if($id){
+            $where = array();
+            $where[$pk] = array('NEQ',$id);
+            $where[$field[1]] = $ary_request[$field[1]];
+            $ary_data = $mod ->where($where)->find();
+            if(!empty($ary_data) && is_array($ary_data)){
+                $this->error("名称已存在");
+            }else{
+                $ary_request['update_time'] = date("Y-m-d H:i:s");
+                $ary_request['uid'] = $_SESSION[C('USER_AUTH_KEY')];
+                $ary_res = $mod ->where(array($pk=>$id))->data($ary_request)->save();
+                if(FALSE !== $ary_res){
+                    $this->success("编辑成功");
+                }else{
+                    $this->error("编辑失败");
+                }
+            }
+        }else{
+            $this->error("请选择需要编辑的对象");
+        }
+        
+    }
+    
+    /**
+     * 更改文章状态
+     * @author Terry<admin@huicms.cn>
+     * @date 2013-12-10
+     */
+    public function doEditStatus(){
+        $ary_post = $this->_post();
+        if(!empty($ary_post['id']) && isset($ary_post['id'])){
+            $mod = D($this->_name);
+            $data = array();
+            $data[$ary_post['field']] = $ary_post['val'];
+            $ary_result = $mod->where(array('id'=>$ary_post['id']))->data($data)->save();
+            if(FALSE !== $ary_result){
+                if(!empty($ary_post['val']) && $ary_post['val'] == '1'){
+                    $this->success("启用成功");
+                }else{
+                    $this->success("禁用成功");
+                }
+            }  else {
+                if(!empty($ary_post['val']) && $ary_post['val'] == '1'){
+                    $this->success("启用失败");
+                }else{
+                    $this->success("禁用失败");
+                }
+            }
+        }else{
+            $this->error("该信息不存在");
+        }
+    }
+
+    /**
+     * 删除操作
+     * @author Terry<admin@huicms.cn>
+     * @date 2013-12-10
+     */
+    public function doDelete(){
+        $mod = D($this->_name);
+        $pk = $mod->getPk();
+        $ids = trim($this->_request($pk), ',');
+        if ($ids) {
+            if (false !== $mod->delete($ids)) {
+                $this->success("删除成功");
+            } else {
+                $this->error("删除失败");
+            }
+        } else {
+            $this->error("请选择删除的对象");
+        }
+    }
+    
     private function getSelect($selectedid =0, $selectname = 'cid'){
         $sReturn = '<select name="' . $selectname . '" validate="{ selected:true}"><option value="0">-- 请选择 --</option>';
         $ary_category = D("Category")->where()->order('`order` desc')->select();
