@@ -424,15 +424,9 @@ $(document).ready(function(){
                             str += '<td class="align-center">';
                                 str += '<input type="checkbox" data-xid="checkSon_x" class="checkSon" name="checkall" value="'+msgObj[i].id+'">';
                             str += '</td>';
-                            str += '<td class="align-center">';
-                                str += '<div class="button-group">';
-                                    str += '<a title="编辑" alt="编辑" class="button danger icon pill edit" href="/Admin/ArticleCategory/editArticleCategory/id/1.html"></a>';
-                                    str += '<a title="删除" class="button danger icon pill remove doDel" data-acttype="ajax" data-msg="确定要删除“<font color=\'red\'>'+msgObj[i].title+'</font>”吗？" val="'+msgObj[i].id+'" data-uri="/Admin/ArticleCategory/doDelete/id/'+msgObj[i].id+'.html" href="javascript:void(0);"></a>';
-                                str += '</div>';
-                            str += '</td>';
+                            
                             str += '<td class="align-center">'+msgObj[i].title+'</td>';
                             str += '<td class="align-center">'+msgObj[i].alias+'</td>';
-                            str += '<td class="align-center">'+msgObj[i].description+'</td>';
                             str += '<td class="align-center">'+msgObj[i].order+'</td>';
                             str += '<td class="align-center">';
                             if(msgObj[i].status == '1'){
@@ -443,6 +437,12 @@ $(document).ready(function(){
                             str += '</td>';
                             str += '<td class="align-center">'+msgObj[i].create_time+'</td>';
                             str += '<td class="align-center">'+msgObj[i].update_time+'</td>';
+                            str += '<td class="align-center">';
+                                str += '<div class="button-group">';
+                                    str += '<a title="编辑" alt="编辑" class="button danger icon pill edit" href="/Admin/ArticleCategory/edit/id/'+msgObj[i].id+'"></a>';
+                                    str += '<a title="删除" class="button danger icon pill remove doDel" data-acttype="ajax" data-msg="确定要删除“<font color=\'red\'>'+msgObj[i].title+'</font>”吗？" val="'+msgObj[i].id+'" data-uri="/Admin/ArticleCategory/doDelete/id/'+msgObj[i].id+'.html" href="javascript:void(0);"></a>';
+                                str += '</div>';
+                            str += '</td>';
                         str += '</tr>';
                     }
                     tr.after(str);
