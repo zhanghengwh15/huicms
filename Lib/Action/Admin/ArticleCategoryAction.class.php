@@ -168,6 +168,39 @@ class ArticleCategoryAction extends AdminAction{
     }
     
     /**
+     * 更新文章分类
+     * @author Terry<admin@huicms.cn>
+     * @date 2013-08-30
+     */
+    public function doEdit(){
+        $mod = D($this->name);
+        $pk = $mod->getPk();
+        $field = $mod->getDbFields();
+        $ary_request = $this->_request();
+        $id = $ary_request[$pk];
+        unset($ary_request[$pk]);
+        if($id){
+            $where = array();
+            $where[$pk] = array('NEQ',$id);
+            $where[$field[1]] = $ary_request[$field[1]];
+            $ary_data = $mod ->where($where)->find();
+            if(!empty($ary_data) && is_array($ary_data)){
+                $this->error("名称已存在");
+            }else{
+                $ary_request['update_time'] = date("Y-m-d H:i:s");
+                $ary_res = $mod ->where(array($pk=>$id))->data($ary_request)->save();
+                if(FALSE !== $ary_res){
+                    $this->success("编辑成功");
+                }else{
+                    $this->error("编辑失败");
+                }
+            }
+        }else{
+            $this->error("请选择需要编辑的对象");
+        }
+    }
+    
+    /**
      * 校验分类名称是否重复
      * @author Terry<admin@huicms.cn>
      * @date 2013-05-28
@@ -177,16 +210,16 @@ class ArticleCategoryAction extends AdminAction{
         if(!empty($ary_get['title']) && isset($ary_get['title'])){
             if(!empty($ary_get['id']) && isset($ary_get['id'])){
                 $where = array();
-                $where['name'] = $ary_get['name'];
+                $where['title'] = $ary_get['title'];
                 $where['id'] = array("neq",$ary_get['id']);
-                $ary_result = D($this->_name)->where($where)->find();
+                $ary_result = D($this->name)->where($where)->find();
                 if(!empty($ary_result) && is_array($ary_result)){
                     $this->ajaxReturn("分类已存在");
                 }else{
                     $this->ajaxReturn(true);
                 }
             }else{
-                $ary_result = D($this->_name)->where(array('title'=>$ary_get['title']))->find();
+                $ary_result = D($this->name)->where(array('title'=>$ary_get['title']))->find();
                 if(!empty($ary_result) && is_array($ary_result)){
                     $this->ajaxReturn("分类已存在");
                 }else{
@@ -206,7 +239,7 @@ class ArticleCategoryAction extends AdminAction{
     private function getSelect($currentid, $selectedid =0, $showzerovalue = 1, $selectname = 'pid'){
         $strHtml = '<select name="' . $selectname . '" class="select rounded">';
         if($showzerovalue){
-            $strHtml .= '<option value="0">无</option>';
+            $strHtml .= '<option value="0">一级栏目</option>';
         }
         $where = array();
         $where['status'] = '1';
