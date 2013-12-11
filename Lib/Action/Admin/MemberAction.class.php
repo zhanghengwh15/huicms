@@ -48,8 +48,9 @@ class MemberAction extends AdminAction{
         $ary_get = $this->_get();
         if(!empty($ary_get['mid']) && isset($ary_get['mid'])){
             $data = D($this->name)->where(array('m_id'=>$ary_get['mid']))->find();
-//            echo "<pre>";print_r($data);exit;
+            $city_data = D("City")->getCityLastInfo($data['c_id']);
             $this->assign("data",$data);
+            $this->assign("region",$city_data);
             $this->display();
         }else{
             $this->error("数据有误");
@@ -154,4 +155,25 @@ class MemberAction extends AdminAction{
         }
         echo json_encode($ary_res);exit;
     }
+    
+    /**
+     * 异步获取 区域数据
+     * @author Terry<admin@huicms.cn>
+     * @date 2013-12-11
+     */
+    public function cityRegionOptions() {
+        if (!isset($_POST["parent_id"]) || !is_numeric($_POST["parent_id"]) || $_POST["parent_id"] <= 0) {
+                echo json_encode(array("status" => false, "data" => array(), "message" => "父级区域ID不合法"));
+                exit;
+        }
+        $int_parent_id = $_POST["parent_id"];
+        $array_result = D("City")->where(array("parent_id" => $int_parent_id,'status'=>'1'))->order(array("order" => "asc"))->getField("id,name");
+        if (false === $array_result) {
+                echo json_encode(array("status" => false, "data" => array(), "message" => "无法获取区域数据"));
+                exit;
+        }
+        echo json_encode(array("status" => true, "data" => $array_result, "message" => "success"));
+        exit;
+    }
+    
 }
