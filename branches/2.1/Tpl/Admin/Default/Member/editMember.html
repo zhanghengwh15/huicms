@@ -91,6 +91,29 @@
 
                     </td>
                 </tr>
+                <tr class="odd">
+                    <td class="name" width="150">
+                        <label class="validation">
+                            <span class="spanMsg">*</span>生日：
+                        </label>
+                    </td> 
+                    <td class="rowform">
+                        <ul>
+
+                            <li>
+                                <label>
+                                    <input type="radio" <if condition="$data.m_status eq '0'">checked="checked"</if> value="0" name="m_status">公历生日</label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" <if condition="$data.m_status eq '1'">checked="checked"</if> value="1" name="m_status">农历生日</label>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="field">
+
+                    </td>
+                </tr>
                 <tr>
                     <td class="name">
                         <label class="validation">
@@ -132,6 +155,17 @@
                     <td class="field">
 
                     </td>
+                </tr>
+                <tr class="even">
+                    <td class="name">
+                        <label class="validation">
+                            个人说明：
+                        </label>
+                    </td>
+                    <td>
+                        <textarea class="text-input textarea" id="wysiwyg" name="u_description" rows="10" cols="75">{$data.u_description}</textarea>
+                    </td>
+                    <td class="field"></td>
                 </tr>
                 <tr class="odd">
                     <td class="name" width="150">
