@@ -12,7 +12,7 @@
                 <tr class="thead">
                     <th class="align-center">编号</th>
                     <th class="align-center">用户名</th>
-<!--                    <th class="align-center">会员等级</th>-->
+                    <th class="align-center">会员等级</th>
                     <th class="align-center">昵称</th>
                     <th class="align-center">邮箱</th>
                     <th class="align-center">头像</th>
@@ -27,7 +27,7 @@
                 <tr>
                     <td class="align-center">{$list.m_id}</td>
                     <td class="align-center">{$list.m_name}</td>
-                    <!--<td class="align-center">{$list.ml_id}</td>-->
+                    <td class="align-center">{$list.ml_name}</td>
                     <td class="align-center">{$list.m_nickname}</td>
                     <td class="align-center">{$list.m_email}</td>
                     <td class="align-center"><img src="__PUBLIC__/{$list.m_pic|default='__PUBLIC__/Home/images/photo.png'}" title="{$list.m_name}" width="24px" height="24px"/></td>
@@ -54,6 +54,7 @@
             </empty>
             </tbody>
         </table>
+        <include file="Common:incPage" />
         <div style="clear: both;"></div>
     </div>
 
