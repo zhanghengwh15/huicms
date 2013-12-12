@@ -465,9 +465,10 @@ $(document).ready(function(){
 });
 $(document).ready(function(){
     $('.datetime').datetimepicker({
-        format: 'yyyy-mm-dd hh:ii:ss',
+        format: 'yyyy-mm-dd',
         todayBtn: true,
         autoclose: true,
+        collapse: false,
         pickerPosition: "bottom-left"
     });
 });
