@@ -106,12 +106,12 @@
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio" <if condition="$data.m_status eq '1'">checked="checked"</if> value="1" name="m_status">农历生日</label>
+                                    <input type="radio" <if condition="$data.m_status eq '1'">checked="checked"</if> value="1" name="m_status" disabled>农历生日</label>
                             </li>
                         </ul>
                     </td>
                     <td class="field">
-
+                        <img title="农历生日还在开发阶段……" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16">				
                     </td>
                 </tr>
                 <tr>
@@ -152,14 +152,13 @@
                         </label>
                     </td> 
                     <td>
-                        <input name="m_pic" type="text" class="input rounded photo" value="{$data.m_pic}" id="m_pic"   size="30" style="float: left;"/> 
-                        <a href="javascript:upImage('m_pic');" id="button1" value="" class="type-file-button"></a>
+                        <input disabled="disabled" type="text" class="input rounded photo" value="{$data.m_pic}" id="m_pic"   size="30" style="float: left;"/> 
                     </td>
                     <td class="field">
                         <if condition="$data.m_pic neq ''">
-                            <img src="__PUBLIC__/{$data.m_pic}" title="{$data.m_name}" width="40" height="40" alt="{$data.m_name}">
+                            <img src="__PUBLIC__/{$data.m_pic}" title="{$data.m_name}--会员头像只有会员自己可修改" width="40" height="40" alt="{$data.m_name}">
                         <else />
-                            <img src="__PUBLIC__/Home/images/photo.png" title="默认头像" width="40" height="40" alt="默认头像">
+                            <img title="头像只有会员自己可修改" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16">
                         </if>
                     </td>
                 </tr>
