@@ -28,21 +28,21 @@ class CityModel extends Model {
             return $array_result;
         }
         
-        $array_result['region'] = $ary_region['name'];
+        $array_result['region'] = $ary_region['id'];
         $ary_city = $this->where(array("id"=>$ary_region['parent_id'],"status"=>1))->find();
         
         if(empty($ary_city)){
             //如果没有找到，则需要重新选择
             return array("province"=>'',"city"=>"","region"=>"");
         }
-        $array_result['city'] = $ary_city['name'];
+        $array_result['city'] = $ary_city['id'];
         
         $ary_province = $this->where(array("id"=>$ary_city['parent_id'],"status"=>1))->find();
         if(empty($ary_province)){
             //如果没有找到，则需要重新选择
             return array("province"=>'',"city"=>"","region"=>"");
         }
-        $array_result['province'] = $ary_province['name'];
+        $array_result['province'] = $ary_province['id'];
         return $array_result;
     }
 
