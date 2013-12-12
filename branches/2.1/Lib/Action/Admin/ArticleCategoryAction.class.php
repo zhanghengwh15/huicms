@@ -34,19 +34,56 @@ class ArticleCategoryAction extends AdminAction{
         $count = $category->where()->count();
         $obj_page = $this->_Page($count, $ary_get['pageall']);
         $page = $obj_page->newshow();
+        $tree = new Tree();
+        $tree->icon = array('│ ','├─ ','└─ ');
+        $tree->nbsp = '&nbsp;&nbsp;&nbsp;';
         $where = array();
-        $where['pid'] = '0';
+//        $where['pid'] = '0';
         $ary_data = $category->where($where)->limit($obj_page->firstRow, $obj_page->listRows)->order('`order` DESC')->select();
+//        echo "<pre>";print_r($category->getLastSql());exit;
+        $array = array();
         if(!empty($ary_data) && is_array($ary_data)){
-            $data = array();
-            foreach($ary_data as $ky=>$vl){
-                $data = $category->where(array('pid'=>$vl['id']))->find();
-                if(!empty($data) && is_array($data)){
-                    $ary_data[$ky]['count'] = '1';
-                }
+            foreach($ary_data as $vl){
+                $vl['str_status'] = '<img class="pointer" data-id="'.$vl['id'].'" style="cursor: pointer;" data-field="status" data-value="'.$vl['status'].'" src="__PUBLIC__/Admin/images/icons/icon_'. ($vl['status'] == 1 ? '1' : '0').'.png" alt="'. ($vl['status'] == 1 ? '启用' : '停用').'" title="'. ($vl['status'] == 1 ? '启用' : '停用').'" />';
+                $vl['parentid_node'] = ($vl['pid'])? ' class="child-of-node-'.$vl['pid'].'"' : '';
+                $array[] = $vl;
             }
-//            echo "<pre>";print_r($ary_data);exit;
+            $str = "<tr id='list_\$id' \$parentid_node>
+                        <td class='align-center'>
+                            <input type='checkbox' value='\$id' name='checkall' class='checkSon' data-xid='checkSon_x'/>
+                        </td>
+                        <td align='left'>\$spacer\$title</td>
+                        <td class='align-center'>\$alias</td>
+                        <td class='align-center'>\$order</td>
+                        <td class='align-center'>\$str_status</td>
+                        <td class='align-center'>\$create_time</td>
+                        <td class='align-center'>\$update_time</td>
+                        <td class='align-center'>
+                            <div class='button-group'>
+                                <a href='/Admin/ArticleCategory/edit?id=\$id'  class='button danger icon pill edit' alt='编辑' title='编辑'></a>
+                                <a href='javascript:void(0);'  data-uri='/Admin/ArticleCategory/doDelete?id=\$id' val='\$id' data-msg='确定要删除“<font color=red>\$title</font>”吗？' data-acttype='ajax' class='button danger icon pill remove doDel' title='删除'></a>
+                            </div>
+                        </td>
+                    </tr>";
+            
+            $tree->init($array);
+            $list = $tree->get_tree(0, $str);
+//            echo "<pre>";print_r($list);exit;
+            $this->assign('list', $list);
+//            echo "<pre>";print_r($list);exit;
         }
+        
+        
+//        if(!empty($ary_data) && is_array($ary_data)){
+//            $data = array();
+//            foreach($ary_data as $ky=>$vl){
+//                $data = $category->where(array('pid'=>$vl['id']))->find();
+//                if(!empty($data) && is_array($data)){
+//                    $ary_data[$ky]['count'] = '1';
+//                }
+//            }
+//            echo "<pre>";print_r($ary_data);exit;
+//        }
         $this->assign("data", $ary_data);
         $this->assign("page", $page);
         $this->assign("filter",$ary_get);
