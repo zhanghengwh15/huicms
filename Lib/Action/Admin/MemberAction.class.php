@@ -50,6 +50,7 @@ class MemberAction extends AdminAction{
             $data = D($this->name)->where(array('m_id'=>$ary_get['mid']))->find();
             $city_data = D("City")->getCityLastInfo($data['c_id']);
             $this->assign("data",$data);
+//            echo "<pre>";print_r($city_data);exit;
             $this->assign("region",$city_data);
             $this->display();
         }else{
@@ -169,10 +170,10 @@ class MemberAction extends AdminAction{
         $int_parent_id = $_POST["parent_id"];
         $array_result = D("City")->where(array("parent_id" => $int_parent_id,'status'=>'1'))->order(array("order" => "asc"))->getField("id,name");
         if (false === $array_result) {
-                echo json_encode(array("status" => false, "data" => array(), "message" => "无法获取区域数据"));
+                echo json_encode(array("status" => false, "data" => array(),'sql'=>D("City")->getLastSql(), "message" => "无法获取区域数据"));
                 exit;
         }
-        echo json_encode(array("status" => true, "data" => $array_result, "message" => "success"));
+        echo json_encode(array("status" => true, "data" => $array_result,'sql'=>D("City")->getLastSql(), "message" => "success"));
         exit;
     }
     
