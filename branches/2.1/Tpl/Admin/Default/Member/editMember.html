@@ -94,7 +94,7 @@
                 <tr class="odd">
                     <td class="name" width="150">
                         <label class="validation">
-                            <span class="spanMsg">*</span>生日：
+                            生日：
                         </label>
                     </td> 
                     <td class="rowform">
@@ -114,6 +114,13 @@
 
                     </td>
                 </tr>
+                <tr>
+                    <td class="name"></td>
+                    <td>
+                        <input type="text" class='datetime' value="">
+                    </td>
+                    <td class="field"></td>
+		</tr>
                 <tr>
                     <td class="name" width="150">
                         <label class="validation">
@@ -218,27 +225,3 @@
         </table>
     </form>
 </div>
-
-<script>
-    //Ueditor上传 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    var dom;
-    var editor = new UE.ui.Editor({
-        imageRealPath:"images"
-    });
-    editor.render("myEditor");
-    var dialog_img;
-    editor.ready(function(){
-        editor.hide();
-        dialog_img = editor.getDialog("insertimage");
-        editor.addListener('beforeInsertImage',function(t, arg){
-            $("#"+dom).val(arg[0]['src']);
-        });
-        editor.addListener('afterUpfile',function(t, arg){
-            $("#"+dom).val(arg[0]['url']);
-        });
-    });
-    function upImage(pid) {
-        dom = pid;
-        dialog_img.open();
-    }
-</script>
