@@ -119,6 +119,7 @@ abstract class AdminAction extends Action {
         $this->_Breadcrumb($navid);
         import('ORG.Util.Page');
         import('ORG.Util.Tree');
+        import('ORG.Util.Dir');
     }
 
     public function _Breadcrumb($navid){
