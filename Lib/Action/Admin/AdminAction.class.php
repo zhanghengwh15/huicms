@@ -118,6 +118,7 @@ abstract class AdminAction extends Action {
         $this->getMenus($navid);
         $this->_Breadcrumb($navid);
         import('ORG.Util.Page');
+        import('ORG.Util.Tree');
     }
 
     public function _Breadcrumb($navid){
