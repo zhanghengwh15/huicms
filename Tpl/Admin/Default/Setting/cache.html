@@ -1,0 +1,100 @@
+<div class="page">
+    <div class="page_main">
+        <h3 style='font-size: 16px;'>清理缓存</h3>
+        <div class="page_table">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td width="120" class="right">
+                        <label>
+                            <input type="checkbox" class="checkAll mr5" value="field" name="type" data-uri="{:U('Admin/Setting/clear', array('type'=>'field'))}" data-checklist="checkSon_x" data-direction="x"/>
+                            数据库字段缓存
+                        </label>
+                    </td>
+                    <td width="300" class="right">
+                        <span class='gray'>修改过数据库结构之后更新</span>
+                    </td>
+                    <td>
+                        <span id="field_ifm"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="60" class="right">
+                        <label>
+                            <input value="tpl" name="type" type="checkbox" class="checkAll mr5" data-uri="{:U('Admin/Setting/clear', array('type'=>'field'))}" data-checklist="checkSon_x" data-direction="x"/>
+                            模板编译缓存
+                        </label>
+                        
+                    </td>
+                    <td width="300" class="right">
+                        <span class='gray'>修改过模板文件后更新</span>
+                    </td>
+                    <td>
+                        <span id="tpl_ifm"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="60" class="right">
+                        <label>
+                            <input value="data" name="type" type="checkbox" class="checkAll mr5" data-uri="{:U('Admin/Setting/clear', array('type'=>'data'))}" data-checklist="checkSon_x" data-direction="x"/>
+                            站点数据缓存
+                        </label>
+                    </td>
+                    <td width="300" class="right">
+                        <span class='gray'>网站迁移、恢复、修改配置文件后网站数据异常时更新</span>
+                        
+                    </td>
+                    <td>
+                        <span id="data_ifm"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="60" class="right">
+                        <label>
+                            <input value="runtime" name="type" type="checkbox" class="checkAll mr5" data-uri="{:U('Admin/Setting/clear', array('type'=>'runtime'))}" id="checkboxall"  data-checklist="checkSon_x" data-direction="x"/>
+                            网站编译缓存
+                        </label>
+                    </td>
+                    <td width="300" class="right">
+                        <span class='gray'>网站迁移、恢复、修改网站配置后更新</span>
+                    </td>
+                    <td>
+                        <span id="runtime_ifm"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="60" class="right">
+                        <label>
+                            <input value="logs" name="type" type="checkbox" class="checkAll mr5" id="checkboxall" data-uri="{:U('Admin/Setting/clear', array('type'=>'logs'))}"  data-checklist="checkSon_x" data-direction="x"/>
+                            网站日志文件
+                        </label>
+                    </td>
+                    <td width="300" class="right">
+                        <span class='gray'>清理项目日志文件释放服务器空间</span>
+                    </td>
+                    <td>
+                        <span id="logs_ifm" ></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left" height="60" colspan="2">
+                        <input id="clearCache" class="btn" type="submit" value="清理">
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<script>
+$(document).ready(function(){
+    $('#clearCache').live('click', function(){
+        $('input[name="type"]:checked').each(function(){
+            var type = $(this).val();
+            uri = $(this).attr('data-uri');
+            $('#'+type+'_ifm').html("正在清理中...");
+            $.getJSON(uri, {type:type}, function(result){
+                $('#'+type+'_ifm').addClass('onCorrect').html("清理成功");
+            });
+        });
+    });
+});
+</script>
