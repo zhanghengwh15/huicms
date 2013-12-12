@@ -179,4 +179,37 @@ class SettingAction extends AdminAction{
             
         }
     }
+    
+    /**
+     * 缓存管理
+     * @author Terry<admin@huicms.cn>
+     * @date 2013-12-13
+     */
+    public function cache(){
+        $this->display();
+    }
+    
+    public function clear() {
+        $type = $this->_get('type','trim');
+        $obj_dir = new Dir;
+        switch ($type) {
+            case 'field':
+                is_dir(DATA_PATH) && $obj_dir->del(DATA_PATH);
+                break;
+            case 'tpl':
+                is_dir(CACHE_PATH) && $obj_dir->delDir(CACHE_PATH);
+                break;
+            case 'data':
+                is_dir(DATA_PATH) && $obj_dir->del(DATA_PATH);
+                is_dir(TEMP_PATH) && $obj_dir->delDir(TEMP_PATH);
+                break;
+            case 'runtime':
+                @unlink(RUNTIME_FILE);
+                break;
+            case 'logs':
+                is_dir(LOG_PATH) && $obj_dir->delDir(LOG_PATH);
+                break;
+        }
+        $this->ajaxReturn(1);
+    }
 }

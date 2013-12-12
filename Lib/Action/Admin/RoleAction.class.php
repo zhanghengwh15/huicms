@@ -63,10 +63,10 @@ class RoleAction extends AdminAction{
      */
     public function addRole() {
         //取出模块授权
-        $modules = D("RoleNode")->where("status = 1 and auth_type = 1")->select();
+        $modules = D("RoleNode")->where("status = 1 and is_show=1 and auth_type = 1")->select();
         if (!empty($modules) && is_array($modules)) {
             foreach ($modules as $key => $val) {
-                $actions = D("RoleNode")->where("status=1 and auth_type = 0 and module='" . $val['module'] . "'")->select();
+                $actions = D("RoleNode")->where("status=1 and is_show=1 and auth_type = 0 and module='" . $val['module'] . "'")->select();
                 if (!empty($actions) && is_array($actions)) {
                     $modules[$key]['actions'] = $actions;
                 }
