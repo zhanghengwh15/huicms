@@ -10,12 +10,13 @@
         <table width="100%" class="list td_align">
             <thead>
                 <tr class="thead">
+                    <th class="align-center"><input name="id" type="checkbox" class="checkAll" id="checkboxall"  data-checklist="checkSon_x" data-direction="x"/></th>
                     <th class="align-center">编号</th>
+                    <th class="align-center">头像</th>
                     <th class="align-center">用户名</th>
                     <th class="align-center">会员等级</th>
                     <th class="align-center">昵称</th>
                     <th class="align-center">邮箱</th>
-                    <th class="align-center">头像</th>
                     <th class="align-center">账户余额</th>
                     <th class="align-center">性别</th>
                     <th class="align-center">状态</th>
@@ -25,19 +26,28 @@
             <tbody>
             <volist name="data" id="list">
                 <tr>
+                    <td class="align-center">
+                        <input type="checkbox" value="{$list.id}" name="checkall" class="checkSon" data-xid="checkSon_x"/>
+                    </td>
                     <td class="align-center">{$list.m_id}</td>
+                    <td class="align-center"><img src="__PUBLIC__/{$list.m_pic|default='Admin/images/default_avatar.jpg'}" title="{$list.m_name}" width="48px" height="48px"/></td>
                     <td class="align-center">{$list.m_name}</td>
-                    <td class="align-center">{$list.ml_name}</td>
+                    <td class="align-center">
+                        {$list.ml_name}
+                        <if condition='$list.m_enteruser eq "1"'><br /><font color='red'>认证用户</font></if>
+                    </td>
                     <td class="align-center">{$list.m_nickname}</td>
                     <td class="align-center">{$list.m_email}</td>
-                    <td class="align-center"><img src="__PUBLIC__/{$list.m_pic|default='__PUBLIC__/Home/images/photo.png'}" title="{$list.m_name}" width="24px" height="24px"/></td>
+                    
                     <td class="align-center">{$list.m_balance|sprintf='%.2f',###}</td>
                     <td class="align-center">
-                        <switch name="$list.m_sex">
-                            <case value="1">男</case>
-                            <case value="2">女</case>
-                            <default />保密
-                        </switch>
+                        <if condition="$list.m_sex eq '1'">
+                            男
+                            <elseif condition="$list.m_sex eq '2'"/>
+                            女
+                            <else />
+                            保密
+                        </if>
                     </td>
                     <td class="align-center"><a href="javascript:void(0);" id="list_{$list.m_id}" class="m_status" m_status="{$list.m_status}" m_id="{$list.m_id}"><if condition="$list.m_status eq '1'">已审核<else />未审核</if></a></td>
                     <td class="align-center">

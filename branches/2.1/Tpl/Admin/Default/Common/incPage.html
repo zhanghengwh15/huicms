@@ -1,0 +1,15 @@
+<div class="pagination">
+    <ul>
+    {$page}
+    <select name="pageall" onChange="window.location.href=this.value">
+        <option value='{:U("Admin/\$modulename/index","pageall=1")}' <if condition="$filter.pageall eq '1'">selected="selected"</if>>1条/页</option>
+        <option value='{:U("Admin/\$modulename/index","pageall=5")}' <if condition="$filter.pageall eq '5'">selected="selected"</if>>5条/页</option>
+        <option value='{:U("Admin/\$modulename/index","pageall=10")}'<if condition="$filter.pageall eq '10'">selected="selected"</if>>10条/页</option>
+        <option value='{:U("Admin/\$modulename/index","pageall=20")}'<if condition="$filter.pageall eq '20'">selected="selected"</if>>20条/页</option>
+        <option value='{:U("Admin/\$modulename/index","pageall=50")}'<if condition="$filter.pageall eq '50'">selected="selected"</if>>50条/页</option>
+        <option value='{:U("Admin/\$modulename/index","pageall=80")}'<if condition="$filter.pageall eq '80'">selected="selected"</if>>80条/页</option>
+        <option value='{:U("Admin/\$modulename/index","pageall=100")}'<if condition="$filter.pageall eq '100'">selected="selected"</if>>100条/页</option>
+        <option value='{:U("Admin/\$modulename/index","pageall=500")}'<if condition="$filter.pageall eq '500'">selected="selected"</if>>500条/页</option>
+    </select>
+    </ul>
+</div>

@@ -1,14 +1,280 @@
-<!--
-To change this template, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
-<html>
-    <head>
-        <title></title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
-</html>
+<script type="text/javascript">
+    window.UEDITOR_HOME_URL = "__PUBLIC__/Lib/ueditor/";
+</script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/Lib/ueditor/editor_all.js"></script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/Lib/ueditor/editor_config.js"></script>
+<div class="rounded table" style="width: 98%;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" class="box_top">
+        <thead class="thead">
+            <tr class="space">
+                <th colspan="10">添加会员</th>
+            </tr>
+        </thead>
+    </table>
+    <form action="{:U('Admin/Member/doAdd')}" method="post" id="doEditMember" class="formvalidate" enctype="multipart/form-data">
+        <table class="list" cellpadding="0" cellspacing="1" border="0">
+            <tbody>
+                <tr class="even">
+                    <td class="name">
+                        <label class="validation"><span class="spanMsg">*</span>用户名:</label>
+                    </td>
+                    <td>
+                        <input name="m_name" type="text" class="input rounded" value="" size="30" maxlength="50" required validate='{ required:true,maxlength:30,remote:"{:U("Admin/Member/checkName")}"}' /> 
+                    </td>
+                    <td class="field"></td>
+                </tr>
+                <tr class="even">
+                    <td class="name" width="150">
+                        <label class="validation">
+                            密码：
+                        </label>
+
+                    </td>
+                    <td>
+                        <input id="m_passwd" name="m_passwd" type="password" class="input rounded" value="" size="30" maxlength="50" validate="{ required:true,rangelength:[6,20],messages:{required:'密码不能为空'}}" /> 
+                    </td>
+                    <td class="field">
+                        <img title="6 - 20个字符组成，只能使用数字、字母和下划线" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16" style="line-height: 16px;">
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td class="name">
+                        <label class="validation">
+                            确认密码：
+                        </label>
+                    </td>
+                    <td>
+                        <input type="password" class="input rounded" name="confirm_password" size="30" value=""  validate="{ required:true,rangelength:[6,20],equalTo:'#m_passwd',messages:{required:'确认密码不能为空',equalTo:'两次密码不相同'}}">
+
+                    </td>
+                    <td class="field">
+                        <img title="6 - 20个字符组成，只能使用数字、字母和下划线" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16">
+                    </td>
+                </tr>
+                <tr class="even">
+                    <td class="name" width="150">
+                        <label class="validation">
+                            昵称：
+                        </label>
+                    </td>
+                    <td>
+                        <input name="m_nickname" type="text" class="input rounded" value="" size="30" maxlength="50" validate="{ required:true,username:true,messages:{required:'昵称不能为空'}}" /> 
+                    </td>
+                    <td class="field">
+                        <img title="5 - 50个字符组成，只能使用数字、字母和下划线" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16">
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td class="name">
+                        <label class="validation">
+                            <span class="spanMsg">*</span>会员等级：
+                        </label>
+                    </td> 
+                    <td>
+                        <select name="ml_id" class="select rounded" style="font-family:'Courier New',Courier,monospace;" validate="{ selected:true}">
+                            <option value='0'>--请选择--</option>
+                            <volist name="mLevel" id="ml">
+                                <option value="{$ml.ml_id}">{$ml.ml_name}</option>
+                            </volist>
+                        </select>
+                        
+                    </td>
+                    <td class="field"></td>
+                </tr>
+                <tr class="even">
+                    <td class="name" width="150">
+                        <label class="validation">
+                            <span class="spanMsg">*</span>性别：
+                        </label>
+                    </td>  
+                    <td class="rowform">
+                        <ul>
+
+                            <li>
+                                <label>
+                                    <input type="radio"  value="1" name="m_sex">男</label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" value="2" name="m_sex">女</label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" value="0" checked="checked" name="m_sex">保密</label>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="field">
+
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td class="name" width="150">
+                        <label class="validation">
+                            生日：
+                        </label>
+                    </td> 
+                    <td class="rowform">
+                        <ul>
+
+                            <li>
+                                <label>
+                                    <input type="radio" checked="checked" value="0" name="m_birthtype">公历生日</label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" value="1" name="m_birthtype" disabled>农历生日</label>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="field">
+                        <img title="农历生日还在开发阶段……" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16">				
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name"></td>
+                    <td>
+                        <input type="text" name='m_birth_time' class='datetime' value="">
+                    </td>
+                    <td class="field"></td>
+		</tr>
+                <tr>
+                    <td class="name" width="150">
+                        <label class="validation">
+                            <span class="spanMsg">*</span>现居地：
+                        </label>
+                    </td>  
+                    <td class="rowform select_type">
+                        <include file="Member:address" />				
+                    </td>
+                    <td class="field">
+                        <img title="" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16">				
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name">
+                        <label class="validation">
+                            邮箱：
+                        </label>
+                    </td> 
+                    <td>
+                        <input name="m_email" type="text" class="input rounded" value="" size="30" maxlength="50" validate="{ email:true}" /> 
+                    </td>
+                    <td class="field"></td>
+                </tr>
+                <tr class="even">
+                    <td class="name">
+                        <label class="validation">
+                            头像：
+                        </label>
+                    </td> 
+                    <td>
+                        
+                        <input name="m_pic" type="text" class="input rounded photo" value=""  id="photo"   size="30" style="float: left;"/> 
+                        <a href="javascript:upImage('photo','m_pic');" id="button1" value="" class="type-file-button"></a>
+                        
+                    </td>
+                    <td class="field">
+                        <img src="__PUBLIC__/Admin/images/default_avatar.jpg" id='m_pic' title="" width="40" height="40" alt="">
+                    </td>
+                </tr>
+                <tr class="even">
+                    <td class="name">
+                        <label class="validation">
+                            QQ：
+                        </label>
+                    </td> 
+                    <td>
+                        <input name="m_qq" type="text" class="input rounded" value="" size="30" /> 
+                    </td>
+                    <td class="field">
+
+                    </td>
+                </tr>
+                <tr class="even">
+                    <td class="name">
+                        <label class="validation">
+                            个人说明：
+                        </label>
+                    </td>
+                    <td>
+                        <textarea class="text-input textarea" id="wysiwyg" name="m_intro" rows="10" cols="75"></textarea>
+                    </td>
+                    <td class="field"></td>
+                </tr>
+                <tr class="even">
+                    <td class="name">
+                        <label class="validation">
+                            认证用户：
+                        </label>
+                    </td>
+                    <td>
+                        <input name="m_enteruser" type="checkbox" class="input rounded" size="30" /> 
+                    </td>
+                    <td class="field"></td>
+                </tr>
+                <tr class="odd">
+                    <td class="name" width="150">
+                        <label class="validation">
+                            <span class="spanMsg">*</span>状态：
+                        </label>
+                    </td> 
+                    <td class="rowform">
+                        <ul>
+
+                            <li>
+                                <label>
+                                    <input type="radio" checked="checked" value="0" name="m_status">未审核</label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" value="1" name="m_status">已审核</label>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="field">
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table top_line">
+            <tbody>
+                <tr>
+                    <td align="center" height="60" colspan="2">
+                        <input id="submit" class="btn" type="submit" value="提交">
+                        <input type="reset" id="reset" class="btn reset" value="重置">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+<script>
+    //Ueditor上传 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    var dom;
+    var pic;
+    var editor = new UE.ui.Editor({
+        imageRealPath:"images"
+    });
+    editor.render("myEditor");
+    var dialog_img;
+    editor.ready(function(){
+        editor.hide();
+        dialog_img = editor.getDialog("insertimage");
+        editor.addListener('beforeInsertImage',function(t, arg){
+            $("#"+dom).val(arg[0]['src']);
+            $("#"+pic).attr("src","/Public/"+arg[0]['src']);
+        });
+        editor.addListener('afterUpfile',function(t, arg){
+            $("#"+dom).val(arg[0]['url']);
+            $("#"+pic).attr("src","/Public/"+arg[0]['url']);
+        });
+    });
+    function upImage(pid,pt) {
+        dom = pid;
+        pic = pt;
+        dialog_img.open();
+    }
+    
+</script>

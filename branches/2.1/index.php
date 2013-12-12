@@ -14,5 +14,7 @@ if(!file_exists(dirname(__FILE__).'/Conf/install.lock')){
     header("location:../install/");
     exit;
 }
+/* 数据目录*/
+define('RUNTIME_PATH', HCMS_PATH.'Runtime/');
 define('APP_DEBUG',TRUE);
 require 'ThinkPHP/ThinkPHP.php';

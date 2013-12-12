@@ -22,10 +22,7 @@
             <volist name="data" id="list">
                 <tr id="list_{$list.id}">
                     <td class="align-center">
-                        <if condition="$list.is_sys neq '1'">
-                                <input type="checkbox" name="id" value="" />
-                            </if>
-                        
+                        <input type="checkbox" name="id" value="{$list.id}" <if condition="$list.is_sys eq '1'">disabled</if>/>
                     </td>
                     
                     <td class="align-center">{$list.name}</td>

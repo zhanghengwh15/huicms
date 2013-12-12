@@ -1,8 +1,3 @@
-<script type="text/javascript">
-    window.UEDITOR_HOME_URL = "__PUBLIC__/Lib/ueditor/";
-</script>
-<script type="text/javascript" charset="utf-8" src="__PUBLIC__/Lib/ueditor/editor_all.js"></script>
-<script type="text/javascript" charset="utf-8" src="__PUBLIC__/Lib/ueditor/editor_config.js"></script>
 <div class="rounded table" style="width: 98%;">
     <table width="100%" cellpadding="0" cellspacing="0" border="0" class="box_top">
         <thead class="thead">
@@ -19,7 +14,7 @@
                         <label class="validation"><span class="spanMsg">*</span>用户名:</label>
                     </td>
                     <td>
-                        <input name="m_name" type="text" class="input rounded" value="{$data.m_name}" size="30" maxlength="50" required validate="{ required:true,maxlength:30}" /> 
+                        <input name="m_name" type="text" class="input rounded" value="{$data.m_name}" size="30" maxlength="50" required validate='{ required:true,maxlength:30,remote:"{:U("Admin/Member/checkName","m_id=$data[m_id]")}"}' /> 
                     </td>
                     <td class="field"></td>
                 </tr>
@@ -64,6 +59,23 @@
                         <img title="5 - 50个字符组成，只能使用数字、字母和下划线" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16">
                     </td>
                 </tr>
+                <tr class="odd">
+                    <td class="name">
+                        <label class="validation">
+                            <span class="spanMsg">*</span>会员等级：
+                        </label>
+                    </td> 
+                    <td>
+                        <select name="ml_id" class="select rounded" style="font-family:'Courier New',Courier,monospace;" validate="{ selected:true}">
+                            <option value='0'>--请选择--</option>
+                            <volist name="mLevel" id="ml">
+                                <option <if condition="$ml.ml_id eq $data[ml_id]">selected="selected"</if> value="{$ml.ml_id}">{$ml.ml_name}</option>
+                            </volist>
+                        </select>
+                        
+                    </td>
+                    <td class="field"></td>
+                </tr>
                 <tr class="even">
                     <td class="name" width="150">
                         <label class="validation">
@@ -102,11 +114,11 @@
 
                             <li>
                                 <label>
-                                    <input type="radio" <if condition="$data.m_status eq '0'">checked="checked"</if> value="0" name="m_status">公历生日</label>
+                                    <input type="radio" <if condition="$data.m_birthtype eq '0'">checked="checked"</if> value="0" name="m_birthtype">公历生日</label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio" <if condition="$data.m_status eq '1'">checked="checked"</if> value="1" name="m_status" disabled>农历生日</label>
+                                    <input type="radio" <if condition="$data.m_birthtype eq '1'">checked="checked"</if> value="1" name="m_birthtype" disabled>农历生日</label>
                             </li>
                         </ul>
                     </td>
@@ -117,7 +129,7 @@
                 <tr>
                     <td class="name"></td>
                     <td>
-                        <input type="text" class='datetime' value="">
+                        <input type="text" name='m_birth_time' class='datetime' value="{$data.m_birth_time}">
                     </td>
                     <td class="field"></td>
 		</tr>
@@ -152,14 +164,10 @@
                         </label>
                     </td> 
                     <td>
-                        <input disabled="disabled" type="text" class="input rounded photo" value="{$data.m_pic}" id="m_pic"   size="30" style="float: left;"/> 
+                        <img src="__PUBLIC__/{$data.m_pic|default='Admin/images/default_avatar.jpg'}" title="{$data.m_name}--会员头像请在前台编辑" width="40" height="40" alt="{$data.m_name}">
                     </td>
                     <td class="field">
-                        <if condition="$data.m_pic neq ''">
-                            <img src="__PUBLIC__/{$data.m_pic}" title="{$data.m_name}--会员头像只有会员自己可修改" width="40" height="40" alt="{$data.m_name}">
-                        <else />
-                            <img title="头像只有会员自己可修改" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16">
-                        </if>
+                        <img title="会员头像请在前台编辑" class="title2div" src="__PUBLIC__/Admin/images/icons/icon_help.png" width="16" height="16">
                     </td>
                 </tr>
                 <tr class="even">
@@ -182,7 +190,18 @@
                         </label>
                     </td>
                     <td>
-                        <textarea class="text-input textarea" id="wysiwyg" name="u_description" rows="10" cols="75">{$data.u_description}</textarea>
+                        <textarea class="text-input textarea" id="wysiwyg" name="m_intro" rows="10" cols="75">{$data.m_intro}</textarea>
+                    </td>
+                    <td class="field"></td>
+                </tr>
+                <tr class="even">
+                    <td class="name">
+                        <label class="validation">
+                            认证用户：
+                        </label>
+                    </td>
+                    <td>
+                        <input name="m_enteruser" type="checkbox" class="input rounded" <if condition="$data.m_enteruser eq '1'">checked</if> size="30" /> 
                     </td>
                     <td class="field"></td>
                 </tr>
@@ -208,6 +227,28 @@
                     <td class="field">
 
                     </td>
+                </tr>
+                <tr class="even">
+                    <td class="name">
+                        <label class="validation">
+                            登陆信息：
+                        </label>
+                    </td>
+                    <td>
+                        {$data.m_login_time}&nbsp;|&nbsp;{$data.m_login_ip}
+                    </td>
+                    <td class="field"></td>
+                </tr>
+                <tr class="even">
+                    <td class="name">
+                        <label class="validation">
+                            注册信息：
+                        </label>
+                    </td>
+                    <td>
+                        {$data.m_reg_time}&nbsp;|&nbsp;{$data.m_reg_ip}
+                    </td>
+                    <td class="field"></td>
                 </tr>
             </tbody>
         </table>
