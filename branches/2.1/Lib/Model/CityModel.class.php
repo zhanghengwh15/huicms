@@ -22,7 +22,6 @@ class CityModel extends Model {
         
         $array_result = array("province"=>'',"city"=>"","region"=>"");
         $ary_region = $this->where(array("id"=>$c_id,"status"=>1))->find();
-        
         if(empty($ary_region)){
             //如果没有找到，则需要重新选择
             return $array_result;
