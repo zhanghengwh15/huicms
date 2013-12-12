@@ -34,11 +34,11 @@
         $("#loading").hide();
     }
     function loadChildCityRegion(parent_id, selectDomId, clickObj) {
+        
         //如果当前选中的行政区ID小于等于0，则表示选择的是“请选择”，将后面的行政区select清楚
         $(clickObj).nextAll("select").hide().empty();
-
         //如果选中了“请选择”，则不理会。
-        if (parent_id <= 0 || "region" == $(clickObj).attr("id")) {
+        if (parent_id <= 0) {
             return false;
         }
 
@@ -67,7 +67,6 @@
 
                     //将拼接的结果追加到DOM中
                     $("#" + selectDomId).html(html_options);
-
                     //递归加载数据，用于初始化的时候
                     if (next_child_parent > 0) {
                         var selectChildDomId = $("#" + selectDomId).attr("child_id");
