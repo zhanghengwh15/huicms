@@ -24,8 +24,18 @@ class MemberAction extends AdminAction{
      * @date 2013-05-13
      */
     public function index(){
-        $data = D($this->name)->where()->select();
+        $ary_get['pageall'] = $this->_get('pageall', 'htmlspecialchars', 10);
+        $count = D($this->name)->where()->count();
+        $obj_page = $this->_Page($count, $ary_get['pageall']);
+        $page = $obj_page->newshow();
+        $data = D($this->name)->field(C("DB_PREFIX")."members.*,".C("DB_PREFIX")."member_level.ml_name")
+                    ->join(C("DB_PREFIX")."member_level ON ".C("DB_PREFIX")."members.ml_id=".C("DB_PREFIX")."member_level.ml_id")
+                    ->where()
+                    ->select();
+//        $data = D($this->name)->where()->select();
         $this->assign("data",$data);
+        $this->assign("page", $page);
+        $this->assign("filter",$ary_get);
         $this->display(); 
     }
     
