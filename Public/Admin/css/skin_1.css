@@ -207,7 +207,8 @@ span.valid {background: url("../images/checked.gif") no-repeat left;width: 14px;
 
 .icon_select{border: 0px;margin: 0px 0px 0px 3px;position: relative;top: -2px;}
 
-#title { width: 120px; height: 50px; position: absolute; top: 17px; left: 21px; background: url(../images/mac/shopnc_logo.png) no-repeat; float:left;}
+#title { width: 141px; height: 55px; position: absolute; top: 17px; left: 7px; background: url(../images/logo.png) no-repeat; float:left;}
+#title a{width: 141px;height: 39px;display: block;}
 .txt-short, .txt , .txt2 { height: 20px; line-height: 20px;}
 .select{ height: 26px; line-height: 26px;}
 .thead {font-weight: bold; color: #444; text-align: center;}
